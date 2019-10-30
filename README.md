@@ -1,6 +1,6 @@
 # **Markdown2WL**
 
-The goal of this package is to add Markdown import functionality to Mathematica.
+The goal of this package is to add Markdown import functionality to Mathematica. It is 100% in progress
 
 ---
 Installation:
