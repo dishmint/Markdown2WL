@@ -8,7 +8,7 @@ Installation:
 2. Open Mathematica
 3. File > Install > From File..
 4. Select the `Markdown2WL.wl` file
-5. Open a new notebook and Evaluate the following to load the package.
+5. In a notebook Evaluate the following to load the package.
 
 ```Mathematica
 <<Markdown2WL`
