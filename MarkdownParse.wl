@@ -18,7 +18,7 @@ Unprotect["MarkdownParser`*"];
 ClearAll["MarkdownParser`*"];
 ClearAll["MarkdownParser`Private`*"];
 (* \[UpArrow] Can be removed in Production             \[UpArrow] *)
-MarkdownParser
+MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
 Begin["Private`"]
 
 
@@ -193,24 +193,24 @@ MarkdownParser[m_MarkdownElement]:=m
 MarkdownParser[s__]:=Sequence[s]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*MarkdownParse*)
 
 
 MarkdownParse[file_String]:=Block[
-{
-footFile=ExtractAllMarkdownFootnotes[file],
-$footnote=RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)(\\n|$)"],
-lines=markdownDefaultImport/*(StringSplit[#,"\n"]&)@file,
-parsedLines,footnoteCheck,parsed
-},
-parsedLines=(MarkdownParser/@lines);
-footnoteCheck=(parsedLines/.MarkdownElement["FootnoteReference",{ref_}]:>First@ExtractMarkdownFootnoteURL[ref,footFile]);
-parsed=If[StringQ[#]\[And]StringMatchQ[$footnote][#],StringReplace[$footnote-> "(wasfootnote)"][#],#]&/@footnoteCheck;
-DeleteCases["(wasfootnote)"][parsed]
-(* TODO:
-parsed=MarkdownObject[{footnoteCheck}];
-*)
+	{
+	footFile=ExtractAllMarkdownFootnotes[file],
+	$footnote=RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)(\\n|$)"],
+	lines=markdownDefaultImport/*(StringSplit[#,"\n"]&)@file,
+	parsedLines,footnoteCheck,parsed
+	},
+	parsedLines=(MarkdownParser/@lines);
+	footnoteCheck=(parsedLines/.MarkdownElement["FootnoteReference",{ref_}]:>First@ExtractMarkdownFootnoteURL[ref,footFile]);
+	parsed=If[StringQ[#]\[And]StringMatchQ[$footnote][#],StringReplace[$footnote-> "(wasfootnote)"][#],#]&/@footnoteCheck;
+	DeleteCases["(wasfootnote)"][parsed]
+	(* TODO:
+	parsed=MarkdownObject[{footnoteCheck}];
+	*)
 ]
 
 
@@ -219,5 +219,5 @@ parsed=MarkdownObject[{footnoteCheck}];
 
 
 End[]
-Protect["Markdown2WL`*"];
+Protect["MarkdownParser`*"];
 EndPackage[]
