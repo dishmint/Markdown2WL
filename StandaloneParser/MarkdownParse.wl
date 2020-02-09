@@ -43,7 +43,7 @@ Begin["Private`"]
 markdownParseHeadings=(StartOfString~~headingSpec:("#"..~~WhitespaceCharacter)~~line__):>MarkdownElement["H"<>((Clip[StringLength[#],{1,7}]-1&)/*ToString@headingSpec),MarkdownParser[line]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Bold*)
 
 
@@ -51,7 +51,7 @@ markdownParseBold=(StartOfLine|StartOfString|WhitespaceCharacter|Except["*", Pun
 MarkdownElement[Bold,MarkdownParser[inner]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Italic*)
 
 
@@ -69,18 +69,18 @@ markdownParseLink2=("<"~~url__~~">"):>MarkdownElement[Hyperlink,url];
 markdownParseFootnote=((StartOfString|StartOfLine|WhitespaceCharacter)~~Shortest["["~~label__~~"]["~~ref:(DigitCharacter..)~~"]"]):> MarkdownElement[Hyperlink,MarkdownParser[label],MarkdownParser[MarkdownElement["FootnoteReference",{ToExpression[ref]}]]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*OrderedItem*)
 
 
-markdownOrderedListItem=((n:(DigitCharacter..)~~".")~~WhitespaceCharacter~~stuff__~~EndOfString):>MarkdownElement["ItemNumbered",{ToExpression[n]},MarkdownParser[stuff]];
+markdownOrderedListItem=((StartOfString|StartOfLine|(WhitespaceCharacter..))~~(n:(DigitCharacter..)~~".")~~WhitespaceCharacter~~stuff__~~EndOfString):>MarkdownElement["ItemNumbered",{ToExpression[n]},MarkdownParser[stuff]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*UnOrderedItem*)
 
 
-markdownUnOrderedListItem=(n:("*"|"+"|"-")~~WhitespaceCharacter~~stuff__~~EndOfString):>MarkdownElement["Item",MarkdownParser[stuff]];
+markdownUnOrderedListItem=((StartOfString|StartOfLine|(WhitespaceCharacter..))~~n:("*"|"+"|"-")~~WhitespaceCharacter~~stuff__~~EndOfString):>MarkdownElement["Item",MarkdownParser[stuff]];
 
 
 (* ::Subsection::Closed:: *)
