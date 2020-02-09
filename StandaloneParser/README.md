@@ -15,9 +15,23 @@ Installation:
 ```
 ---
 
-Still needs support for:
+### Still needs support for:
 * Code blocks
 * Inline code
 * Tables
 * LaTex
 * HTML
+
+### Known Issues:
+
+* \*string\* didn't parse to `MarkdownElement[Italic,"string"]`
+```Mathematica
+In[]:= MarkdownParse["**THIS** is a _markdown_ *string*."]
+Out[]:= {MarkdownElement[Bold, "THIS"], "is a", MarkdownElement[Italic, "markdown"], "*string*."}
+```
+* Adding a space before the period resutled in an \"Item\" parse
+
+```Mathematica
+In[]:= MarkdownParse["**THIS** is a _markdown_ *string* ."]
+Out[]:= {MarkdownElement[Bold, "THIS"], "is a", MarkdownElement[Italic, "markdown"], "*string",MarkdownElement["Item", "."]}
+```
