@@ -19,6 +19,7 @@ ClearAll["MarkdownParse`*"];
 ClearAll["MarkdownParse`Private`*"];
 (* \[UpArrow] Can be removed in Production             \[UpArrow] *)
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
+MarkdownParseGrid::usage="MarkdownParseGrid[\*StyleBox[\"example\",\"TI\"]] returns a grid pairing the input string (or list of input strings), \*StyleBox[\"example\",\"TI\"], with its parse (or parses)"
 MarkdownElement::usage="Symbolic Representation of Markdown tags"
 Begin["Private`"]
 
@@ -42,19 +43,19 @@ Begin["Private`"]
 markdownParseHeadings=(StartOfString~~headingSpec:("#"..~~WhitespaceCharacter)~~line__):>MarkdownElement["H"<>((Clip[StringLength[#],{1,7}]-1&)/*ToString@headingSpec),MarkdownParser[line]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Bold*)
 
 
-markdownParseBold=(StartOfLine|StartOfString|WhitespaceCharacter)~~"**"~~inner:Shortest[(Except[WhitespaceCharacter]~~__)]~~"**"~~(EndOfLine|EndOfString|WhitespaceCharacter):>
+markdownParseBold=(StartOfLine|StartOfString|WhitespaceCharacter|Except["*", PunctuationCharacter])~~"**"~~inner:Shortest[(Except[WhitespaceCharacter]~~__)]~~"**"~~(EndOfLine|EndOfString|WhitespaceCharacter|Except["*", PunctuationCharacter]):>
 MarkdownElement[Bold,MarkdownParser[inner]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Italic*)
 
 
-markdownParseItalic=(StartOfString|WhitespaceCharacter)~~("*"|"_")~~inner:Shortest[(Except[WhitespaceCharacter])~~__]~~("*"|"_")~~(EndOfString|WhitespaceCharacter):> MarkdownElement[Italic,MarkdownParser[{inner}]];
+markdownParseItalic=(StartOfString|WhitespaceCharacter|Except["*", PunctuationCharacter])~~("*"|"_")~~inner:Shortest[(Except[WhitespaceCharacter])~~__]~~("*"|"_")~~(EndOfString|WhitespaceCharacter|Except["*", PunctuationCharacter]):> MarkdownElement[Italic,MarkdownParser[{inner}]];
 
 
 (* ::Subsection::Closed:: *)
@@ -101,7 +102,7 @@ markdownOrderedListItem,markdownUnOrderedListItem
 };
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Utilities*)
 
 
@@ -149,7 +150,7 @@ MarkdownParseGrid[sl:List[__String]]:=Module[
 	{count=1},
 	Grid[
 	{{"","Text","Markdown"}}~Join~({"s"<>ToString[count++],#,MarkdownParser[#]}&/@sl),
-	Alignment->Left,Frame->All,ItemStyle->{{Blue,{"Text"},{"Code"}},{1->"Text"}}]&
+	Alignment->Left,Frame->All,ItemStyle->{{Blue,{"Text"},{"Code"}},{1->"Text"}}]
 
 ]
 
@@ -194,7 +195,7 @@ MarkdownParser[m_MarkdownElement]:=m
 MarkdownParser[s__]:=Sequence[s]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*MarkdownParse*)
 
 
