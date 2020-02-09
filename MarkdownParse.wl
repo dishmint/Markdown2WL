@@ -1,7 +1,7 @@
 (* ::Package:: *)
 
 (* ::Title:: *)
-(*Markdown Parser*)
+(*Markdown Parse*)
 
 
 (* ::Abstract:: *)
@@ -12,13 +12,14 @@
 (*Begin Package*)
 
 
-BeginPackage["MarkdownParser`"]
+BeginPackage["MarkdownParse`"]
 (* \[DownArrow] Allow Refresh of Definitions on Get call \[DownArrow] *)
-Unprotect["MarkdownParser`*"];
-ClearAll["MarkdownParser`*"];
-ClearAll["MarkdownParser`Private`*"];
+Unprotect["MarkdownParse`*"];
+ClearAll["MarkdownParse`*"];
+ClearAll["MarkdownParse`Private`*"];
 (* \[UpArrow] Can be removed in Production             \[UpArrow] *)
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
+MarkdownElement::usage="Symbolic Representation of Markdown tags"
 Begin["Private`"]
 
 
@@ -193,7 +194,7 @@ MarkdownParser[m_MarkdownElement]:=m
 MarkdownParser[s__]:=Sequence[s]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*MarkdownParse*)
 
 
@@ -201,7 +202,7 @@ MarkdownParse[file_String]:=Block[
 	{
 	footFile=ExtractAllMarkdownFootnotes[file],
 	$footnote=RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)(\\n|$)"],
-	lines=markdownDefaultImport/*(StringSplit[#,"\n"]&)@file,
+	lines=ReadString/*(StringSplit[#,"\n"]&)@file,
 	parsedLines,footnoteCheck,parsed
 	},
 	parsedLines=(MarkdownParser/@lines);
@@ -219,5 +220,5 @@ MarkdownParse[file_String]:=Block[
 
 
 End[]
-Protect["MarkdownParser`*"];
+Protect["MarkdownParse`*"];
 EndPackage[]
