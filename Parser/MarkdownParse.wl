@@ -8,7 +8,7 @@
 (*Parse a Markdown file into MarkdownElements (similar to XMLElement)*)
 
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Begin Package*)
 
 
@@ -21,7 +21,6 @@ ClearAll["MarkdownParse`Private`*"];
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
 MarkdownParseGrid::usage="MarkdownParseGrid[\*StyleBox[\"example\",\"TI\"]] returns a grid pairing the input string (or list of input strings), \*StyleBox[\"example\",\"TI\"], with its parse (or parses)"
 MarkdownElement::usage="Represents an element in Symbolic Markdown"
-TestParser::usage="TestParser[\*StyleBox[\"input\",\"TI\"]] Applies MarkdownParser to input and returns the result as an Association\nTestParser[\*StyleBox[\"component,input\",\"TI\"]] Applies MarkdownParser to input and returns the result as an Association with the Component label \*StyleBox[\"component\",\"TI\"]"
 $sampleStrings::usage="A set of strings used for testing"
 $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
 Begin["Private`"]
@@ -260,82 +259,6 @@ StringSplit[MarkdownElement[h_,s_String]]^:=Switch[h,
 	}]]],
 	"TableRow",MarkdownElement[h,MarkdownParser/@StringSplit[s,"|"]],
 	_,MarkdownElement[h,MarkdownParser[s]]
-]
-
-
-(* ::Subsection::Closed:: *)
-(*TestParser*)
-
-
-TestParser["Generic",inputData_]:=Module[
-{parse=FixedPoint[MarkdownParser,inputData]},
-<|"InputString"-> inputData,"Parse"-> parse|>
-]
-TestParser[inputString_String]/;\[Not](StringMatchQ["Table"|"CodeBlock"|"Footnotes"|"Report"|"Generic"][inputString]):=Module[
-{input=inputString, parse=FixedPoint[MarkdownParser,inputString]},
-<|"InputString"-> input,"Parse"-> parse|>
-]
-TestParser[component_String,inputString_String]/;\[Not](StringMatchQ["Generic"][component]):=Module[
-{input=inputString, parse=TestParser[inputString]},
-<|"Component"-> component|>~Join~parse
-]
-TestParser[component_String,inputs_List]/;\[Not](StringMatchQ["Generic"][component]):=(TestParser[component,#]&/@inputs)
-
-TestParser["Table"]:=Module[
-{
-table="Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3"
-},
-<|"Component"-> "Table","Input"-> table,"Parse"-> MarkdownTableParse[table]|>
-]
-
-TestParser["CodeBlock"]:=Module[
-{
-codeblock1="
-```Mathematica
-f[x]:=2;
-f[y]:=3
-```
-",
-codeblock2="
-```
-f[x]:=2;
-f[y]:=3
-```
-",
-codeblock3="
-    A generic codeblock
-"
-},
-TestParser["CodeBlock",{codeblock1,codeblock2,codeblock3}]
-]
-
-TestParser["Footnotes"]:=Module[
-{
-testString="
-[A footnote][1]\n[Another footnote][2]\n
-
-[1]:www.google.com
-[2]:www.wolfram.com
-",
-footnoteResult
-},
-footnoteResult=TestParser@testString;
-<|"Component"-> "Footnotes","Input"-> testString,"Parse"-> footnoteResult["Parse"]|>
-]
-
-TestParser["Report"]:=Module[
-	{headings,emphasis,table,codeblock,footnotes},
-	headings=EchoEvaluation@TestParser["Headings",
-	{"# A Title","## A Subtitle","### A Chapter","#### A Section","##### A Subsection","###### A Subsubsection","####### A Paragraph"}
-	];
-	emphasis=EchoEvaluation@TestParser["Emphasis",{"_test_","this is a _test_","a _different kind_ of test","a _slightly_ **different** _kind_ of test","a _**mixed bag**_ test","> a _block quote_ test"}];
-	table=EchoEvaluation@TestParser["Table"];
-	codeblock=EchoEvaluation@TestParser["CodeBlock"];
-	footnotes=EchoEvaluation@TestParser["Footnotes"];
-	Column@(Dataset/@{headings,emphasis,table,codeblock,footnotes})
 ]
 
 
