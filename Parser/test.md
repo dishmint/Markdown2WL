@@ -10,6 +10,8 @@ Write Paragraphs like so. A paragraph is the basic block of Markdown. A paragrap
 
 Blank lines separate paragraphs. Markdown supports _italic_ and **bold** formatting.
 
+Lines can have nested styling as well, like _a **bold** in an italic_.
+
 ## Lists
 
 ### Ordered list
@@ -52,6 +54,23 @@ Of course, demonstrating what headings look like messes up the structure of the 
 
 I don't recommend using more than three or four levels of headings here, because, when you're smallest heading isn't too small, and you're largest heading isn't too big, and you want each size up to look noticeably larger and more important, there aren't any other sizes to choose from.
 
+## LaTex
+
+LaTex is also supported:
+
+* inline
+
+\(a^2 + b^2 = c^2\)
+
+$ a^2 + b^2 = c^2 $
+
+* presented
+
+\[ a^n + b^n = c^n \]
+
+$$ a^2 + b^2 = c^2 $$
+
+
 ## URLs
 
 Add hyperlinks in the following ways:
@@ -66,9 +85,17 @@ A horizontal rule is a dividing line drawn across the page, useful for separatin
 
 ---
 
+## Tables
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
 ## Images
 
-Markdown can also contain images. I'll need to add something here sometime.
+Markdown can also contain images.
+![Streetview of Palm Trees by Brandon Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80)
 
 ## Last
 

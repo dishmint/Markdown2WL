@@ -1,0 +1,4292 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    194008,       4284]
+NotebookOptionsPosition[    190782,       4222]
+NotebookOutlinePosition[    191272,       4240]
+CellTagsIndexPosition[    191229,       4237]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Markdown Parser Demo", "Title",
+ CellChangeTimes->{{3.8171419824513073`*^9, 3.817142038258356*^9}, {
+  3.8171518236103163`*^9, 3.817151824855735*^9}, {3.81738939377347*^9, 
+  3.817389394039963*^9}},ExpressionUUID->"b7946855-acef-475d-bca3-\
+4f6aa5c9a07a"],
+
+Cell["Parse a markdown file to Symbolic Markdown", "Abstract",
+ CellChangeTimes->{{3.817143427356176*^9, 3.817143447897683*^9}, {
+  3.817151831680346*^9, 3.817151846527404*^9}, {3.817389401145138*^9, 
+  3.8173894189436073`*^9}, {3.817416529510268*^9, 
+  3.8174165378836927`*^9}},ExpressionUUID->"41f6fde2-3312-478f-b2c8-\
+ff97b1cd3e62"],
+
+Cell["If you make any changes to either package, Quit the kernel", "Text",
+ CellChangeTimes->{{3.81741654043894*^9, 3.81741655636959*^9}, {
+  3.817416587431285*^9, 
+  3.8174165926333933`*^9}},ExpressionUUID->"ae62ea4f-43d4-4edf-903f-\
+316f87708814"],
+
+Cell["Quit the kernel", "CodeText",
+ CellChangeTimes->{{3.817416572733042*^9, 
+  3.81741657961834*^9}},ExpressionUUID->"fea4a3a1-ea63-4863-a1c5-\
+7652c6364503"],
+
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.817239754310732*^9, 3.8172397548456573`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+
+Cell["Install the packages again from the Menu:", "Text",
+ CellChangeTimes->{{3.8174165987397127`*^9, 
+  3.8174166465563717`*^9}},ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-\
+21d386c647ab"],
+
+Cell["File \[RightGuillemet] Install \[RightGuillemet] Source: \
+\[RightGuillemet] From File \[RightGuillemet] MarkdownParse.wl", "Item",
+ CellChangeTimes->{{3.8174166502870817`*^9, 
+  3.817416663430006*^9}},ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-\
+049537859d6f"],
+
+Cell["\<\
+File \[RightGuillemet] Install \[RightGuillemet] Source: \[RightGuillemet] \
+From File \[RightGuillemet] MarkdownParserTests.wl\
+\>", "Item",
+ CellChangeTimes->{{3.8174166502870817`*^9, 
+  3.817416672781804*^9}},ExpressionUUID->"328c2086-ad04-4777-8fca-\
+349330ab56d6"],
+
+Cell["Then load both backages", "Text",
+ CellChangeTimes->{{3.817416682510375*^9, 
+  3.817416699263093*^9}},ExpressionUUID->"4d05c24d-9b3c-450e-8869-\
+e15918e4ea41"],
+
+Cell["Load MarkdownParse` and MarkdownParserTests`", "CodeText",
+ CellChangeTimes->{{3.817416703236124*^9, 
+  3.8174167184738827`*^9}},ExpressionUUID->"8d0676c6-1170-4ab4-9427-\
+52aa2d5bd45e"],
+
+Cell[BoxData[{
+ RowBox[{"<<", "MarkdownParse`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "MarkdownParserTests`"}]}], "Input",
+ CellChangeTimes->{{3.8173894419985743`*^9, 3.817389449012609*^9}, {
+   3.817400278748639*^9, 3.817400278970948*^9}, {3.817400599844329*^9, 
+   3.817400601576033*^9}, 3.817400736848119*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
+
+Cell[CellGroupData[{
+
+Cell["MarkdownElements", "Section",
+ CellChangeTimes->{{3.817338277638526*^9, 3.817338278738536*^9}, {
+  3.8173898921331472`*^9, 
+  3.81738989401423*^9}},ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-\
+0bb641bd7da7"],
+
+Cell["Displayed below are supported MarkdownElements", "Text",
+ CellChangeTimes->{{3.81738963956112*^9, 
+  3.817389648583658*^9}},ExpressionUUID->"f351d147-2c71-4e75-8503-\
+4812d9fd3995"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Values", "[", "$MarkdownParsePrimitives", "]"}], "//", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"ItemStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"{", "\"\<Code\>\"", "}"}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}], "&"}]}]], "Input",
+ CellChangeTimes->{{3.8173380564205627`*^9, 3.817338059952167*^9}, {
+  3.8173382937088327`*^9, 3.8173383261851873`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<H1\>\"", ",", "\"\<$2\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Bold", ",", "\"\<$2\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Italic", ",", "\"\<$2\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<InlineCode\>\"", ",", "\"\<$1\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<LaTex\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Display\>\""}], ",", 
+         RowBox[{"\"\<Body\>\"", "\[Rule]", "\"\<$2\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<LaTex\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Display\>\""}], ",", 
+         RowBox[{"\"\<Body\>\"", "\[Rule]", "\"\<$3\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<LaTex\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Inline\>\""}], ",", 
+         RowBox[{"\"\<Body\>\"", "\[Rule]", "\"\<$2\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<LaTex\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Inline\>\""}], ",", 
+         RowBox[{"\"\<Body\>\"", "\[Rule]", "\"\<$3\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<LaTex\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Inline\>\""}], ",", 
+         RowBox[{"\"\<Body\>\"", "\[Rule]", "\"\<$3\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Hyperlink", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Label\>\"", "\[Rule]", "\"\<$1\>\""}], ",", 
+         RowBox[{"\"\<Link\>\"", "\[Rule]", "\"\<$2\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Hyperlink", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{"\"\<Link\>\"", "\[Rule]", "\"\<$1\>\""}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Hyperlink", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<AltText\>\"", "\[Rule]", "\"\<$1\>\""}], ",", 
+         RowBox[{"\"\<Link\>\"", "\[Rule]", "\"\<$2\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Hyperlink", ",", "\"\<$1\>\"", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{"\"\<FootnoteReference\>\"", ",", 
+         RowBox[{"{", "$2", "}"}]}], "]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<ItemNumbered\>\"", ",", 
+       RowBox[{"{", "$1", "}"}], ",", "\"\<$2\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<Item\>\"", ",", "\"\<$4\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<Blockquote\>\"", ",", "\"\<$1\>\""}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<CodeBlock\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<$1\>\"", ",", "\"\<$2\>\""}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\"\<CodeBlock\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<$1\>\"", ",", "\"\<$2\>\""}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", "\"\<HorizontalLine\>\"", "]"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxItemStyle->{"Columns" -> {{Automatic}}, "Rows" -> {{"Code"}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.817338060895884*^9, {3.817338310440756*^9, 3.8173383264842453`*^9}, 
+   3.8173403108091307`*^9, 3.817340849032144*^9, 3.8173410315970287`*^9, 
+   3.8173418669432993`*^9, 3.817341977721019*^9, 3.817342044873209*^9, 
+   3.817342230425044*^9, 3.8173423885525713`*^9, 3.817342511326151*^9, 
+   3.817342897522029*^9, 3.8173430850560427`*^9, 3.8173437025203114`*^9, 
+   3.817344121259778*^9, 3.817345136646003*^9, 3.817345467071245*^9, 
+   3.817346450554831*^9, 3.817346621485446*^9, 3.81734675276777*^9, 
+   3.817389589946957*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"d632b0e5-2fc9-4ef2-8a31-68821bc46be4"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MarkdownParse Example", "Section",
+ CellChangeTimes->{{3.817157345279163*^9, 3.817157346203492*^9}, {
+  3.817247877462327*^9, 3.8172478784352083`*^9}, {3.817390041738125*^9, 
+  3.8173900486844187`*^9}},ExpressionUUID->"b3b2a78c-44c3-460b-86ab-\
+b0b33931b39c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filePath", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test.md\>\""}], 
+     "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.817157386713378*^9, 3.8171573913109007`*^9}, {
+   3.8171576698438787`*^9, 3.817157677964739*^9}, {3.8171579362492723`*^9, 
+   3.817157937214015*^9}, {3.8172366531060762`*^9, 3.8172366534588127`*^9}, 
+   3.817330653594535*^9, {3.81738967309939*^9, 3.817389685568739*^9}, {
+   3.8173897935513268`*^9, 3.817389831975668*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mdp", "=", 
+   RowBox[{"MarkdownParse", "[", "filePath", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8171574516945753`*^9, 3.8171574533133087`*^9}, 
+   3.817157496095817*^9, 3.817157920467078*^9, {3.817170402743977*^9, 
+   3.8171704049186897`*^9}, 3.8172358431384687`*^9, {3.817240946833456*^9, 
+   3.81724094888334*^9}, 3.8172413585269203`*^9, {3.81734384974724*^9, 
+   3.817343850827291*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Column", "[", 
+  RowBox[{"mdp", ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.817333311218748*^9, 3.817333316916204*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H1\"\>", ",", "\<\"An exhibit of Markdown\"\>"}], "]"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"\<\"This note demonstrates some of what\"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{
+        "Hyperlink", ",", "\<\"Markdown\"\>", 
+         ",", "\<\" http://daringfireball.net/projects/markdown/\"\>"}], 
+        "]"}], ",", "\<\" is capable of doing.\"\>"}], "}"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{
+      "Italic", 
+       ",", "\<\"Note: Feel free to play with this page. Unlike regular \
+notes, this doesn't automatically save itself.\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Basic formatting\"\>"}], "]"}]},
+    {"\<\"Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else.\"\>"},
+    {
+     RowBox[{"{", 
+      RowBox[{"\<\"Blank lines separate paragraphs. Markdown supports \"\>", 
+       ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{"Italic", ",", "\<\"italic\"\>"}], "]"}], 
+       ",", "\<\" and \"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{"Bold", ",", "\<\"bold\"\>"}], "]"}], 
+       ",", "\<\" formatting.\"\>"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"\<\"Lines can have nested styling as well, like \"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{"Italic", ",", 
+         RowBox[{"{", 
+          RowBox[{"\<\"a \"\>", ",", 
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"Bold", ",", "\<\"bold\"\>"}], "]"}], 
+           ",", "\<\" in an italic\"\>"}], "}"}]}], "]"}], ",", "\<\".\"\>"}],
+       "}"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Lists\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Ordered list\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"ItemNumbered\"\>", ",", 
+       RowBox[{"{", "1", "}"}], ",", "\<\"Item 1\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"ItemNumbered\"\>", ",", 
+       RowBox[{"{", "2", "}"}], ",", "\<\"A second item\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"ItemNumbered\"\>", ",", 
+       RowBox[{"{", "3", "}"}], ",", "\<\"Number 3\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"ItemNumbered\"\>", ",", 
+       RowBox[{"{", "4", "}"}], ",", "\<\"\:2163\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Italic", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"Note: the fourth item uses the Unicode character \
+for\"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{
+          "Hyperlink", ",", "\<\"Roman numeral four\"\>", 
+           ",", "\<\" \
+http://www.fileformat.info/info/unicode/char/2163/index.htm\"\>"}], "]"}], 
+         ",", "\<\".\"\>"}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Unordered list\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"An item\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"Another item\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"Yet another item\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"And there's more...\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Paragraph modifiers\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Code block\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"CodeBlock\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Language\"\>", "\[Rule]", "\<\"None\"\>"}], ",", 
+         RowBox[{"\<\"Body\"\>", 
+          "\[Rule]", "\<\"Code blocks are useful for people who look at code \
+or for clarity of plain text content. As you can see, it uses a fixed-width \
+font.\"\>"}]}], "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"\<\"You can also make \"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{"\<\"InlineCode\"\>", ",", "\<\"inline code\"\>"}], "]"}], 
+       ",", "\<\" to add insert code block formatting anywhere.\"\>"}], "}"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Quote\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"BlockQuote\"\>", 
+       ",", "\<\"Here is a quote. What this is should be self explanatory. \
+Quotes are automatically indented when they are used.\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Headings\"\>"}], "]"}]},
+    {"\<\"Markdown supports six levels of headings; corresponding with the \
+six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character.\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"Headings \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"Italic", ",", "\<\"can\"\>"}], "]"}], 
+         ",", "\<\" also contain \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"Bold", ",", "\<\"formatting\"\>"}], "]"}]}], "}"}]}], 
+      "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"They can even contain \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\<\"InlineCode\"\>", ",", "\<\"inline code\"\>"}], "]"}]}],
+         "}"}]}], "]"}]},
+    {"\<\"Of course, demonstrating what headings look like messes up the \
+structure of the page.\"\>"},
+    {"\<\"I don't recommend using more than three or four levels of headings \
+here, because, when you're smallest heading isn't too small, and you're \
+largest heading isn't too big, and you want each size up to look noticeably \
+larger and more important, there aren't any other sizes to choose \
+from.\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"LaTex\"\>"}], "]"}]},
+    {"\<\"LaTex is also supported:\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"inline\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"LaTex\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Inline\"\>"}], ",", 
+         RowBox[{"\<\"Body\"\>", "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"LaTex\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Inline\"\>"}], ",", 
+         RowBox[{"\<\"Body\"\>", "\[Rule]", "\<\" a^2 + b^2 = c^2 \"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", "\<\"presented\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"LaTex\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Display\"\>"}], ",", 
+         RowBox[{"\<\"Body\"\>", "\[Rule]", "\<\"a^n + b^n = c^n\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"LaTex\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Display\"\>"}], ",", 
+         RowBox[{"\<\"Body\"\>", "\[Rule]", "\<\" a^2 + b^2 = c^2 \"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"URLs\"\>"}], "]"}]},
+    {"\<\"Add hyperlinks in the following ways:\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"A named link to\"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{
+          "Hyperlink", ",", "\<\"MarkItDown\"\>", 
+           ",", "\<\" http://www.markitdown.net/\"\>"}], "]"}], 
+         ",", "\<\". The easiest way to do these is to select what you want \
+to make a link and hit \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\<\"InlineCode\"\>", ",", "\<\"Ctrl+L\"\>"}], "]"}], 
+         ",", "\<\".\"\>"}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"Another named link to\"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"Hyperlink", ",", 
+           RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+             RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"MarkItDown\"\>"}], ",", 
+             
+             
+             RowBox[{"\<\"Link\"\>", 
+              "\[Rule]", "\<\"http://www.markitdown.net/\"\>"}]}], 
+            "\[RightAssociation]"}]}], "]"}]}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"Sometimes you want the URL : \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"Hyperlink", ",", 
+           RowBox[{"\[LeftAssociation]", 
+            
+            RowBox[{"\<\"Link\"\>", 
+             "\[Rule]", "\<\"http://www.markitdown.net/\"\>"}], 
+            "\[RightAssociation]"}]}], "]"}], ",", "\<\".\"\>"}], "}"}]}], 
+      "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Horizontal rule\"\>"}], "]"}]},
+    {"\<\"A horizontal rule is a dividing line drawn across the page, useful \
+for separating blocks of text.\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", "\<\"HorizontalLine\"\>", "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Tables\"\>"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Table\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\<\"TableHeader\"\>", ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"Markdown \"\>", ",", "\<\" Less \"\>", 
+             ",", "\<\" Pretty\"\>"}], "}"}]}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\<\"TableAlignment\"\>", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "Center", "}"}], ",", 
+             RowBox[{"{", "Center", "}"}], ",", 
+             RowBox[{"{", "Center", "}"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\<\"TableRow\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"Italic", ",", "\<\"Still\"\>"}], "]"}], 
+                 ",", "\<\" \"\>"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"\<\" \"\>", ",", 
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"\<\"InlineCode\"\>", ",", "\<\"renders\"\>"}], 
+                  "]"}], ",", "\<\" \"\>"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"\<\" \"\>", ",", 
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"Bold", ",", "\<\"nicely\"\>"}], "]"}]}], "}"}]}], 
+              "}"}]}], "]"}], ",", 
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\<\"TableRow\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"1 \"\>", ",", "\<\" 2 \"\>", ",", "\<\" 3\"\>"}], 
+              "}"}]}], "]"}]}], "}"}]}], "}"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Images\"\>"}], "]"}]},
+    {"\<\"Markdown can also contain images.\"\>"},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"Hyperlink", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"AltText\"\>", 
+          "\[Rule]", "\<\"Streetview of Palm Trees by Brandon Erlinger-Ford\"\
+\>"}], ",", 
+         RowBox[{"\<\"Link\"\>", 
+          "\[Rule]", \
+"\<\"https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?ixid=\
+MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=\
+crop&w=564&q=80\"\>"}]}], "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H2\"\>", ",", "\<\"Last\"\>"}], "]"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"\<\"There's actually a lot more to Markdown than this. See the \
+official\"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{
+        "Hyperlink", ",", "\<\"introduction\"\>", 
+         ",", "\<\" http://daringfireball.net/projects/markdown/basics\"\>"}],
+         "]"}], ",", "\<\" and\"\>", ",", 
+       RowBox[{"MarkdownElement", "[", 
+        RowBox[{
+        "Hyperlink", ",", "\<\"syntax\"\>", 
+         ",", "\<\" http://daringfireball.net/projects/markdown/syntax\"\>"}],
+         "]"}], ",", "\<\" for more information. Be aware that this document \
+is not using the official implementation, and there may be subtle differences \
+in rendering on other platforms.\"\>"}], "}"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.817333317567844*^9, 3.817336356679491*^9, 
+  3.817337444405984*^9, 3.817337578187777*^9, 3.8173402117217703`*^9, 
+  3.8173405751737423`*^9, 3.817340858239677*^9, 3.817341038270464*^9, 
+  3.8173420586857357`*^9, 3.817342237287958*^9, 3.817342402189083*^9, 
+  3.8173426293798943`*^9, 3.817343093474086*^9, 3.8173437104903793`*^9, 
+  3.8173438533165483`*^9, 3.8173441277293653`*^9, 3.817344883363161*^9, 
+  3.817345144885262*^9, 3.8173454763293324`*^9, 3.817346050239132*^9, 
+  3.81734662850709*^9, 3.817346763411755*^9, 3.817389840621285*^9, 
+  3.8174164489123363`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"80983d5b-79cc-41b1-b3ea-8ac508483630"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["TestParser", "Section",
+ CellChangeTimes->{{3.8173900544830027`*^9, 
+  3.817390057057209*^9}},ExpressionUUID->"b146c287-093e-4ce4-bf8b-\
+fc1c63394988"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["MarkdownParserTestReport"], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["Automatic", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{"100", "\"%\""}, "RowDefault"], 
+                  "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests run: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["Automatic", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{"100", "\"%\""}, "RowDefault"], 
+                  "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests run: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Succeeded: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Failed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox[
+                 "\"Failed with wrong results: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox[
+                 "\"Failed with messages: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Failed with errors: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.0107629999999999998`2.7352903067653798", "\"s\"", 
+                    "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
+                   "SummaryItem"]}], "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[
+   Association[
+   "Title" -> Automatic, "TestResults" -> Association[1 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 1, "TestID" -> "H1Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "# A Title"]], "ExpectedOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H1", "A Title"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H1", "A Title"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000589`2.9206302926190952, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0005850000000000577, "Seconds"], "MemoryUsed" -> 
+         Quantity[29640, "Bytes"]]], 2 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 2, "TestID" -> "H2Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "## A Subtitle"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H2", "A Subtitle"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H2", "A Subtitle"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00032`2.6556649761518996, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00031800000000048456`, "Seconds"], "MemoryUsed" -> 
+         Quantity[472, "Bytes"]]], 3 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 3, "TestID" -> "H3Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "### A Chapter"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", "A Chapter"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H3", "A Chapter"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000301`2.6290814934258373, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00029699999999976967`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 4 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 4, "TestID" -> "H4Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "#### A Section"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H4", "A Section"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H4", "A Section"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000297`2.623271447149206, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002949999999999342, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 5 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 5, "TestID" -> "H5Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "##### A Subsection"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H5", "A Subsection"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H5", "A Subsection"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000301`2.6290814934258373, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002990000000000492, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 6 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 6, "TestID" -> "H6Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "###### A Subsubsection"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H6", "A Subsubsection"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H6", "A Subsubsection"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000414`2.7675153389528933, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00039999999999995595`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 7 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 7, "TestID" -> "HNTest", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "####### A Paragraph"]], 
+         "ExpectedOutput" -> HoldForm["####### A Paragraph"], "ActualOutput" -> 
+         HoldForm["####### A Paragraph"], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000111`2.1958379766186513, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00011100000000041632`, "Seconds"], "MemoryUsed" -> 
+         Quantity[112, "Bytes"]]], 8 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 8, "TestID" -> "ItalicTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "_test_"]], "ExpectedOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Italic, "test"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Italic, "test"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000293`2.6173826181861037, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002900000000001235, "Seconds"], "MemoryUsed" -> 
+         Quantity[152, "Bytes"]]], 9 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 9, "TestID" -> "ItalicTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "this is a _test_"]], 
+         "ExpectedOutput" -> HoldForm[{"this is a ", 
+            MarkdownParse`MarkdownElement[Italic, "test"]}], "ActualOutput" -> 
+         HoldForm[{"this is a ", 
+            MarkdownParse`MarkdownElement[Italic, "test"]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000244`2.5379048241707234, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002410000000003798, "Seconds"], "MemoryUsed" -> 
+         Quantity[248, "Bytes"]]], 10 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 10, "TestID" -> "ItalicTest3", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "a _different kind_ of test"]], 
+         "ExpectedOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "different kind"], 
+            " of test"}], "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "different kind"], 
+            " of test"}], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.000291`2.614407986817901, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00028799999999984394`, "Seconds"], "MemoryUsed" -> 
+         Quantity[296, "Bytes"]]], 11 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 11, "TestID" -> "ItalicTest4", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "a _slightly_ **different** _kind_ of test"]], "ExpectedOutput" -> 
+         HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "slightly"], " ", 
+            MarkdownParse`MarkdownElement[Bold, "different"], " ", 
+            MarkdownParse`MarkdownElement[Italic, "kind"], " of test"}], 
+         "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "slightly"], " ", 
+            MarkdownParse`MarkdownElement[Bold, "different"], " ", 
+            MarkdownParse`MarkdownElement[Italic, "kind"], " of test"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00054`2.882908757654963, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0005359999999998699, "Seconds"], "MemoryUsed" -> 
+         Quantity[720, "Bytes"]]], 12 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 12, "TestID" -> "ItalicTest5", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "a _**mixed bag**_ test"]], 
+         "ExpectedOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, 
+             MarkdownParse`MarkdownElement[Bold, "mixed bag"]], " test"}], 
+         "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, 
+             MarkdownParse`MarkdownElement[Bold, "mixed bag"]], " test"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000566`2.903331429020265, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0005639999999993428, "Seconds"], "MemoryUsed" -> 
+         Quantity[416, "Bytes"]]], 13 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 13, "TestID" -> "BlockQuoteTest1",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "> a _block quote_ test"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["BlockQuote", {"a ", 
+             MarkdownParse`MarkdownElement[Italic, "block quote"], " test"}]],
+          "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["BlockQuote", {"a ", 
+             MarkdownParse`MarkdownElement[Italic, "block quote"], " test"}]],
+          "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> Quantity[0.00053`2.874790867432783, "Seconds"],
+          "CPUTimeUsed" -> Quantity[0.0005290000000002237, "Seconds"], 
+         "MemoryUsed" -> Quantity[344, "Bytes"]]], 14 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 14, "TestID" -> "TableTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           Private`MarkdownTableParse[
+           "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | \
+**nicely**\n1 | 2 | 3"]], "ExpectedOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement["Table", {
+              MarkdownParse`MarkdownElement[
+              "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+              MarkdownParse`MarkdownElement[
+              "TableAlignment", {{Center}, {Center}, {Center}}], {
+               MarkdownParse`MarkdownElement["TableRow", {{
+                  MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                 " ", 
+                  MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                  " "}, {" ", 
+                  MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+               MarkdownParse`MarkdownElement[
+               "TableRow", {"1 ", " 2 ", " 3"}]}}]}], "ActualOutput" -> 
+         HoldForm[{
+            MarkdownParse`MarkdownElement["Table", {
+              MarkdownParse`MarkdownElement[
+              "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+              MarkdownParse`MarkdownElement[
+              "TableAlignment", {{Center}, {Center}, {Center}}], {
+               MarkdownParse`MarkdownElement["TableRow", {{
+                  MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                 " ", 
+                  MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                  " "}, {" ", 
+                  MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+               MarkdownParse`MarkdownElement[
+               "TableRow", {"1 ", " 2 ", " 3"}]}}]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00279`3.5961192011055916, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00264700000000051, "Seconds"], "MemoryUsed" -> 
+         Quantity[30536, "Bytes"]]], 15 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 15, "TestID" -> "CodeBlockTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "\n```Mathematica\nf[x]:=2;\nf[y]:=3\n```\n"]], "ExpectedOutput" -> 
+         HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "Mathematica", "Body" -> "f[x]:=2;\nf[y]:=3"]], 
+            "\n"}], "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "Mathematica", "Body" -> "f[x]:=2;\nf[y]:=3"]], 
+            "\n"}], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.000274`2.588265560652382, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002699999999995484, "Seconds"], "MemoryUsed" -> 
+         Quantity[768, "Bytes"]]], 16 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 16, "TestID" -> "CodeBlockTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, "\n```\nf[x]:=2;\nf[y]:=3\n```\n"]], 
+         "ExpectedOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> "f[x]:=2;\nf[y]:=3"]], "\n"}], 
+         "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> "f[x]:=2;\nf[y]:=3"]], "\n"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000215`2.482953457747599, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002140000000001585, "Seconds"], "MemoryUsed" -> 
+         Quantity[728, "Bytes"]]], 17 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 17, "TestID" -> "CodeBlockTest3", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "\n    A generic code block\n    With some text\n"]], 
+         "ExpectedOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> 
+              "A generic code block\n    With some text\n"]]}], 
+         "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> 
+              "A generic code block\n    With some text\n"]]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000135`2.280848766327, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00013199999999979894`, "Seconds"], "MemoryUsed" -> 
+         Quantity[648, "Bytes"]]], 18 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 18, "TestID" -> "InlineCodeTest1",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "`inline code`"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["InlineCode", "inline code"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["InlineCode", "inline code"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000172`2.386043444739543, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000172000000000061, "Seconds"], "MemoryUsed" -> 
+         Quantity[160, "Bytes"]]], 19 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 19, "TestID" -> "InlineCodeTest2",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "insert inline `code block` formatting anywhere"]], 
+         "ExpectedOutput" -> HoldForm[{"insert inline ", 
+            MarkdownParse`MarkdownElement["InlineCode", "code block"], 
+            " formatting anywhere"}], "ActualOutput" -> 
+         HoldForm[{"insert inline ", 
+            MarkdownParse`MarkdownElement["InlineCode", "code block"], 
+            " formatting anywhere"}], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000213`2.4788946012707314, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00021199999999987895`, "Seconds"], "MemoryUsed" -> 
+         Quantity[312, "Bytes"]]], 20 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 20, "TestID" -> "InlineCodeTest3",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "### A Chapter heading with `inline code` inserted"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", {"A Chapter heading with ", 
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+             " inserted"}]], "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", {"A Chapter heading with ", 
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+             " inserted"}]], "ExpectedMessages" -> {}, "ActualMessages" -> {},
+          "AbsoluteTimeUsed" -> 
+         Quantity[0.000617`2.9408001618652357, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0006119999999998349, "Seconds"], "MemoryUsed" -> 
+         Quantity[456, "Bytes"]]], 21 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 21, "TestID" -> 
+         "InlineLaTeXTest1", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "\(a^2 + b^2 = c^2\)"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000126`2.2508855429495567, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000124000000000013, "Seconds"], "MemoryUsed" -> 
+         Quantity[520, "Bytes"]]], 22 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 22, "TestID" -> 
+         "InlineLaTeXTest2", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "$ a^2 + b^2 = c^2 $"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000158`2.3491720847864164, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0001550000000003493, "Seconds"], "MemoryUsed" -> 
+         Quantity[464, "Bytes"]]], 23 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 23, "TestID" -> 
+         "DisplayLaTeXTest1", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "\\[ a^n + b^n = c^n \\]"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000136`2.284053906202211, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0001340000000000785, "Seconds"], "MemoryUsed" -> 
+         Quantity[456, "Bytes"]]], 24 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 24, "TestID" -> 
+         "DisplayLaTeXTest2", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "$$ a^2 + b^2 = c^2 $$"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]],
+          "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTex", 
+            Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]],
+          "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.000134`2.2776197961968014, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00013200000000024303`, "Seconds"], "MemoryUsed" -> 
+         Quantity[528, "Bytes"]]], 25 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 25, "TestID" -> "LinkTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, "[click here](www.google.com)"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "Label" -> "click here", "Link" -> "www.google.com"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "Label" -> "click here", "Link" -> "www.google.com"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000281`2.599221317737074, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002789999999999182, "Seconds"], "MemoryUsed" -> 
+         Quantity[568, "Bytes"]]], 26 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 26, "TestID" -> "LinkTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "<www.google.com>"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association["Link" -> "www.google.com"]]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association["Link" -> "www.google.com"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000125`2.2474250108400504, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00012299999999942912`, "Seconds"], "MemoryUsed" -> 
+         Quantity[440, "Bytes"]]], 27 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 27, "TestID" -> "ImageLinkTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "![Streetview of Palm Trees by Brandon \
+Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80)"]], "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+             "Link" -> 
+             "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]], "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+             "Link" -> 
+             "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000164`2.3653588458796917, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00016199999999999548`, "Seconds"], "MemoryUsed" -> 
+         Quantity[680, "Bytes"]]], 28 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 28, "TestID" -> "FoonoteTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "[The first footnote][1] was there and here's [the second \
+footnote][2]"]], "ExpectedOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement[Hyperlink, "The first footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {1}]], 
+            " was there and here's", 
+            MarkdownParse`MarkdownElement[Hyperlink, "the second footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {2}]]}], 
+         "ActualOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement[Hyperlink, "The first footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {1}]], 
+            " was there and here's", 
+            MarkdownParse`MarkdownElement[Hyperlink, "the second footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {2}]]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000426`2.7799245969347126, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00042199999999992244`, "Seconds"], "MemoryUsed" -> 
+         Quantity[752, "Bytes"]]]], 
+    "TestsSucceededIndices" -> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+      15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28}, 
+    "TestsFailedIndices" -> {}, "TestsFailedWrongResultsIndices" -> {}, 
+    "TestsFailedWithMessagesIndices" -> {}, 
+    "TestsFailedWithErrorsIndices" -> {}, "TimeElapsed" -> 
+    Quantity[0.0107629999999999998`2.7352903067653798, "Seconds"], 
+    "TestsSucceededCount" -> 28, "TestsFailedCount" -> 0, 
+    "TestsFailedWrongResultsCount" -> 0, "TestsFailedWithMessagesCount" -> 0, 
+    "TestsFailedWithErrorsCount" -> 0, "Aborted" -> False]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.8174008136611767`*^9, 3.817401152460236*^9, 3.817401241897089*^9, 
+   3.817402028462184*^9, 3.817402149729344*^9, 3.817403044999468*^9, 
+   3.817403696940302*^9, 3.817404405960877*^9, 3.817404673217423*^9, 
+   3.817404955073332*^9, 3.8174050804456463`*^9, 3.817405247723938*^9, 
+   3.817406680808765*^9, 3.817407198009918*^9, 3.8174073380054817`*^9, 
+   3.817407414214032*^9, 3.817407725839857*^9, 3.81740782708727*^9, {
+   3.817408007803053*^9, 3.817408017608252*^9}, 3.817408128236597*^9, 
+   3.817408242664405*^9, 3.817408784361092*^9, 3.81740888003762*^9, 
+   3.817409074224102*^9, 3.817409735770149*^9, 3.817410256332746*^9, 
+   3.81741064876921*^9, 3.817410756594335*^9, 3.8174108194654293`*^9, 
+   3.8174125574113617`*^9, 3.8174126106814404`*^9, 3.8174129451331253`*^9, 
+   3.817413163046644*^9, 3.817413505565199*^9, 3.817413647393132*^9, 
+   3.817413740261161*^9, 3.817413987525134*^9, 3.817414184435028*^9, 
+   3.817414459927204*^9, 3.8174145345787983`*^9, 3.8174157551387587`*^9, 
+   3.8174159839662447`*^9, 3.817416073446569*^9, 3.8174164180390863`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"0d6ee9b0-1835-4dd4-b358-105875962f77"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Markdown Graphs", "Section",
+ CellChangeTimes->{{3.8173388120227337`*^9, 3.817338813207492*^9}, {
+  3.817389876996704*^9, 
+  3.8173898793224087`*^9}},ExpressionUUID->"4f666e40-40ae-47f6-84f5-\
+e0c92279d12d"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+It might be interesting to color code the subgraphs, where the root of each \
+subgraph is a MarkdownElement (though what about nested ones?).\
+\>", "Item",
+ CellChangeTimes->{{3.817338805368458*^9, 
+  3.81733887031674*^9}},ExpressionUUID->"03516504-9a71-423a-ab19-\
+d6bd60103382"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExpressionGraph", "[", 
+  RowBox[{"mdp", ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Tooltip"}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.817338483648481*^9, 3.817338514376762*^9}, {
+  3.817338549203024*^9, 3.8173385637218513`*^9}, {3.8173386190942373`*^9, 
+  3.817338641963245*^9}, {3.8173386747102633`*^9, 3.817338735575045*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[CompressedData["
+1:eJwl1FV4EAQUBeA1ISBSSjO6EWmQlu4R0jFQeqMR6RQVJVUalG7p7gZB6Ubp
+Lunm38fDf+7DeT43PDI6IiowICAgloi5QQQTQihhMR2xiUNcPiAe8UnAhyTk
+IxKRmCQkJRkf8wnJSUFKUpGaNKQlHeGkJwMZyURmspCVbGQnBznJRW7y8Cl5
++Yx85KcABSlEYYpQlGJ8TnFKUJJSlKYMZfmCcpSnAhWpRGWqUJVqVKcGNalF
+BLWpQ13q8SX1aUBDGtGYJjSlGc1pQSQtacVXfE1r2tCWdrSnAx2JIppOdKYL
+XelGd3rQk2/oxbf0pg996Ud/BjCQQQxmCEMZxncM53t+4EdG8BM/M5JRjGYM
+YxnHL/zKb4xnAhOZxGSmMJVpTOd3/mAGM5nFbOYwl3nMZwELWcRilvAnS1nG
+clawklWsZg1rWcd6NrCRTWxmC1vZxnZ2sJNd7GYPe9nHfv7iAAf5m384xGGO
+cJRjHOcEJznFac5wlnOc51/+4wIXucRlrnCVa1znBje5xW3ucJd73OcB//OQ
+RzzmCU95xnNe8JJXvOYNb4kZfyBBBBNCKGGB73/DO9oHgWA=
+      "], {
+      Null, CompressedData["
+1:eJwt0HV0lmUAxuFvwEZKg4gSoxsRQemU7u6YIqKEdHcoId3d3d1dCgpIKN0o
+qXTHxq4/fuc6z/0+7/vtLDSsTbXWUQKBQEhQIBBhOO+NKCqj2YMVwuiKwZiM
+5Xls78XRB4xrj6f4TGBPyERKzCRKyg/tyfiRkvNj+ye+l0IpmUqpGao0TKt0
+TG/P4P2MvptJmZnFnlXZmN2eQzn5qXI5f+Zebn3OPMrr/IV7Xyof86uAc0H3
+Cqkwi6ioczH3iqsES+orllJplmFZz8v5TnlVYEV7JVVmFXtVVWN1ew3VZC17
+bdVhXXs91WcDe0M1YmN7EzVlmP1rfcNm+pbN7d+530Lf8wd7S7Via3sb/ci2
+9nZsrw7sqE7srC7sau/G7urBnr7bS73ZR33ZT/05wHsDOYg/6WcOtg/hUA3j
+L/bhGsGR9lEazTH2sRrH8fYJmshJ9smawqn2aZrOGfaZnKXZnKO5nKf5XMCF
+ni/iYi3hUvsyv7NcK7hSq7haa7jWe+u0nhu0kZu0mVvsW72/Tdu5w76Tu7Tb
+eY/2cp99vw7woH7Vbzykw/ydf7h/REd5TH/quPMJnXQ+pb9852+d1hme1Tmd
+1wVetF9y77Ku8Kqu8br9hvv/6F/e1C3e9nfd0V3e03/8n/f9fx/oIR/ZH/OJ
+nvKZ/ble8KX9lV7zjd4y4lKEQUGRz6MwalBk0RjMEM+jh/sOQ0/raw==
+       "]}, {
+      AnnotationRules -> {
+        188 -> {"Subexpression" -> HoldForm["."]}, 
+         226 -> {"Subexpression" -> HoldForm[" "]}, 
+         138 -> {"Subexpression" -> HoldForm["LaTex is also supported:"]}, 
+         167 -> {"Subexpression" -> HoldForm["MarkItDown"]}, 
+         83 -> {"Subexpression" -> HoldForm["Another item"]}, 
+         234 -> {"Subexpression" -> HoldForm[Bold]}, 
+         244 -> {"Subexpression" -> HoldForm["Images"]}, 
+         178 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Hyperlink, 
+              Association[
+              "Label" -> "MarkItDown", "Link" -> 
+               "http://www.markitdown.net/"]]]}, 
+         105 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", "Quote"]]}, 
+         112 -> {"Subexpression" -> HoldForm["H2"]}, 
+         185 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Hyperlink, 
+              Association["Link" -> "http://www.markitdown.net/"]]]}, 
+         42 -> {"Subexpression" -> HoldForm["Lists"]}, 
+         41 -> {"Subexpression" -> HoldForm["H2"]}, 
+         28 -> {"Subexpression" -> HoldForm[" formatting."]}, 
+         208 -> {"Subexpression" -> HoldForm["TableAlignment"]}, 
+         207 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             "TableAlignment", {{Center}, {Center}, {Center}}]]}, 
+         224 -> {"Subexpression" -> HoldForm[" "]}, 
+         11 -> {"Subexpression" -> HoldForm[" is capable of doing."]}, 
+         201 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             "TableHeader", {"Markdown ", " Less ", " Pretty"}]]}, 
+         95 -> {"Subexpression" -> HoldForm["Code block"]}, 
+         73 -> {"Subexpression" -> 
+           HoldForm[
+            " http://www.fileformat.info/info/unicode/char/2163/index.htm"]}, 
+         220 -> {"Subexpression" -> HoldForm[{
+              MarkdownParse`MarkdownElement[Italic, "Still"], " "}]}, 
+         160 -> {"Subexpression" -> 
+           HoldForm["Add hyperlinks in the following ways:"]}, 
+         17 -> {"Subexpression" -> HoldForm["Basic formatting"]}, 
+         171 -> {"Subexpression" -> HoldForm["InlineCode"]}, 
+         84 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "Yet another item"]]}, 
+         232 -> {"Subexpression" -> HoldForm[" "]}, 
+         250 -> {"Subexpression" -> HoldForm["H2"]}, 
+         190 -> {"Subexpression" -> HoldForm["H2"]}, 
+         258 -> {"Subexpression" -> HoldForm[" and"]}, 
+         48 -> {"Subexpression" -> HoldForm[{1}]}, 
+         64 -> {"Subexpression" -> HoldForm[4]}, 
+         120 -> {"Subexpression" -> HoldForm[Italic]}, 
+         210 -> {"Subexpression" -> HoldForm[{Center}]}, 
+         156 -> {"Subexpression" -> HoldForm[
+             Association[
+             "Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]}, 
+         21 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Italic, "italic"]]}, 
+         153 -> {"Subexpression" -> HoldForm[
+             Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]}, 
+         68 -> {"Subexpression" -> 
+           HoldForm[{"Note: the fourth item uses the Unicode character for", 
+              MarkdownParse`MarkdownElement[
+              Hyperlink, "Roman numeral four", 
+               " http://www.fileformat.info/info/unicode/char/2163/index.htm"]\
+, "."}]}, 176 -> {"Subexpression" -> HoldForm[{"Another named link to", 
+              MarkdownParse`MarkdownElement[Hyperlink, 
+               Association[
+               "Label" -> "MarkItDown", "Link" -> 
+                "http://www.markitdown.net/"]]}]}, 
+         230 -> {"Subexpression" -> HoldForm[" "]}, 
+         1 -> {"Subexpression" -> HoldForm[{
+              MarkdownParse`MarkdownElement["H1", "An exhibit of Markdown"], {
+              "This note demonstrates some of what", 
+               MarkdownParse`MarkdownElement[
+               Hyperlink, "Markdown", 
+                " http://daringfireball.net/projects/markdown/"], 
+               " is capable of doing."}, 
+              MarkdownParse`MarkdownElement[
+              Italic, "Note: Feel free to play with this page. Unlike regular \
+notes, this doesn't automatically save itself."], 
+              MarkdownParse`MarkdownElement["H2", "Basic formatting"], 
+              "Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else.", {
+              "Blank lines separate paragraphs. Markdown supports ", 
+               MarkdownParse`MarkdownElement[Italic, "italic"], " and ", 
+               MarkdownParse`MarkdownElement[Bold, "bold"], " formatting."}, {
+              "Lines can have nested styling as well, like ", 
+               MarkdownParse`MarkdownElement[Italic, {"a ", 
+                 MarkdownParse`MarkdownElement[Bold, "bold"], 
+                 " in an italic"}], "."}, 
+              MarkdownParse`MarkdownElement["H2", "Lists"], 
+              MarkdownParse`MarkdownElement["H3", "Ordered list"], 
+              MarkdownParse`MarkdownElement["ItemNumbered", {1}, "Item 1"], 
+              MarkdownParse`MarkdownElement[
+              "ItemNumbered", {2}, "A second item"], 
+              MarkdownParse`MarkdownElement["ItemNumbered", {3}, "Number 3"], 
+              
+              MarkdownParse`MarkdownElement["ItemNumbered", {4}, "\:2163"], 
+              MarkdownParse`MarkdownElement[
+              Italic, {"Note: the fourth item uses the Unicode character for", 
+                MarkdownParse`MarkdownElement[
+                Hyperlink, "Roman numeral four", 
+                 " http://www.fileformat.info/info/unicode/char/2163/index.\
+htm"], "."}], 
+              MarkdownParse`MarkdownElement["H3", "Unordered list"], 
+              MarkdownParse`MarkdownElement["Item", "An item"], 
+              MarkdownParse`MarkdownElement["Item", "Another item"], 
+              MarkdownParse`MarkdownElement["Item", "Yet another item"], 
+              MarkdownParse`MarkdownElement["Item", "And there's more..."], 
+              MarkdownParse`MarkdownElement["H2", "Paragraph modifiers"], 
+              MarkdownParse`MarkdownElement["H3", "Code block"], 
+              MarkdownParse`MarkdownElement["CodeBlock", 
+               Association[
+               "Language" -> "None", "Body" -> 
+                "Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width \
+font."]], {"You can also make ", 
+               MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+               " to add insert code block formatting anywhere."}, 
+              MarkdownParse`MarkdownElement["H3", "Quote"], 
+              MarkdownParse`MarkdownElement[
+              "BlockQuote", 
+               "Here is a quote. What this is should be self explanatory. \
+Quotes are automatically indented when they are used."], 
+              MarkdownParse`MarkdownElement["H2", "Headings"], 
+              "Markdown supports six levels of headings; corresponding with \
+the six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character.", 
+              MarkdownParse`MarkdownElement["H3", {"Headings ", 
+                MarkdownParse`MarkdownElement[Italic, "can"], 
+                " also contain ", 
+                MarkdownParse`MarkdownElement[Bold, "formatting"]}], 
+              MarkdownParse`MarkdownElement["H3", {"They can even contain ", 
+                MarkdownParse`MarkdownElement["InlineCode", "inline code"]}], 
+              "Of course, demonstrating what headings look like messes up the \
+structure of the page.", 
+              "I don't recommend using more than three or four levels of \
+headings here, because, when you're smallest heading isn't too small, and \
+you're largest heading isn't too big, and you want each size up to look \
+noticeably larger and more important, there aren't any other sizes to choose \
+from.", 
+              MarkdownParse`MarkdownElement["H2", "LaTex"], 
+              "LaTex is also supported:", 
+              MarkdownParse`MarkdownElement["Item", "inline"], 
+              MarkdownParse`MarkdownElement["LaTex", 
+               Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]], 
+              
+              MarkdownParse`MarkdownElement["LaTex", 
+               Association[
+               "Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]], 
+              MarkdownParse`MarkdownElement["Item", "presented"], 
+              MarkdownParse`MarkdownElement["LaTex", 
+               Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]], 
+              MarkdownParse`MarkdownElement["LaTex", 
+               Association[
+               "Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]], 
+              MarkdownParse`MarkdownElement["H2", "URLs"], 
+              "Add hyperlinks in the following ways:", 
+              MarkdownParse`MarkdownElement["Item", {"A named link to", 
+                MarkdownParse`MarkdownElement[
+                Hyperlink, "MarkItDown", " http://www.markitdown.net/"], 
+                ". The easiest way to do these is to select what you want to \
+make a link and hit ", 
+                MarkdownParse`MarkdownElement["InlineCode", "Ctrl+L"], "."}], 
+              
+              MarkdownParse`MarkdownElement[
+              "Item", {"Another named link to", 
+                MarkdownParse`MarkdownElement[Hyperlink, 
+                 Association[
+                 "Label" -> "MarkItDown", "Link" -> 
+                  "http://www.markitdown.net/"]]}], 
+              MarkdownParse`MarkdownElement[
+              "Item", {"Sometimes you want the URL : ", 
+                MarkdownParse`MarkdownElement[Hyperlink, 
+                 Association["Link" -> "http://www.markitdown.net/"]], "."}], 
+              
+              MarkdownParse`MarkdownElement["H2", "Horizontal rule"], 
+              "A horizontal rule is a dividing line drawn across the page, \
+useful for separating blocks of text.", 
+              MarkdownParse`MarkdownElement["HorizontalLine"], 
+              MarkdownParse`MarkdownElement["H2", "Tables"], 
+              MarkdownParse`MarkdownElement["Table", {
+                MarkdownParse`MarkdownElement[
+                "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+                MarkdownParse`MarkdownElement[
+                "TableAlignment", {{Center}, {Center}, {Center}}], {
+                 MarkdownParse`MarkdownElement["TableRow", {{
+                    MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                   " ", 
+                    MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                    " "}, {" ", 
+                    MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+                 MarkdownParse`MarkdownElement[
+                 "TableRow", {"1 ", " 2 ", " 3"}]}}], 
+              MarkdownParse`MarkdownElement["H2", "Images"], 
+              "Markdown can also contain images.", 
+              MarkdownParse`MarkdownElement[Hyperlink, 
+               Association[
+               "AltText" -> 
+                "Streetview of Palm Trees by Brandon Erlinger-Ford", "Link" -> 
+                "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]], 
+              MarkdownParse`MarkdownElement["H2", "Last"], {
+              "There's actually a lot more to Markdown than this. See the \
+official", 
+               MarkdownParse`MarkdownElement[
+               Hyperlink, "introduction", 
+                " http://daringfireball.net/projects/markdown/basics"], 
+               " and", 
+               MarkdownParse`MarkdownElement[
+               Hyperlink, "syntax", 
+                " http://daringfireball.net/projects/markdown/syntax"], 
+               " for more information. Be aware that this document is not \
+using the official implementation, and there may be subtle differences in \
+rendering on other platforms."}}]}, 
+         22 -> {"Subexpression" -> HoldForm[Italic]}, 
+         222 -> {"Subexpression" -> HoldForm[Italic]}, 
+         132 -> {"Subexpression" -> HoldForm["inline code"]}, 
+         168 -> {"Subexpression" -> HoldForm[" http://www.markitdown.net/"]}, 
+         162 -> {"Subexpression" -> HoldForm["Item"]}, 
+         134 -> {"Subexpression" -> 
+           HoldForm[
+            "I don't recommend using more than three or four levels of \
+headings here, because, when you're smallest heading isn't too small, and \
+you're largest heading isn't too big, and you want each size up to look \
+noticeably larger and more important, there aren't any other sizes to choose \
+from."]}, 231 -> {"Subexpression" -> HoldForm[{" ", 
+              MarkdownParse`MarkdownElement[Bold, "nicely"]}]}, 
+         260 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         142 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["LaTex", 
+              Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]]},
+          67 -> {"Subexpression" -> HoldForm[Italic]}, 
+         46 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["ItemNumbered", {1}, "Item 1"]]}, 
+         102 -> {"Subexpression" -> HoldForm["InlineCode"]}, 
+         217 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["TableRow", {{
+                MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {" ", 
+                MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                " "}, {" ", 
+                MarkdownParse`MarkdownElement[Bold, "nicely"]}}]]}, 
+         59 -> {"Subexpression" -> HoldForm[3]}, 
+         200 -> {"Subexpression" -> HoldForm[{
+              MarkdownParse`MarkdownElement[
+              "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+              MarkdownParse`MarkdownElement[
+              "TableAlignment", {{Center}, {Center}, {Center}}], {
+               MarkdownParse`MarkdownElement["TableRow", {{
+                  MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                 " ", 
+                  MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                  " "}, {" ", 
+                  MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+               MarkdownParse`MarkdownElement[
+               "TableRow", {"1 ", " 2 ", " 3"}]}}]}, 
+         31 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Italic, {"a ", 
+               MarkdownParse`MarkdownElement[Bold, "bold"], 
+               " in an italic"}]]}, 193 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["HorizontalLine"]]}, 
+         246 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Hyperlink, 
+              Association[
+              "AltText" -> 
+               "Streetview of Palm Trees by Brandon Erlinger-Ford", "Link" -> 
+               "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]]}, 127 -> {"Subexpression" -> HoldForm["H3"]}, 
+         219 -> {"Subexpression" -> HoldForm[{{
+               MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {" ", 
+               MarkdownParse`MarkdownElement["InlineCode", "renders"], " "}, {
+              " ", 
+               MarkdownParse`MarkdownElement[Bold, "nicely"]}}]}, 
+         78 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "An item"]]}, 
+         20 -> {"Subexpression" -> 
+           HoldForm["Blank lines separate paragraphs. Markdown supports "]}, 
+         99 -> {"Subexpression" -> HoldForm[{"You can also make ", 
+              MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+              " to add insert code block formatting anywhere."}]}, 
+         66 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Italic, {
+              "Note: the fourth item uses the Unicode character for", 
+               MarkdownParse`MarkdownElement[
+               Hyperlink, "Roman numeral four", 
+                " http://www.fileformat.info/info/unicode/char/2163/index.\
+htm"], "."}]]}, 166 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         70 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Hyperlink, "Roman numeral four", 
+              " http://www.fileformat.info/info/unicode/char/2163/index.htm"]]\
+}, 197 -> {"Subexpression" -> HoldForm["Tables"]}, 
+         74 -> {"Subexpression" -> HoldForm["."]}, 
+         38 -> {"Subexpression" -> HoldForm[" in an italic"]}, 
+         91 -> {"Subexpression" -> HoldForm["H2"]}, 
+         111 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Headings"]]}, 
+         199 -> {"Subexpression" -> HoldForm["Table"]}, 
+         218 -> {"Subexpression" -> HoldForm["TableRow"]}, 
+         80 -> {"Subexpression" -> HoldForm["An item"]}, 
+         229 -> {"Subexpression" -> HoldForm["renders"]}, 
+         76 -> {"Subexpression" -> HoldForm["H3"]}, 
+         124 -> {"Subexpression" -> HoldForm[Bold]}, 
+         123 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Bold, "formatting"]]}, 
+         143 -> {"Subexpression" -> HoldForm["LaTex"]}, 
+         94 -> {"Subexpression" -> HoldForm["H3"]}, 
+         133 -> {
+          "Subexpression" -> 
+           HoldForm[
+            "Of course, demonstrating what headings look like messes up the \
+structure of the page."]}, 174 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", {"Another named link to", 
+               MarkdownParse`MarkdownElement[Hyperlink, 
+                Association[
+                "Label" -> "MarkItDown", "Link" -> 
+                 "http://www.markitdown.net/"]]}]]}, 
+         30 -> {"Subexpression" -> 
+           HoldForm["Lines can have nested styling as well, like "]}, 
+         8 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         10 -> {"Subexpression" -> 
+           HoldForm[" http://daringfireball.net/projects/markdown/"]}, 
+         62 -> {"Subexpression" -> HoldForm["ItemNumbered"]}, 
+         16 -> {"Subexpression" -> HoldForm["H2"]}, 
+         191 -> {"Subexpression" -> HoldForm["Horizontal rule"]}, 
+         118 -> {"Subexpression" -> HoldForm["Headings "]}, 
+         192 -> {"Subexpression" -> 
+           HoldForm[
+            "A horizontal rule is a dividing line drawn across the page, \
+useful for separating blocks of text."]}, 
+         26 -> {"Subexpression" -> HoldForm[Bold]}, 
+         114 -> {"Subexpression" -> 
+           HoldForm[
+            "Markdown supports six levels of headings; corresponding with the \
+six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character."]}, 
+         259 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Hyperlink, "syntax", 
+              " http://daringfireball.net/projects/markdown/syntax"]]}, 
+         81 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "Another item"]]}, 
+         36 -> {"Subexpression" -> HoldForm[Bold]}, 
+         71 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         29 -> {"Subexpression" -> 
+           HoldForm[{"Lines can have nested styling as well, like ", 
+              MarkdownParse`MarkdownElement[Italic, {"a ", 
+                MarkdownParse`MarkdownElement[Bold, "bold"], 
+                " in an italic"}], "."}]}, 101 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"]]}, 
+         151 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["LaTex", 
+              Association[
+              "Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]]}, 
+         122 -> {"Subexpression" -> HoldForm[" also contain "]}, 
+         113 -> {"Subexpression" -> HoldForm["Headings"]}, 
+         157 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "URLs"]]}, 
+         225 -> {"Subexpression" -> HoldForm[{" ", 
+              MarkdownParse`MarkdownElement["InlineCode", "renders"], " "}]}, 
+         125 -> {"Subexpression" -> HoldForm["formatting"]}, 
+         52 -> {"Subexpression" -> HoldForm["ItemNumbered"]}, 
+         54 -> {"Subexpression" -> HoldForm[2]}, 
+         56 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["ItemNumbered", {3}, "Number 3"]]},
+          163 -> {"Subexpression" -> HoldForm[{"A named link to", 
+              MarkdownParse`MarkdownElement[
+              Hyperlink, "MarkItDown", " http://www.markitdown.net/"], 
+              ". The easiest way to do these is to select what you want to \
+make a link and hit ", 
+              MarkdownParse`MarkdownElement["InlineCode", "Ctrl+L"], "."}]}, 
+         129 -> {"Subexpression" -> HoldForm["They can even contain "]}, 
+         242 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Images"]]}, 
+         216 -> {"Subexpression" -> HoldForm[{
+              MarkdownParse`MarkdownElement["TableRow", {{
+                 MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {" ", 
+                 MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                 " "}, {" ", 
+                 MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+              MarkdownParse`MarkdownElement[
+              "TableRow", {"1 ", " 2 ", " 3"}]}]}, 
+         100 -> {"Subexpression" -> HoldForm["You can also make "]}, 
+         121 -> {"Subexpression" -> HoldForm["can"]}, 
+         175 -> {"Subexpression" -> HoldForm["Item"]}, 
+         89 -> {"Subexpression" -> HoldForm["And there's more..."]}, 
+         119 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Italic, "can"]]}, 
+         128 -> {"Subexpression" -> HoldForm[{"They can even contain ", 
+              MarkdownParse`MarkdownElement["InlineCode", "inline code"]}]}, 
+         209 -> {"Subexpression" -> HoldForm[{{Center}, {Center}, {Center}}]},
+          179 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         58 -> {"Subexpression" -> HoldForm[{3}]}, 
+         223 -> {"Subexpression" -> HoldForm["Still"]}, 
+         24 -> {"Subexpression" -> HoldForm[" and "]}, 
+         184 -> {"Subexpression" -> 
+           HoldForm["Sometimes you want the URL : "]}, 
+         106 -> {"Subexpression" -> HoldForm["H3"]}, 
+         233 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Bold, "nicely"]]}, 
+         249 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Last"]]}, 
+         34 -> {"Subexpression" -> HoldForm["a "]}, 
+         213 -> {"Subexpression" -> HoldForm[Center]}, 
+         215 -> {"Subexpression" -> HoldForm[Center]}, 
+         117 -> {"Subexpression" -> HoldForm[{"Headings ", 
+              MarkdownParse`MarkdownElement[Italic, "can"], " also contain ", 
+              
+              MarkdownParse`MarkdownElement[Bold, "formatting"]}]}, 
+         82 -> {"Subexpression" -> HoldForm["Item"]}, 
+         108 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             "BlockQuote", 
+              "Here is a quote. What this is should be self explanatory. \
+Quotes are automatically indented when they are used."]]}, 
+         149 -> {"Subexpression" -> HoldForm["Item"]}, 
+         136 -> {"Subexpression" -> HoldForm["H2"]}, 
+         43 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", "Ordered list"]]}, 
+         173 -> {"Subexpression" -> HoldForm["."]}, 
+         86 -> {"Subexpression" -> HoldForm["Yet another item"]}, 
+         212 -> {"Subexpression" -> HoldForm[{Center}]}, 
+         241 -> {"Subexpression" -> HoldForm[" 3"]}, 
+         126 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", {"They can even contain ", 
+               MarkdownParse`MarkdownElement["InlineCode", "inline code"]}]]},
+          40 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Lists"]]}, 
+         238 -> {"Subexpression" -> HoldForm[{"1 ", " 2 ", " 3"}]}, 
+         116 -> {"Subexpression" -> HoldForm["H3"]}, 
+         252 -> {"Subexpression" -> 
+           HoldForm[{
+             "There's actually a lot more to Markdown than this. See the \
+official", 
+              MarkdownParse`MarkdownElement[
+              Hyperlink, "introduction", 
+               " http://daringfireball.net/projects/markdown/basics"], " and", 
+              MarkdownParse`MarkdownElement[
+              Hyperlink, "syntax", 
+               " http://daringfireball.net/projects/markdown/syntax"], 
+              " for more information. Be aware that this document is not \
+using the official implementation, and there may be subtle differences in \
+rendering on other platforms."}]}, 
+         88 -> {"Subexpression" -> HoldForm["Item"]}, 
+         169 -> {"Subexpression" -> 
+           HoldForm[
+            ". The easiest way to do these is to select what you want to make \
+a link and hit "]}, 187 -> {"Subexpression" -> HoldForm[
+             Association["Link" -> "http://www.markitdown.net/"]]}, 
+         85 -> {"Subexpression" -> HoldForm["Item"]}, 
+         50 -> {"Subexpression" -> HoldForm["Item 1"]}, 
+         211 -> {"Subexpression" -> HoldForm[Center]}, 
+         177 -> {"Subexpression" -> HoldForm["Another named link to"]}, 
+         245 -> {"Subexpression" -> 
+           HoldForm["Markdown can also contain images."]}, 
+         240 -> {"Subexpression" -> HoldForm[" 2 "]}, 
+         75 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", "Unordered list"]]}, 
+         104 -> {"Subexpression" -> 
+           HoldForm[" to add insert code block formatting anywhere."]}, 
+         79 -> {"Subexpression" -> HoldForm["Item"]}, 
+         186 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         227 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["InlineCode", "renders"]]}, 
+         51 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             "ItemNumbered", {2}, "A second item"]]}, 
+         146 -> {"Subexpression" -> HoldForm["LaTex"]}, 
+         98 -> {"Subexpression" -> HoldForm[
+             Association[
+             "Language" -> "None", "Body" -> 
+              "Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width \
+font."]]}, 189 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Horizontal rule"]]}, 
+         159 -> {"Subexpression" -> HoldForm["URLs"]}, 
+         23 -> {"Subexpression" -> HoldForm["italic"]}, 
+         196 -> {"Subexpression" -> HoldForm["H2"]}, 
+         90 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Paragraph modifiers"]]}, 
+         180 -> {"Subexpression" -> HoldForm[
+             Association[
+             "Label" -> "MarkItDown", "Link" -> 
+              "http://www.markitdown.net/"]]}, 
+         49 -> {"Subexpression" -> HoldForm[1]}, 
+         7 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Hyperlink, "Markdown", 
+              " http://daringfireball.net/projects/markdown/"]]}, 
+         14 -> {"Subexpression" -> 
+           HoldForm[
+            "Note: Feel free to play with this page. Unlike regular notes, \
+this doesn't automatically save itself."]}, 
+         251 -> {"Subexpression" -> HoldForm["Last"]}, 
+         39 -> {"Subexpression" -> HoldForm["."]}, 
+         148 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "presented"]]}, 
+         256 -> {"Subexpression" -> HoldForm["introduction"]}, 
+         32 -> {"Subexpression" -> HoldForm[Italic]}, 
+         45 -> {"Subexpression" -> HoldForm["Ordered list"]}, 
+         37 -> {"Subexpression" -> HoldForm["bold"]}, 
+         261 -> {"Subexpression" -> HoldForm["syntax"]}, 
+         2 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H1", "An exhibit of Markdown"]]}, 
+         182 -> {"Subexpression" -> HoldForm["Item"]}, 
+         254 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Hyperlink, "introduction", 
+              " http://daringfireball.net/projects/markdown/basics"]]}, 
+         25 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Bold, "bold"]]}, 
+         150 -> {"Subexpression" -> HoldForm["presented"]}, 
+         55 -> {"Subexpression" -> HoldForm["A second item"]}, 
+         110 -> {"Subexpression" -> 
+           HoldForm[
+            "Here is a quote. What this is should be self explanatory. Quotes \
+are automatically indented when they are used."]}, 
+         44 -> {"Subexpression" -> HoldForm["H3"]}, 
+         130 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"]]}, 
+         60 -> {"Subexpression" -> HoldForm["Number 3"]}, 
+         103 -> {"Subexpression" -> HoldForm["inline code"]}, 
+         237 -> {"Subexpression" -> HoldForm["TableRow"]}, 
+         87 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "And there's more..."]]}, 
+         27 -> {"Subexpression" -> HoldForm["bold"]}, 
+         139 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", "inline"]]}, 
+         93 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", "Code block"]]}, 
+         214 -> {"Subexpression" -> HoldForm[{Center}]}, 
+         65 -> {"Subexpression" -> HoldForm["\:2163"]}, 
+         247 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         147 -> {"Subexpression" -> HoldForm[
+             Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]},
+          253 -> {
+          "Subexpression" -> 
+           HoldForm[
+            "There's actually a lot more to Markdown than this. See the \
+official"]}, 202 -> {"Subexpression" -> HoldForm["TableHeader"]}, 
+         53 -> {"Subexpression" -> HoldForm[{2}]}, 
+         183 -> {"Subexpression" -> HoldForm[{"Sometimes you want the URL : ", 
+              MarkdownParse`MarkdownElement[Hyperlink, 
+               Association["Link" -> "http://www.markitdown.net/"]], "."}]}, 
+         145 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["LaTex", 
+              Association[
+              "Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]]}, 
+         77 -> {"Subexpression" -> HoldForm["Unordered list"]}, 
+         61 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["ItemNumbered", {4}, "\:2163"]]}, 
+         152 -> {"Subexpression" -> HoldForm["LaTex"]}, 
+         15 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Basic formatting"]]}, 
+         33 -> {"Subexpression" -> HoldForm[{"a ", 
+              MarkdownParse`MarkdownElement[Bold, "bold"], " in an italic"}]},
+          165 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Hyperlink, "MarkItDown", " http://www.markitdown.net/"]]}, 
+         194 -> {"Subexpression" -> HoldForm["HorizontalLine"]}, 
+         181 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             "Item", {"Sometimes you want the URL : ", 
+               MarkdownParse`MarkdownElement[Hyperlink, 
+                Association["Link" -> "http://www.markitdown.net/"]], "."}]]},
+          96 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["CodeBlock", 
+              Association[
+              "Language" -> "None", "Body" -> 
+               "Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width \
+font."]]]}, 205 -> {"Subexpression" -> HoldForm[" Less "]}, 
+         248 -> {"Subexpression" -> HoldForm[
+             Association[
+             "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford",
+               "Link" -> 
+              "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]}, 155 -> {"Subexpression" -> HoldForm["LaTex"]},
+          235 -> {"Subexpression" -> HoldForm["nicely"]}, 
+         239 -> {"Subexpression" -> HoldForm["1 "]}, 
+         9 -> {"Subexpression" -> HoldForm["Markdown"]}, 
+         206 -> {"Subexpression" -> HoldForm[" Pretty"]}, 
+         92 -> {"Subexpression" -> HoldForm["Paragraph modifiers"]}, 
+         13 -> {"Subexpression" -> HoldForm[Italic]}, 
+         221 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Italic, "Still"]]}, 
+         144 -> {"Subexpression" -> HoldForm[
+             Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]}, 
+         18 -> {"Subexpression" -> 
+           HoldForm[
+            "Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else."]}, 
+         141 -> {"Subexpression" -> HoldForm["inline"]}, 
+         4 -> {"Subexpression" -> HoldForm["An exhibit of Markdown"]}, 
+         158 -> {"Subexpression" -> HoldForm["H2"]}, 
+         243 -> {"Subexpression" -> HoldForm["H2"]}, 
+         63 -> {"Subexpression" -> HoldForm[{4}]}, 
+         137 -> {"Subexpression" -> HoldForm["LaTex"]}, 
+         6 -> {"Subexpression" -> 
+           HoldForm["This note demonstrates some of what"]}, 
+         135 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "LaTex"]]}, 
+         5 -> {"Subexpression" -> 
+           HoldForm[{"This note demonstrates some of what", 
+              MarkdownParse`MarkdownElement[
+              Hyperlink, "Markdown", 
+               " http://daringfireball.net/projects/markdown/"], 
+              " is capable of doing."}]}, 
+         195 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H2", "Tables"]]}, 
+         154 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["LaTex", 
+              Association[
+              "Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]]}, 
+         203 -> {"Subexpression" -> 
+           HoldForm[{"Markdown ", " Less ", " Pretty"}]}, 
+         164 -> {"Subexpression" -> HoldForm["A named link to"]}, 
+         109 -> {"Subexpression" -> HoldForm["BlockQuote"]}, 
+         255 -> {"Subexpression" -> HoldForm[Hyperlink]}, 
+         172 -> {"Subexpression" -> HoldForm["Ctrl+L"]}, 
+         228 -> {"Subexpression" -> HoldForm["InlineCode"]}, 
+         131 -> {"Subexpression" -> HoldForm["InlineCode"]}, 
+         72 -> {"Subexpression" -> HoldForm["Roman numeral four"]}, 
+         115 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["H3", {"Headings ", 
+               MarkdownParse`MarkdownElement[Italic, "can"], " also contain ", 
+               MarkdownParse`MarkdownElement[Bold, "formatting"]}]]}, 
+         263 -> {"Subexpression" -> 
+           HoldForm[
+            " for more information. Be aware that this document is not using \
+the official implementation, and there may be subtle differences in rendering \
+on other platforms."]}, 35 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[Bold, "bold"]]}, 
+         204 -> {"Subexpression" -> HoldForm["Markdown "]}, 
+         236 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["TableRow", {"1 ", " 2 ", " 3"}]]},
+          262 -> {
+          "Subexpression" -> 
+           HoldForm[" http://daringfireball.net/projects/markdown/syntax"]}, 
+         69 -> {"Subexpression" -> 
+           HoldForm["Note: the fourth item uses the Unicode character for"]}, 
+         257 -> {"Subexpression" -> 
+           HoldForm[" http://daringfireball.net/projects/markdown/basics"]}, 
+         57 -> {"Subexpression" -> HoldForm["ItemNumbered"]}, 
+         170 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["InlineCode", "Ctrl+L"]]}, 
+         161 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Item", {"A named link to", 
+               MarkdownParse`MarkdownElement[
+               Hyperlink, "MarkItDown", " http://www.markitdown.net/"], 
+               ". The easiest way to do these is to select what you want to \
+make a link and hit ", 
+               MarkdownParse`MarkdownElement["InlineCode", "Ctrl+L"], "."}]]},
+          198 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement["Table", {
+               MarkdownParse`MarkdownElement[
+               "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+               MarkdownParse`MarkdownElement[
+               "TableAlignment", {{Center}, {Center}, {Center}}], {
+                MarkdownParse`MarkdownElement["TableRow", {{
+                   MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {" ", 
+                   MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                   " "}, {" ", 
+                   MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+                MarkdownParse`MarkdownElement[
+                "TableRow", {"1 ", " 2 ", " 3"}]}}]]}, 
+         47 -> {"Subexpression" -> HoldForm["ItemNumbered"]}, 
+         19 -> {"Subexpression" -> 
+           HoldForm[{"Blank lines separate paragraphs. Markdown supports ", 
+              MarkdownParse`MarkdownElement[Italic, "italic"], " and ", 
+              MarkdownParse`MarkdownElement[Bold, "bold"], " formatting."}]}, 
+         107 -> {"Subexpression" -> HoldForm["Quote"]}, 
+         140 -> {"Subexpression" -> HoldForm["Item"]}, 
+         3 -> {"Subexpression" -> HoldForm["H1"]}, 
+         97 -> {"Subexpression" -> HoldForm["CodeBlock"]}, 
+         12 -> {"Subexpression" -> HoldForm[
+             MarkdownParse`MarkdownElement[
+             Italic, "Note: Feel free to play with this page. Unlike regular \
+notes, this doesn't automatically save itself."]]}}, FormatType -> 
+       StandardForm, 
+       VertexLabels -> {
+        70 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 238 -> 
+         Placed[List, Tooltip], 255 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 68 -> Placed[List, Tooltip], 177 -> 
+         Placed[
+           HoldForm["Another named link to"], Tooltip], 93 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 200 -> 
+         Placed[List, Tooltip], 234 -> Placed[
+           HoldForm[Bold], Tooltip], 59 -> Placed[
+           HoldForm[3], Tooltip], 13 -> Placed[
+           HoldForm[Italic], Tooltip], 187 -> Placed[
+           HoldForm[
+            Association["Link" -> "http://www.markitdown.net/"]], Tooltip], 
+         131 -> Placed[
+           HoldForm["InlineCode"], Tooltip], 107 -> Placed[
+           HoldForm["Quote"], Tooltip], 18 -> Placed[
+           HoldForm[
+           "Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else."], Tooltip], 47 -> Placed[
+           HoldForm["ItemNumbered"], Tooltip], 190 -> Placed[
+           HoldForm["H2"], Tooltip], 193 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 189 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 250 -> Placed[
+           HoldForm["H2"], Tooltip], 88 -> Placed[
+           HoldForm["Item"], Tooltip], 251 -> Placed[
+           HoldForm["Last"], Tooltip], 6 -> Placed[
+           HoldForm["This note demonstrates some of what"], Tooltip], 233 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 254 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 121 -> Placed[
+           HoldForm["can"], Tooltip], 181 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 20 -> Placed[
+           HoldForm["Blank lines separate paragraphs. Markdown supports "], 
+           Tooltip], 81 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 
+         164 -> Placed[
+           HoldForm["A named link to"], Tooltip], 136 -> Placed[
+           HoldForm["H2"], Tooltip], 199 -> Placed[
+           HoldForm["Table"], Tooltip], 216 -> Placed[List, Tooltip], 227 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 108 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 17 -> Placed[
+           HoldForm["Basic formatting"], Tooltip], 82 -> Placed[
+           HoldForm["Item"], Tooltip], 246 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 259 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 138 -> Placed[
+           HoldForm["LaTex is also supported:"], Tooltip], 209 -> 
+         Placed[List, Tooltip], 261 -> Placed[
+           HoldForm["syntax"], Tooltip], 53 -> Placed[List, Tooltip], 175 -> 
+         Placed[
+           HoldForm["Item"], Tooltip], 51 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 231 -> 
+         Placed[List, Tooltip], 23 -> Placed[
+           HoldForm["italic"], Tooltip], 46 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 153 -> Placed[
+           HoldForm[
+            Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]], 
+           Tooltip], 39 -> Placed[
+           HoldForm["."], Tooltip], 97 -> Placed[
+           HoldForm["CodeBlock"], Tooltip], 252 -> Placed[List, Tooltip], 24 -> 
+         Placed[
+           HoldForm[" and "], Tooltip], 241 -> Placed[
+           HoldForm[" 3"], Tooltip], 213 -> Placed[
+           HoldForm[Center], Tooltip], 178 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 172 -> Placed[
+           HoldForm["Ctrl+L"], Tooltip], 12 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 54 -> Placed[
+           HoldForm[2], Tooltip], 25 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 173 -> Placed[
+           HoldForm["."], Tooltip], 145 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 160 -> Placed[
+           HoldForm["Add hyperlinks in the following ways:"], Tooltip], 80 -> 
+         Placed[
+           HoldForm["An item"], Tooltip], 87 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 197 -> Placed[
+           HoldForm["Tables"], Tooltip], 31 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 174 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 210 -> 
+         Placed[List, Tooltip], 123 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 64 -> Placed[
+           HoldForm[4], Tooltip], 124 -> Placed[
+           HoldForm[Bold], Tooltip], 29 -> Placed[List, Tooltip], 170 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 91 -> Placed[
+           HoldForm["H2"], Tooltip], 226 -> Placed[
+           HoldForm[" "], Tooltip], 95 -> Placed[
+           HoldForm["Code block"], Tooltip], 211 -> Placed[
+           HoldForm[Center], Tooltip], 218 -> Placed[
+           HoldForm["TableRow"], Tooltip], 94 -> Placed[
+           HoldForm["H3"], Tooltip], 89 -> Placed[
+           HoldForm["And there's more..."], Tooltip], 219 -> 
+         Placed[List, Tooltip], 96 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 230 -> Placed[
+           HoldForm[" "], Tooltip], 77 -> Placed[
+           HoldForm["Unordered list"], Tooltip], 185 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 45 -> Placed[
+           HoldForm["Ordered list"], Tooltip], 3 -> Placed[
+           HoldForm["H1"], Tooltip], 214 -> Placed[List, Tooltip], 195 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 201 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 166 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 184 -> Placed[
+           HoldForm["Sometimes you want the URL : "], Tooltip], 248 -> 
+         Placed[
+           HoldForm[
+            Association[
+            "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+             "Link" -> 
+             "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]], Tooltip], 256 -> Placed[
+           HoldForm["introduction"], Tooltip], 186 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 55 -> Placed[
+           HoldForm["A second item"], Tooltip], 32 -> Placed[
+           HoldForm[Italic], Tooltip], 128 -> Placed[List, Tooltip], 110 -> 
+         Placed[
+           HoldForm[
+           "Here is a quote. What this is should be self explanatory. Quotes \
+are automatically indented when they are used."], Tooltip], 235 -> Placed[
+           HoldForm["nicely"], Tooltip], 84 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 75 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 202 -> Placed[
+           HoldForm["TableHeader"], Tooltip], 223 -> Placed[
+           HoldForm["Still"], Tooltip], 237 -> Placed[
+           HoldForm["TableRow"], Tooltip], 236 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 92 -> Placed[
+           HoldForm["Paragraph modifiers"], Tooltip], 147 -> Placed[
+           HoldForm[
+            Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]], 
+           Tooltip], 73 -> Placed[
+           HoldForm[
+           " http://www.fileformat.info/info/unicode/char/2163/index.htm"], 
+           Tooltip], 22 -> Placed[
+           HoldForm[Italic], Tooltip], 19 -> Placed[List, Tooltip], 90 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 21 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 137 -> Placed[
+           HoldForm["LaTex"], Tooltip], 171 -> Placed[
+           HoldForm["InlineCode"], Tooltip], 247 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 112 -> Placed[
+           HoldForm["H2"], Tooltip], 224 -> Placed[
+           HoldForm[" "], Tooltip], 35 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 207 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 58 -> 
+         Placed[List, Tooltip], 113 -> Placed[
+           HoldForm["Headings"], Tooltip], 101 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 38 -> Placed[
+           HoldForm[" in an italic"], Tooltip], 105 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 228 -> Placed[
+           HoldForm["InlineCode"], Tooltip], 120 -> Placed[
+           HoldForm[Italic], Tooltip], 159 -> Placed[
+           HoldForm["URLs"], Tooltip], 169 -> Placed[
+           HoldForm[
+           ". The easiest way to do these is to select what you want to make \
+a link and hit "], Tooltip], 78 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 212 -> 
+         Placed[List, Tooltip], 126 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 240 -> Placed[
+           HoldForm[" 2 "], Tooltip], 61 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 72 -> Placed[
+           HoldForm["Roman numeral four"], Tooltip], 176 -> 
+         Placed[List, Tooltip], 142 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 60 -> Placed[
+           HoldForm["Number 3"], Tooltip], 48 -> Placed[List, Tooltip], 155 -> 
+         Placed[
+           HoldForm["LaTex"], Tooltip], 132 -> Placed[
+           HoldForm["inline code"], Tooltip], 41 -> Placed[
+           HoldForm["H2"], Tooltip], 85 -> Placed[
+           HoldForm["Item"], Tooltip], 208 -> Placed[
+           HoldForm["TableAlignment"], Tooltip], 63 -> Placed[List, Tooltip], 
+         109 -> Placed[
+           HoldForm["BlockQuote"], Tooltip], 179 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 5 -> Placed[List, Tooltip], 102 -> 
+         Placed[
+           HoldForm["InlineCode"], Tooltip], 139 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 258 -> Placed[
+           HoldForm[" and"], Tooltip], 134 -> Placed[
+           HoldForm[
+           "I don't recommend using more than three or four levels of \
+headings here, because, when you're smallest heading isn't too small, and \
+you're largest heading isn't too big, and you want each size up to look \
+noticeably larger and more important, there aren't any other sizes to choose \
+from."], Tooltip], 154 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 167 -> 
+         Placed[
+           HoldForm["MarkItDown"], Tooltip], 28 -> Placed[
+           HoldForm[" formatting."], Tooltip], 156 -> Placed[
+           HoldForm[
+            Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]], 
+           Tooltip], 198 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 
+         127 -> Placed[
+           HoldForm["H3"], Tooltip], 192 -> Placed[
+           HoldForm[
+           "A horizontal rule is a dividing line drawn across the page, \
+useful for separating blocks of text."], Tooltip], 9 -> Placed[
+           HoldForm["Markdown"], Tooltip], 86 -> Placed[
+           HoldForm["Yet another item"], Tooltip], 119 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 129 -> Placed[
+           HoldForm["They can even contain "], Tooltip], 149 -> Placed[
+           HoldForm["Item"], Tooltip], 30 -> Placed[
+           HoldForm["Lines can have nested styling as well, like "], Tooltip],
+          49 -> Placed[
+           HoldForm[1], Tooltip], 44 -> Placed[
+           HoldForm["H3"], Tooltip], 36 -> Placed[
+           HoldForm[Bold], Tooltip], 150 -> Placed[
+           HoldForm["presented"], Tooltip], 67 -> Placed[
+           HoldForm[Italic], Tooltip], 76 -> Placed[
+           HoldForm["H3"], Tooltip], 116 -> Placed[
+           HoldForm["H3"], Tooltip], 220 -> Placed[List, Tooltip], 243 -> 
+         Placed[
+           HoldForm["H2"], Tooltip], 98 -> Placed[
+           HoldForm[
+            Association[
+            "Language" -> "None", "Body" -> 
+             "Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width font."]],
+            Tooltip], 114 -> Placed[
+           HoldForm[
+           "Markdown supports six levels of headings; corresponding with the \
+six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character."], Tooltip], 122 -> Placed[
+           HoldForm[" also contain "], Tooltip], 245 -> Placed[
+           HoldForm["Markdown can also contain images."], Tooltip], 135 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 232 -> Placed[
+           HoldForm[" "], Tooltip], 217 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 204 -> Placed[
+           HoldForm["Markdown "], Tooltip], 161 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 165 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 2 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 104 -> Placed[
+           HoldForm[" to add insert code block formatting anywhere."], 
+           Tooltip], 182 -> Placed[
+           HoldForm["Item"], Tooltip], 157 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 106 -> Placed[
+           HoldForm["H3"], Tooltip], 27 -> Placed[
+           HoldForm["bold"], Tooltip], 260 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 65 -> Placed[
+           HoldForm["\:2163"], Tooltip], 42 -> Placed[
+           HoldForm["Lists"], Tooltip], 26 -> Placed[
+           HoldForm[Bold], Tooltip], 37 -> Placed[
+           HoldForm["bold"], Tooltip], 8 -> Placed[
+           HoldForm[Hyperlink], Tooltip], 83 -> Placed[
+           HoldForm["Another item"], Tooltip], 117 -> Placed[List, Tooltip], 
+         215 -> Placed[
+           HoldForm[Center], Tooltip], 163 -> Placed[List, Tooltip], 71 -> 
+         Placed[
+           HoldForm[Hyperlink], Tooltip], 50 -> Placed[
+           HoldForm["Item 1"], Tooltip], 15 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 115 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 183 -> 
+         Placed[List, Tooltip], 148 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 244 -> Placed[
+           HoldForm["Images"], Tooltip], 180 -> Placed[
+           HoldForm[
+            Association[
+            "Label" -> "MarkItDown", "Link" -> "http://www.markitdown.net/"]],
+            Tooltip], 100 -> Placed[
+           HoldForm["You can also make "], Tooltip], 4 -> Placed[
+           HoldForm["An exhibit of Markdown"], Tooltip], 143 -> Placed[
+           HoldForm["LaTex"], Tooltip], 125 -> Placed[
+           HoldForm["formatting"], Tooltip], 11 -> Placed[
+           HoldForm[" is capable of doing."], Tooltip], 7 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 66 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 229 -> Placed[
+           HoldForm["renders"], Tooltip], 34 -> Placed[
+           HoldForm["a "], Tooltip], 74 -> Placed[
+           HoldForm["."], Tooltip], 16 -> Placed[
+           HoldForm["H2"], Tooltip], 111 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 191 -> Placed[
+           HoldForm["Horizontal rule"], Tooltip], 69 -> Placed[
+           HoldForm["Note: the fourth item uses the Unicode character for"], 
+           Tooltip], 43 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 1 -> 
+         Placed[List, Tooltip], 133 -> Placed[
+           HoldForm[
+           "Of course, demonstrating what headings look like messes up the \
+structure of the page."], Tooltip], 130 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 203 -> 
+         Placed[List, Tooltip], 14 -> Placed[
+           HoldForm[
+           "Note: Feel free to play with this page. Unlike regular notes, \
+this doesn't automatically save itself."], Tooltip], 257 -> Placed[
+           HoldForm[" http://daringfireball.net/projects/markdown/basics"], 
+           Tooltip], 152 -> Placed[
+           HoldForm["LaTex"], Tooltip], 263 -> Placed[
+           HoldForm[
+           " for more information. Be aware that this document is not using \
+the official implementation, and there may be subtle differences in rendering \
+on other platforms."], Tooltip], 262 -> Placed[
+           HoldForm[" http://daringfireball.net/projects/markdown/syntax"], 
+           Tooltip], 56 -> Placed[MarkdownParse`MarkdownElement, Tooltip], 
+         144 -> Placed[
+           HoldForm[
+            Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]], 
+           Tooltip], 141 -> Placed[
+           HoldForm["inline"], Tooltip], 99 -> Placed[List, Tooltip], 151 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 249 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 62 -> Placed[
+           HoldForm["ItemNumbered"], Tooltip], 162 -> Placed[
+           HoldForm["Item"], Tooltip], 222 -> Placed[
+           HoldForm[Italic], Tooltip], 40 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 221 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 205 -> Placed[
+           HoldForm[" Less "], Tooltip], 253 -> Placed[
+           HoldForm[
+           "There's actually a lot more to Markdown than this. See the \
+official"], Tooltip], 158 -> Placed[
+           HoldForm["H2"], Tooltip], 118 -> Placed[
+           HoldForm["Headings "], Tooltip], 239 -> Placed[
+           HoldForm["1 "], Tooltip], 196 -> Placed[
+           HoldForm["H2"], Tooltip], 79 -> Placed[
+           HoldForm["Item"], Tooltip], 242 -> 
+         Placed[MarkdownParse`MarkdownElement, Tooltip], 225 -> 
+         Placed[List, Tooltip], 168 -> Placed[
+           HoldForm[" http://www.markitdown.net/"], Tooltip], 52 -> Placed[
+           HoldForm["ItemNumbered"], Tooltip], 10 -> Placed[
+           HoldForm[" http://daringfireball.net/projects/markdown/"], 
+           Tooltip], 140 -> Placed[
+           HoldForm["Item"], Tooltip], 206 -> Placed[
+           HoldForm[" Pretty"], Tooltip], 188 -> Placed[
+           HoldForm["."], Tooltip], 146 -> Placed[
+           HoldForm["LaTex"], Tooltip], 103 -> Placed[
+           HoldForm["inline code"], Tooltip], 33 -> Placed[List, Tooltip], 
+         194 -> Placed[
+           HoldForm["HorizontalLine"], Tooltip], 57 -> Placed[
+           HoldForm["ItemNumbered"], Tooltip]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.], 
+        ArrowBox[CompressedData["
+1:eJxt2Xk4lF34OPCxxNjGzJh9MTMovUj2ojJ3oUWJeEUoWqQk4VXRQlKSJamk
+iJI3WoREaZMtpF5JKVHZl4QUZYl8Xdfvd33/cH9dlz/u63M/55xnmfOc+zyi
+LXvsPaUIBIKMBIEgSfh//0G/bp3Zx2FBtWZ5g8xrOpxNmPxEOMgBixfPO5ad
+Y8NMX9eUdqx4MR2yHkd6yl3nIf9+a11fexYddPqnZtccpiIf7srIa//MAq/G
+qwdCZLFf0vlm+nADC6wOuhuHWDKRswqDHTRzyeC7ZdRkQJKC/JX1y1OldyhA
+nGeYxXjFxcfrlUVd+skDy1tWjdXlNOS7rTgLuyZVoCRjjM3dTUf+0Ne2oI1B
+hda8Fe5Om/DxMZQwOdo7Glxc2hbeJ4/7dzYeF9+7T4VXXo2DHzpZyO3070oo
+jVHgQ9ntlHARPv+DMtqZux7xIbUtect7ZTLy8weyN9zfx4GUt/4ltzrw9ekJ
+X7Fe0oIHTEpCWkEmPr/otNhBL08m0Lk9d0R++PjgkK1RIWYMcDt2oqE0BY+/
+T9uHLruABtZfI2MbZ+Pxp1yUf+4qy4dPk7rtTRQGcnPG3z1PErlQ2d/TM5CA
+2//ryNeA1e9pUP258F3yD/z8/Nc0uDAjgAHUArbJ3WgScoPkGytbN7Pg+Nk2
+rcQ5HOQ5YwfrJt3ZsJ68TSA8jl09oSGvuYMDdLkqwu5c3L9P3yBvvw4b/ixr
+GCV34fO7YX7ldvwOEnj78qwvqGM/sGBk3unVLHD+pWeXpKuEveii5V9CJowX
+7XxdE4uP937ufP1oCwu+2362OrwMP5+qefaLq/p5oByxfOCdMr4/SVojAyGd
+TNC2f2u2ZgU+vk3h2okWJToYTV504+/E9yeIpLnu6fT1s7T2u9p+Fs8ftPOV
+cwvauVBXP3qDGY3bZz976+39nQshKpH18bvw+FKtLhJ/2bFh3Pz+zRwD/Hxm
+K59b2/KUC/21woiFC1SQN5n1f7CL48GDOfxq8SI8/rl5kmSn02z4eJRirtiO
+fx+2K6ul8x5TQTHZVVBlpIiv75DJw9kPOdDbQHDbthA/f6LPLcElrkwwSb0b
+mZvER74j3eac/WYGBLMUxmr+4PMb3KYEdq5sKIlJuFI/ia9fxxzT97q76MBd
++nAFowKPvy3bluAez4MbF8erMuLw9VHweGNybJ4ahP+RkBtKw8/X+7zPot/2
+TNAi8xLccvH9Jb7+ZePXy4DHVirXlSVw/1UtOX4u8TT4L3izc/kE7t97LzfM
+fRcXuiknOwojcfsB+0ZE8S48SO79Qt/jqYreV2nE7rQqPR4k5NTe9vqXi5z+
+6pKrSRUXljHe+LzR56H32cDLmy+vpdDA7y+zT8X+AuRnlKTHMuuo0N7KsTBr
+FSI/Qh2pUpp+f/gMJ/dtNxSg/LN3s1wvzKFCjNFK0DFXQ37CuTsrWYYCTw4z
+XFh/RMiDC2o7sqMosGi8gLVkvhp635rfu15uJEuD3aZRDcZFZOT5PYKTBxbT
+YP1n2y0d2mT0Pg4476nenc6GKt1HnOugjDy75swx/yEWZHb0njvkr4zex1MF
+C1Y/a1eCe20m973rlJCXCzZkPbEgQsufran7VEnI3eYwq430FcFdV1izTomM
+3G/7me1arXIQv0fhEqtEAbnU0l0nk58pgpmhR8S2AhLq76jy5cK2XEnocJfr
+T41XRA6isIKSVVKQNng6tX+BAurPcrhpjobELKiOsN/bk0ZEbp4w1UpSkYG9
+85LYFldk0XrEwVHzQOYjZRic5WP6iaqKvPxuOhHuEUFTKyRKy1WIvPjYFU5B
+1vR56ddnLI7lo/yXFnW1hEfSkH89OrRbLEKucSrqZ3fAlJjUXGCiEaCG4sJn
+N+PCD42JD/kSSOEB6sgP0Y/UzEr8Ib6dKqH4tB/73DPr+vV5I2KPy/Osc0Xq
+KJ/gGxT4GjrEc7/7r6ClaSC/sLu2qut+j3ituCmspV8DrdeWNshd1u4QAPNj
+yIbrpSrIt2taVkwpCQESvfZobKGh9Vzp1x8mfztQIKI+JI80hd0iU88w0J8C
+eYW3TgYn4PVehc3UspupJEj7z3TRmBINufZNwxcHGYowJciMfZqggnxtuabb
+BEkZamOkmYdBBeV7HJl/qnSrDDhlUn0cmCpoPTk/XPrC6U8qoPfJydhn+v7P
+9J7OUP1VwVSw9LaXdXZXRW50uknfRkcFljlcPW5lwEf5Yfs2Kla/IEMixAlN
+3YRovTqgdudi8Sky5Hhde1afxkGuohCv3U4hQUxozAmpAezWXaHUuWpkUBaX
+19ycZKP8NYl7qxPbiaDvt5Zq58hD6+F5B0zruiNIYJJcl3eVxEJu91eb52CD
+AgxwfxbWL8dufkolr8+EBFqcG5Y67v9HfuDWxc1LZCAxhiFyIrPRentvZdu3
+Ob0CePKeujNJTxH5q277H4P6IiD6lSi8N5FBcbpHhPZyCzWw+7EwbNFiKeQe
+bmW27z6rQW3Ui0LOxIR4pisxdtzljonAife8f2CWJMqXMesKHNqpDv+G+gRM
+nh0Sz3RSlINszBN1iOmxcmztHUZ+zCCUunRAHXxd9JoanUfEM+uJ4JWD8Z8K
+uHC+y/6ZZxMJ1RudjkVPPWx4EJlwMldGUhnVGzuNJ8P2/VKFlQ5uzTR9XI8A
+kTJQ8lEVdgb06Rb/wPXIfZctFX+smeB8W3fxy+NKyI/TjLzk4hlwU7C/2c9C
+CdUrkqINh64l0cDpXVd1Cp+DPGHqSStvKx2q0yKf9YVxUD0zR+joUz5CgV3J
+R4/0rWAh927YHzsrjgL0k1qlEYVMVO84TSWHhIwLIFBvg0l7DAN5g86K8li2
+EEiVrVl3W3E99PKqL3y/wIf+KacEyXAO8glJZ+l8sip8a07tFDE5qF6K0v+i
+of8vFZqG6qPfTs9zM71G78b97l9UaPwR+964i4zqKRfG8mZLLzp8+mpmvc5A
+Drng5+radCs6VDh8KfxPOAt5vkN541xjBrwJ47woeUdE+ZVNPmfkx2iwUnN9
+wx21KfFMb1z5Jni/GQ2kr53YVt44JZ5Zz2VkM76MDrDA7dTX3m0dPFTvWVGG
+jirZs4CiazhU/YGH6r1txlGXHr5hwzeqtER4NB/5fL1RDbeI6Xnq+9ASS0c+
+qgc1ZdXlju7gQX6u2sb8c2TkkucakpV+8+BOYP7O0REyqge3X2xdHXeICM5n
+11o8sGIgJ45/SWm1nBQfMekQN4bimPZ5vHLTkiFxbd6LD14sJvILW32/xph2
+iT8X34wL9MQ+XDgg9UZ+SJyo6/JOYIzbD3qzSMn9Zae448+2itSfdNQeIame
+2LM8Viw34c6ZjGEiP+K+fg81PlucU7F57pQ1C7VHOL7N1MU1Vdw+fEy12ZKO
+/f//aTmeLeRKMFC9fGrJZk+TeBakCLaU7QySRd6hnZQh2siCR+rijXsFEihe
+dOtaYFEgCx6qk1VWnRgRz3Tiuhsft9uyYG4N7VS63jfxzHhk+LzrhRYmeETm
+qNXEvkHe6LYk43cGC8hccVfQrjfimfW4mEex4U4KwHh3whu7Y0xUrxtIjK9O
+7RRA5NSjx3YCFqrH1xo2SXFGqRAYqPpZ7gUbeeSWfELiRhVwKdTzj/PkoHr9
+7Sqjj9wnbFBYOhEfKctD/jSsMj33wvTvaG2fmVInF9Xzg5MLvcbEqvDh1YNE
++Z0qyNdFqdd3bFaFlO/ht8zm0lC9f5YrI1gMqlC8POjyijIWctPR3yWxUarw
+aXTipxqThfYDPqwrWl7wmA0hH7Pf7ktXRJ5QcCxNcQ8HNMrTO4+nKqL9godP
+063qSKrQqPlAtMCTglyy6OBK03mqsN3x92y36Xpo5n6CROvpHJGuAG4+L1PJ
+l+Egvx7ZN+4XJoBLffKsvl1stJ+Qfqye5gYUeOy/IEvVRxb54rrjnzTTFYDI
+kCKoFE6IZ8bUp8H+/k1EWPgo4fNTu2HkCzOtKzoKZSDyW6jDoSUdyJPCqu2l
+S2VhtJzasMv1F3LyHvUSzy/ScMjgRZ/a/kHkE3XHhfMXyEMMOXOslDyE+pOe
+0lwzR1UaCD/CorS8zyPfxI4L2imQAkLY6h1de0uQ97jcyTp3YNb/zgMzx+PC
+b1ZetF8CCttXEnVvt6Dxnmv3P//3XgKQl5qt/mXcKZ65X/OvZUHs6T9c+Etv
+ssrsIxHt5zQfl27ZepcHfTakYfdBSRQHrDy6ZOwyHySvpWT7ff0tnunORy+5
+jbFUgfzdldDsMSyeGV/b7JB7bakARkuWR3lqdSJPEl7OenhYFewOhA2zr7SL
+Z+4n3by/L2XHMiZoVC5mVCwRov2m4tLK8/uvMuBrWdNUC08NxX4TJQKrlwyo
+pklfaglSR25+/fhA6tT0+miCKpEboIH8ZmrfOZ2J6XnbNPykvZ86yleirtzT
+K8UA55GAa/ya2chvvpza/9OcDoOJF1M1Smaj/bChpTdMNYl0eMeKnqPTRkKe
+Hnew+lMQHXrV3w+GFyqj/TBDzkHfXfoq4Py5YK9PGd4PU8q2XaVkK4CCTAWN
+4+0U5Ocqbq9Knf79ntHjpt2Ip6L9sly5Zfm+R9Wh9Gnyj+RGBvLsO6FndCc1
+4eEW5m2HbUwUt80d+nZPSwuc/bqHy1xx/krjtB5SiBZEBO8MIZznIIczvoEb
+wnWgZmABc0ERA7Xn6PXSoldRG7SjR9u/eWPvMI78LRrWhma/rdYeGnQUf9Rm
+3qrr1oF/Ol4sGpyez2d696bxWfnFOlAe2EzjVqggP62/IdO9VwcIVNbmQWc6
+Op89Bd9sil20YZ77643DQVzkax6Y3Yi/qwMJGYY5cXF8FFeFZXSTBubBwdzN
+BbU2AuTpjsFrslm6UFFzLeiThyryOe/7Z6slzYM5q89mBNcLUHv2yw5/j2vU
+he38TgWKgxC1d6FNXcpFMB8g0s2CPU+A2huKazRQsdeF2U6nrA+VCtH9IrXn
+tDkK9YBB7JE6LaYjjyAOStq80oUcwxwyu5SJ8lPv1nFZSXoQTh5ZFH6Hhtzm
+ZJ/T01Z9MJc5EWk0pILig4WD15McDIDt5Gd2cjYF+W5OYt0XmiFMqnGdH7ZQ
+kTvZ+Pf59BiAtd7ejLhFdNRerdyHgE3bDSCw7tWm6N+KyC8WJQhSSw3Aff06
+RmUAGeVfkRw8ZN5qAJchRNZTXgH5080vv44XGkDif2mSe97KofFaVNJThOcN
+4dXZe6+Vp+ucmZ5+cnbz+j+GMGhLYeyRw7463Dd9y0lDcN0a3DUqjfPpR+9r
+TB4wAoNv9LE4FgV5ZqjkYH+MEfzbZ2ARO0pB14v/YJXnYjdDEJ4t/xBZS0de
+RrDLayg3BOZBw4YNJgwUE4gH85dYGEF/h+1uLQ0m8hWxRZJn7I1g/eu3hx0d
+8PNUpH+5vyd/PuSLBvt+fWUiT1TruZPorgfy/0iZFL9godhr/Jai6IseDLI9
+7vdsZSN38vQyj6nWg0K+95RwFgf5GXkjM3qrHvhO1N3yS2Kh7w3Bvjx5qwVM
+UGdr/VOjzUOuVplUzYxggCaXqfdYnoe+N3xUWsR3mp63iZMK3X9HU5EbcOU2
+GM6lwnMbmw5bhgr6HtGTXLxDcJcPdf7loZ7XuchHtEpelplMz0sp1ZOi6f5n
+fq/4EsYNvULkAzWoSKomWog88cR1w6MnBDCLwOKv+0eEXJgltaLDVhVcs55X
+mhjh45mqnsxfz/lQXe8pCy34+OQskq/3Iz4cyeq1rvERov6871ypra4SgtS3
++L9tNqohfzf85HX0KiEEhX55NvIEu6OoJnx24vS8dpE+FJ+mhsYjPG+Q9vqo
+Kiz85Su/e4068qAYHRkteQGMP0wt2sPFvul12ULiRz7U08Z2LwF1+B++5has
+
+         "], 0.09160670148647594]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.025842944856429, 5.45412768075216}, 0.09160670148647594],
+          
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.620120495417171, 6.39478642923024}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.047640351988009, 6.910551753866362}, 0.09160670148647594],
+          "\"H1\""],
+         Annotation[#, 
+          HoldForm["H1"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.9455198587854925, 7.048658085235333}, 
+           0.09160670148647594],
+          "\"An exhibit of Markdown\""],
+         Annotation[#, 
+          HoldForm["An exhibit of Markdown"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.309328148249578, 7.164098345251812}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.15395278732761, 7.86108728091709}, 0.09160670148647594],
+          "\"This note demonstrates some of what\""],
+         Annotation[#, 
+          HoldForm["This note demonstrates some of what"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.705718890068413, 8.439897629767932}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.537690575042592, 9.121431359113807}, 0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.256453229541996, 8.996279540296081}, 0.09160670148647594],
+          "\"Markdown\""],
+         Annotation[#, 
+          HoldForm["Markdown"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.3854327919374265, 9.092263004507108}, 
+           0.09160670148647594],
+          "\" http://daringfireball.net/projects/markdown/\""],
+         Annotation[#, 
+          HoldForm[" http://daringfireball.net/projects/markdown/"], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.9971228981781906, 7.800197312372898}, 
+           0.09160670148647594],
+          "\" is capable of doing.\""],
+         Annotation[#, 
+          HoldForm[" is capable of doing."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.418838207707254, 4.622856706376563}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.007037232205731, 4.18575228065161}, 0.09160670148647594],
+          
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.059061186382838, 4.042863403439318}, 0.09160670148647594],
+          
+          "\"Note: Feel free to play with this page. Unlike regular notes, \
+this doesn't automatically save itself.\""],
+         Annotation[#, 
+          HoldForm[
+          "Note: Feel free to play with this page. Unlike regular notes, this \
+doesn't automatically save itself."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.217665473400974, 4.507318416776434}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.410061410022182, 3.9065706337331427}, 
+           0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.237737723789605, 3.930413402002688}, 0.09160670148647594],
+          "\"Basic formatting\""],
+         Annotation[#, 
+          HoldForm["Basic formatting"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.087624459479368, 5.816887697174768}, 0.09160670148647594],
+          
+          "\"Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else.\""],
+         Annotation[#, 
+          HoldForm[
+          "Write Paragraphs like so. A paragraph is the basic block of \
+Markdown. A paragraph is what text will turn into when there is no reason it \
+should become anything else."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.1720250170747235, 4.2528618420698034}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.73621615184561, 3.7277426065087083}, 0.09160670148647594],
+          "\"Blank lines separate paragraphs. Markdown supports \""],
+         Annotation[#, 
+          HoldForm["Blank lines separate paragraphs. Markdown supports "], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.0330766167353165, 3.7648746847406613}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.3363699363271175, 3.571103908394422}, 
+           0.09160670148647594],
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.411014001849395, 3.402308691786019}, 0.09160670148647594],
+          "\"italic\""],
+         Annotation[#, 
+          HoldForm["italic"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.524026469069936, 4.01300737449091}, 0.09160670148647594],
+          
+          "\" and \""],
+         Annotation[#, 
+          HoldForm[" and "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.234944154112604, 3.4692852202405864}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.6255572353243526, 3.07905666025258}, 0.09160670148647594],
+          "Bold"],
+         Annotation[#, 
+          HoldForm[Bold], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.7593057304499373, 2.953252983110071}, 
+           0.09160670148647594],
+          "\"bold\""],
+         Annotation[#, 
+          HoldForm["bold"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.5964880691391286, 3.8385706422908727}, 
+           0.09160670148647594],
+          "\" formatting.\""],
+         Annotation[#, 
+          HoldForm[" formatting."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.423593741625793, 6.952234926818399}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.966628031087262, 7.518422028749669}, 0.09160670148647594],
+          "\"Lines can have nested styling as well, like \""],
+         Annotation[#, 
+          HoldForm["Lines can have nested styling as well, like "], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.088989322181506, 8.178058936978301}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.591310149590276, 8.624813066290109}, 0.09160670148647594],
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.965553244729457, 9.22293253870114}, 0.09160670148647594],
+          
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.5928989040370265, 9.72365611796635}, 0.09160670148647594],
+          "\"a \""],
+         Annotation[#, 
+          HoldForm["a "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.16187077202025, 9.96434819717191}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.6329123759091431, 10.314607842120111}, 
+           0.09160670148647594],
+          "Bold"],
+         Annotation[#, 
+          HoldForm[Bold], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.7724489137794306, 10.464603479398331}, 
+           0.09160670148647594],
+          "\"bold\""],
+         Annotation[#, 
+          HoldForm["bold"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.4443835516223178, 9.565798109120522}, 
+           0.09160670148647594],
+          "\" in an italic\""],
+         Annotation[#, 
+          HoldForm[" in an italic"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.8343298034893394, 7.387926680338243}, 
+           0.09160670148647594],
+          "\".\""],
+         Annotation[#, 
+          HoldForm["."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.239854972995111, 5.192180071356066}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.972822651840091, 4.940095327728179}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.02734202939946, 5.095842114160234}, 0.09160670148647594],
+          
+          "\"Lists\""],
+         Annotation[#, 
+          HoldForm["Lists"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.997948528865305, 5.356548696386825}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.331375940872876, 5.249079503051126}, 0.09160670148647594],
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.360794830174032, 5.395971442323729}, 0.09160670148647594],
+          "\"Ordered list\""],
+         Annotation[#, 
+          HoldForm["Ordered list"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.522349198315789, 5.092130173445839}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.827473185936216, 5.013646054652242}, 0.09160670148647594],
+          "\"ItemNumbered\""],
+         Annotation[#, 
+          HoldForm["ItemNumbered"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.5109783053533383, 4.896238530469417}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.798710928749685, 4.772779167784242}, 0.09160670148647594],
+          "1"],
+         Annotation[#, 
+          HoldForm[1], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.8823172759662503, 4.812977180149758}, 
+           0.09160670148647594],
+          "\"Item 1\""],
+         Annotation[#, 
+          HoldForm["Item 1"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.209060810568541, 6.76066785877665}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.96637189414541, 7.3881080946805895}, 0.09160670148647594],
+          "\"ItemNumbered\""],
+         Annotation[#, 
+          HoldForm["ItemNumbered"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.618443273001937, 7.593109239964694}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.199012940601848, 8.18012334583936}, 0.09160670148647594],
+          
+          "2"],
+         Annotation[#, 
+          HoldForm[2], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.793263224626617, 7.299093330414339}, 0.09160670148647594],
+          "\"A second item\""],
+         Annotation[#, 
+          HoldForm["A second item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.679406165739543, 6.224464190798201}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.139406587063361, 6.658042038174172}, 0.09160670148647594],
+          "\"ItemNumbered\""],
+         Annotation[#, 
+          HoldForm["ItemNumbered"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.7587340739859285, 6.732435338926631}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.111129361833184, 7.083313261067858}, 0.09160670148647594],
+          "3"],
+         Annotation[#, 
+          HoldForm[3], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.033355988556261, 6.497721892097402}, 0.09160670148647594],
+          "\"Number 3\""],
+         Annotation[#, 
+          HoldForm["Number 3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.493213678895998, 5.78272863743856}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.815871851328913, 6.014292520622623}, 0.09160670148647594],
+          "\"ItemNumbered\""],
+         Annotation[#, 
+          HoldForm["ItemNumbered"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.4809272727626777, 6.069174661598465}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.7802109449244554, 6.265957371712964}, 
+           0.09160670148647594],
+          "4"],
+         Annotation[#, 
+          HoldForm[4], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.776818648549834, 5.842942307301692}, 0.09160670148647594],
+          "\"\:2163\""],
+         Annotation[#, 
+          HoldForm["\:2163"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.433027851105744, 4.015470066799621}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.978664158073902, 3.5237320145488114}, 
+           0.09160670148647594],
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.597541401500989, 2.776777355042217}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.131394729760649, 2.404410371351595}, 0.09160670148647594],
+          "\"Note: the fourth item uses the Unicode character for\""],
+         Annotation[#, 
+          HoldForm["Note: the fourth item uses the Unicode character for"], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.435228817556151, 1.8115489214475708}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.7069355517424, 1.2236303777390072}, 0.09160670148647594],
+          
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.870208958575883, 1.3073438006381677}, 
+           0.09160670148647594],
+          "\"Roman numeral four\""],
+         Annotation[#, 
+          HoldForm["Roman numeral four"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.965340211894052, 1.4591930925431842}, 
+           0.09160670148647594],
+          "\" http://www.fileformat.info/info/unicode/char/2163/index.htm\""],
+         
+         Annotation[#, 
+          HoldForm[
+          " http://www.fileformat.info/info/unicode/char/2163/index.htm"], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.986539465385272, 2.2528971268653026}, 
+           0.09160670148647594],
+          "\".\""],
+         Annotation[#, 
+          HoldForm["."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.615933800958961, 4.473311445782341}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.927603035250393, 3.8571277061390203}, 
+           0.09160670148647594],
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.075564380638274, 3.8759893218982064}, 
+           0.09160670148647594],
+          "\"Unordered list\""],
+         Annotation[#, 
+          HoldForm["Unordered list"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.06543860255713, 5.413778805468858}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.74068644626582, 5.2979311847782995}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.715583534040036, 5.487061246091437}, 0.09160670148647594],
+          "\"An item\""],
+         Annotation[#, 
+          HoldForm["An item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.849029310841057, 4.359503536025632}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.823237514260362, 3.6903309537644127}, 
+           0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.641637432626458, 3.6579301317433037}, 
+           0.09160670148647594],
+          "\"Another item\""],
+         Annotation[#, 
+          HoldForm["Another item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.5571233390070285, 6.154063590308478}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.151021902980803, 6.5289222434417615}, 
+           0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.346789862844067, 6.626879774536471}, 0.09160670148647594],
+          "\"Yet another item\""],
+         Annotation[#, 
+          HoldForm["Yet another item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.0537379596016585, 5.786966525537375}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.491960232444432, 6.070238121005654}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.389669619025975, 5.930201562734756}, 0.09160670148647594],
+          "\"And there's more...\""],
+         Annotation[#, 
+          HoldForm["And there's more..."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.257186070701576, 5.517440366500037}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.994623163482024, 5.6375854961335}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.049909719169975, 5.470411969452256}, 0.09160670148647594],
+          "\"Paragraph modifiers\""],
+         Annotation[#, 
+          HoldForm["Paragraph modifiers"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.898185377247101, 6.146419181076857}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.3993578021551905, 6.627939542289806}, 
+           0.09160670148647594],
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.51631171023541, 6.522590244123406}, 0.09160670148647594],
+          
+          "\"Code block\""],
+         Annotation[#, 
+          HoldForm["Code block"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.2102487522352385, 4.736922602685533}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.6603437201814675, 4.3611623620353965}, 
+           0.09160670148647594],
+          "\"CodeBlock\""],
+         Annotation[#, 
+          HoldForm["CodeBlock"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.7411183068290494, 4.224814765967233}, 
+           0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Language\"", "\[Rule]", "\"None\""}], ",", 
+              
+              RowBox[{"\"Body\"", "\[Rule]", 
+                "\"Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width \
+font.\""}]}], "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association[
+           "Language" -> "None", "Body" -> 
+            "Code blocks are useful for people who look at code or for \
+clarity of plain text content. As you can see, it uses a fixed-width font."]],
+           "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.611962213230936, 3.8182129122348067}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.350848663952627, 3.1495691107970587}, 
+           0.09160670148647594],
+          "\"You can also make \""],
+         Annotation[#, 
+          HoldForm["You can also make "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.318007712017134, 2.641017384167273}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.2432043913785895, 1.945970387520406}, 
+           0.09160670148647594],
+          "\"InlineCode\""],
+         Annotation[#, 
+          HoldForm["InlineCode"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.057096389313495, 1.990909950918934}, 0.09160670148647594],
+          "\"inline code\""],
+         Annotation[#, 
+          HoldForm["inline code"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.551913660271499, 3.104861819025453}, 0.09160670148647594],
+          "\" to add insert code block formatting anywhere.\""],
+         Annotation[#, 
+          HoldForm[" to add insert code block formatting anywhere."], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.095585952140754, 6.537686033324353}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.233371393212712, 7.223041220309451}, 0.09160670148647594],
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.080129667363797, 7.212688255308891}, 0.09160670148647594],
+          "\"Quote\""],
+         Annotation[#, 
+          HoldForm["Quote"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.343741692368368, 6.6300053505729775}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.456766553817349, 7.386241927980094}, 0.09160670148647594],
+          "\"BlockQuote\""],
+         Annotation[#, 
+          HoldForm["BlockQuote"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.631210878036696, 7.3332681350842215}, 
+           0.09160670148647594],
+          
+          "\"Here is a quote. What this is should be self explanatory. Quotes \
+are automatically indented when they are used.\""],
+         Annotation[#, 
+          HoldForm[
+          "Here is a quote. What this is should be self explanatory. Quotes \
+are automatically indented when they are used."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.723509592503691, 4.67229081364555}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.102058546793876, 4.145219283335042}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.245169100850946, 4.242158557547712}, 0.09160670148647594],
+          "\"Headings\""],
+         Annotation[#, 
+          HoldForm["Headings"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.2934231302307175, 5.724674118232313}, 
+           0.09160670148647594],
+          
+          "\"Markdown supports six levels of headings; corresponding with the \
+six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character.\""],
+         Annotation[#, 
+          HoldForm[
+          "Markdown supports six levels of headings; corresponding with the \
+six levels of HTML headings. You've probably noticed them already in the \
+page. Each level down uses one more hash character."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.8010591091659376, 5.534760625825223}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.060820191213838, 5.56808953444564}, 0.09160670148647594],
+          
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.8293167274965771, 5.6248559935608}, 0.09160670148647594],
+          
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.202482968494114, 5.773833659227151}, 0.09160670148647594],
+          "\"Headings \""],
+         Annotation[#, 
+          HoldForm["Headings "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.6945252035394445, 5.8490774581880185}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.014295399446109691, 5.887684261425428}, 
+           0.09160670148647594],
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.059700561610212866, 6.073238974540501}, 
+           0.09160670148647594],
+          "\"can\""],
+         Annotation[#, 
+          HoldForm["can"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.1901426461805018, 5.551879262213013}, 
+           0.09160670148647594],
+          "\" also contain \""],
+         Annotation[#, 
+          HoldForm[" also contain "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.681197667929708, 5.489863490976607}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.02964535689637149, 5.317257382264162}, 
+           0.09160670148647594],
+          "Bold"],
+         Annotation[#, 
+          HoldForm[Bold], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[DiskBox[{0., 5.501082309715722}, 0.09160670148647594],
+          "\"formatting\""],
+         Annotation[#, 
+          HoldForm["formatting"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.07379218884841, 3.647755266660891}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.141809066829763, 2.933795477325431}, 0.09160670148647594],
+          "\"H3\""],
+         Annotation[#, 
+          HoldForm["H3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.090948680076483, 2.140360573281638}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.114007780658365, 1.4705286736154748}, 
+           0.09160670148647594],
+          "\"They can even contain \""],
+         Annotation[#, 
+          HoldForm["They can even contain "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.0775408247320755, 0.9746873641037768}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.969331198776891, 0.30553010356209676}, 
+           0.09160670148647594],
+          "\"InlineCode\""],
+         Annotation[#, 
+          HoldForm["InlineCode"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.163069341178209, 0.3034345863820116}, 
+           0.09160670148647594],
+          "\"inline code\""],
+         Annotation[#, 
+          HoldForm["inline code"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.781407424815933, 5.638484260634636}, 0.09160670148647594],
+          
+          "\"Of course, demonstrating what headings look like messes up the \
+structure of the page.\""],
+         Annotation[#, 
+          HoldForm[
+          "Of course, demonstrating what headings look like messes up the \
+structure of the page."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.219248419207682, 5.064931003278603}, 0.09160670148647594],
+          
+          "\"I don't recommend using more than three or four levels of \
+headings here, because, when you're smallest heading isn't too small, and \
+you're largest heading isn't too big, and you want each size up to look \
+noticeably larger and more important, there aren't any other sizes to choose \
+from.\""],
+         Annotation[#, 
+          HoldForm[
+          "I don't recommend using more than three or four levels of headings \
+here, because, when you're smallest heading isn't too small, and you're \
+largest heading isn't too big, and you want each size up to look noticeably \
+larger and more important, there aren't any other sizes to choose from."], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.232209150836324, 5.7654683332962255}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.9971744577115365, 5.879214578624034}, 
+           0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.974236666807245, 6.030581425642488}, 0.09160670148647594],
+          "\"LaTex\""],
+         Annotation[#, 
+          HoldForm["LaTex"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.974117025218812, 5.069626731118244}, 0.09160670148647594],
+          "\"LaTex is also supported:\""],
+         Annotation[#, 
+          HoldForm["LaTex is also supported:"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.263551825951227, 6.102651068590877}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.742286739591533, 6.448279829605884}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.841396342286892, 6.599180000876084}, 0.09160670148647594],
+          "\"inline\""],
+         Annotation[#, 
+          HoldForm["inline"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.34350325394518, 6.394423044303554}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.4346765906252195, 7.007356911679618}, 
+           0.09160670148647594],
+          "\"LaTex\""],
+         Annotation[#, 
+          HoldForm["LaTex"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.64911132722085, 6.973683281586607}, 0.09160670148647594],
+          
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Type\"", "\[Rule]", "\"Inline\""}], ",", 
+              RowBox[{"\"Body\"", "\[Rule]", "\"a^2 + b^2 = c^2\""}]}], 
+            "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.972370755368974, 5.135832458317468}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.562474835256111, 4.852579470363673}, 0.09160670148647594],
+          "\"LaTex\""],
+         Annotation[#, 
+          HoldForm["LaTex"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.595599489492614, 5.0392863082201105}, 
+           0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Type\"", "\[Rule]", "\"Inline\""}], ",", 
+              RowBox[{"\"Body\"", "\[Rule]", "\" a^2 + b^2 = c^2 \""}]}], 
+            "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.985757512318082, 5.855048500471524}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.56272934412745, 6.190702907291495}, 0.09160670148647594],
+          
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.635306387905126, 6.022594302716439}, 0.09160670148647594],
+          "\"presented\""],
+         Annotation[#, 
+          HoldForm["presented"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.3290635436582345, 4.2994982408852085}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.434285264364427, 3.579816495500892}, 0.09160670148647594],
+          "\"LaTex\""],
+         Annotation[#, 
+          HoldForm["LaTex"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.608446620678838, 3.5774038258173437}, 
+           0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Type\"", "\[Rule]", "\"Display\""}], ",", 
+              RowBox[{"\"Body\"", "\[Rule]", "\"a^n + b^n = c^n\""}]}], 
+            "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.937379100596372, 4.803926559212624}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.514473999137346, 4.348843123365407}, 0.09160670148647594],
+          "\"LaTex\""],
+         Annotation[#, 
+          HoldForm["LaTex"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.544163830330492, 4.507187455620942}, 0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Type\"", "\[Rule]", "\"Display\""}], ",", 
+              RowBox[{"\"Body\"", "\[Rule]", "\" a^2 + b^2 = c^2 \""}]}], 
+            "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.139956860641827, 6.057860525159122}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.795050376146038, 6.506546315026222}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.8764075476521285, 6.3553928143184315}, 
+           0.09160670148647594],
+          "\"URLs\""],
+         Annotation[#, 
+          HoldForm["URLs"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.390957117237612, 5.471726388758466}, 0.09160670148647594],
+          "\"Add hyperlinks in the following ways:\""],
+         Annotation[#, 
+          HoldForm["Add hyperlinks in the following ways:"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.684272837492315, 3.5257723283606364}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.312851262600051, 2.927792878572488}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.454665880819702, 1.7949399948569198}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.107149969604401, 1.2697142309877574}, 
+           0.09160670148647594],
+          "\"A named link to\""],
+         Annotation[#, 
+          HoldForm["A named link to"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.8402801028759335, 0.6325055724005191}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.5147214841562135, 0.02188936682112974}, 
+           0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.3903378885908486, 0.13641052334333637}, 
+           0.09160670148647594],
+          "\"MarkItDown\""],
+         Annotation[#, 
+          HoldForm["MarkItDown"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[DiskBox[{2.6848538867592318, 0.}, 0.09160670148647594],
+          "\" http://www.markitdown.net/\""],
+         Annotation[#, 
+          HoldForm[" http://www.markitdown.net/"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.969734808735848, 1.3973196449626908}, 
+           0.09160670148647594],
+          
+          "\". The easiest way to do these is to select what you want to make \
+a link and hit \""],
+         Annotation[#, 
+          HoldForm[
+          ". The easiest way to do these is to select what you want to make a \
+link and hit "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.6139636124552297, 1.0290860414271767}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.183218120571536, 0.5211401140032796}, 
+           0.09160670148647594],
+          "\"InlineCode\""],
+         Annotation[#, 
+          HoldForm["InlineCode"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{2.0572902444368513, 0.6628371686256589}, 
+           0.09160670148647594],
+          "\"Ctrl+L\""],
+         Annotation[#, 
+          HoldForm["Ctrl+L"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{3.276945356449117, 1.1915921928457776}, 
+           0.09160670148647594],
+          "\".\""],
+         Annotation[#, 
+          HoldForm["."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.681784543613302, 3.7775351703413564}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.998598303021172, 3.107533998705567}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.175185680652674, 2.367370516478095}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.4062242136734415, 1.7449805088929797}, 
+           0.09160670148647594],
+          "\"Another named link to\""],
+         Annotation[#, 
+          HoldForm["Another named link to"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.524388739636002, 1.2736501707104857}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.814108615006636, 0.6614253712378391}, 
+           0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.622782418453562, 0.6132936263564464}, 
+           0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              RowBox[{"\"Label\"", "\[Rule]", "\"MarkItDown\""}], ",", 
+              
+              RowBox[{"\"Link\"", "\[Rule]", 
+                "\"http://www.markitdown.net/\""}]}], "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association[
+           "Label" -> "MarkItDown", "Link" -> "http://www.markitdown.net/"]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.839605240201792, 7.401064048731817}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.814852199908197, 8.120651907843758}, 0.09160670148647594],
+          "\"Item\""],
+         Annotation[#, 
+          HoldForm["Item"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.658659320776394, 9.056404109551258}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.699482437338801, 9.736088634012408}, 0.09160670148647594],
+          "\"Sometimes you want the URL : \""],
+         Annotation[#, 
+          HoldForm["Sometimes you want the URL : "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.499629713924206, 10.223999055450253}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.503823984884105, 10.902569933208426}, 
+           0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.311483263957749, 10.8772325098507}, 0.09160670148647594],
+          
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{"\"Link\"", "\[Rule]", "\"http://www.markitdown.net/\""}],
+             "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association["Link" -> "http://www.markitdown.net/"]], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.496263815824628, 9.71937970854627}, 0.09160670148647594],
+          
+          "\".\""],
+         Annotation[#, 
+          HoldForm["."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.595041577566782, 4.498836413671705}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.257962132411637, 3.8604357730101624}, 
+           0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.368033565322466, 3.965095407071648}, 0.09160670148647594],
+          "\"Horizontal rule\""],
+         Annotation[#, 
+          HoldForm["Horizontal rule"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.3391733177352165, 5.247885235908314}, 
+           0.09160670148647594],
+          
+          "\"A horizontal rule is a dividing line drawn across the page, \
+useful for separating blocks of text.\""],
+         Annotation[#, 
+          HoldForm[
+          "A horizontal rule is a dividing line drawn across the page, useful \
+for separating blocks of text."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.354670870650555, 5.443444367163717}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.7982613814006525, 5.440843428826689}, 
+           0.09160670148647594],
+          "\"HorizontalLine\""],
+         Annotation[#, 
+          HoldForm["HorizontalLine"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.141963963378403, 4.890284672065186}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.8271991209872, 4.4721875793565475}, 0.09160670148647594],
+          
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.876580382567813, 4.642248647007493}, 0.09160670148647594],
+          "\"Tables\""],
+         Annotation[#, 
+          HoldForm["Tables"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.088899339010842, 5.6581536681620745}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{9.754750855504284, 5.713485518222969}, 0.09160670148647594],
+          "\"Table\""],
+         Annotation[#, 
+          HoldForm["Table"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{11.994495943153051, 5.847975449135157}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{13.083426950867253, 5.589614702821642}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{13.525224798871628, 5.604430734677218}, 
+           0.09160670148647594],
+          "\"TableHeader\""],
+         Annotation[#, 
+          HoldForm["TableHeader"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{13.976821766259441, 5.285523569411651}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.452779146746188, 5.136658605880359}, 
+           0.09160670148647594],
+          "\"Markdown \""],
+         Annotation[#, 
+          HoldForm["Markdown "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.376373469174224, 4.943462682856254}, 
+           0.09160670148647594],
+          "\" Less \""],
+         Annotation[#, 
+          HoldForm[" Less "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.45776102985181, 5.336854474157462}, 0.09160670148647594],
+          "\" Pretty\""],
+         Annotation[#, 
+          HoldForm[" Pretty"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{13.246207494429328, 6.646486258685746}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{13.677248416434592, 6.868119684127845}, 
+           0.09160670148647594],
+          "\"TableAlignment\""],
+         Annotation[#, 
+          HoldForm["TableAlignment"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.350720680635867, 7.39019654991866}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.96495746524387, 7.825991472327696}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.426879450359738, 8.162239429205055}, 
+           0.09160670148647594],
+          "Center"],
+         Annotation[#, 
+          HoldForm[Center], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.048204793750136, 7.594594845886325}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.561233614092359, 7.794041683695525}, 
+           0.09160670148647594],
+          "Center"],
+         Annotation[#, 
+          HoldForm[Center], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.80104177978826, 7.958471873035512}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.160302724056214, 8.379854516864336}, 
+           0.09160670148647594],
+          "Center"],
+         Annotation[#, 
+          HoldForm[Center], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{14.25654186105487, 5.685757029332036}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.1263105086719, 5.312072812115749}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.601930369320705, 5.173352181391354}, 
+           0.09160670148647594],
+          "\"TableRow\""],
+         Annotation[#, 
+          HoldForm["TableRow"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{17.88182591938794, 4.987505086175188}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.326578673143086, 4.286656296831802}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.399878671634553, 3.6228244216129557}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.87985974177957, 3.3800755105404074}, 
+           0.09160670148647594],
+          "Italic"],
+         Annotation[#, 
+          HoldForm[Italic], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.722578751943498, 3.228727360308493}, 
+           0.09160670148647594],
+          "\"Still\""],
+         Annotation[#, 
+          HoldForm["Still"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.760225271280977, 4.112087582315865}, 
+           0.09160670148647594],
+          "\" \""],
+         Annotation[#, 
+          HoldForm[" "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.081692850008427, 4.719460846573154}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.5864351442499, 4.740294720429076}, 0.09160670148647594],
+          
+          "\" \""],
+         Annotation[#, 
+          HoldForm[" "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.993513056435074, 4.509212822729737}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{20.48042516212634, 4.273986713374869}, 0.09160670148647594],
+          "\"InlineCode\""],
+         Annotation[#, 
+          HoldForm["InlineCode"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{20.55050563870432, 4.492726373656442}, 0.09160670148647594],
+          "\"renders\""],
+         Annotation[#, 
+          HoldForm["renders"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.536661352616004, 4.504855729254667}, 
+           0.09160670148647594],
+          "\" \""],
+         Annotation[#, 
+          HoldForm[" "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{18.90791204229512, 5.3081651696230185}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.36029656457787, 5.453647043822258}, 0.09160670148647594],
+          "\" \""],
+         Annotation[#, 
+          HoldForm[" "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{19.768931526691414, 5.553077104704037}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{20.262660293614317, 5.785318096162183}, 
+           0.09160670148647594],
+          "Bold"],
+         Annotation[#, 
+          HoldForm[Bold], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{20.322540446778728, 5.581380811800349}, 
+           0.09160670148647594],
+          "\"nicely\""],
+         Annotation[#, 
+          HoldForm["nicely"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.404884425927104, 5.939548741048312}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{15.853339601214312, 5.980434133678887}, 
+           0.09160670148647594],
+          "\"TableRow\""],
+         Annotation[#, 
+          HoldForm["TableRow"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.37340843121873, 6.198975414238484}, 0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.91066054533658, 6.347567429771956}, 0.09160670148647594],
+          "\"1 \""],
+         Annotation[#, 
+          HoldForm["1 "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.79120245003045, 6.505008688785374}, 0.09160670148647594],
+          "\" 2 \""],
+         Annotation[#, 
+          HoldForm[" 2 "], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{16.879230153756517, 6.150820431473319}, 
+           0.09160670148647594],
+          "\" 3\""],
+         Annotation[#, 
+          HoldForm[" 3"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.8310361187147555, 6.422228174054945}, 
+           0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.803974302277873, 7.042779731220693}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.630950132080928, 7.010483504686625}, 0.09160670148647594],
+          "\"Images\""],
+         Annotation[#, 
+          HoldForm["Images"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.728944032849775, 5.251036287475866}, 0.09160670148647594],
+          "\"Markdown can also contain images.\""],
+         Annotation[#, 
+          HoldForm["Markdown can also contain images."], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{5.14194656442141, 4.996842747640085}, 0.09160670148647594],
+          
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.641933876733187, 4.636066064936365}, 0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{4.539258376293946, 4.771789138048413}, 0.09160670148647594],
+          RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+              
+              RowBox[{"\"AltText\"", "\[Rule]", 
+                "\"Streetview of Palm Trees by Brandon Erlinger-Ford\""}], 
+              ",", 
+              
+              RowBox[{"\"Link\"", "\[Rule]", 
+                "\"https://images.unsplash.com/photo-1564889998041-\
+0dacc0706a0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.\
+1&auto=format&fit=crop&w=564&q=80\""}]}], "\[RightAssociation]"}]],
+         Annotation[#, 
+          HoldForm[
+           Association[
+           "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+            "Link" -> 
+            "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{6.854856507588332, 6.383517809740147}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.424924504047318, 6.914449688305881}, 0.09160670148647594],
+          "\"H2\""],
+         Annotation[#, 
+          HoldForm["H2"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.303481292047528, 7.00989529179726}, 0.09160670148647594],
+          
+          "\"Last\""],
+         Annotation[#, 
+          HoldForm["Last"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.088444262246059, 7.5990565704365975}, 
+           0.09160670148647594],
+          "List"],
+         Annotation[#, List, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.258424745611117, 8.273056141853917}, 0.09160670148647594],
+          
+          "\"There's actually a lot more to Markdown than this. See the \
+official\""],
+         Annotation[#, 
+          HoldForm[
+          "There's actually a lot more to Markdown than this. See the \
+official"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.882332617913469, 8.725228223018357}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.3921723552855, 9.182230608762898}, 0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.143644861639057, 9.371030983689465}, 0.09160670148647594],
+          "\"introduction\""],
+         Annotation[#, 
+          HoldForm["introduction"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{8.295208090698603, 9.315566631685783}, 0.09160670148647594],
+          "\" http://daringfireball.net/projects/markdown/basics\""],
+         Annotation[#, 
+          HoldForm[" http://daringfireball.net/projects/markdown/basics"], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.578019246672767, 8.1019804414447}, 0.09160670148647594],
+          "\" and\""],
+         Annotation[#, 
+          HoldForm[" and"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.447227826639867, 8.937988501721424}, 0.09160670148647594],
+          "MarkdownElement"],
+         Annotation[#, MarkdownParse`MarkdownElement, "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.627752798759985, 9.649269414944783}, 0.09160670148647594],
+          "Hyperlink"],
+         Annotation[#, 
+          HoldForm[Hyperlink], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.759925934285199, 9.55358691871287}, 0.09160670148647594],
+          
+          "\"syntax\""],
+         Annotation[#, 
+          HoldForm["syntax"], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.46487511344125, 9.625468670516435}, 0.09160670148647594],
+          
+          "\" http://daringfireball.net/projects/markdown/syntax\""],
+         Annotation[#, 
+          HoldForm[" http://daringfireball.net/projects/markdown/syntax"], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{7.433023185392041, 8.212511387964923}, 0.09160670148647594],
+          
+          "\" for more information. Be aware that this document is not using \
+the official implementation, and there may be subtle differences in rendering \
+on other platforms.\""],
+         Annotation[#, 
+          HoldForm[
+          " for more information. Be aware that this document is not using \
+the official implementation, and there may be subtle differences in rendering \
+on other platforms."], "Tooltip"]& ]}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->StandardForm,
+  FrameTicks->None,
+  ImageSize->{421.2611259436059, Automatic}]], "Output",
+ CellChangeTimes->{{3.817338487986231*^9, 3.817338514810109*^9}, {
+   3.8173385576439323`*^9, 3.817338564302596*^9}, {3.817338623507262*^9, 
+   3.817338642412307*^9}, {3.817338676901799*^9, 3.817338736123383*^9}, 
+   3.81734108063984*^9, 3.8173468383658752`*^9, 3.817416495382346*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"df9c4cdf-7b45-445d-a0a0-0e19bf50fbee"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1280, 688},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e0e2896d-ee92-43bf-bc77-38b0ba2a744d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 261, 4, 98, "Title",ExpressionUUID->"b7946855-acef-475d-bca3-4f6aa5c9a07a"],
+Cell[844, 28, 336, 5, 62, "Abstract",ExpressionUUID->"41f6fde2-3312-478f-b2c8-ff97b1cd3e62"],
+Cell[1183, 35, 249, 4, 35, "Text",ExpressionUUID->"ae62ea4f-43d4-4edf-903f-316f87708814"],
+Cell[1435, 41, 160, 3, 38, "CodeText",ExpressionUUID->"fea4a3a1-ea63-4863-a1c5-7652c6364503"],
+Cell[1598, 46, 176, 2, 30, "Input",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+Cell[1777, 50, 187, 3, 35, "Text",ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-21d386c647ab"],
+Cell[1967, 55, 265, 4, 32, "Item",ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-049537859d6f"],
+Cell[2235, 61, 279, 6, 32, "Item",ExpressionUUID->"328c2086-ad04-4777-8fca-349330ab56d6"],
+Cell[2517, 69, 165, 3, 35, "Text",ExpressionUUID->"4d05c24d-9b3c-450e-8869-e15918e4ea41"],
+Cell[2685, 74, 192, 3, 38, "CodeText",ExpressionUUID->"8d0676c6-1170-4ab4-9427-52aa2d5bd45e"],
+Cell[2880, 79, 393, 6, 52, "Input",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
+Cell[CellGroupData[{
+Cell[3298, 89, 211, 4, 67, "Section",ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-0bb641bd7da7"],
+Cell[3512, 95, 187, 3, 35, "Text",ExpressionUUID->"f351d147-2c71-4e75-8503-4812d9fd3995"],
+Cell[CellGroupData[{
+Cell[3724, 102, 536, 12, 30, "Input",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
+Cell[4263, 116, 4798, 120, 383, "Output",ExpressionUUID->"d632b0e5-2fc9-4ef2-8a31-68821bc46be4"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9110, 242, 265, 4, 53, "Section",ExpressionUUID->"b3b2a78c-44c3-460b-86ab-b0b33931b39c"],
+Cell[9378, 248, 651, 13, 30, "Input",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
+Cell[10032, 263, 511, 9, 30, "Input",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+Cell[CellGroupData[{
+Cell[10568, 276, 264, 5, 30, "Input",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+Cell[10835, 283, 14595, 350, 1431, "Output",ExpressionUUID->"80983d5b-79cc-41b1-b3ea-8ac508483630"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25479, 639, 157, 3, 53, "Section",ExpressionUUID->"b146c287-093e-4ce4-bf8b-fc1c63394988"],
+Cell[CellGroupData[{
+Cell[25661, 646, 128, 1, 30, "Input",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
+Cell[25792, 649, 35107, 637, 63, "Output",ExpressionUUID->"0d6ee9b0-1835-4dd4-b358-105875962f77"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[60948, 1292, 213, 4, 53, "Section",ExpressionUUID->"4f666e40-40ae-47f6-84f5-e0c92279d12d"],
+Cell[CellGroupData[{
+Cell[61186, 1300, 290, 6, 32, "Item",ExpressionUUID->"03516504-9a71-423a-ab19-d6bd60103382"],
+Cell[CellGroupData[{
+Cell[61501, 1310, 503, 9, 30, "Input",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
+Cell[62007, 1321, 128723, 2895, 250, "Output",ExpressionUUID->"df9c4cdf-7b45-445d-a0a0-0e19bf50fbee"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
