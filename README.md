@@ -12,16 +12,13 @@ Installation:
 2. Open Mathematica
 3. File > Install > From File..
 4. Select the `MarkdownParse.wl` file
-5. Load the package:
+3. File > Install > From File..
+4. Select the `MarkdownParserTests.wl` file
+5. Open the `MarkdownParserDemo.nb`
 
-```Mathematica
-<<MarkdownParse`
-```
+Demo Notebook Explainer:
 
-6. Parse a Markdown file:
-
-```Mathematica
-MarkdownParse["path/to/markdown/file.md"]
-```
-
-# **Future**
+* The `MarkdownElements` section displays the current Symbolic MarkdownElements supported
+* The `MarkdownParse Example` section runs the parser on the included `test.md` file
+* The `TesetParser` section runs a suite of VerifcationTests
+* The `Markdown Graphs` section shows an `ExpressionGraph` of the `test.md` file
