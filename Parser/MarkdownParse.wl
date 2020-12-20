@@ -26,7 +26,7 @@ $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
 Begin["Private`"]
 
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Support Functions*)
 
 
@@ -175,7 +175,7 @@ mdpOrderedListItem,mdpUnorderedItem,mdpBlockQuote,mdpCodeBlock,mdpCodeBlock2,mdp
 }
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Utilities*)
 
 
@@ -227,26 +227,12 @@ ExtractMarkdownFootnoteURL[ref_,footfile_]:=StringCases[footfile,RegularExpressi
 $sampleStrings={s1,s2,s3,s4,s5,s6,s7,s8,ff}
 
 
-(* ::Subsection::Closed:: *)
-(*ParseGrid*)
+(* ::Subsection:: *)
+(*MarkdownTableStringSplit*)
 
 
 (* ::Abstract:: *)
-(*MarkdownParseGrid returns a grid of the parsed results for each string*)
-
-
-MarkdownParseGrid[s_String]:=MarkdownParseGrid[{s}]
-MarkdownParseGrid[sl:List[__String]]:=Module[
-	{count=1},
-	Grid[
-	{{"","Text","Markdown"}}~Join~({"s"<>ToString[count++],#,MarkdownParser[#]}&/@sl),
-	Alignment->Left,Frame->All,ItemStyle->{{Blue,{"Text"},{"Code"}},{1->"Text"}}]
-
-]
-
-
-(* ::Subsection::Closed:: *)
-(*MarkdownTableStringSplit*)
+(*Defines how MarkdownElements behave when StringSplit is applied on them*)
 
 
 StringSplit[MarkdownElement[h_,s_String]]^:=Switch[h,
@@ -288,6 +274,10 @@ result
 
 (* ::Subsection::Closed:: *)
 (*Level N*)
+
+
+(* ::Abstract:: *)
+(*These DownValues specify how MarkdownParser should behave when applied to particular structures*)
 
 
 (* ::Subsubsection::Closed:: *)
@@ -340,17 +330,14 @@ MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 	{
 	footFile=ExtractAllMarkdownFootnotes[file],
 	$footnote=RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)(\\n|$)"],
-	(*lines=ReadString/*(StringSplit[#,"\n"]&)@file,*)
-	(*lines=ReadString/*MarkdownTableParse/*(If[StringQ[#],StringSplit[#,"\n"],#]&/@#&)@file,*)
-	(* ReadString did not Preserve special characters, like RomanNumerals so using Import instead *)
 	lines=(Import[#,"Text"]&)/*MarkdownTableParse/*(If[StringQ[#],StringSplit[#,"\n"],#]&/@#&)@file,
 	parsedLines,footnoteCheck,parse1,parse1clean,parseTables,completedParse
 	},
-	(*Echo[Column[lines]];*)
-	(*lines*)
+	(* Repeatedly apply the parser to each line until the expression doesn't change *)
 	parsedLines=(FixedPoint[MarkdownParser,#]&/@lines);
-	(*Echo[Column[parsedLines]];*)
+	(* Replace footnote references with their respective URLs *)
 	footnoteCheck=(parsedLines/.MarkdownElement["FootnoteReference",{ref_}]:>First@ExtractMarkdownFootnoteURL[ref,footFile]);
+	(* Get rid of the footnote residue *)
 	parse1=If[StringQ[#]\[And]StringMatchQ[$footnote][#],StringReplace[$footnote-> "(wasfootnote)"][#],#]&/@footnoteCheck;
 	parse1clean=DeleteCases["(wasfootnote)"][parse1]
 	
