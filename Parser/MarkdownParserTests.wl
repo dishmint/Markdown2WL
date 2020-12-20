@@ -13,89 +13,139 @@
 
 
 BeginPackage["MarkdownParserTests`"]
-Needs["MarkdownParse`"];
-(* \[DownArrow] Allow Refresh of Definitions on Get call \[DownArrow] *)
 Unprotect["MarkdownParserTests`*"];
 ClearAll["MarkdownParserTests`*"];
 ClearAll["MarkdownParserTests`Private`*"];
-(* \[UpArrow] Can be removed in Production             \[UpArrow] *)
-TestParser::usage="TestParser[\*StyleBox[\"input\",\"TI\"]] Applies MarkdownParser to input and returns the result as an Association\nTestParser[\*StyleBox[\"component,input\",\"TI\"]] Applies MarkdownParser to input and returns the result as an Association with the Component label \*StyleBox[\"component\",\"TI\"]"
+Needs["MarkdownParse`"];
+MarkdownParserTestReport::usage="Runs a suite of verification tests"
+$MarkdownParserVerificationTests::usage="A list of Inactivated Verifcation Tests"
 Begin["Private`"]
 
 
-TestParser["Generic",inputData_]:=Module[
-{parse=FixedPoint[MarkdownParser,inputData]},
-<|"InputString"-> inputData,"Parse"-> parse|>
-]
-TestParser[inputString_String]/;\[Not](StringMatchQ["Table"|"CodeBlock"|"Footnotes"|"Report"|"Generic"][inputString]):=Module[
-{input=inputString, parse=FixedPoint[MarkdownParser,inputString]},
-<|"InputString"-> input,"Parse"-> parse|>
-]
-TestParser[component_String,inputString_String]/;\[Not](StringMatchQ["Generic"][component]):=Module[
-{input=inputString, parse=TestParser[inputString]},
-<|"Component"-> component|>~Join~parse
-]
-TestParser[component_String,inputs_List]/;\[Not](StringMatchQ["Generic"][component]):=(TestParser[component,#]&/@inputs)
+(* ::Section:: *)
+(*VerificationTests*)
 
-TestParser["Table"]:=Module[
+
+$MarkdownParserVerificationTests=(
 {
-table="Markdown | Less | Pretty
+	(* HEADINGS *)
+	VerificationTest[FixedPoint[MarkdownParser,"# A Title"],MarkdownElement["H1","A Title"],TestID->"H1Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"## A Subtitle"],MarkdownElement["H2","A Subtitle"],TestID->"H2Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"### A Chapter"],MarkdownElement["H3","A Chapter"],TestID->"H3Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"#### A Section"],MarkdownElement["H4","A Section"],TestID->"H4Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"##### A Subsection"],MarkdownElement["H5","A Subsection"],TestID->"H5Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"###### A Subsubsection"],MarkdownElement["H6","A Subsubsection"],TestID->"H6Test"],
+	VerificationTest[FixedPoint[MarkdownParser,"####### A Paragraph"],"####### A Paragraph",TestID->"HNTest"],
+	
+	(* EMPHASIS *)
+	VerificationTest[FixedPoint[MarkdownParser,"_test_"],MarkdownElement[Italic,"test"],TestID->"ItalicTest1"],
+	VerificationTest[FixedPoint[MarkdownParser,"this is a _test_"],{"this is a ",MarkdownElement[Italic,"test"]},TestID->"ItalicTest2"],
+	VerificationTest[FixedPoint[MarkdownParser,"a _different kind_ of test"],{"a ",MarkdownElement[Italic,"different kind"]," of test"},TestID->"ItalicTest3"],
+	VerificationTest[FixedPoint[MarkdownParser,"a _slightly_ **different** _kind_ of test"],{"a ",MarkdownElement[Italic,"slightly"]," ",MarkdownElement[Bold,"different"]," ",MarkdownElement[Italic,"kind"]," of test"},TestID->"ItalicTest4"],
+	VerificationTest[FixedPoint[MarkdownParser,"a _**mixed bag**_ test"],{"a ",MarkdownElement[Italic,MarkdownElement[Bold,"mixed bag"]]," test"},TestID->"ItalicTest5"],
+	VerificationTest[FixedPoint[MarkdownParser,"> a _block quote_ test"],MarkdownElement["BlockQuote",{"a ",MarkdownElement[Italic,"block quote"], " test"}],TestID->"BlockQuoteTest1"],
+	
+	(* TABLE *)
+	VerificationTest[MarkdownTableParse["Markdown | Less | Pretty
 --- | --- | ---
 *Still* | `renders` | **nicely**
-1 | 2 | 3"
-},
-<|"Component"-> "Table","Input"-> table,"Parse"-> MarkdownTableParse[table]|>
-]
-
-TestParser["CodeBlock"]:=Module[
-{
-codeblock1="
+1 | 2 | 3"],{MarkdownElement["Table",{MarkdownElement["TableHeader",{"Markdown "," Less "," Pretty"}],MarkdownElement["TableAlignment",{{Center},{Center},{Center}}],{MarkdownElement["TableRow",{{MarkdownElement[Italic,"Still"]," "},{" ",MarkdownElement["InlineCode","renders"]," "},{" ",MarkdownElement[Bold,"nicely"]}}],MarkdownElement["TableRow",{"1 "," 2 "," 3"}]}}]},TestID->"TableTest1"],
+	
+	(* CODEBLOCK *)
+	VerificationTest[FixedPoint[MarkdownParser,"
 ```Mathematica
 f[x]:=2;
 f[y]:=3
 ```
-",
-codeblock2="
+"],{"\n",MarkdownElement["CodeBlock", <|"Language" -> "Mathematica","Body" -> "f[x]:=2;
+f[y]:=3"|>],"\n"},TestID->"CodeBlockTest1"],
+	VerificationTest[FixedPoint[MarkdownParser,"
 ```
 f[x]:=2;
 f[y]:=3
 ```
-",
-codeblock3="
-    A generic codeblock
-"
-},
-TestParser["CodeBlock",{codeblock1,codeblock2,codeblock3}]
+"],{"\n",MarkdownElement["CodeBlock", <|"Language" -> "None","Body" -> "f[x]:=2;
+f[y]:=3"|>],"\n"},TestID->"CodeBlockTest2"],
+	VerificationTest[FixedPoint[MarkdownParser,"
+    A generic code block
+    With some text
+"],{"\n",MarkdownElement["CodeBlock", <|"Language" -> "None","Body" -> "A generic code block
+    With some text
+"|>]},TestID->"CodeBlockTest3"],
+
+	(* INLINE CODE *)
+	VerificationTest[
+		FixedPoint[MarkdownParser,"`inline code`"],
+		MarkdownElement["InlineCode","inline code"],
+		TestID->"InlineCodeTest1"
+	],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"insert inline `code block` formatting anywhere"],
+		{"insert inline ",MarkdownElement["InlineCode","code block"], " formatting anywhere"},
+		TestID->"InlineCodeTest2"
+	],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"### A Chapter heading with `inline code` inserted"],
+		MarkdownElement["H3",{"A Chapter heading with ",MarkdownElement["InlineCode","inline code"]," inserted"}],
+		TestID->"InlineCodeTest3"
+	],
+	(* LaTeX *)
+	VerificationTest[
+		FixedPoint[MarkdownParser,"\(a^2 + b^2 = c^2\)"],
+		MarkdownElement["LaTex",<|"Type"->"Inline","Body"->"a^2 + b^2 = c^2"|>],
+		TestID -> "InlineLaTeXTest1"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"$ a^2 + b^2 = c^2 $"],
+		MarkdownElement["LaTex",<|"Type"->"Inline","Body"->" a^2 + b^2 = c^2 "|>],
+		TestID -> "InlineLaTeXTest2"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"\[ a^n + b^n = c^n \]"],
+		MarkdownElement["LaTex",<|"Type"->"Display","Body"->"a^n + b^n = c^n"|>],
+		TestID -> "DisplayLaTeXTest1"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"$$ a^2 + b^2 = c^2 $$"],
+		MarkdownElement["LaTex",<|"Type"->"Display","Body"->" a^2 + b^2 = c^2 "|>],
+		TestID -> "DisplayLaTeXTest2"
+		],
+	(* LINKS *)
+	VerificationTest[
+		FixedPoint[MarkdownParser,"[click here](www.google.com)"],
+		MarkdownElement[Hyperlink,<|"Label"-> "click here","Link"-> "www.google.com"|>],
+		TestID -> "LinkTest1"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"<www.google.com>"],
+		MarkdownElement[Hyperlink,<|"Link"-> "www.google.com"|>],
+		TestID -> "LinkTest2"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"![Streetview of Palm Trees by Brandon Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80)"],
+		MarkdownElement[Hyperlink,<|"AltText"->"Streetview of Palm Trees by Brandon Erlinger-Ford","Link"->"https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"|>],
+		TestID -> "ImageLinkTest1"
+		],
+	(* FOOTNOTES *)
+	VerificationTest[
+		FixedPoint[MarkdownParser,"[The first footnote][1] was there and here's [the second footnote][2]"],
+		{MarkdownElement[Hyperlink,"The first footnote",MarkdownElement["FootnoteReference",{1}]]," was there and here's",MarkdownElement[Hyperlink,"the second footnote",MarkdownElement["FootnoteReference",{2}]]},
+		TestID -> "FoonoteTest1"
+		]
+}
+)
+
+
+(* ::Section:: *)
+(*Report*)
+
+
+MarkdownParserTestReport:=TestReport[
+	$MarkdownParserVerificationTests
 ]
 
-TestParser["Footnotes"]:=Module[
-{
-testString="
-[A footnote][1]\n[Another footnote][2]\n
 
-[1]:www.google.com
-[2]:www.wolfram.com
-",
-footnoteResult
-},
-footnoteResult=TestParser@testString;
-<|"Component"-> "Footnotes","Input"-> testString,"Parse"-> footnoteResult["Parse"]|>
-]
-
-TestParser["Report"]:=Module[
-	{headings,emphasis,table,codeblock,footnotes},
-	headings=EchoEvaluation@TestParser["Headings",
-	{"# A Title","## A Subtitle","### A Chapter","#### A Section","##### A Subsection","###### A Subsubsection","####### A Paragraph"}
-	];
-	emphasis=EchoEvaluation@TestParser["Emphasis",{"_test_","this is a _test_","a _different kind_ of test","a _slightly_ **different** _kind_ of test","a _**mixed bag**_ test","> a _block quote_ test"}];
-	table=EchoEvaluation@TestParser["Table"];
-	codeblock=EchoEvaluation@TestParser["CodeBlock"];
-	footnotes=EchoEvaluation@TestParser["Footnotes"];
-	Column@(Dataset/@{headings,emphasis,table,codeblock,footnotes})
-]
-
-
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*End Package*)
 
 

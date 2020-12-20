@@ -8,7 +8,7 @@
 (*Parse a Markdown file into MarkdownElements (similar to XMLElement)*)
 
 
-(* ::Chapter:: *)
+(* ::Chapter::Closed:: *)
 (*Begin Package*)
 
 
@@ -26,7 +26,7 @@ $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
 Begin["Private`"]
 
 
-(* ::Chapter:: *)
+(* ::Chapter::Closed:: *)
 (*Support Functions*)
 
 
@@ -54,7 +54,7 @@ Begin["Private`"]
 (*Convert strings that start with a sequence of #'s to a heading MarkdownElement*)
 
 
-mdpHeadings=RegularExpression["^(\\#+\\s)(.*)"]:> MarkdownElement["H"<>((Clip[StringLength[#],{1,7}]-1&)/*ToString@"$1"),MarkdownParser["$2"]]
+mdpHeadings=RegularExpression["^(\\#{1,6}\\s)(.*)"]:> MarkdownElement["H"<>((Clip[StringLength[#],{1,7}]-1&)/*ToString@"$1"),MarkdownParser["$2"]]
 
 
 (* ::Subsubsection::Closed:: *)
@@ -75,7 +75,8 @@ mdpItalic=RegularExpression["(\\*|\\_)(.*?)\\g1"]:> MarkdownElement[Italic,Markd
 (*Inline Code*)
 
 
-mdpInlineCode=RegularExpression["\\`([^`]*?)\\`"]:> MarkdownElement["InlineCode","$1"];
+(*mdpInlineCode=RegularExpression["(([^\`]|^|\\A|\\s)?=\\`{1})([^\`]*?)\\g1"]:> MarkdownElement["InlineCode","$1"];*)
+mdpInlineCode=RegularExpression["(`)([^`\n]+?)\\g1"]:> MarkdownElement["InlineCode","$2"];
 
 
 (* ::Subsubsection::Closed:: *)
@@ -120,7 +121,7 @@ mdpUnorderedItem=RegularExpression["(\n|^|\\A)(\t|\\s)*?(\\*|\\+|\\-])\\s(.+)\\z
 (*BlockQuote*)
 
 
-mdpBlockQuote=RegularExpression["(?ms)>\\s?(.+)\\z"]:>MarkdownElement["Blockquote",MarkdownParser["$1"]]
+mdpBlockQuote=RegularExpression["(?ms)>\\s?(.+)\\z"]:>MarkdownElement["BlockQuote",MarkdownParser["$1"]]
 
 
 (* ::Subsubsection::Closed:: *)
@@ -152,8 +153,9 @@ MarkdownTableParse[string_String]:=Module[{t=0},
 (*CodeBlocks*)
 
 
-mdpCodeBlock=RegularExpression["(?ms)```((?:[[:alnum:]\\x{f6b2}-\\x{f6b5}\\x{f6b7}\\x{f6b9}-\\x{f6bc}\\x{f6be}-\\x{f6bf}\\x{f6c1}-\\x{f700}\\x{f730}-\\x{f731}\\x{f770}\\x{f772}-\\x{f773}\\x{f776}\\x{f779}-\\x{f77a}\\x{f77d}-\\x{f780}\\x{f782}-\\x{f78b}\\x{f78d}-\\x{f790}\\x{f793}-\\x{f79a}\\x{f79c}-\\x{f7a2}\\x{f7a4}-\\x{f7bd}\\x{f800}-\\x{f844}\\x{f846}-\\x{f84c}\\x{f854}-\\x{f86c}\\x{f874}-\\x{f875}\\x{f878}-\\x{f879}\\x{f87d}-\\x{f886}\\x{f88a}])*)\n(.*)\n```"]:> MarkdownElement["CodeBlock",{"$1","$2"}]
-mdpCodeBlock2=RegularExpression["(?ms)(?:\\A|^)(?:    |\t\t)(.*)$"]:> MarkdownElement["CodeBlock",{"$1","$2"}]
+mdpCodeBlock=RegularExpression["(\\`{3})(\\w+)\n([^\\`]+?)\n\\g1"]:> MarkdownElement["CodeBlock",<|"Language"-> "$2","Body"-> "$3"|>]
+mdpCodeBlock2=RegularExpression["(\\`{3})\n([^\\`]+?)\n\\g1"]:> MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$2"|>]
+mdpCodeBlock3=RegularExpression["(?ms)(?:\\A|^)(?:[ ]{4}|\t)(.+)"]:> MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$1"|>]
 
 
 (* ::Subsubsection::Closed:: *)
@@ -168,8 +170,8 @@ mdpHorizontalLine=RegularExpression["(?ms)(?:\\A|^)(---|(\\*\\*\\*))\\s*\\z"]:>M
 
 
 $MarkdownParsePrimitives={
-mdpHeadings,mdpBold,mdpItalic,mdpInlineCode,mdpTex1,mdpTex2,mdpTex3,mdpTex4,mdpTex5,mdpLink,mdpLink2,mdpImageLink,mdpFootnote,
-mdpOrderedListItem,mdpUnorderedItem,mdpBlockQuote,mdpCodeBlock,mdpCodeBlock2,mdpHorizontalLine
+mdpHeadings,mdpBold,mdpItalic,mdpTex1,mdpTex2,mdpTex3,mdpTex4,mdpTex5,mdpLink,mdpLink2,mdpImageLink,mdpFootnote,
+mdpOrderedListItem,mdpUnorderedItem,mdpBlockQuote,mdpCodeBlock,mdpCodeBlock2,mdpCodeBlock3,mdpInlineCode,mdpHorizontalLine
 }
 
 
@@ -284,7 +286,7 @@ result
 ]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Level N*)
 
 
