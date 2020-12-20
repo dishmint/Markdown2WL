@@ -16,7 +16,7 @@ Installation:
 4. Select the `MarkdownParserTests.wl` file
 5. Open the `MarkdownParserDemo.nb`
 
-Demo Notebook Explainer:
+What's in the demo notebook:
 
 * The `MarkdownElements` section displays the current Symbolic MarkdownElements supported
 * The `MarkdownParse Example` section runs the parser on the included `test.md` file
