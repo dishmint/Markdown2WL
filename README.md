@@ -20,5 +20,5 @@ Demo Notebook Explainer:
 
 * The `MarkdownElements` section displays the current Symbolic MarkdownElements supported
 * The `MarkdownParse Example` section runs the parser on the included `test.md` file
-* The `TesetParser` section runs a suite of VerifcationTests
+* The `TestParser` section runs a suite of VerifcationTests
 * The `Markdown Graphs` section shows an `ExpressionGraph` of the `test.md` file
