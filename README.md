@@ -2,6 +2,10 @@
 
 The goal of this repo is to establish Markdown Import and Export Converters as well as a standalone Markdown parser.
 
+The current parser provides reasonable coverage of markdown syntax. A demo notebook is included in the Parser directory. Feel free to add issues for subpar/unsatisfcatory parsing, or where the Symoblic structure could use improvement. 
+
+A package to Render the parse list is coming, as well as Import / Export converters so you can import Markdown files as Symbolic Markdown, or as a Notebook!
+
 ---
 Installation:
 1. Download the zip and extract it on your machine
@@ -19,3 +23,5 @@ Installation:
 ```Mathematica
 MarkdownParse["path/to/markdown/file.md"]
 ```
+
+# **Future**
