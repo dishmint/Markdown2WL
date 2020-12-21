@@ -8,7 +8,7 @@
 (*Parse a Markdown file into MarkdownElements (similar to XMLElement)*)
 
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Begin Package*)
 
 
@@ -19,7 +19,6 @@ ClearAll["MarkdownParse`*"];
 ClearAll["MarkdownParse`Private`*"];
 (* \[UpArrow] Can be removed in Production             \[UpArrow] *)
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
-MarkdownParseGrid::usage="MarkdownParseGrid[\*StyleBox[\"example\",\"TI\"]] returns a grid pairing the input string (or list of input strings), \*StyleBox[\"example\",\"TI\"], with its parse (or parses)"
 MarkdownElement::usage="Represents an element in Symbolic Markdown"
 $sampleStrings::usage="A set of strings used for testing"
 $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
@@ -30,7 +29,7 @@ Begin["Private`"]
 (*Support Functions*)
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Tag Primitives*)
 
 
@@ -175,7 +174,7 @@ mdpOrderedListItem,mdpUnorderedItem,mdpBlockQuote,mdpCodeBlock,mdpCodeBlock2,mdp
 }
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Utilities*)
 
 
@@ -227,7 +226,7 @@ ExtractMarkdownFootnoteURL[ref_,footfile_]:=StringCases[footfile,RegularExpressi
 $sampleStrings={s1,s2,s3,s4,s5,s6,s7,s8,ff}
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*MarkdownTableStringSplit*)
 
 
