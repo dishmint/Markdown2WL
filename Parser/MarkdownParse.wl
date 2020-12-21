@@ -321,10 +321,11 @@ MarkdownParser[m_MarkdownElement]:=m
 MarkdownParser[s__]:=Sequence[s]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*MarkdownParse*)
 
 
+MarkdownParse[file_File]:=MarkdownParse[Information[file]["FileName"]]
 MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 	{
 	footFile=ExtractAllMarkdownFootnotes[file],
