@@ -18,7 +18,7 @@ ClearAll["MarkdownParserTests`*"];
 ClearAll["MarkdownParserTests`Private`*"];
 Needs["MarkdownParse`"];
 MarkdownParserTestReport::usage="Runs a suite of verification tests"
-$MarkdownParserVerificationTests::usage="A list of Inactivated Verifcation Tests"
+$MarkdownParserVerificationTests::usage="A list of Verifcation Tests"
 Begin["Private`"]
 
 
