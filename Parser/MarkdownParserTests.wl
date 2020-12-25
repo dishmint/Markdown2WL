@@ -92,22 +92,22 @@ f[y]:=3"|>],"\n"},TestID->"CodeBlockTest2"],
 	(* LaTeX *)
 	VerificationTest[
 		FixedPoint[MarkdownParser,"\(a^2 + b^2 = c^2\)"],
-		MarkdownElement["LaTex",<|"Type"->"Inline","Body"->"a^2 + b^2 = c^2"|>],
+		MarkdownElement["LaTeX",<|"Type"->"Inline","Body"->"a^2 + b^2 = c^2"|>],
 		TestID -> "InlineLaTeXTest1"
 		],
 	VerificationTest[
 		FixedPoint[MarkdownParser,"$ a^2 + b^2 = c^2 $"],
-		MarkdownElement["LaTex",<|"Type"->"Inline","Body"->" a^2 + b^2 = c^2 "|>],
+		MarkdownElement["LaTeX",<|"Type"->"Inline","Body"->" a^2 + b^2 = c^2 "|>],
 		TestID -> "InlineLaTeXTest2"
 		],
 	VerificationTest[
 		FixedPoint[MarkdownParser,"\[ a^n + b^n = c^n \]"],
-		MarkdownElement["LaTex",<|"Type"->"Display","Body"->"a^n + b^n = c^n"|>],
+		MarkdownElement["LaTeX",<|"Type"->"Display","Body"->"a^n + b^n = c^n"|>],
 		TestID -> "DisplayLaTeXTest1"
 		],
 	VerificationTest[
 		FixedPoint[MarkdownParser,"$$ a^2 + b^2 = c^2 $$"],
-		MarkdownElement["LaTex",<|"Type"->"Display","Body"->" a^2 + b^2 = c^2 "|>],
+		MarkdownElement["LaTeX",<|"Type"->"Display","Body"->" a^2 + b^2 = c^2 "|>],
 		TestID -> "DisplayLaTeXTest2"
 		],
 	(* LINKS *)

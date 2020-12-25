@@ -41,7 +41,7 @@ Begin["Private`"]
 (*After numerous issues with patterns, I've made use of patterns found here: https://gist.github.com/jbroadway/2836900*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Primitive Definitions*)
 
 
@@ -79,15 +79,15 @@ mdpInlineCode=RegularExpression["(`)([^`\n]+?)\\g1"]:> MarkdownElement["InlineCo
 
 
 (* ::Subsubsection::Closed:: *)
-(*LaTex*)
+(*LaTeX*)
 
 
-mdpTex1=RegularExpression["(\\$\\$)(.*)\\g1"]:> MarkdownElement["LaTex",<|"Type"-> "Display","Body"->"$2"|>];
-mdpTex2=RegularExpression["(\\\\\[)(\\s?)(.*)\\g2(\\\\\])"]:> MarkdownElement["LaTex",<|"Type"-> "Display","Body"->"$3"|>];
+mdpTex1=RegularExpression["(\\$\\$)(.*)\\g1"]:> MarkdownElement["LaTeX",<|"Type"-> "Display","Body"->"$2"|>];
+mdpTex2=RegularExpression["(\\\\\[)(\\s?)(.*)\\g2(\\\\\])"]:> MarkdownElement["LaTeX",<|"Type"-> "Display","Body"->"$3"|>];
 
-mdpTex3=RegularExpression["(\\$)(.*?)\\g1"]:> MarkdownElement["LaTex",<|"Type"-> "Inline","Body"->"$2"|>];
-mdpTex4=RegularExpression["(\\\()(\\s?)(.*?)\\g2(\\\))"]:> MarkdownElement["LaTex", <|"Type"-> "Inline","Body"->"$3"|>];
-mdpTex5=RegularExpression["(\\\\\\()(\\s?)(.*?)\\g2(\\\\\\))"]:> MarkdownElement["LaTex", <|"Type"-> "Inline","Body"->"$3"|>];
+mdpTex3=RegularExpression["(\\$)(.*?)\\g1"]:> MarkdownElement["LaTeX",<|"Type"-> "Inline","Body"->"$2"|>];
+mdpTex4=RegularExpression["(\\\()(\\s?)(.*?)\\g2(\\\))"]:> MarkdownElement["LaTeX", <|"Type"-> "Inline","Body"->"$3"|>];
+mdpTex5=RegularExpression["(\\\\\\()(\\s?)(.*?)\\g2(\\\\\\))"]:> MarkdownElement["LaTeX", <|"Type"-> "Inline","Body"->"$3"|>];
 
 
 (* ::Subsubsection::Closed:: *)
