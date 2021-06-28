@@ -6,6 +6,8 @@ The current parser provides reasonable coverage of markdown syntax. A demo noteb
 
 A package to Render the parse list is coming, as well as Import / Export converters so you can import Markdown files as Symbolic Markdown, or as a Notebook!
 
+For context and some background on the process I've published a post on the [Wolfram Community](https://community.wolfram.com/groups/-/m/t/2142852).
+
 ---
 Installation:
 1. Download the zip and extract it on your machine
