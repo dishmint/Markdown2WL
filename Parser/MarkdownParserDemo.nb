@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    207034,       4498]
-NotebookOptionsPosition[    203521,       4433]
-NotebookOutlinePosition[    204007,       4451]
-CellTagsIndexPosition[    203964,       4448]
+NotebookDataLength[    248845,       5285]
+NotebookOptionsPosition[    245100,       5216]
+NotebookOutlinePosition[    245587,       5234]
+CellTagsIndexPosition[    245544,       5231]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -46,7 +46,7 @@ Cell["Quit the kernel", "CodeText",
 
 Cell[BoxData["Quit"], "Input",
  CellChangeTimes->{{3.817239754310732*^9, 3.8172397548456573`*^9}},
- CellLabel->"In[32]:=",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+ CellLabel->"In[5]:=",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
 
 Cell["Install the packages again from the Menu:", "Text",
  CellChangeTimes->{{3.8174165987397127`*^9, 
@@ -196,13 +196,21 @@ Cell[BoxData[
          RowBox[{"{", "$2", "}"}]}], "]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\"\<ItemNumbered\>\"", ",", 
-       RowBox[{"{", "$1", "}"}], ",", "\"\<$2\>\""}], "]"}]},
+      RowBox[{"\"\<Item\>\"", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Ordered\>\""}], ",", 
+         RowBox[{"\"\<IndentationLevel\>\"", "\[Rule]", "1"}], ",", 
+         RowBox[{"\"\<IndentationType\>\"", "\[Rule]", "\"\<Whitespace\>\""}],
+          ",", 
+         RowBox[{"\"\<Content\>\"", "\[Rule]", "\"\<$3\>\""}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\"\<Item\>\"", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Unordered\>\""}], ",", 
          RowBox[{"\"\<IndentationLevel\>\"", "\[Rule]", "1"}], ",", 
          RowBox[{"\"\<IndentationType\>\"", "\[Rule]", "\"\<Whitespace\>\""}],
           ",", 
@@ -257,8 +265,9 @@ Cell[BoxData[
    3.817346450554831*^9, 3.817346621485446*^9, 3.81734675276777*^9, 
    3.817389589946957*^9, 3.817423982038066*^9, 3.8397853572118587`*^9, {
    3.839785419382757*^9, 3.8397854364402733`*^9}, {3.839785527027009*^9, 
-   3.839785540844495*^9}, 3.839786014047813*^9, 3.8397862448168993`*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"9d30d1e1-3b38-4327-b7fa-5f15a0c5141e"]
+   3.839785540844495*^9}, 3.839786014047813*^9, 3.8397862448168993`*^9, 
+   3.845226378341282*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"3b4e9d5f-2ca3-4524-b7a9-f0828e41a3fe"]
 }, Open  ]]
 }, Open  ]],
 
@@ -289,9 +298,10 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Import", "[", 
-  RowBox[{"filePath", ",", "\"\<String\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.839786671641347*^9, 3.8397867032127323`*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
+  RowBox[{"filePath", ",", "\"\<Text\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.839786671641347*^9, 3.8397867032127323`*^9}, {
+  3.845226422574849*^9, 3.845226424824779*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
 
 Cell[BoxData["\<\"# An exhibit of Markdown\\n\\nThis note demonstrates some \
 of what [Markdown][1] is capable of doing.\\n\\n_Note: Feel free to play with \
@@ -301,36 +311,41 @@ is the basic block of Markdown. A paragraph is what text will turn into when \
 there is no reason it should become anything else.\\n\\nBlank lines separate \
 paragraphs. Markdown supports _italic_ and **bold** formatting.\\n\\nLines \
 can have nested styling as well, like _a **bold** in an italic_.\\n\\n## \
-Lists\\n\\n### Ordered list\\n\\n1. Item 1\\n2. A second item\\n3. Number \
-3\\n4. \[AHat]\.85\[Sterling]\\n\\n_Note: the fourth item uses the Unicode \
-character for [Roman numeral four][2]._\\n\\n### Unordered list\\n\\n* An \
-item\\n* Another item\\n* Yet another item\\n* And there's more...\\n\\n## \
-Paragraph modifiers\\n\\n### Code block\\n\\n    Code blocks are useful for \
-people who look at code or for clarity of plain text content. As you can see, \
-it uses a fixed-width font.\\n\\nYou can also make `inline code` to add \
-insert code block formatting anywhere.\\n\\n### Quote\\n\\n> Here is a quote. \
-What this is should be self explanatory. Quotes are automatically indented \
-when they are used.\\n\\n## Headings\\n\\nMarkdown supports six levels of \
-headings; corresponding with the six levels of HTML headings. You've probably \
-noticed them already in the page. Each level down uses one more hash \
-character.\\n\\n### Headings _can_ also contain **formatting**\\n\\n### They \
-can even contain `inline code`\\n\\nOf course, demonstrating what headings \
-look like messes up the structure of the page.\\n\\nI don't recommend using \
-more than three or four levels of headings here, because, when you're \
-smallest heading isn't too small, and you're largest heading isn't too big, \
-and you want each size up to look noticeably larger and more important, there \
-aren't any other sizes to choose from.\\n\\n## LaTex\\n\\nLaTex is also \
-supported:\\n\\n* inline\\n\\n\\\\(a^2 + b^2 = c^2\\\\)\\n\\n$ a^2 + b^2 = \
-c^2 $\\n\\n* presented\\n\\n\\\\[ a^n + b^n = c^n \\\\]\\n\\n$$ a^2 + b^2 = \
-c^2 $$\\n\\n\\n## URLs\\n\\nAdd hyperlinks in the following ways:\\n\\n* A \
-named link to [MarkItDown][3]. The easiest way to do these is to select what \
-you want to make a link and hit `Ctrl+L`.\\n* Another named link to \
-[MarkItDown](http://www.markitdown.net/)\\n* Sometimes you want the URL : \
-<http://www.markitdown.net/>.\\n\\n## Horizontal rule\\n\\nA horizontal rule \
-is a dividing line drawn across the page, useful for separating blocks of \
-text.\\n\\n---\\n\\n## Tables\\n\\nMarkdown | Less | Pretty\\n--- | --- | ---\
-\\n*Still* | `renders` | **nicely**\\n1 | 2 | 3\\n\\n## Images\\n\\nMarkdown \
-can also contain images.\\n![Streetview of Palm Trees by Brandon \
+Lists\\n\\n### Ordered list with Tabs\\n\\n1. Item 1\\n2. A second item\\n3. \
+Number 3\\n4. \:2163\\n\\t5. A nested ordered item\\n\\n### Ordered list with \
+Spaces\\n\\n1. First item\\n  2. First item's subitem\\n  3. First item's 2nd \
+subitem\\n    4. 2nd item's subitem\\n\\n_Note: the fourth item uses the \
+Unicode character for [Roman numeral four][2]._\\n\\n### Unordered \
+list\\n\\n* An item\\n* Another item\\n* Yet another item\\n\\t* A nested \
+unordered item with tabs\\n* And there's more...\\n\\n* unordered list with \
+spaces\\n  * list item with space indentation\\n    * another list item with \
+space indentation\\n\\n## Paragraph modifiers\\n\\n### Code block\\n\\n    \
+Code blocks are useful for people who look at code or for clarity of plain \
+text content. As you can see, it uses a fixed-width font.\\n\\nYou can also \
+make `inline code` to add insert code block formatting anywhere.\\n\\n### \
+Quote\\n\\n> Here is a quote. What this is should be self explanatory. Quotes \
+are automatically indented when they are used.\\n\\n## Headings\\n\\nMarkdown \
+supports six levels of headings; corresponding with the six levels of HTML \
+headings. You've probably noticed them already in the page. Each level down \
+uses one more hash character.\\n\\n### Headings _can_ also contain \
+**formatting**\\n\\n### They can even contain `inline code`\\n\\nOf course, \
+demonstrating what headings look like messes up the structure of the page.\\n\
+\\nI don't recommend using more than three or four levels of headings here, \
+because, when you're smallest heading isn't too small, and you're largest \
+heading isn't too big, and you want each size up to look noticeably larger \
+and more important, there aren't any other sizes to choose from.\\n\\n## \
+LaTex\\n\\nLaTeX is also supported:\\n\\n* inline\\n\\n\\\\(a^2 + b^2 = c^2\\\
+\\)\\n\\n$ a^2 + b^2 = c^2 $\\n\\n* presented\\n\\n\\\\[ a^n + b^n = c^n \
+\\\\]\\n\\n$$ a^2 + b^2 = c^2 $$\\n\\n\\n## URLs\\n\\nAdd hyperlinks in the \
+following ways:\\n\\n* A named link to [MarkItDown][3]. The easiest way to do \
+these is to select what you want to make a link and hit `Ctrl+L`.\\n* Another \
+named link to [MarkItDown](http://www.markitdown.net/)\\n* Sometimes you want \
+the URL : <http://www.markitdown.net/>.\\n\\n## Horizontal rule\\n\\nA \
+horizontal rule is a dividing line drawn across the page, useful for \
+separating blocks of text.\\n\\n---\\n\\n## Tables\\n\\nMarkdown | Less | \
+Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | \
+3\\n\\n## Images\\n\\nMarkdown can also contain images.\\n![Streetview of \
+Palm Trees by Brandon \
 Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
 ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
 format&fit=crop&w=564&q=80)\\n\\n## Last\\n\\nThere's actually a lot more to \
@@ -341,10 +356,11 @@ platforms.\\n\\n\\n  [1]: http://daringfireball.net/projects/markdown/\\n  \
 [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm\\n  [3]: \
 http://www.markitdown.net/\\n  [4]: \
 http://daringfireball.net/projects/markdown/basics\\n  [5]: \
-http://daringfireball.net/projects/markdown/syntax\\n\"\>"], "Output",
- CellChangeTimes->{{3.839786672681287*^9, 3.839786703609291*^9}},
- CellLabel->"Out[19]=",ExpressionUUID->"1c788981-27b2-4fe6-a8a9-38507ecb363b"]
-}, Open  ]],
+http://daringfireball.net/projects/markdown/syntax\"\>"], "Output",
+ CellChangeTimes->{{3.839786672681287*^9, 3.839786703609291*^9}, {
+  3.8452264115314407`*^9, 3.845226425375347*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"35f09d72-a78d-43d5-8a17-d90e59057af6"]
+}, Closed]],
 
 Cell[BoxData[
  RowBox[{
@@ -355,7 +371,7 @@ Cell[BoxData[
    3.8171704049186897`*^9}, 3.8172358431384687`*^9, {3.817240946833456*^9, 
    3.81724094888334*^9}, 3.8172413585269203`*^9, {3.81734384974724*^9, 
    3.817343850827291*^9}},
- CellLabel->"In[5]:=",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+ CellLabel->"In[9]:=",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
 
 Cell[CellGroupData[{
 
@@ -364,7 +380,7 @@ Cell[BoxData[
   RowBox[{"mdp", ",", 
    RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.817333311218748*^9, 3.817333316916204*^9}},
- CellLabel->"In[6]:=",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+ CellLabel->"In[11]:=",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -417,23 +433,109 @@ should become anything else.\"\>"},
       RowBox[{"\<\"H2\"\>", ",", "\<\"Lists\"\>"}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\<\"H3\"\>", ",", "\<\"Ordered list\"\>"}], "]"}]},
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Ordered list with Tabs\"\>"}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\<\"ItemNumbered\"\>", ",", 
-       RowBox[{"{", "1", "}"}], ",", "\<\"Item 1\"\>"}], "]"}]},
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"Item 1\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\<\"ItemNumbered\"\>", ",", 
-       RowBox[{"{", "2", "}"}], ",", "\<\"A second item\"\>"}], "]"}]},
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"A second item\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\<\"ItemNumbered\"\>", ",", 
-       RowBox[{"{", "3", "}"}], ",", "\<\"Number 3\"\>"}], "]"}]},
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"Number 3\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
-      RowBox[{"\<\"ItemNumbered\"\>", ",", 
-       RowBox[{"{", "4", "}"}], ",", "\<\"\:2163\"\>"}], "]"}]},
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"\:2163\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "1"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Tabs\"\>"}], ",", 
+         
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"A nested ordered item\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"H3\"\>", ",", "\<\"Ordered list with Spaces\"\>"}], 
+      "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"First item\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "1"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Whitespace\"\>"}],
+          ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"First item's subitem\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "1"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Whitespace\"\>"}],
+          ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"First item's 2nd subitem\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Ordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "2"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Whitespace\"\>"}],
+          ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"2nd item's subitem\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"Italic", ",", 
@@ -454,6 +556,7 @@ http://www.fileformat.info/info/unicode/char/2163/index.htm\"\>"}], "]"}],
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"An item\"\>"}]}], 
@@ -463,6 +566,7 @@ http://www.fileformat.info/info/unicode/char/2163/index.htm\"\>"}], "]"}],
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"Another item\"\>"}]}], 
@@ -472,6 +576,7 @@ http://www.fileformat.info/info/unicode/char/2163/index.htm\"\>"}], "]"}],
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"Yet another item\"\>"}]}],
@@ -481,10 +586,58 @@ http://www.fileformat.info/info/unicode/char/2163/index.htm\"\>"}], "]"}],
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "1"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Tabs\"\>"}], ",", 
+         
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"A nested unordered item with tabs\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", 
           "\[Rule]", "\<\"And there's more...\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"unordered list with spaces\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "1"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Whitespace\"\>"}],
+          ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"list item with space indentation\"\>"}]}], 
+        "\[RightAssociation]"}]}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\<\"Item\"\>", ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
+         RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "2"}], ",", 
+         RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "\<\"Whitespace\"\>"}],
+          ",", 
+         RowBox[{"\<\"Content\"\>", 
+          "\[Rule]", "\<\"another list item with space indentation\"\>"}]}], 
         "\[RightAssociation]"}]}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
@@ -551,12 +704,13 @@ from.\"\>"},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\<\"H2\"\>", ",", "\<\"LaTex\"\>"}], "]"}]},
-    {"\<\"LaTex is also supported:\"\>"},
+    {"\<\"LaTeX is also supported:\"\>"},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"inline\"\>"}]}], 
@@ -582,6 +736,7 @@ from.\"\>"},
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", "\<\"presented\"\>"}]}], 
@@ -611,6 +766,7 @@ from.\"\>"},
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", 
@@ -631,6 +787,7 @@ want to make a link and hit \"\>", ",",
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", 
@@ -652,6 +809,7 @@ want to make a link and hit \"\>", ",",
       RowBox[{"\<\"Item\"\>", ",", 
        RowBox[{"\[LeftAssociation]", 
         RowBox[{
+         RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Unordered\"\>"}], ",", 
          RowBox[{"\<\"IndentationLevel\"\>", "\[Rule]", "0"}], ",", 
          RowBox[{"\<\"IndentationType\"\>", "\[Rule]", "None"}], ",", 
          RowBox[{"\<\"Content\"\>", "\[Rule]", 
@@ -771,8 +929,8 @@ in rendering on other platforms.\"\>"}], "}"}]}
    3.8173454763293324`*^9, 3.817346050239132*^9, 3.81734662850709*^9, 
    3.817346763411755*^9, 3.817389840621285*^9, 3.8174164489123363`*^9, 
    3.83978561192607*^9, {3.839786021507169*^9, 3.839786026115018*^9}, 
-   3.839786250526957*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"1851928c-a621-40b8-b5d9-bcd902336aef"]
+   3.839786250526957*^9, 3.8452264595099916`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"8be56051-5855-446e-af66-6707c0c615b9"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -780,8 +938,7 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    StyleBox["ExtractMarkdownFootnote", "Input"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "b0e0dc4e-b63e-4f55-a850-c838a32c651f"],
+  ExpressionUUID->"b0e0dc4e-b63e-4f55-a850-c838a32c651f"],
  " doesn\[CloseCurlyQuote]t work \[DownArrow]\[DownArrow]\[DownArrow]"
 }], "Text",
  CellChangeTimes->{{3.83978769828237*^9, 
@@ -1463,6 +1620,632 @@ footnote][2]"]], "ExpectedOutput" -> HoldForm[{
    3.8174159839662447`*^9, 3.817416073446569*^9, 3.8174164180390863`*^9, 
    3.839786422508462*^9},
  CellLabel->"Out[7]=",ExpressionUUID->"b7177d85-3de0-49d7-93cb-15686833a2a1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["MarkdownParserTestReport"], "Input",
+ CellLabel->"In[12]:=",ExpressionUUID->"d8839fb1-a010-4533-9172-beee3a24edf2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"], 
+               ImageSizeCache -> {11., {0., 11.}}], Appearance -> None, 
+              BaseStyle -> {}, ButtonFunction :> (Typeset`open$$ = True), 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             InsetBox[
+              PaneBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource["MUnitExpressions", "SuccessIcon"],
+                 ImageSizeCache -> {16., {3., 9.}}], Alignment -> Center, 
+               ImageSize -> 
+               Dynamic[{
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]]], AspectRatio -> 1, Axes -> False, 
+             Background -> GrayLevel[0.93], Frame -> True, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]], FrameTicks -> None, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], PlotRange -> {{0, 1}, {0, 1}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["Automatic", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{"100", "\"%\""}, "RowDefault"], 
+                  "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests run: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}]}}, AutoDelete -> False, 
+             BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True -> 
+        GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"], 
+               ImageSizeCache -> {11., {0., 11.}}], Appearance -> None, 
+              BaseStyle -> {}, ButtonFunction :> (Typeset`open$$ = False), 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             InsetBox[
+              PaneBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource["MUnitExpressions", "SuccessIcon"],
+                 ImageSizeCache -> {16., {3., 9.}}], Alignment -> Center, 
+               ImageSize -> 
+               Dynamic[{
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]]], AspectRatio -> 1, Axes -> False, 
+             Background -> GrayLevel[0.93], Frame -> True, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]], FrameTicks -> None, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], PlotRange -> {{0, 1}, {0, 1}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["Automatic", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{"100", "\"%\""}, "RowDefault"], 
+                  "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests run: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Succeeded: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["28", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Failed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox[
+                 "\"Failed with wrong results: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox[
+                 "\"Failed with messages: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Failed with errors: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["0", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.003801`2.283254836092878", "\"s\"", "seconds", 
+                    "\"Seconds\""}, "Quantity"], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, AutoDelete -> False, 
+             BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[
+   Association[
+   "Title" -> Automatic, "TestResults" -> Association[1 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 1, "TestID" -> "H1Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "# A Title"]], "ExpectedOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H1", "A Title"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H1", "A Title"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000226`2.504623436979395, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00026100000000006673`, "Seconds"], "MemoryUsed" -> 
+         Quantity[31392, "Bytes"]]], 2 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 2, "TestID" -> "H2Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "## A Subtitle"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H2", "A Subtitle"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H2", "A Subtitle"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000116`2.2149729870589128, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00011499999999964317`, "Seconds"], "MemoryUsed" -> 
+         Quantity[472, "Bytes"]]], 3 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 3, "TestID" -> "H3Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "### A Chapter"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", "A Chapter"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H3", "A Chapter"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000113`2.2035934413154137, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00011199999999966792`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 4 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 4, "TestID" -> "H4Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "#### A Section"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H4", "A Section"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement["H4", "A Section"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000107`2.1798987755172035, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00010799999999999699`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 5 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 5, "TestID" -> "H5Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "##### A Subsection"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H5", "A Subsection"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H5", "A Subsection"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000109`2.1879414957726175, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00010799999999999699`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 6 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 6, "TestID" -> "H6Test", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "###### A Subsubsection"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H6", "A Subsubsection"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H6", "A Subsubsection"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000109`2.1879414957726175, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00010699999999985721`, "Seconds"], "MemoryUsed" -> 
+         Quantity[192, "Bytes"]]], 7 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 7, "TestID" -> "HNTest", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "####### A Paragraph"]], 
+         "ExpectedOutput" -> HoldForm["####### A Paragraph"], "ActualOutput" -> 
+         HoldForm["####### A Paragraph"], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000037`1.7187167218989892, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000036000000000591115`, "Seconds"], "MemoryUsed" -> 
+         Quantity[112, "Bytes"]]], 8 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 8, "TestID" -> "ItalicTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "_test_"]], "ExpectedOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Italic, "test"]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Italic, "test"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000103`2.1633522225371657, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0001020000000000465, "Seconds"], "MemoryUsed" -> 
+         Quantity[152, "Bytes"]]], 9 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 9, "TestID" -> "ItalicTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "this is a _test_"]], 
+         "ExpectedOutput" -> HoldForm[{"this is a ", 
+            MarkdownParse`MarkdownElement[Italic, "test"]}], "ActualOutput" -> 
+         HoldForm[{"this is a ", 
+            MarkdownParse`MarkdownElement[Italic, "test"]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00009`2.1047575072713185, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00009199999999998099, "Seconds"], "MemoryUsed" -> 
+         Quantity[248, "Bytes"]]], 10 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 10, "TestID" -> "ItalicTest3", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "a _different kind_ of test"]], 
+         "ExpectedOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "different kind"], 
+            " of test"}], "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "different kind"], 
+            " of test"}], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.00011`2.1919076829902187, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00010900000000013677`, "Seconds"], "MemoryUsed" -> 
+         Quantity[296, "Bytes"]]], 11 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 11, "TestID" -> "ItalicTest4", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "a _slightly_ **different** _kind_ of test"]], "ExpectedOutput" -> 
+         HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "slightly"], " ", 
+            MarkdownParse`MarkdownElement[Bold, "different"], " ", 
+            MarkdownParse`MarkdownElement[Italic, "kind"], " of test"}], 
+         "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, "slightly"], " ", 
+            MarkdownParse`MarkdownElement[Bold, "different"], " ", 
+            MarkdownParse`MarkdownElement[Italic, "kind"], " of test"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000206`2.4643822182011474, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000204000000000093, "Seconds"], "MemoryUsed" -> 
+         Quantity[640, "Bytes"]]], 12 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 12, "TestID" -> "ItalicTest5", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "a _**mixed bag**_ test"]], 
+         "ExpectedOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, 
+             MarkdownParse`MarkdownElement[Bold, "mixed bag"]], " test"}], 
+         "ActualOutput" -> HoldForm[{"a ", 
+            MarkdownParse`MarkdownElement[Italic, 
+             MarkdownParse`MarkdownElement[Bold, "mixed bag"]], " test"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000226`2.504623436979395, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00022300000000008424`, "Seconds"], "MemoryUsed" -> 
+         Quantity[560, "Bytes"]]], 13 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 13, "TestID" -> "BlockQuoteTest1",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "> a _block quote_ test"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["BlockQuote", {"a ", 
+             MarkdownParse`MarkdownElement[Italic, "block quote"], " test"}]],
+          "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["BlockQuote", {"a ", 
+             MarkdownParse`MarkdownElement[Italic, "block quote"], " test"}]],
+          "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.000205`2.462268858887748, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000204000000000093, "Seconds"], "MemoryUsed" -> 
+         Quantity[344, "Bytes"]]], 14 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 14, "TestID" -> "TableTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           Private`MarkdownTableParse[
+           "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | \
+**nicely**\n1 | 2 | 3"]], "ExpectedOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement["Table", {
+              MarkdownParse`MarkdownElement[
+              "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+              MarkdownParse`MarkdownElement[
+              "TableAlignment", {{Center}, {Center}, {Center}}], {
+               MarkdownParse`MarkdownElement["TableRow", {{
+                  MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                 " ", 
+                  MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                  " "}, {" ", 
+                  MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+               MarkdownParse`MarkdownElement[
+               "TableRow", {"1 ", " 2 ", " 3"}]}}]}], "ActualOutput" -> 
+         HoldForm[{
+            MarkdownParse`MarkdownElement["Table", {
+              MarkdownParse`MarkdownElement[
+              "TableHeader", {"Markdown ", " Less ", " Pretty"}], 
+              MarkdownParse`MarkdownElement[
+              "TableAlignment", {{Center}, {Center}, {Center}}], {
+               MarkdownParse`MarkdownElement["TableRow", {{
+                  MarkdownParse`MarkdownElement[Italic, "Still"], " "}, {
+                 " ", 
+                  MarkdownParse`MarkdownElement["InlineCode", "renders"], 
+                  " "}, {" ", 
+                  MarkdownParse`MarkdownElement[Bold, "nicely"]}}], 
+               MarkdownParse`MarkdownElement[
+               "TableRow", {"1 ", " 2 ", " 3"}]}}]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000943`3.1250266905693223, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0009420000000002204, "Seconds"], "MemoryUsed" -> 
+         Quantity[30176, "Bytes"]]], 15 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 15, "TestID" -> "CodeBlockTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "\n```Mathematica\nf[x]:=2;\nf[y]:=3\n```\n"]], "ExpectedOutput" -> 
+         HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "Mathematica", "Body" -> "f[x]:=2;\nf[y]:=3"]], 
+            "\n"}], "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "Mathematica", "Body" -> "f[x]:=2;\nf[y]:=3"]], 
+            "\n"}], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> Quantity[0.000073`2.01383785795245, "Seconds"],
+          "CPUTimeUsed" -> Quantity[0.00007299999999998974, "Seconds"], 
+         "MemoryUsed" -> Quantity[704, "Bytes"]]], 16 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 16, "TestID" -> "CodeBlockTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, "\n```\nf[x]:=2;\nf[y]:=3\n```\n"]], 
+         "ExpectedOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> "f[x]:=2;\nf[y]:=3"]], "\n"}], 
+         "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> "f[x]:=2;\nf[y]:=3"]], "\n"}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000069`1.989364088569249, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00006800000000017903, "Seconds"], "MemoryUsed" -> 
+         Quantity[592, "Bytes"]]], 17 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 17, "TestID" -> "CodeBlockTest3", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "\n    A generic code block\n    With some text\n"]], 
+         "ExpectedOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> 
+              "A generic code block\n    With some text\n"]]}], 
+         "ActualOutput" -> HoldForm[{"\n", 
+            MarkdownParse`MarkdownElement["CodeBlock", 
+             Association[
+             "Language" -> "None", "Body" -> 
+              "A generic code block\n    With some text\n"]]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00005`1.849485002168013, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00004900000000018778, "Seconds"], "MemoryUsed" -> 
+         Quantity[576, "Bytes"]]], 18 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 18, "TestID" -> "InlineCodeTest1",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "`inline code`"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["InlineCode", "inline code"]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["InlineCode", "inline code"]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000059`1.9213670094741384, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.000058999999999809205`, "Seconds"], "MemoryUsed" -> 
+         Quantity[160, "Bytes"]]], 19 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 19, "TestID" -> "InlineCodeTest2",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "insert inline `code block` formatting anywhere"]], 
+         "ExpectedOutput" -> HoldForm[{"insert inline ", 
+            MarkdownParse`MarkdownElement["InlineCode", "code block"], 
+            " formatting anywhere"}], "ActualOutput" -> 
+         HoldForm[{"insert inline ", 
+            MarkdownParse`MarkdownElement["InlineCode", "code block"], 
+            " formatting anywhere"}], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000083`2.069593090208068, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00008300000000005525, "Seconds"], "MemoryUsed" -> 
+         Quantity[312, "Bytes"]]], 20 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 20, "TestID" -> "InlineCodeTest3",
+          "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "### A Chapter heading with `inline code` inserted"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", {"A Chapter heading with ", 
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+             " inserted"}]], "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["H3", {"A Chapter heading with ", 
+             MarkdownParse`MarkdownElement["InlineCode", "inline code"], 
+             " inserted"}]], "ExpectedMessages" -> {}, "ActualMessages" -> {},
+          "AbsoluteTimeUsed" -> 
+         Quantity[0.000239`2.5289128987801313, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.0002369999999998207, "Seconds"], "MemoryUsed" -> 
+         Quantity[456, "Bytes"]]], 21 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 21, "TestID" -> 
+         "InlineLaTeXTest1", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "\(a^2 + b^2 = c^2\)"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Inline", "Body" -> "a^2 + b^2 = c^2"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000043`1.7839834534115804, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00004300000000023729, "Seconds"], "MemoryUsed" -> 
+         Quantity[520, "Bytes"]]], 22 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 22, "TestID" -> 
+         "InlineLaTeXTest2", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "$ a^2 + b^2 = c^2 $"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Inline", "Body" -> " a^2 + b^2 = c^2 "]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000041`1.7632988545517294, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00003900000000012227, "Seconds"], "MemoryUsed" -> 
+         Quantity[464, "Bytes"]]], 23 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 23, "TestID" -> 
+         "DisplayLaTeXTest1", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "\\[ a^n + b^n = c^n \\]"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Display", "Body" -> "a^n + b^n = c^n"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.00004`1.752574989159956, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00003900000000012227, "Seconds"], "MemoryUsed" -> 
+         Quantity[456, "Bytes"]]], 24 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 24, "TestID" -> 
+         "DisplayLaTeXTest2", "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "$$ a^2 + b^2 = c^2 $$"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]],
+          "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement["LaTeX", 
+            Association["Type" -> "Display", "Body" -> " a^2 + b^2 = c^2 "]]],
+          "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 
+         Quantity[0.000041`1.763298854551729, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00003900000000012227, "Seconds"], "MemoryUsed" -> 
+         Quantity[464, "Bytes"]]], 25 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 25, "TestID" -> "LinkTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, "[click here](www.google.com)"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "Label" -> "click here", "Link" -> "www.google.com"]]], 
+         "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "Label" -> "click here", "Link" -> "www.google.com"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000095`2.128238603120842, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00009400000000026054, "Seconds"], "MemoryUsed" -> 
+         Quantity[568, "Bytes"]]], 26 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 26, "TestID" -> "LinkTest2", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[Private`MarkdownParser, "<www.google.com>"]], 
+         "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association["Link" -> "www.google.com"]]], "ActualOutput" -> 
+         HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association["Link" -> "www.google.com"]]], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000041`1.763298854551729, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00004099999999951365, "Seconds"], "MemoryUsed" -> 
+         Quantity[440, "Bytes"]]], 27 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 27, "TestID" -> "ImageLinkTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "![Streetview of Palm Trees by Brandon \
+Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80)"]], "ExpectedOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+             "Link" -> 
+             "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]], "ActualOutput" -> HoldForm[
+           MarkdownParse`MarkdownElement[Hyperlink, 
+            Association[
+            "AltText" -> "Streetview of Palm Trees by Brandon Erlinger-Ford", 
+             "Link" -> 
+             "https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
+ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
+format&fit=crop&w=564&q=80"]]], "ExpectedMessages" -> {}, 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000061`1.935844832842761, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00005999999999994898, "Seconds"], "MemoryUsed" -> 
+         Quantity[752, "Bytes"]]], 28 -> TestResultObject[
+        Association[
+        "TestClass" -> None, "TestIndex" -> 28, "TestID" -> "FoonoteTest1", 
+         "Outcome" -> "Success", "Input" -> HoldForm[
+           FixedPoint[
+           Private`MarkdownParser, 
+            "[The first footnote][1] was there and here's [the second \
+footnote][2]"]], "ExpectedOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement[Hyperlink, "The first footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {1}]], 
+            " was there and here's", 
+            MarkdownParse`MarkdownElement[Hyperlink, "the second footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {2}]]}], 
+         "ActualOutput" -> HoldForm[{
+            MarkdownParse`MarkdownElement[Hyperlink, "The first footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {1}]], 
+            " was there and here's", 
+            MarkdownParse`MarkdownElement[Hyperlink, "the second footnote", 
+             MarkdownParse`MarkdownElement["FootnoteReference", {2}]]}], 
+         "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         Quantity[0.000166`2.370623085872049, "Seconds"], "CPUTimeUsed" -> 
+         Quantity[0.00016499999999997073`, "Seconds"], "MemoryUsed" -> 
+         Quantity[608, "Bytes"]]]], 
+    "TestsSucceededIndices" -> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+      15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28}, 
+    "TestsFailedIndices" -> {}, "TestsFailedWrongResultsIndices" -> {}, 
+    "TestsFailedWithMessagesIndices" -> {}, 
+    "TestsFailedWithErrorsIndices" -> {}, "TimeElapsed" -> 
+    Quantity[0.003801`2.283254836092878, "Seconds"], "TestsSucceededCount" -> 
+    28, "TestsFailedCount" -> 0, "TestsFailedWrongResultsCount" -> 0, 
+    "TestsFailedWithMessagesCount" -> 0, "TestsFailedWithErrorsCount" -> 0, 
+    "Aborted" -> False]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.845226719611676*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"03a2d32d-c89c-4f8a-83d7-c9ecf1566c64"]
 }, Open  ]]
 }, Open  ]],
 
@@ -4431,7 +5214,7 @@ on other platforms."], "Tooltip"]& ]}}],
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1440, 847},
+WindowSize->{1696, 1387},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
@@ -4455,48 +5238,52 @@ Cell[580, 22, 261, 4, 98, "Title",ExpressionUUID->"b7946855-acef-475d-bca3-4f6aa
 Cell[844, 28, 336, 5, 62, "Abstract",ExpressionUUID->"41f6fde2-3312-478f-b2c8-ff97b1cd3e62"],
 Cell[1183, 35, 249, 4, 35, "Text",ExpressionUUID->"ae62ea4f-43d4-4edf-903f-316f87708814"],
 Cell[1435, 41, 160, 3, 38, "CodeText",ExpressionUUID->"fea4a3a1-ea63-4863-a1c5-7652c6364503"],
-Cell[1598, 46, 177, 2, 30, "Input",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
-Cell[1778, 50, 187, 3, 35, "Text",ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-21d386c647ab"],
-Cell[1968, 55, 265, 4, 32, "Item",ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-049537859d6f"],
-Cell[2236, 61, 279, 6, 32, "Item",ExpressionUUID->"328c2086-ad04-4777-8fca-349330ab56d6"],
-Cell[2518, 69, 214, 4, 35, "Text",ExpressionUUID->"4d05c24d-9b3c-450e-8869-e15918e4ea41"],
-Cell[2735, 75, 192, 3, 38, "CodeText",ExpressionUUID->"8d0676c6-1170-4ab4-9427-52aa2d5bd45e"],
-Cell[2930, 80, 393, 6, 52, "Input",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
+Cell[1598, 46, 176, 2, 30, "Input",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+Cell[1777, 50, 187, 3, 35, "Text",ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-21d386c647ab"],
+Cell[1967, 55, 265, 4, 32, "Item",ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-049537859d6f"],
+Cell[2235, 61, 279, 6, 32, "Item",ExpressionUUID->"328c2086-ad04-4777-8fca-349330ab56d6"],
+Cell[2517, 69, 214, 4, 35, "Text",ExpressionUUID->"4d05c24d-9b3c-450e-8869-e15918e4ea41"],
+Cell[2734, 75, 192, 3, 38, "CodeText",ExpressionUUID->"8d0676c6-1170-4ab4-9427-52aa2d5bd45e"],
+Cell[2929, 80, 393, 6, 52, "Input",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
 Cell[CellGroupData[{
-Cell[3348, 90, 211, 4, 67, "Section",ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-0bb641bd7da7"],
-Cell[3562, 96, 187, 3, 35, "Text",ExpressionUUID->"f351d147-2c71-4e75-8503-4812d9fd3995"],
+Cell[3347, 90, 211, 4, 67, "Section",ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-0bb641bd7da7"],
+Cell[3561, 96, 187, 3, 35, "Text",ExpressionUUID->"f351d147-2c71-4e75-8503-4812d9fd3995"],
 Cell[CellGroupData[{
-Cell[3774, 103, 536, 12, 30, "Input",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
-Cell[4313, 117, 5901, 143, 403, "Output",ExpressionUUID->"9d30d1e1-3b38-4327-b7fa-5f15a0c5141e"]
+Cell[3773, 103, 536, 12, 30, "Input",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
+Cell[4312, 117, 6329, 152, 403, "Output",ExpressionUUID->"3b4e9d5f-2ca3-4524-b7a9-f0828e41a3fe"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10263, 266, 265, 4, 67, "Section",ExpressionUUID->"b3b2a78c-44c3-460b-86ab-b0b33931b39c"],
-Cell[10531, 272, 651, 13, 30, "Input",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
+Cell[10690, 275, 265, 4, 67, "Section",ExpressionUUID->"b3b2a78c-44c3-460b-86ab-b0b33931b39c"],
+Cell[10958, 281, 651, 13, 30, "Input",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
 Cell[CellGroupData[{
-Cell[11207, 289, 249, 4, 30, "Input",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
-Cell[11459, 295, 3837, 50, 2429, "Output",ExpressionUUID->"1c788981-27b2-4fe6-a8a9-38507ecb363b"]
+Cell[11634, 298, 295, 5, 30, "Input",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
+Cell[11932, 305, 4222, 56, 2639, "Output",ExpressionUUID->"35f09d72-a78d-43d5-8a17-d90e59057af6"]
+}, Closed]],
+Cell[16169, 364, 511, 9, 26, "Input",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+Cell[CellGroupData[{
+Cell[16705, 377, 265, 5, 30, "Input",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+Cell[16973, 384, 24025, 548, 1547, "Output",ExpressionUUID->"8be56051-5855-446e-af66-6707c0c615b9"]
 }, Open  ]],
-Cell[15311, 348, 511, 9, 30, "Input",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
-Cell[CellGroupData[{
-Cell[15847, 361, 264, 5, 30, "Input",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
-Cell[16114, 368, 17426, 406, 1417, "Output",ExpressionUUID->"1851928c-a621-40b8-b5d9-bcd902336aef"]
-}, Open  ]],
-Cell[33555, 777, 427, 11, 35, "Text",ExpressionUUID->"fd11d7bb-32c7-4cc0-b0ef-780fc0134e6d"],
-Cell[33985, 790, 1151, 24, 73, "Input",ExpressionUUID->"b263aba7-97b0-4acf-882c-d77f77a17c66"]
+Cell[41013, 935, 396, 10, 35, "Text",ExpressionUUID->"fd11d7bb-32c7-4cc0-b0ef-780fc0134e6d"],
+Cell[41412, 947, 1151, 24, 73, "Input",ExpressionUUID->"b263aba7-97b0-4acf-882c-d77f77a17c66"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35173, 819, 157, 3, 67, "Section",ExpressionUUID->"b146c287-093e-4ce4-bf8b-fc1c63394988"],
+Cell[42600, 976, 157, 3, 67, "Section",ExpressionUUID->"b146c287-093e-4ce4-bf8b-fc1c63394988"],
 Cell[CellGroupData[{
-Cell[35355, 826, 128, 1, 30, "Input",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
-Cell[35486, 829, 35105, 635, 63, "Output",ExpressionUUID->"b7177d85-3de0-49d7-93cb-15686833a2a1"]
+Cell[42782, 983, 128, 1, 30, "Input",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
+Cell[42913, 986, 35105, 635, 63, "Output",ExpressionUUID->"b7177d85-3de0-49d7-93cb-15686833a2a1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78055, 1626, 129, 1, 30, "Input",ExpressionUUID->"d8839fb1-a010-4533-9172-beee3a24edf2"],
+Cell[78187, 1629, 33983, 618, 63, "Output",ExpressionUUID->"03a2d32d-c89c-4f8a-83d7-c9ecf1566c64"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[70640, 1470, 213, 4, 67, "Section",ExpressionUUID->"4f666e40-40ae-47f6-84f5-e0c92279d12d"],
+Cell[112219, 2253, 213, 4, 67, "Section",ExpressionUUID->"4f666e40-40ae-47f6-84f5-e0c92279d12d"],
 Cell[CellGroupData[{
-Cell[70878, 1478, 504, 9, 30, "Input",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
-Cell[71385, 1489, 132096, 2939, 301, "Output",ExpressionUUID->"d64edc38-07fc-4033-ab24-f5b7ce98d56e"]
+Cell[112457, 2261, 504, 9, 30, "Input",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
+Cell[112964, 2272, 132096, 2939, 301, "Output",ExpressionUUID->"d64edc38-07fc-4033-ab24-f5b7ce98d56e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

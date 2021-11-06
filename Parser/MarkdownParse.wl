@@ -103,7 +103,7 @@ mdpFootnote=RegularExpression["(?ms)(?:\\A|^|\\s)\\[(.+?)\\]\\[(\\d+?)\\]"]:>Mar
 (* mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:> MarkdownElement["ItemNumbered",{ToExpression["$1"]},MarkdownParser["$2"]] *)
 mdpOrderedListItem=(RegularExpression["(\\A|^|\\s+|\\t+)(\\d\\.)+ (.*)"]) :>With[
 	{type = GetIndentationType["$1"]},
-	MarkdownElement["Item", <|"IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> "$3"|> ]
+	MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> "$3"|> ]
 	]
 
 
@@ -129,7 +129,7 @@ GetIndentationType[s_String] := "Whitespace"
 
 mdpUnorderedItem = (RegularExpression["(\\A|^|\\s+|\\t+)[\\*\\-\\+] (.*)"]) :> With[
 	{type = GetIndentationType["$1"]},
-	MarkdownElement["Item", <|"IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> MarkdownParser["$2"]|> ]
+	MarkdownElement["Item", <|"Type" -> "Unordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> MarkdownParser["$2"]|> ]
 	];
 
 
