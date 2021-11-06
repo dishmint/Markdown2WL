@@ -13,15 +13,11 @@
 
 
 BeginPackage["MarkdownParse`"]
-(* \[DownArrow] Allow Refresh of Definitions on Get call \[DownArrow] *)
-Unprotect["MarkdownParse`*"];
-ClearAll["MarkdownParse`*"];
-ClearAll["MarkdownParse`Private`*"];
-(* \[UpArrow] Can be removed in Production             \[UpArrow] *)
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
 MarkdownElement::usage="Represents an element in Symbolic Markdown"
 $sampleStrings::usage="A set of strings used for testing"
 $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
+
 Begin["Private`"]
 
 
@@ -104,7 +100,11 @@ mdpFootnote=RegularExpression["(?ms)(?:\\A|^|\\s)\\[(.+?)\\]\\[(\\d+?)\\]"]:>Mar
 (*OrderedItem*)
 
 (* TODO: Add indentation support for ordered items *)
-mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:> MarkdownElement["ItemNumbered",{ToExpression["$1"]},MarkdownParser["$2"]]
+(* mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:> MarkdownElement["ItemNumbered",{ToExpression["$1"]},MarkdownParser["$2"]] *)
+mdpOrderedListItem=(RegularExpression["(\\A|^|\\s+|\\t+)(\\d\\.)+ (.*)"]) :>With[
+	{type = GetIndentationType["$1"]},
+	MarkdownElement["Item", <|"IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> "$3"|> ]
+	]
 
 
 (* ::Subsubsection::Closed:: *)
