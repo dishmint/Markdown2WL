@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    248845,       5285]
-NotebookOptionsPosition[    245100,       5216]
-NotebookOutlinePosition[    245587,       5234]
-CellTagsIndexPosition[    245544,       5231]
+NotebookDataLength[    245180,       5241]
+NotebookOptionsPosition[    241439,       5172]
+NotebookOutlinePosition[    241926,       5190]
+CellTagsIndexPosition[    241883,       5187]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -46,7 +46,7 @@ Cell["Quit the kernel", "CodeText",
 
 Cell[BoxData["Quit"], "Input",
  CellChangeTimes->{{3.817239754310732*^9, 3.8172397548456573`*^9}},
- CellLabel->"In[5]:=",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+ CellLabel->"In[13]:=",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
 
 Cell["Install the packages again from the Menu:", "Text",
  CellChangeTimes->{{3.8174165987397127`*^9, 
@@ -266,8 +266,8 @@ Cell[BoxData[
    3.817389589946957*^9, 3.817423982038066*^9, 3.8397853572118587`*^9, {
    3.839785419382757*^9, 3.8397854364402733`*^9}, {3.839785527027009*^9, 
    3.839785540844495*^9}, 3.839786014047813*^9, 3.8397862448168993`*^9, 
-   3.845226378341282*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"3b4e9d5f-2ca3-4524-b7a9-f0828e41a3fe"]
+   3.845226378341282*^9, 3.84522716739851*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"9e8c8536-6d50-4b44-b5a1-3a64d5972403"]
 }, Open  ]]
 }, Open  ]],
 
@@ -294,73 +294,15 @@ Cell[BoxData[
    3.8173897935513268`*^9, 3.817389831975668*^9}},
  CellLabel->"In[4]:=",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
- RowBox[{"Import", "[", 
-  RowBox[{"filePath", ",", "\"\<Text\>\""}], "]"}]], "Input",
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"filePath", ",", "\"\<Text\>\""}], "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.839786671641347*^9, 3.8397867032127323`*^9}, {
-  3.845226422574849*^9, 3.845226424824779*^9}},
+   3.845226422574849*^9, 3.845226424824779*^9}, 3.845227179074463*^9},
  CellLabel->"In[6]:=",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
 
-Cell[BoxData["\<\"# An exhibit of Markdown\\n\\nThis note demonstrates some \
-of what [Markdown][1] is capable of doing.\\n\\n_Note: Feel free to play with \
-this page. Unlike regular notes, this doesn't automatically save \
-itself._\\n\\n## Basic formatting\\n\\nWrite Paragraphs like so. A paragraph \
-is the basic block of Markdown. A paragraph is what text will turn into when \
-there is no reason it should become anything else.\\n\\nBlank lines separate \
-paragraphs. Markdown supports _italic_ and **bold** formatting.\\n\\nLines \
-can have nested styling as well, like _a **bold** in an italic_.\\n\\n## \
-Lists\\n\\n### Ordered list with Tabs\\n\\n1. Item 1\\n2. A second item\\n3. \
-Number 3\\n4. \:2163\\n\\t5. A nested ordered item\\n\\n### Ordered list with \
-Spaces\\n\\n1. First item\\n  2. First item's subitem\\n  3. First item's 2nd \
-subitem\\n    4. 2nd item's subitem\\n\\n_Note: the fourth item uses the \
-Unicode character for [Roman numeral four][2]._\\n\\n### Unordered \
-list\\n\\n* An item\\n* Another item\\n* Yet another item\\n\\t* A nested \
-unordered item with tabs\\n* And there's more...\\n\\n* unordered list with \
-spaces\\n  * list item with space indentation\\n    * another list item with \
-space indentation\\n\\n## Paragraph modifiers\\n\\n### Code block\\n\\n    \
-Code blocks are useful for people who look at code or for clarity of plain \
-text content. As you can see, it uses a fixed-width font.\\n\\nYou can also \
-make `inline code` to add insert code block formatting anywhere.\\n\\n### \
-Quote\\n\\n> Here is a quote. What this is should be self explanatory. Quotes \
-are automatically indented when they are used.\\n\\n## Headings\\n\\nMarkdown \
-supports six levels of headings; corresponding with the six levels of HTML \
-headings. You've probably noticed them already in the page. Each level down \
-uses one more hash character.\\n\\n### Headings _can_ also contain \
-**formatting**\\n\\n### They can even contain `inline code`\\n\\nOf course, \
-demonstrating what headings look like messes up the structure of the page.\\n\
-\\nI don't recommend using more than three or four levels of headings here, \
-because, when you're smallest heading isn't too small, and you're largest \
-heading isn't too big, and you want each size up to look noticeably larger \
-and more important, there aren't any other sizes to choose from.\\n\\n## \
-LaTex\\n\\nLaTeX is also supported:\\n\\n* inline\\n\\n\\\\(a^2 + b^2 = c^2\\\
-\\)\\n\\n$ a^2 + b^2 = c^2 $\\n\\n* presented\\n\\n\\\\[ a^n + b^n = c^n \
-\\\\]\\n\\n$$ a^2 + b^2 = c^2 $$\\n\\n\\n## URLs\\n\\nAdd hyperlinks in the \
-following ways:\\n\\n* A named link to [MarkItDown][3]. The easiest way to do \
-these is to select what you want to make a link and hit `Ctrl+L`.\\n* Another \
-named link to [MarkItDown](http://www.markitdown.net/)\\n* Sometimes you want \
-the URL : <http://www.markitdown.net/>.\\n\\n## Horizontal rule\\n\\nA \
-horizontal rule is a dividing line drawn across the page, useful for \
-separating blocks of text.\\n\\n---\\n\\n## Tables\\n\\nMarkdown | Less | \
-Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | \
-3\\n\\n## Images\\n\\nMarkdown can also contain images.\\n![Streetview of \
-Palm Trees by Brandon \
-Erlinger-Ford](https://images.unsplash.com/photo-1564889998041-0dacc0706a0f?\
-ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=\
-format&fit=crop&w=564&q=80)\\n\\n## Last\\n\\nThere's actually a lot more to \
-Markdown than this. See the official [introduction][4] and [syntax][5] for \
-more information. Be aware that this document is not using the official \
-implementation, and there may be subtle differences in rendering on other \
-platforms.\\n\\n\\n  [1]: http://daringfireball.net/projects/markdown/\\n  \
-[2]: http://www.fileformat.info/info/unicode/char/2163/index.htm\\n  [3]: \
-http://www.markitdown.net/\\n  [4]: \
-http://daringfireball.net/projects/markdown/basics\\n  [5]: \
-http://daringfireball.net/projects/markdown/syntax\"\>"], "Output",
- CellChangeTimes->{{3.839786672681287*^9, 3.839786703609291*^9}, {
-  3.8452264115314407`*^9, 3.845226425375347*^9}},
- CellLabel->"Out[6]=",ExpressionUUID->"35f09d72-a78d-43d5-8a17-d90e59057af6"]
-}, Closed]],
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -371,7 +313,21 @@ Cell[BoxData[
    3.8171704049186897`*^9}, 3.8172358431384687`*^9, {3.817240946833456*^9, 
    3.81724094888334*^9}, 3.8172413585269203`*^9, {3.81734384974724*^9, 
    3.817343850827291*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+ CellLabel->"In[7]:=",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"FootFile\"\>",
+   "EchoLabel"], 
+  "  ", "\<\"[1]: http://daringfireball.net/projects/markdown/\\n[2]: \
+http://www.fileformat.info/info/unicode/char/2163/index.htm\\n[3]: \
+http://www.markitdown.net/\\n[4]: \
+http://daringfireball.net/projects/markdown/basics\\n[5]: \
+http://daringfireball.net/projects/markdown/syntax\"\>"}]], "Echo",
+ CellChangeTimes->{
+  3.845227180636941*^9},ExpressionUUID->"605c8bc1-821f-457c-a598-\
+e40741ffbb34"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -380,7 +336,7 @@ Cell[BoxData[
   RowBox[{"mdp", ",", 
    RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.817333311218748*^9, 3.817333316916204*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+ CellLabel->"In[8]:=",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -929,8 +885,8 @@ in rendering on other platforms.\"\>"}], "}"}]}
    3.8173454763293324`*^9, 3.817346050239132*^9, 3.81734662850709*^9, 
    3.817346763411755*^9, 3.817389840621285*^9, 3.8174164489123363`*^9, 
    3.83978561192607*^9, {3.839786021507169*^9, 3.839786026115018*^9}, 
-   3.839786250526957*^9, 3.8452264595099916`*^9},
- CellLabel->"Out[11]=",ExpressionUUID->"8be56051-5855-446e-af66-6707c0c615b9"]
+   3.839786250526957*^9, 3.8452264595099916`*^9, 3.845227189799056*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"f3c27957-ee9c-4018-9df1-23406b00f1a6"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -5214,7 +5170,7 @@ on other platforms."], "Tooltip"]& ]}}],
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1696, 1387},
+WindowSize->{2560, 1387},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
@@ -5238,52 +5194,52 @@ Cell[580, 22, 261, 4, 98, "Title",ExpressionUUID->"b7946855-acef-475d-bca3-4f6aa
 Cell[844, 28, 336, 5, 62, "Abstract",ExpressionUUID->"41f6fde2-3312-478f-b2c8-ff97b1cd3e62"],
 Cell[1183, 35, 249, 4, 35, "Text",ExpressionUUID->"ae62ea4f-43d4-4edf-903f-316f87708814"],
 Cell[1435, 41, 160, 3, 38, "CodeText",ExpressionUUID->"fea4a3a1-ea63-4863-a1c5-7652c6364503"],
-Cell[1598, 46, 176, 2, 30, "Input",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
-Cell[1777, 50, 187, 3, 35, "Text",ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-21d386c647ab"],
-Cell[1967, 55, 265, 4, 32, "Item",ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-049537859d6f"],
-Cell[2235, 61, 279, 6, 32, "Item",ExpressionUUID->"328c2086-ad04-4777-8fca-349330ab56d6"],
-Cell[2517, 69, 214, 4, 35, "Text",ExpressionUUID->"4d05c24d-9b3c-450e-8869-e15918e4ea41"],
-Cell[2734, 75, 192, 3, 38, "CodeText",ExpressionUUID->"8d0676c6-1170-4ab4-9427-52aa2d5bd45e"],
-Cell[2929, 80, 393, 6, 52, "Input",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
+Cell[1598, 46, 177, 2, 30, "Input",ExpressionUUID->"14e54866-d7f3-4f17-9074-d8f159484569"],
+Cell[1778, 50, 187, 3, 35, "Text",ExpressionUUID->"f5f4754d-cb7f-445c-b6aa-21d386c647ab"],
+Cell[1968, 55, 265, 4, 32, "Item",ExpressionUUID->"1b196ee9-d5d1-46dc-8ca0-049537859d6f"],
+Cell[2236, 61, 279, 6, 32, "Item",ExpressionUUID->"328c2086-ad04-4777-8fca-349330ab56d6"],
+Cell[2518, 69, 214, 4, 35, "Text",ExpressionUUID->"4d05c24d-9b3c-450e-8869-e15918e4ea41"],
+Cell[2735, 75, 192, 3, 38, "CodeText",ExpressionUUID->"8d0676c6-1170-4ab4-9427-52aa2d5bd45e"],
+Cell[2930, 80, 393, 6, 52, "Input",ExpressionUUID->"512dcb97-052f-434b-86d0-eedcfeef80ee"],
 Cell[CellGroupData[{
-Cell[3347, 90, 211, 4, 67, "Section",ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-0bb641bd7da7"],
-Cell[3561, 96, 187, 3, 35, "Text",ExpressionUUID->"f351d147-2c71-4e75-8503-4812d9fd3995"],
+Cell[3348, 90, 211, 4, 67, "Section",ExpressionUUID->"ed8a7d53-f2bf-4ccf-ac2c-0bb641bd7da7"],
+Cell[3562, 96, 187, 3, 35, "Text",ExpressionUUID->"f351d147-2c71-4e75-8503-4812d9fd3995"],
 Cell[CellGroupData[{
-Cell[3773, 103, 536, 12, 30, "Input",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
-Cell[4312, 117, 6329, 152, 403, "Output",ExpressionUUID->"3b4e9d5f-2ca3-4524-b7a9-f0828e41a3fe"]
+Cell[3774, 103, 536, 12, 30, "Input",ExpressionUUID->"f1fcf8ce-29d8-40fc-99c1-c93ff96ce718"],
+Cell[4313, 117, 6350, 152, 403, "Output",ExpressionUUID->"9e8c8536-6d50-4b44-b5a1-3a64d5972403"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10690, 275, 265, 4, 67, "Section",ExpressionUUID->"b3b2a78c-44c3-460b-86ab-b0b33931b39c"],
-Cell[10958, 281, 651, 13, 30, "Input",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
+Cell[10712, 275, 265, 4, 67, "Section",ExpressionUUID->"b3b2a78c-44c3-460b-86ab-b0b33931b39c"],
+Cell[10980, 281, 651, 13, 30, "Input",ExpressionUUID->"eb165041-5cf3-44fe-84d0-1ed19d05bc91"],
+Cell[11634, 296, 337, 6, 30, "Input",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
 Cell[CellGroupData[{
-Cell[11634, 298, 295, 5, 30, "Input",ExpressionUUID->"a972bbb6-220f-477c-9519-23652026c73b"],
-Cell[11932, 305, 4222, 56, 2639, "Output",ExpressionUUID->"35f09d72-a78d-43d5-8a17-d90e59057af6"]
-}, Closed]],
-Cell[16169, 364, 511, 9, 26, "Input",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
-Cell[CellGroupData[{
-Cell[16705, 377, 265, 5, 30, "Input",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
-Cell[16973, 384, 24025, 548, 1547, "Output",ExpressionUUID->"8be56051-5855-446e-af66-6707c0c615b9"]
-}, Open  ]],
-Cell[41013, 935, 396, 10, 35, "Text",ExpressionUUID->"fd11d7bb-32c7-4cc0-b0ef-780fc0134e6d"],
-Cell[41412, 947, 1151, 24, 73, "Input",ExpressionUUID->"b263aba7-97b0-4acf-882c-d77f77a17c66"]
+Cell[11996, 306, 511, 9, 30, "Input",ExpressionUUID->"eacdcb92-3bd4-49f3-8e4a-d8e4f3c127e1"],
+Cell[12510, 317, 477, 11, 101, "Echo",ExpressionUUID->"605c8bc1-821f-457c-a598-e40741ffbb34"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42600, 976, 157, 3, 67, "Section",ExpressionUUID->"b146c287-093e-4ce4-bf8b-fc1c63394988"],
-Cell[CellGroupData[{
-Cell[42782, 983, 128, 1, 30, "Input",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
-Cell[42913, 986, 35105, 635, 63, "Output",ExpressionUUID->"b7177d85-3de0-49d7-93cb-15686833a2a1"]
+Cell[13024, 333, 264, 5, 30, "Input",ExpressionUUID->"81c3bc60-b0c4-414c-a59a-0ad5ebeb3a3c"],
+Cell[13291, 340, 24046, 548, 1431, "Output",ExpressionUUID->"f3c27957-ee9c-4018-9df1-23406b00f1a6"]
+}, Open  ]],
+Cell[37352, 891, 396, 10, 35, "Text",ExpressionUUID->"fd11d7bb-32c7-4cc0-b0ef-780fc0134e6d"],
+Cell[37751, 903, 1151, 24, 73, "Input",ExpressionUUID->"b263aba7-97b0-4acf-882c-d77f77a17c66"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[78055, 1626, 129, 1, 30, "Input",ExpressionUUID->"d8839fb1-a010-4533-9172-beee3a24edf2"],
-Cell[78187, 1629, 33983, 618, 63, "Output",ExpressionUUID->"03a2d32d-c89c-4f8a-83d7-c9ecf1566c64"]
+Cell[38939, 932, 157, 3, 67, "Section",ExpressionUUID->"b146c287-093e-4ce4-bf8b-fc1c63394988"],
+Cell[CellGroupData[{
+Cell[39121, 939, 128, 1, 30, "Input",ExpressionUUID->"6f9dcc92-bd17-4872-a306-71c269a07483"],
+Cell[39252, 942, 35105, 635, 63, "Output",ExpressionUUID->"b7177d85-3de0-49d7-93cb-15686833a2a1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74394, 1582, 129, 1, 30, "Input",ExpressionUUID->"d8839fb1-a010-4533-9172-beee3a24edf2"],
+Cell[74526, 1585, 33983, 618, 63, "Output",ExpressionUUID->"03a2d32d-c89c-4f8a-83d7-c9ecf1566c64"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[112219, 2253, 213, 4, 67, "Section",ExpressionUUID->"4f666e40-40ae-47f6-84f5-e0c92279d12d"],
+Cell[108558, 2209, 213, 4, 67, "Section",ExpressionUUID->"4f666e40-40ae-47f6-84f5-e0c92279d12d"],
 Cell[CellGroupData[{
-Cell[112457, 2261, 504, 9, 30, "Input",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
-Cell[112964, 2272, 132096, 2939, 301, "Output",ExpressionUUID->"d64edc38-07fc-4033-ab24-f5b7ce98d56e"]
+Cell[108796, 2217, 504, 9, 30, "Input",ExpressionUUID->"5a0df57e-3ad2-41a8-b185-d42a6cf33609"],
+Cell[109303, 2228, 132096, 2939, 301, "Output",ExpressionUUID->"d64edc38-07fc-4033-ab24-f5b7ce98d56e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

@@ -364,7 +364,5 @@ MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 (* ::Chapter:: *)
 (*End Package*)
 
-
 End[]
-Protect["MarkdownParse`*"];
 EndPackage[]
