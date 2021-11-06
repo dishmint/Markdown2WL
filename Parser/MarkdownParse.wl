@@ -17,7 +17,7 @@ MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in m
 MarkdownElement::usage="Represents an element in Symbolic Markdown"
 $sampleStrings::usage="A set of strings used for testing"
 $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
-
+ExtractMarkdownFootnoteURL
 Begin["Private`"]
 
 
@@ -353,7 +353,7 @@ MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 	(* Repeatedly apply the parser to each line until the expression doesn't change *)
 	parsedLines=(FixedPoint[MarkdownParser,#]&/@lines);
 	(* Replace footnote references with their respective URLs *)
-	footnoteCheck=(parsedLines /. MarkdownElement["FootnoteReference", {ref_}]:>First@ExtractMarkdownFootnoteURL[ref,footFile]);
+	footnoteCheck=Replace[parsedLines, MarkdownElement["FootnoteReference", {ref_Integer}] :> First@ExtractMarkdownFootnoteURL[ref,footFile], Infinity];
 	(* Get rid of the footnote residue *)
 	parse1=If[StringQ[#]\[And]StringMatchQ[$footnote][#],StringReplace[$footnote-> "(wasfootnote)"][#],#]&/@footnoteCheck;
 	parse1clean=DeleteCases["(wasfootnote)"][parse1]
