@@ -13,15 +13,11 @@
 
 
 BeginPackage["MarkdownParse`"]
-(* \[DownArrow] Allow Refresh of Definitions on Get call \[DownArrow] *)
-Unprotect["MarkdownParse`*"];
-ClearAll["MarkdownParse`*"];
-ClearAll["MarkdownParse`Private`*"];
-(* \[UpArrow] Can be removed in Production             \[UpArrow] *)
 MarkdownParse::usage="MarkdownParse[\*StyleBox[\"file . md\",\"TI\"]] Reads in markdown \*StyleBox[\"file . md\",\"TI\"], and parses to a list of nested MarkdownElements and text"
 MarkdownElement::usage="Represents an element in Symbolic Markdown"
 $sampleStrings::usage="A set of strings used for testing"
 $MarkdownParsePrimitives::usage="A set of patterns for markdown primitives"
+ExtractMarkdownFootnoteURL
 Begin["Private`"]
 
 
@@ -103,8 +99,12 @@ mdpFootnote=RegularExpression["(?ms)(?:\\A|^|\\s)\\[(.+?)\\]\\[(\\d+?)\\]"]:>Mar
 (* ::Subsubsection::Closed:: *)
 (*OrderedItem*)
 
-
-mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:> MarkdownElement["ItemNumbered",{ToExpression["$1"]},MarkdownParser["$2"]]
+(* TODO: Add indentation support for ordered items *)
+(* mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:> MarkdownElement["ItemNumbered",{ToExpression["$1"]},MarkdownParser["$2"]] *)
+mdpOrderedListItem=(RegularExpression["(\\A|^|\\s+|\\t+)(\\d\\.)+ (.*)"]) :>With[
+	{type = GetIndentationType["$1"]},
+	MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> "$3"|> ]
+	]
 
 
 (* ::Subsubsection::Closed:: *)
@@ -113,7 +113,24 @@ mdpOrderedListItem=RegularExpression["(?ms)(?:\\A|^|\\s+)(\\d+)\\.\\s(.+)\\z"]:>
 
 (* The + sign is causing problems for LaTex removing it for now (does that mean * could cause issues too?) *)
 (*mdpUnorderedItem=RegularExpression["(?ms)(?:\\A|^|\\s+)([*+\\-])\\s(.+)\\z"]\[RuleDelayed]MarkdownElement["Item",MarkdownParser["$2"]];*)
-mdpUnorderedItem=RegularExpression["(\n|^|\\A)(\t|\\s)*?(\\*|\\+|\\-])\\s(.+)\\z"]:>MarkdownElement["Item",MarkdownParser["$4"]];
+(* mdpUnorderedItem=RegularExpression["(\n|^|\\A)(\t|\\s)*?(\\*|\\+|\\-])\\s(.+)\\z"]:>MarkdownElement["Item",MarkdownParser["$4"]]; *)
+
+Options[GetIndentationLevel] = {
+	"IndentLength" -> 2
+};
+
+GetIndentationLevel["", _] := 0
+GetIndentationLevel[lead_String, "Tabs", OptionsPattern[]] := StringLength[lead]
+GetIndentationLevel[lead_String, "Whitespace", OptionsPattern[]] := StringLength[lead]/OptionValue["IndentLength"]
+
+GetIndentationType[""] := None
+GetIndentationType[s_String] /;StringMatchQ[RegularExpression["^\\t+"]][s] := "Tabs"
+GetIndentationType[s_String] := "Whitespace"
+
+mdpUnorderedItem = (RegularExpression["(\\A|^|\\s+|\\t+)[\\*\\-\\+] (.*)"]) :> With[
+	{type = GetIndentationType["$1"]},
+	MarkdownElement["Item", <|"Type" -> "Unordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Content" -> MarkdownParser["$2"]|> ]
+	];
 
 
 (* ::Subsubsection::Closed:: *)
@@ -192,7 +209,7 @@ mdpOrderedListItem,mdpUnorderedItem,mdpBlockQuote,mdpCodeBlock,mdpCodeBlock2,mdp
 
 ExtractAllMarkdownFootnotes[file_String]:=Module[
 {readlist=If[FileExistsQ[file],ReadList[file,String],StringSplit[file,"\n"]],footnotes},
-footnotes=(StringCases[RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)(\\n|$)"]:>"$2"][readlist]/.{}->Nothing);
+footnotes=(StringCases[RegularExpression["(^|\\n)\\s*(\\[\\d+\\]\\:.*)\\.?(\\n|$)"]:>"$2"][readlist] /. {}->Nothing);
 Flatten/*(StringRiffle[#,"\n"]&)/*StringJoin@footnotes
 ]
 
@@ -336,7 +353,7 @@ MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 	(* Repeatedly apply the parser to each line until the expression doesn't change *)
 	parsedLines=(FixedPoint[MarkdownParser,#]&/@lines);
 	(* Replace footnote references with their respective URLs *)
-	footnoteCheck=(parsedLines/.MarkdownElement["FootnoteReference",{ref_}]:>First@ExtractMarkdownFootnoteURL[ref,footFile]);
+	footnoteCheck=Replace[parsedLines, MarkdownElement["FootnoteReference", {ref_Integer}] :> First@ExtractMarkdownFootnoteURL[ref,footFile], Infinity];
 	(* Get rid of the footnote residue *)
 	parse1=If[StringQ[#]\[And]StringMatchQ[$footnote][#],StringReplace[$footnote-> "(wasfootnote)"][#],#]&/@footnoteCheck;
 	parse1clean=DeleteCases["(wasfootnote)"][parse1]
@@ -347,7 +364,5 @@ MarkdownParse[file_String]/;FileExistsQ[file]:=Block[
 (* ::Chapter:: *)
 (*End Package*)
 
-
 End[]
-Protect["MarkdownParse`*"];
 EndPackage[]

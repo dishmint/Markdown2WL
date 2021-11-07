@@ -14,12 +14,20 @@ Lines can have nested styling as well, like _a **bold** in an italic_.
 
 ## Lists
 
-### Ordered list
+### Ordered list with Tabs
 
 1. Item 1
 2. A second item
 3. Number 3
 4. Ⅳ
+	5. A nested ordered item
+
+### Ordered list with Spaces
+
+1. First item
+  2. First item's subitem
+  3. First item's 2nd subitem
+    4. 2nd item's subitem
 
 _Note: the fourth item uses the Unicode character for [Roman numeral four][2]._
 
@@ -28,7 +36,12 @@ _Note: the fourth item uses the Unicode character for [Roman numeral four][2]._
 * An item
 * Another item
 * Yet another item
+	* A nested unordered item with tabs
 * And there's more...
+
+* unordered list with spaces
+  * list item with space indentation
+    * another list item with space indentation
 
 ## Paragraph modifiers
 
@@ -56,7 +69,7 @@ I don't recommend using more than three or four levels of headings here, because
 
 ## LaTex
 
-LaTex is also supported:
+LaTeX is also supported:
 
 * inline
 
