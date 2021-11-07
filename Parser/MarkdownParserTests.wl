@@ -131,6 +131,27 @@ f[y]:=3"|>],"\n"},TestID->"CodeBlockTest2"],
 		FixedPoint[MarkdownParser,"[The first footnote][1] was there and here's [the second footnote][2]"],
 		{MarkdownElement[Hyperlink,"The first footnote",MarkdownElement["FootnoteReference",{1}]]," was there and here's",MarkdownElement[Hyperlink,"the second footnote",MarkdownElement["FootnoteReference",{2}]]},
 		TestID -> "FoonoteTest1"
+		],
+	(* LIST ITEMS *)
+	VerificationTest[
+		FixedPoint[MarkdownParser,"* This is an unordered item"],
+		MarkdownElement["Item",<|"Type" -> "Unordered", "IndentationLevel" -> 0, "IndentationType" -> None, "Content" -> "This is an unordered item"|>],
+		TestID -> "UnorderedItemTest1"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"  * here is an unordered sub item"],
+		MarkdownElement["Item",<|"Type" -> "Unordered", "IndentationLevel" -> 1, "IndentationType" -> "Whitespace", "Content" -> "here is an unordered sub item"|>],
+		TestID -> "UnorderedItemTest2"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"1. This is an ordered item"],
+		MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> 0, "IndentationType" -> None, "Content" -> "This is an ordered item"|>],
+		TestID -> "OrderedItemTest1"
+		],
+	VerificationTest[
+		FixedPoint[MarkdownParser,"  1. here is an ordered sub item"],
+		MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> 1, "IndentationType" -> "Whitespace", "Content" -> "here is an ordered sub item"|>],
+		TestID -> "OrderedItemTest2"
 		]
 }
 )
