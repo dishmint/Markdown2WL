@@ -7,17 +7,39 @@ BeginPackage["WLMarkdown`"]
 MarkdownParse::usage = "MarkdownParse[file.md] parses file.md into symbolic markdown"
 MarkdownElement::usage = "Represents an element in Symbolic Markdown"
 
-ParseMarkdownString::usage = "ParseMarkdownString[s] parses s into its MarkdownElement constituents"
+TokenizeMarkdownString::usage = "TokenizeMarkdownString[s] parses s into its MarkdownElement constituents"
+TokenizeMarkdownBlock::usage = "TokenizeMarkdownBlock[s] parses s into its MarkdownElement constituents"
 
 Begin["`Private`"]
-
-(* Import *)
-
-GetMDLines[source_] := With[{data = Import[source, "Text"]}, StringSplit[data,"\n"]];
 
 (* Parser *)
 
 (* \[LongDash] Utilities *)
+
+TokenizeBlock[source_] := Module[
+	{lines, spos},
+	(* Convert empty lines to MarkdownElements *)
+	lines = StringSplit[source, RegularExpression["(?m)^\\s*$"] -> MarkdownElement["Line", {}]];
+	(* Get the positions of the remaining strings *)
+	spos = Position[lines, _String, 1];
+	(* StringTrim them *)
+	SubsetMap[Map[(StringTrim[#, "\n"] &) /* TokenizeMarkdownBlock], lines, spos]
+	]
+
+iTokenizeLines = Map[Apply[(StringSplit[#, "\n"] &) /* Map[TokenizeMarkdownString] /*(Flatten[#, 1] &)]]
+
+TokenizeLine[blocks_] := Module[
+	{lpos},
+	lpos = Position[blocks, List[_String], 1];
+	SubsetMap[iTokenizeLines, blocks, lpos]
+	]
+
+PostTokenize[tlines_] := Module[
+	{lpos},
+		lpos = Position[tlines, _List, 1];
+		SubsetMap[Map[MarkdownElement["Line", #]&], tlines, lpos]
+		]
+
 Options[GetIndentationLevel] = {
 	"IndentLength" -> 2
 };
@@ -30,6 +52,16 @@ GetIndentationType[""] := None
 GetIndentationType[s_String] /;StringMatchQ[RegularExpression["^\\t+"]][s] := "Tabs"
 GetIndentationType[s_String] := "Whitespace"
 
+
+ParseTable[{header_String,alignment_String, rows__String}] := MarkdownElement[
+	"Table",
+	<|
+	"Headers" -> Map[iTokenizeMarkdownString][StringSplit[header, "|"]],
+	"Alignment" -> Map[StringTrim /* ParseTableAlignment][StringSplit[alignment, "|"]],
+	"Rows" -> Map[Map[iTokenizeMarkdownString][StringSplit[#, "|"]]&][{rows}]
+	|>
+]
+
 ParseTableAlignment[s_String] /; StringMatchQ[(":" ~~ "-" .. ~~ ":") | ("-" ..)][s] := Center
 ParseTableAlignment[s_String] /; StringMatchQ[":" ~~ "-" ..][s] := Left
 ParseTableAlignment[s_String] /; StringMatchQ["-" .. ~~ ":"][s] := Right
@@ -37,17 +69,27 @@ ParseTableAlignment[s_String] /; StringMatchQ["-" .. ~~ ":"][s] := Right
 (* \[LongDash] Patterns *)
 $MarkdownHeading = RuleDelayed[
 	RegularExpression["^(\\#{1,6}\\s)(.*)"],
-	MarkdownElement["H"<> ((StringCount[#, "#"]&) /* ToString@"$1"), parseMD["$2"]]
+	MarkdownElement["H"<> ((StringCount[#, "#"]&) /* ToString@"$1"), iTokenizeMarkdownString["$2"]]
 	]
 
-$MarkdownBold = RuleDelayed[
-	RegularExpression["(?<![_*])((__|\\*\\*)(([^\\s_*].+?[^\\s_*])|(.))\\g2)(?![_*])"],
-	MarkdownElement[Bold, parseMD["$3"]]
+$MarkdownBold1 = RuleDelayed[
+	RegularExpression["(?<!_)((__)(([^\\s_].+?[^\\s_])|(.))\\g2)(?!_)"],
+	MarkdownElement[Bold, iTokenizeMarkdownString["$3"]]
 	]
 
-$MarkdownItalic = RuleDelayed[
-	RegularExpression["(?<![_*])((_|\\*)(([^\\s_*].+?[^\\s_*])|(.))\\g2)(?![_*])"],
-	MarkdownElement[Italic, parseMD["$3"]]
+$MarkdownBold2 = RuleDelayed[
+	RegularExpression["(?<![*])((\\*\\*)(([^\\s*].+?[^\\s*])|(.))\\g2)(?![*])"],
+	MarkdownElement[Bold, iTokenizeMarkdownString["$3"]]
+	]
+
+$MarkdownItalic1 = RuleDelayed[
+	RegularExpression["(?<!_)((_)(([^\\s_].+?[^\\s_])|(.))\\g2)(?!_)"],
+	MarkdownElement[Italic, iTokenizeMarkdownString["$3"]]
+	]
+
+$MarkdownItalic2 = RuleDelayed[
+	RegularExpression["(?<![*])((\\*)(([^\\s*].+?[^\\s*])|(.))\\g2)(?![*])"],
+	MarkdownElement[Italic, iTokenizeMarkdownString["$3"]]
 	]
 
 $MarkdownInlineCode = RuleDelayed[
@@ -75,14 +117,9 @@ $MarkdownTeX4 = RuleDelayed[
 	MarkdownElement["LaTeX", <|"Type"-> "Inline","Body"->"$1"|>]
 	]
 
-$MarkdownTeX5 = RuleDelayed[
-	RegularExpression["(\\\\\()(\\s?)(.*?)\\g2(\\\\\))"],
-	MarkdownElement["LaTeX", <|"Type"-> "Inline","Body"->"$3"|>]
-	]
-
 $MarkdownLink1 = RuleDelayed[
 	RegularExpression["(?ms)(?:\\A|\\s)\\[(.+?)\\]\\((\\S.+?)\\)(?:\\z|\\s)"],
-	MarkdownElement[Hyperlink,<|"Label"->parseMD["$1"],"URL"->"$2"|>]
+	MarkdownElement[Hyperlink,<|"Label"->iTokenizeMarkdownString["$1"],"URL"->"$2"|>]
 	]
 
 $MarkdownLink2 = RuleDelayed[
@@ -97,19 +134,19 @@ $MarkdownLink3 = RuleDelayed[
 
 $MarkdownFootnoteReference = RuleDelayed[
 	RegularExpression["(?ms)(?:\\A|^|\\s)\\[(.+?)\\]\\[(\\d+?)\\]"],
-	MarkdownElement["FootnoteReference", parseMD["$1"], ToExpression["$2"]]
+	MarkdownElement["FootnoteReference", iTokenizeMarkdownString["$1"], ToExpression["$2"]]
 	]
 
 $MarkdownFootnote = RuleDelayed[
-	RegularExpression["(^|\\n)\\s*\[(\\d+)\]:\\s?(.+)(\\n|$)"],
+	RegularExpression["(^|\\n)\\s*\\[(\\d+)\\]:\\s?(.+)(\\n|$)"],
 	MarkdownElement["Footnote", <|"Reference" -> ToExpression["$2"], "URL" -> "$3"|>]
 	]
 
 $MarkdownOrderedListItem = RuleDelayed[
-	RegularExpression["(?:\\A|^)(\\s*|\\t*)(\\d\\.)+ (.*)"],
+	RegularExpression["(?ms)(?:\\A|^)(\\s*|\\t*)(\\d+\\.)+ (.*)"],
 	With[
 		{type = GetIndentationType["$1"]},
-		MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Text" -> parseMD["$3"]|> ]
+		MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Text" -> iTokenizeMarkdownString["$3"]|> ]
 		]
 	]
 
@@ -117,70 +154,68 @@ $MarkdownUnorderedListItem = RuleDelayed[
 	RegularExpression["(?:^|\\A)(\\s*|\\t*)[\\*\\-\\+] (.*)$"],
 	With[
 			{type = GetIndentationType["$1"]},
-			MarkdownElement["Item", <|"Type" -> "Unordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Text" -> parseMD["$2"]|> ]
+			MarkdownElement["Item", <|"Type" -> "Unordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Text" -> iTokenizeMarkdownString["$2"]|> ]
 			]
 	]
 
 $MarkdownBlockQuote = RuleDelayed[
 	RegularExpression["(?ms)>\\s?(.+)\\z"],
-	MarkdownElement["BlockQuote", parseMD["$1"]]
+	MarkdownElement["BlockQuote", iTokenizeMarkdownString["$1"]]
 	]
 
-$MarkdownTableAlignment = RuleDelayed[
-	RegularExpression["\\|?\\s?((:?)(-{3,})(:?)\\s?\\|?\\s?)+"],
-	MarkdownElement["TableAlignment", Map[StringTrim /* ParseTableAlignment]@StringSplit["$0", "|"]]
+$MarkdownTable = RuleDelayed[
+	RegularExpression["(?ms)^(\\|?\\s?(.+\\|.+)+)$"],
+	ParseTable[StringSplit["$0", "\n"]]
 	]
-
-$MarkdownTableData = RuleDelayed[
-	RegularExpression["^\\|?\\s?(.+\\|.+)+$"],
-	MarkdownElement["TableData", Map[StringTrim /* parseMD]@StringSplit["$0", "|"]]
-	]
-
 
 $MarkdownCodeBlock1 = RuleDelayed[
-	RegularExpression["(\\`{3})(\\w+)\n([^\\`]+?)\n\\g1"],
+	RegularExpression["(?ms)^(\\`{3})(\\w+)$((.|\n)+)^\\g1$"],
 	MarkdownElement["CodeBlock",<|"Language"-> "$2","Body"-> "$3"|>]
 	]
 
 $MarkdownCodeBlock2 = RuleDelayed[
-	RegularExpression["(\\`{3})\n([^\\`]+?)\n\\g1"],
+	RegularExpression["(?ms)(\\`{3})\n([^\\`]+?)\n\\g1"],
 	MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$2"|>]
 	]
 
 $MarkdownCodeBlock3 = RuleDelayed[
-	RegularExpression["(?ms)(?:\\A|^)(?:[ ]{4}|\t)(.+)"],
-	MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$1"|>]
+	RegularExpression["(?ms)(?:\\A|^)([ ]{4}|\t)(.+)"],
+	MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$0"|>]
 	]
 
 $MarkdownHorizontalLine = RuleDelayed[
-	RegularExpression["(?ms)(?:\\A|^)(---|(\\*\\*\\*))\\s*\\z"],
+	RegularExpression["(?ms)(?:\\A|^)(---|(\\*\\*\\*)|___)\\s*\\z"],
 	MarkdownElement["HorizontalLine"]
 	]
 
 (* \[LongDash] Parsing *)
-ParseMDLines[lines_List] := MapIndexed[ParseMDLine[#1, #2]&, lines];
-ParseMDLine[line_String, {lnum_Integer}] := MarkdownElement["Line", lnum, parseMD[line]]
 
-parseMD[expr_] := 	StringSplit[
+iTokenizeMarkdownBlock[expr_] := StringSplit[
 		expr,
 		{
+			$MarkdownTable,
+			$MarkdownCodeBlock1,
+			$MarkdownCodeBlock2,
+			$MarkdownCodeBlock3
+		}
+	]
+
+iTokenizeMarkdownString[expr_] := StringSplit[
+		expr,
+		{
+			$MarkdownOrderedListItem,
+			$MarkdownUnorderedListItem,
 			$MarkdownHeading,
-			$MarkdownTableAlignment,
-			$MarkdownTableData,
-			$MarkdownItalic,
-			$MarkdownBold,
+			$MarkdownItalic1,
+			$MarkdownItalic2,
+			$MarkdownBold1,
+			$MarkdownBold2,
 			$MarkdownInlineCode,
 			$MarkdownTeX1,
 			$MarkdownTeX2,
 			$MarkdownTeX3,
 			$MarkdownTeX4,
-			$MarkdownTeX5,
-			$MarkdownOrderedListItem,
-			$MarkdownUnorderedListItem,
 			$MarkdownBlockQuote,
-			$MarkdownCodeBlock1,
-			$MarkdownCodeBlock2,
-			$MarkdownCodeBlock3,
 			$MarkdownHorizontalLine,
 			$MarkdownLink1,
 			$MarkdownLink2,
@@ -190,13 +225,22 @@ parseMD[expr_] := 	StringSplit[
 		}
 	]
 
-ParseMarkdownString[s_String] := parseMD[s]
+TokenizeMarkdownString[s_String] := iTokenizeMarkdownString[s]
+TokenizeMarkdownBlock[s_String] := iTokenizeMarkdownBlock[s]
 
 MarkdownParse[file_File?FileExistsQ] := MarkdownParser[file]
 
 MarkdownParser[source_File] := Module[
-	{lines = GetMDLines[source]},
-	ParseMDLines[lines]
+	{
+		data = Import[source, "Text"],
+		tblocks, tlines
+		},
+	(* 1 — Tokenize Tables and Codeblocks *)
+	tblocks = TokenizeBlock[data];
+	(* 2 — Tokenize the rest *)
+	tlines = TokenizeLine[tblocks];
+	(* 3 — Convert lists to Markdown Line elements *)
+	PostTokenize[tlines]
 	]
 
 End[] (* End `Private` *)
