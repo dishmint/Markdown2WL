@@ -6,12 +6,38 @@
             "File"
             ->
             File[
+                "Kernel/MarkdownCompiler.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "2747810f93cbe4c41bcf2a3b7128192050e7b991add94b7435672cbc8b1330e6"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Kernel/MarkdownTokenizer.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "24a7bc6cb27a8e4d8008656cda96b735ec523f6b3c4dd1922f0aca7b614d42f5"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "Kernel/WLMarkdown.wl"
             ]
             ,
             "Hash"
             ->
-            "e01610096e408cc60d51e73565f91565b5133a94e4a7bad765f0ccd83a0450c2"
+            "8814c29ec132103f15d99b1a3e4c8be068ee4abfb885083d1ed609245521b741"
                 
         |>
         ,
@@ -50,7 +76,7 @@
             ,
             "Hash"
             ->
-            "fb041229f2fafd224a600f4df798d94accbd87f4ac4136c1b3711aaef03c1f81"
+            "811009b0bbdf3911822037e535be67e4d74ef4e546da30133a4ce51ac8adc495"
                 
         |>
         ,

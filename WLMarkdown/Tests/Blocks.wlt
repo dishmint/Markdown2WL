@@ -31,14 +31,18 @@ VerificationTest[
 ]
 
 VerificationTest[
-	TokenizeMarkdownBlock["    A code block\n    with text in it"],
-	{MarkdownElement["CodeBlock", <|"Language" -> "None", "Body" -> "    A code block\n    with text in it"|>]},
+	TokenizeMarkdownBlock["
+    A code block
+    with text in it
+
+"],
+	{MarkdownElement["CodeBlock",Association["Language" -> "None","Body" -> "    A code block\n    with text in it\n"]]},
 	"TestID" -> "CodeBlock3Test1"
 ]
 
 VerificationTest[
-	TokenizeMarkdownBlock["\tA code block\n\twith text in it"],
-	{MarkdownElement["CodeBlock", <|"Language" -> "None","Body" -> "\tA code block\n\twith text in it"|>]},
+	TokenizeMarkdownBlock["\n\n\tA code block\n\twith text in it\n\n"],
+	{MarkdownElement["CodeBlock",Association["Language" -> "None","Body" -> "\tA code block\n\twith text in it\n"]]},
 	"TestID" -> "CodeBlock3Test2"
 ]
 

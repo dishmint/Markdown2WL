@@ -143,7 +143,7 @@ $MarkdownFootnote = RuleDelayed[
 	]
 
 $MarkdownOrderedListItem = RuleDelayed[
-	RegularExpression["(?ms)(?:\\A|^)(\\s*|\\t*)((\\d+\\.)(\\d+\\.?)*)+ (.*)"],
+	RegularExpression["(?ms)(?:\\A|^)(\\s*|\\t*)(\\d+\\.)+ (.*)"],
 	With[
 		{type = GetIndentationType["$1"]},
 		MarkdownElement["Item", <|"Type" -> "Ordered", "IndentationLevel" -> GetIndentationLevel["$1", type],"IndentationType" -> type, "Text" -> iTokenizeMarkdownString["$3"]|> ]
@@ -179,8 +179,8 @@ $MarkdownCodeBlock2 = RuleDelayed[
 	]
 
 $MarkdownCodeBlock3 = RuleDelayed[
-	RegularExpression["(?ms)(?:\\A|^)([ ]{4}|\t)(.+)"],
-	MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$0"|>]
+	RegularExpression["(?ms)(?:^\\s*$\n)(([ ]{4}|\t).+\n)+(?:^\\s*$\n)"],
+	MarkdownElement["CodeBlock",<|"Language"-> "None","Body"-> "$1"|>]
 	]
 
 $MarkdownHorizontalLine = RuleDelayed[
