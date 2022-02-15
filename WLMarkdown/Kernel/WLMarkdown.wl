@@ -4,13 +4,15 @@ BeginPackage["WLMarkdown`"]
 
 (* Declare your package's public symbols here. *)
 
-MarkdownParse::usage = "MarkdownParse[file.md] parses file.md into symbolic markdown"
+MarkdownProcess::usage = "MarkdownProcess[file.md] parses file.md into symbolic markdown"
 MarkdownElement::usage = "Represents an element in Symbolic Markdown"
+MarkdownToken::usage = "Represents a token of markdown"
+TokenizeMarkdown::usage = "TokenizeMarkdown[mkds] tokenizes the markdown snippet mkds"
 
 Begin["`Private`"]
-Needs["MarkdownTokenize`"]
-Needs["MarkdownParse`"]
-Needs["MarkdownCompile`"]
+Needs["WLMarkdown`MarkdownTokenize`"]
+Needs["WLMarkdown`MarkdownParse`"]
+Needs["WLMarkdown`MarkdownCompile`"]
 
 (* Parse *)
 Options[MarkdownProcess] = {

@@ -6,12 +6,12 @@
             "File"
             ->
             File[
-                "Kernel/MarkdownCompiler.wl"
+                "Kernel/CommonMark.wl"
             ]
             ,
             "Hash"
             ->
-            "2747810f93cbe4c41bcf2a3b7128192050e7b991add94b7435672cbc8b1330e6"
+            "7ac3016f3bad4c643210c81163cc0f2c37ec9d87c7850c503dfa8ce55f4eb1e9"
                 
         |>
         ,
@@ -19,12 +19,38 @@
             "File"
             ->
             File[
-                "Kernel/MarkdownTokenizer.wl"
+                "Kernel/MarkdownCompile.wl"
             ]
             ,
             "Hash"
             ->
-            "24a7bc6cb27a8e4d8008656cda96b735ec523f6b3c4dd1922f0aca7b614d42f5"
+            "597e9e12a3c90a194587714747010c0d9ba77c8e6ca47465ed7f0be6ff5c5038"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Kernel/MarkdownParse.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "e5a7cd61c493640507d4541ac106a21edee89f68eb97aaf0471f42fa8487236b"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Kernel/MarkdownTokenize.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "05c3aceab799adfe74f8a95280613da46d7cca45e6c71eb47430cdcc0d4b3438"
                 
         |>
         ,
@@ -37,7 +63,7 @@
             ,
             "Hash"
             ->
-            "8814c29ec132103f15d99b1a3e4c8be068ee4abfb885083d1ed609245521b741"
+            "013394854ef150557314ae143a0c74a80ca62ef7c913f181d04a5ab04c434494"
                 
         |>
         ,
@@ -45,77 +71,12 @@
             "File"
             ->
             File[
-                "Tests/Headings.wlt"
+                "Tests/Tokenizer.wlt"
             ]
             ,
             "Hash"
             ->
-            "331e7f07344c18a70f7e9beab27e5de2a7071f54ae100b7e23541c6ac3b0425a"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
-                "Tests/Emphasis.wlt"
-            ]
-            ,
-            "Hash"
-            ->
-            "350343a6c82b4b4769cf34e88348ae2c980586b426b9bbaf0f8903453006bbf0"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
-                "Tests/Blocks.wlt"
-            ]
-            ,
-            "Hash"
-            ->
-            "811009b0bbdf3911822037e535be67e4d74ef4e546da30133a4ce51ac8adc495"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
-                "Tests/TeX.wlt"
-            ]
-            ,
-            "Hash"
-            ->
-            "20c2d4c63896cb30acf2629998a038c8133d9c96a38120b0d7685cd3897f2c70"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
-                "Tests/Lists.wlt"
-            ]
-            ,
-            "Hash"
-            ->
-            "97c21b24a3ad1639db85e0e55fc361ec65069c9f1c8044794d610723d0f01994"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
-                "Tests/Links.wlt"
-            ]
-            ,
-            "Hash"
-            ->
-            "878a5f6aaa80a5979ee24e01061f5a9ee55074ff143bc3c01ddc208adda3bb7c"
+            "3459b0521024ee0164d0822f47ad564c65c1b4542ad0cdb2d294166cfcf0ef92"
                 
         |>
     }

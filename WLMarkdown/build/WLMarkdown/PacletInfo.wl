@@ -15,12 +15,7 @@ PacletObject[
                     "Resource",
                     "Root" -> "Tests",
                     "Resources" -> {
-                      {"Headings", "Headings.wlt"},
-                      {"Emphasis", "Emphasis.wlt"},
-                      {"Blocks", "Blocks.wlt"},
-                      {"TeX", "TeX.wlt"},
-                      {"Lists", "Lists.wlt"},
-                      {"Links", "Links.wlt"}
+                      {"Tokenizer", "Tokenizer.wlt"}
                   }
                 },
                 {

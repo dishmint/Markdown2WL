@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["MarkdownCompile`"]
+BeginPackage["WLMarkdown`MarkdownCompile`"]
 
 (* Declare your package's public symbols here. *)
 
