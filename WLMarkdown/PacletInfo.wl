@@ -19,6 +19,13 @@ PacletObject[
                   }
                 },
                 {
+                    "Resource",
+                    "Root" -> "Examples",
+                    "Resources" -> {
+                      {"CommonMark", "CommonMark.md"}
+                  }
+                },
+                {
                     "Documentation",
                     "Language" -> "English"
                 }
