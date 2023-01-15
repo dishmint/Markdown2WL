@@ -1,12 +1,8 @@
-# **Markdown2WL**
+# **Markdown2WL** [WIP]
 
 The goal of this repo is to establish Markdown Import and Export Converters as well as a standalone Markdown parser.
 
-The current parser provides reasonable coverage of markdown syntax. A demo notebook is included in the Parser directory. Feel free to add issues for subpar/unsatisfcatory parsing, or where the Symoblic structure could use improvement. 
-
-A package to Render the parse list is coming, as well as Import / Export converters so you can import Markdown files as Symbolic Markdown, or as a Notebook!
-
-For context and some background on the process I've published a post on the [Wolfram Community](https://community.wolfram.com/groups/-/m/t/2142852).
+The parser is not complete, but can offer a symbolic expression of markdown. A demo notebook is included in the Parser directory. Feedback is welcome!
 
 ---
 Installation:
@@ -24,3 +20,13 @@ What's in the demo notebook:
 * The `MarkdownParse Example` section runs the parser on the included `test.md` file
 * The `TestParser` section runs a suite of VerifcationTests
 * The `Markdown Graphs` section shows an `ExpressionGraph` of the `test.md` file
+
+
+---
+Future
+
+- [] Deploy as a paclet
+- [] Implement Import and Export converter
+- [] Official common mark support
+- [] Baskin Robins of Markdown
+- [] Custom Stylesheets
