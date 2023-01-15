@@ -25,8 +25,8 @@ What's in the demo notebook:
 ---
 Future
 
-- [] Deploy as a paclet
-- [] Implement Import and Export converter
-- [] Official common mark support
-- [] Baskin Robins of Markdown
-- [] Custom Stylesheets
+- [ ] Deploy as a paclet
+- [ ] Implement Import and Export converter
+- [ ] Official common mark support
+- [ ] Baskin Robins of Markdown
+- [ ] Custom Stylesheets
