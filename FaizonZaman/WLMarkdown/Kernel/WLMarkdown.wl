@@ -37,8 +37,8 @@ iImportMarkdown[source_String, opts:OptionsPattern[ImportMarkdown]] :=
 		]
 	]
 
-MarkdownLexer[ source_String, rules_List ] := Splice[ StringSplit[ source, rules ] ]
-MarkdownLexer[ source_List, rules_List ] := Map[ MarkdownLexer[ #, rules ]&, source ]
+MarkdownLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
+MarkdownLexer[ lines_List, rules_List ] := Map[ MarkdownLexer[ #, rules ]&, lines ]
 
 End[]
 
