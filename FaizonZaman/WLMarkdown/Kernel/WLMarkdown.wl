@@ -10,7 +10,7 @@ MarkdownElement::usage = "Represents a symbolic Markdown element"
 
 Begin["`Private`"]
 
-Needs["FaizonZaman`WLMarkdown`MarkdownRules`"]
+Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 
 (* ImportMarkdown *)
 Options[ImportMarkdown] = {
@@ -31,7 +31,7 @@ iImportMarkdown[source_String, opts:OptionsPattern[ImportMarkdown]] :=
 			flavor = Replace[OptionValue["Flavor"], Automatic -> "CommonMark"]
 			},
 		Enclose[
-			Confirm[ rules = MarkdownRules[ flavor ], StringTemplate[ MarkdownRules::invf ][ flavor ] ];
+			Confirm[ rules = TokenRules[ flavor ], StringTemplate[ TokenRules::invf ][ flavor ] ];
 			tokens = MarkdownLexer[ lines, rules ]
 			(* parse = ParseMarkdown[tokens, opts]; *)
 		]

@@ -1,7 +1,7 @@
-BeginPackage["FaizonZaman`WLMarkdown`MarkdownRules`"]
+BeginPackage["FaizonZaman`WLMarkdown`TokenRules`"]
 
-MarkdownRules::usage = "MarkdownRules[f] gives the rules for Markdown flavor f"
-MarkdownRules::invf = "No markdown rules defined for flavor \"``\""
+TokenRules::usage = "TokenRules[f] gives the rules for Markdown flavor f"
+TokenRules::invf = "No markdown rules defined for flavor \"``\""
 
 Begin["`Private`"]
 
@@ -12,17 +12,17 @@ $TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Element" -> #Token, "
 
 (* Shared *)
 (* Rules shared by Markdown Flavors can go here *)
-(* Then use them in MarkdownRules for that flavor *)
+(* Then use them in TokenRules for that flavor *)
 $EmptyLineRule = RegularExpression[ "^$" ] :> $Token[ <| "Token" -> "EmptyLine" |> ]
 $HorizontalLineRule = RegularExpression[ "^-{3}$" ] :> $Token[ <| "Token" -> "HorizontalLine" |> ]
 $CodeFenceRule = RegularExpression[ "^(\\`{3})(.*)$" ] :> $TokenData[ <| "Token" -> "CodeFence", "Data" -> "$2" |> ]
 $ParagraphRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Paragraph", "Data" -> "$1" |> ]
 
-(* MarkdownRules *)
+(* TokenRules *)
 
 (* CommonMark *)
 
-MarkdownRules["CommonMark"] = {
+TokenRules["CommonMark"] = {
     (* Empty Line *)
     $EmptyLineRule,
     (* Horizontal Line *)
@@ -41,7 +41,7 @@ MarkdownRules["CommonMark"] = {
     $ParagraphRule
 }
 
-MarkdownRules[flavor_String]:= (Message[MarkdownRules::invf, flavor];$Failed)
+TokenRules[flavor_String]:= (Message[MarkdownRules::invf, flavor];$Failed)
 
 End[]
 EndPackage[]
