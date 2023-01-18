@@ -17,18 +17,18 @@ Options[ImportMarkdown] = {
 	"Flavor" -> Automatic
 };
 
-ImportMarkdown[string_String, opts:OptionsPattern[ImportMarkdown]] := iImportMarkdown[string, opts]
+ImportMarkdown[ string_String, opts:OptionsPattern[ ImportMarkdown ] ] := iImportMarkdown[ string, opts ]
 
-ImportMarkdown[file_File?FileExistsQ, opts:OptionsPattern[ImportMarkdown]] := Module[
-	{data = Import[file, "Text"]},
-	iImportMarkdown[data, opts]
+ImportMarkdown[ file_File?FileExistsQ, opts:OptionsPattern[ ImportMarkdown ] ] := Module[
+	{data = Import[ file, "Text" ]},
+	iImportMarkdown[ data, opts ]
 	]
 
-iImportMarkdown[source_String, opts:OptionsPattern[ImportMarkdown]] :=
+iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 	Module[
 		{
 			lines = StringSplit[ source, "\n" ], tokens(* , parse *),
-			flavor = Replace[OptionValue["Flavor"], Automatic -> "CommonMark"]
+			flavor = Replace[ OptionValue[ "Flavor" ], Automatic -> "CommonMark" ]
 			},
 		Enclose[
 			Confirm[ rules = TokenRules[ flavor ], StringTemplate[ TokenRules::invf ][ flavor ] ];

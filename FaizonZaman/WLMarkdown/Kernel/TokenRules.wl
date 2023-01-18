@@ -1,7 +1,7 @@
 BeginPackage["FaizonZaman`WLMarkdown`TokenRules`"]
 
 TokenRules::usage = "TokenRules[f] gives the rules for Markdown flavor f"
-TokenRules::invf = "No markdown rules defined for flavor \"``\""
+TokenRules::invf = "No token rules defined for flavor \"``\""
 
 Begin["`Private`"]
 
