@@ -1,7 +1,7 @@
 BeginPackage["FaizonZaman`WLMarkdown`MarkdownRules`"]
 
 MarkdownRules::usage = "MarkdownRules[f] gives the rules for Markdown flavor f"
-MarkdownRules::invf = "No MarkdownRule defined for flavor \"``\""
+MarkdownRules::invf = "No markdown rules defined for flavor \"``\""
 
 Begin["`Private`"]
 
