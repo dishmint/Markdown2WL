@@ -45,7 +45,7 @@ f[n_Integer] := f[n - 1] + f[n - 2]
 ```
 
 ```
-Generic CodeBlock
+Generic fenced code block
 With Text In It
 ```
 
