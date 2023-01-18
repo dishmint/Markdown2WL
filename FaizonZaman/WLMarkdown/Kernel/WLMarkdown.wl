@@ -17,26 +17,28 @@ Options[ImportMarkdown] = {
 	"Flavor" -> Automatic
 };
 
-$MarkdownFlavor = "CommonMark";
+ImportMarkdown[string_String, opts:OptionsPattern[ImportMarkdown]] := iImportMarkdown[string, opts]
 
-ImportMarkdown[string_String, opts:OptionsPattern[{ImportMarkdown}]] := iImportMarkdown[string, opts]
-
-ImportMarkdown[file_File?FileExistsQ, opts:OptionsPattern[{ImportMarkdown}]] := Module[
+ImportMarkdown[file_File?FileExistsQ, opts:OptionsPattern[ImportMarkdown]] := Module[
 	{data = Import[file, "Text"]},
 	iImportMarkdown[data, opts]
 	]
 
-iImportMarkdown[source_String, opts:OptionsPattern[{ImportMarkdown}]] :=
+iImportMarkdown[source_String, opts:OptionsPattern[ImportMarkdown]] :=
 	Module[
-		{lines = StringSplit[ source, "\n" ], tokens, parse},
-		tokens = MarkdownLexer[ lines, opts ]
-		(* parse = ParseMarkdown[tokens, opts]; *)
+		{
+			lines = StringSplit[ source, "\n" ], tokens(* , parse *),
+			flavor = Replace[OptionValue["Flavor"], Automatic -> "CommonMark"]
+			},
+		Enclose[
+			Confirm[ rules = MarkdownRules[ flavor ], StringTemplate[ MarkdownRules::invf ][ flavor ] ];
+			tokens = MarkdownLexer[ lines, rules ]
+			(* parse = ParseMarkdown[tokens, opts]; *)
+		]
 	]
-SetAttributes[ MarkdownLexer, Listable ]
-MarkdownLexer[ source_String, opts:OptionsPattern[{ImportMarkdown}] ] := Block[
-	{ rules = MarkdownRules[$MarkdownFlavor] },
-	StringReplace[ source, rules ]
-	]
+
+MarkdownLexer[ source_String, rules_List ] := Splice[ StringSplit[ source, rules ] ]
+MarkdownLexer[ source_List, rules_List ] := Map[ MarkdownLexer[ #, rules ]&, source ]
 
 End[]
 
