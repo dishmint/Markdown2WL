@@ -4,7 +4,7 @@ PacletObject[
     "Description" -> "Parse markdown files into symbolic markdown",
     "PublisherID" -> "FaizonZaman",
     "Version" -> "0.0.1",
-    "WolframVersion" -> "12.3+",
+    "WolframVersion" -> "13.0+",
     "Extensions" -> {
       {
         "Kernel",
@@ -14,7 +14,7 @@ PacletObject[
       {
         "Resource",
         "Root" -> "Tests",
-        "Resources" -> {{"Tokenizer", "Tokenizer.wlt"}}
+        "Resources" -> {{"MarkdownLexer", "MarkdownLexer.wlt"}}
       },
       {
         "Resource",

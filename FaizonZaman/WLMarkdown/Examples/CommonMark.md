@@ -16,9 +16,9 @@ Lines can have nested styling as well, like _a **bold** in an italic_.
 
 1. Item 1
 2. Item 2
-   1. Item 2.1
+  1. Item 2.1
 3. Item 3
-   1. Item 3.1
+  1. Item 3.1
 4. Item Ⅳ
 
 _Note: the fourth item uses the Unicode character for [Roman numeral four][2]._
