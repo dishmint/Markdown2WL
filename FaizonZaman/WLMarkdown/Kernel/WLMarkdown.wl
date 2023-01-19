@@ -11,7 +11,6 @@ MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
 
 Begin["`Private`"]
-Needs["FaizonZaman`WLMarkdown`Utilities`"]
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 
 (* ImportMarkdown *)

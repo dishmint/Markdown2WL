@@ -25,6 +25,38 @@ VerificationTest[
 	Splice[{MarkdownToken[<| "Token" -> "CodeFence", "Data" -> "lang" |>]}],
 	"TestID" -> "MarkdownLexer-CommonMark-CodeFence-Language"
 ]
+(* UnorderedListItem *)
+VerificationTest[
+	MarkdownLexer["* A level zero bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-UnorderedListItem-Level0"
+]
+VerificationTest[
+	MarkdownLexer["  * A level one bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-UnorderedListItem-Spaces-Level1"
+]
+VerificationTest[
+	MarkdownLexer["	* A level one bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-UnorderedListItem-Tabs-Level1"
+]
+(* OrderedListItem *)
+VerificationTest[
+	MarkdownLexer["1. A level zero bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-OrderedListItem-Level0"
+]
+VerificationTest[
+	MarkdownLexer["  1.1 A level one bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-OrderedListItem-Spaces-Level1"
+]
+VerificationTest[
+	MarkdownLexer["	1.1 A level one bullet", TokenRules["CommonMark"]],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	"TestID" -> "MarkdownLexer-CommonMark-OrderedListItem-Tabs-Level1"
+]
 (* Quote *)
 VerificationTest[
 	MarkdownLexer["> Quote me!", TokenRules["CommonMark"]],

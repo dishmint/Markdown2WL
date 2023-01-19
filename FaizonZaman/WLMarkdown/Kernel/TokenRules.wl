@@ -19,7 +19,7 @@ $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "
 (* TokenRules *)
 
 (* CommonMark *)
-
+(* TODO: #23 Don't hardcode indentation-length for space characters in regex rules *)
 FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
     (* Empty Line *)
     $EmptyLineRule,
@@ -28,9 +28,9 @@ FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
     (* Headings 1~6 *)
     RegularExpression[ "^(\\#{1,6}\\s)(.*)" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Level" -> StringLength["$1"] - 1, "Data" -> "$2" |> ],
     (* UnorderedListItems *)
-    RegularExpression[ "^(\\s{2})*\\*\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> ( StringLength["$1"] / 2 ), "Data" -> "$2" |> ],
+    RegularExpression[ "^(([\\s\\t])*)\\*\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ],
     (* OrderedListItems *)
-    RegularExpression[ "^(([\\s\\t])*)((\\d\\.)+\\d?)\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$5" |> ],
+    RegularExpression[ "^((\\s{2}|\\t)*)((\\d\\.)+\\d?)\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$5" |> ],
     (* BlockQuote *)
     RegularExpression[ "^(\\s{4})(.*)$" ] :> $TokenData[ <| "Token" -> "BlockQuote", "Data" -> "$2" |> ],
     (* CodeFence *)

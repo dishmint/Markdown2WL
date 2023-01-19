@@ -8,8 +8,8 @@ Options[GetIndentationLevel] = {
 };
 
 GetIndentationLevel[ lead_String, opts:OptionsPattern[GetIndentationLevel] ] := Which[
-    StringStartsQ[ RegularExpression[ "\\s+" ] ][ lead ], StringLength[ lead ] / OptionValue["IndentLength"],
-    StringStartsQ[ RegularExpression[ "\\t+" ] ][ lead ], StringLength[ lead ],
+    StringMatchQ[ RegularExpression[ "(\\s{2})+" ] ][ lead ], StringLength[ lead ] / OptionValue["IndentLength"],
+    StringMatchQ[ RegularExpression[ "\\t+" ] ][ lead ], StringLength[ lead ],
     True, 0
 ]
 End[]
