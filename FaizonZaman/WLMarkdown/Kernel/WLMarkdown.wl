@@ -10,7 +10,12 @@ MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMark
 MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
 
+$MarkdownIndentationSize::usage = "The number of space characters to intrepret as a single indent"
+
 Begin["`Private`"]
+
+$MarkdownIndentationSize = Automatic;
+
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 
 (* ImportMarkdown *)
