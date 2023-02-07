@@ -3,7 +3,7 @@ BeginPackage["FaizonZaman`WLMarkdown`TokenRules`"]
 Begin["`Private`"]
 Needs["FaizonZaman`WLMarkdown`Utilities`"]
 
-(* Template Markdown Expressions *)
+(* Template Markdown Tokens *)
 $Token = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token |>]&
 $TokenData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Data" -> #Data |>]&
 $TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Level" -> #Level, "Data" -> #Data |>]&
