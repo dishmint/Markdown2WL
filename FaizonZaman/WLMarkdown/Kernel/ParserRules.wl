@@ -11,5 +11,11 @@ FaizonZaman`WLMarkdown`ParserRules["CommonMark"] = {
     (* TODO: Styles *)
 }
 
+(* TODO: DataParser *)
+(* Parse Data inside lines and blocks *)
+
+FaizonZaman`WLMarkdown`ParserRules[flavor_String] := (Message[ParserRules::invf, flavor];$Failed)
+
+FaizonZaman`WLMarkdown`ParserRules::invf = "No parser rules defined for flavor \"``\""
 End[]
 EndPackage[]
