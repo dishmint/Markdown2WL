@@ -63,7 +63,6 @@ sMarkdownLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $SubTokens, "Da
 sMarkdownLexer[ token_MarkdownToken, _ ] := token
 sMarkdownLexer[ subline_String, srules_List ] := sMarkdownLexer[ StringSplit[ subline, srules ], srules ]
 sMarkdownLexer[ { subline_String }, _ ] := subline
-(* sMarkdownLexer[ subline_List, srules_List ] := SubsetMap[ Map[ sMarkdownLexer[ #, srules ]& ], subline, Position[subline, _MarkdownToken] ] *)
 sMarkdownLexer[ subline_List, srules_List ] := Map[ sMarkdownLexer[ #, srules ]&, subline ]
 
 (* MarkdownParser[ tokens_List, rules_List ] := SequenceReplace[ tokens, rules ] *)
