@@ -8,7 +8,7 @@ Write Paragraphs like so. A paragraph is the basic block of Markdown. A paragrap
 
 Blank lines separate paragraphs. Markdown supports _italic_ and **bold** formatting.
 
-Lines can have nested styling as well, like _a **bold** in an italic_.
+Lines can have nested styling as well, like _a **bold** in an italic_, or **an _italic_ in a bold**.
 
 ## Lists
 

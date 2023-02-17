@@ -14,16 +14,18 @@ $MDIS := ToString[ Replace[$MarkdownIndentationSize, Automatic -> 2] ]
 (* Then use them in TokenRules for that flavor *)
 $EmptyLineRule = RegularExpression[ "^$" ] :> $Token[ <| "Token" -> "EmptyLine" |> ]
 $HorizontalLineRule = RegularExpression[ "^-{3}$" ] :> $Token[ <| "Token" -> "HorizontalLine" |> ]
-$ItalicRule = RegularExpression[ "(?:[^_]|^)_([^_].+[^_])_(?:[^_]|$)" ] :> $TokenData[ <| "Token" -> "Italic", "Data" -> "$1" |> ]
-$BoldRule = RegularExpression[ "(?:[^*]|^)\\*{2}([^*].+[^*])\\*{2}(?:[^*]|$)" ] :> $TokenData[ <| "Token" -> "Bold", "Data" -> "$1" |> ]
-$InlineCodeRule = RegularExpression[ "(?:[^`]|^)\\`([^`].+[^`])\\`(?:[^`]|$)" ] :> $TokenData[ <| "Token" -> "InlineCode", "Data" -> "$1" |> ]
 $CodeFenceRule = RegularExpression[ "^(\\`{3})(.*)$" ] :> $TokenData[ <| "Token" -> "CodeFence", "Data" -> "$2" |> ]
 $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "Data" -> "$1" |> ]
+(* NOTE: DelimiterPatterns should return a list of {before, LFD, __, RFD, after} *)
+(* NOTE: All three of these rules could be two: $LeftDelimiterRule, $RightDelimiterRule *)
+(* $LeftDelimiterRule = RegularExpression["bdel:leftdel:adel"] :> $TokenData[ <| "Token" -> "LeftDelimiter", "Data" -> leftdel |>] *)
+$ItalicRule = RegularExpression[ "(?:\\s|^)_([^_].+[^_])_(?:\\s|$)" ] :> $TokenData[ <| "Token" -> "Italic", "Data" -> "$1" |> ]
+$BoldRule = RegularExpression[ "(?:[^*]|^)\\*{2}([^*].+[^*])\\*{2}(?:[^*]|$)" ] :> $TokenData[ <| "Token" -> "Bold", "Data" -> "$1" |> ]
+$InlineCodeRule = RegularExpression[ "(?:[^`]|^)\\`([^`].+[^`])\\`(?:[^`]|$)" ] :> $TokenData[ <| "Token" -> "InlineCode", "Data" -> "$1" |> ]
 
 (* TokenRules *)
 
 (* CommonMark *)
-(* TODO: Styles *)
 (* TODO: LaTex *)
 (* TODO: Hyperlinks|Footnotes|Images *)
 

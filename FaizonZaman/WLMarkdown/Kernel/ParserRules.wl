@@ -6,10 +6,18 @@ Begin["`Private`"]
 $Element = FaizonZaman`WLMarkdown`MarkdownElement[<| "Element" -> #Element |>]&
 $ElementData = FaizonZaman`WLMarkdown`MarkdownElement[<| "Element" -> #Element, "Data" -> #Data |>]&
 
+(* DelimiterParser *)
+DelimeterPresentAndTokenFreeQ = Function[{expr}, Through[And[Not@*FreeQ[_LFD | _RFD | _String], FreeQ[_FaizonZaman`WLMarkdown`MarkdownToken]][expr]]]
+TokenPresentQ = Function[{expr}, Not@*FreeQ[_FaizonZaman`WLMarkdown`MarkdownToken]]
+DelimiterParser[expr_List] := Replace[expr, {before___, LFD[s_], t__, RFD[s_], after___} :> {before, FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> s, "Data" -> {t}|> ], after}] /; DelimeterPresentAndTokenFreeQ[expr]
+DelimiterParser[expr_List] := SubsetMap[Map[Replace[#, x_List :> DelimiterParser[x], Infinity] &], expr, Position[expr, _FaizonZaman`WLMarkdown`MarkdownToken]] /; TokenPresentQ[expr]
+
+
 (* Shared parser rules *)
 $TokenElement = FaizonZaman`WLMarkdown`MarkdownToken[<|"Token"->token_|>] :> $Element[<|"Element" -> token|>]
 
 FaizonZaman`WLMarkdown`ParserRules["CommonMark"] = {
+    (* TODO: Delimited *)
     (* TODO: CodeBlock *)
     (* TODO: Table *)
     (* TODO: Blockquote *)
