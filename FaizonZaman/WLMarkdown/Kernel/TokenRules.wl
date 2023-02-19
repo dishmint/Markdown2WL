@@ -18,15 +18,18 @@ $CodeFenceRule = RegularExpression[ "^(\\`{3})(.*)$" ] :> $TokenData[ <| "Token"
 $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "Data" -> "$1" |> ]
 (* NOTE: DelimiterPatterns should return a list of {before, LFD, __, RFD, after} *)
 (* NOTE: All three of these rules could be two: $LeftDelimiterRule, $RightDelimiterRule *)
-(* $LeftDelimiterRule = RegularExpression["bdel:leftdel:adel"] :> $TokenData[ <| "Token" -> "LeftDelimiter", "Data" -> leftdel |>] *)
-$ItalicRule = RegularExpression[ "(?:\\s|^)_([^_].+[^_])_(?:\\s|$)" ] :> $TokenData[ <| "Token" -> "Italic", "Data" -> "$1" |> ]
-$BoldRule = RegularExpression[ "(?:[^*]|^)\\*{2}([^*].+[^*])\\*{2}(?:[^*]|$)" ] :> $TokenData[ <| "Token" -> "Bold", "Data" -> "$1" |> ]
-$InlineCodeRule = RegularExpression[ "(?:[^`]|^)\\`([^`].+[^`])\\`(?:[^`]|$)" ] :> $TokenData[ <| "Token" -> "InlineCode", "Data" -> "$1" |> ]
+(* $ItalicRule = RegularExpression[ "(?:\\s|^)_([^_].+[^_])_(?:\\s|$)" ] :> $TokenData[ <| "Token" -> "Italic", "Data" -> "$1" |> ] *)
+(* $BoldRule = RegularExpression[ "(?:[^*]|^)\\*{2}([^*].+[^*])\\*{2}(?:[^*]|$)" ] :> $TokenData[ <| "Token" -> "Bold", "Data" -> "$1" |> ] *)
+(* $InlineCodeRule = RegularExpression[ "(?:[^`]|^)\\`([^`].+[^`])\\`(?:[^`]|$)" ] :> $TokenData[ <| "Token" -> "InlineCode", "Data" -> "$1" |> ] *)
+(*  *)
+(* (((_)(?!_))|((?<![*]{2})([*]{2})(?![*]{2}))) *)
+$LFDRule = RegularExpression["(?<=\\s|^)(_|[*]{2}|[`])(?!_|[*]{2}|[`])"] :> $TokenData[ <| "Token" -> "LFD", "Data" -> "$1" |>]
+$RFDRule = RegularExpression["(?<=\\s|^)(_|[*]{2}|[`])(?!_|[*]{2}|[`])"] :> $TokenData[ <| "Token" -> "RFD", "Data" -> "$1" |>]
 
 (* TokenRules *)
 
 (* CommonMark *)
-(* TODO: LaTex *)
+(* NOTE: Italic|Bold|InlineCode|LaTex are all delimited tokens *)
 (* TODO: Hyperlinks|Footnotes|Images *)
 
 FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
@@ -52,11 +55,9 @@ FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
     $LineRule
 }
 
-FaizonZaman`WLMarkdown`SubTokenRules["CommonMark"] = {
-    (* Emphasis *)
-    $ItalicRule,
-    $BoldRule,
-    $InlineCodeRule
+FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
+    (* Delimiters *)
+    d: ("\\[" | "\\]" | "$" | "*" | "_" | "`") :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]
 }
 
 FaizonZaman`WLMarkdown`TokenRules[flavor_String] := (Message[TokenRules::invf, flavor];$Failed)

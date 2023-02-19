@@ -9,10 +9,11 @@ $ElementData = FaizonZaman`WLMarkdown`MarkdownElement[<| "Element" -> #Element, 
 (* DelimiterParser *)
 DelimeterPresentAndTokenFreeQ = Function[{expr}, Through[And[Not@*FreeQ[_LFD | _RFD | _String], FreeQ[_FaizonZaman`WLMarkdown`MarkdownToken]][expr]]]
 TokenPresentQ = Function[{expr}, Not@*FreeQ[_FaizonZaman`WLMarkdown`MarkdownToken]]
-DelimiterParser[expr_List] := Replace[expr, {before___, LFD[s_], t__, RFD[s_], after___} :> {before, FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> s, "Data" -> {t}|> ], after}] /; DelimeterPresentAndTokenFreeQ[expr]
-DelimiterParser[expr_List] := SubsetMap[Map[Replace[#, x_List :> DelimiterParser[x], Infinity] &], expr, Position[expr, _FaizonZaman`WLMarkdown`MarkdownToken]] /; TokenPresentQ[expr]
-
-
+iDelimiterParser[expr_List] := Replace[expr, {before___, LFD[s_], t__, RFD[s_], after___} :> {before, FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> s, "Data" -> {t}|> ], after}] /; DelimeterPresentAndTokenFreeQ[expr]
+iDelimiterParser[expr_List] := SubsetMap[Map[Replace[#, x_List :> iDelimiterParser[x], Infinity] &], expr, Position[expr, _FaizonZaman`WLMarkdown`MarkdownToken]] /; TokenPresentQ[expr]
+DelimterParser[expr_List] := FixedPoint[ iDelimiterParser, expr ]
+(* 1 - Parse Blocks *)
+(* 2 - Parse DelimitedSequences *)
 (* Shared parser rules *)
 $TokenElement = FaizonZaman`WLMarkdown`MarkdownToken[<|"Token"->token_|>] :> $Element[<|"Element" -> token|>]
 

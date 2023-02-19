@@ -862,7 +862,7 @@ Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input", "Excluded",
  CellChangeTimes->{{3.8842986114537773`*^9, 3.8842986132824173`*^9}, {
   3.884725637753867*^9, 3.8847256388346443`*^9}},
- CellLabel->"In[6]:=",
+ CellLabel->"In[2]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -1118,18 +1118,21 @@ should become anything else.\>\""}]}], "\[RightAssociation]"}], "]"}]},
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
           RowBox[{
-          "\"\<Blank lines separate paragraphs. Markdown supports\>\"", ",", 
+          "\"\<Blank lines separate paragraphs. Markdown supports _italic_ \
+and\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<italic\>\""}]}], 
-             "\[RightAssociation]"}], "]"}], ",", "\"\<and\>\"", ",", 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<bold\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Bold\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<bold\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
              "\[RightAssociation]"}], "]"}], ",", "\"\<formatting.\>\""}], 
           "}"}]}]}], "\[RightAssociation]"}], "]"}]},
     {
@@ -1145,22 +1148,31 @@ should become anything else.\>\""}]}], "\[RightAssociation]"}], "]"}]},
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
           RowBox[{
-          "\"\<Lines can have nested styling as well, like\>\"", ",", 
+          "\"\<Lines can have nested styling as well, like _a\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", 
-               RowBox[{"{", 
-                RowBox[{"\"\<a\>\"", ",", 
-                 RowBox[{"MarkdownToken", "[", 
-                  RowBox[{"\[LeftAssociation]", 
-                   RowBox[{
-                    RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Bold\>\""}], ",", 
-                    RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<bold\>\""}]}], 
-                   "\[RightAssociation]"}], "]"}], ",", 
-                 "\"\<in an italic\>\""}], "}"}]}]}], "\[RightAssociation]"}],
-             "]"}]}], "}"}]}]}], "\[RightAssociation]"}], "]"}]},
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<bold\>\"", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<in an italic_, or\>\"",
+            ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           "\"\<an _italic_ in a bold**.\>\""}], "}"}]}]}], 
+       "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownToken", "[", 
       RowBox[{"\[LeftAssociation]", 
@@ -1254,14 +1266,16 @@ should become anything else.\>\""}]}], "\[RightAssociation]"}], "]"}]},
         RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
-          RowBox[{"MarkdownToken", "[", 
-           RowBox[{"\[LeftAssociation]", 
-            RowBox[{
-             RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
+          RowBox[{
+          "\"\<_Note: the fourth item uses the Unicode character for [Roman \
+numeral four][2].\>\"", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
              RowBox[{
-             "\"\<Data\>\"", "\[Rule]", 
-              "\"\<Note: the fourth item uses the Unicode character for \
-[Roman numeral four][2].\>\""}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<_\>\""}]}], 
+             "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownToken", "[", 
@@ -1469,8 +1483,17 @@ font.\>\""}]}], "\[RightAssociation]"}], "]"}]},
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<InlineCode\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<inline code\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<inline code\>\"", ",", 
+           
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
              "\[RightAssociation]"}], "]"}], ",", 
            "\"\<to add insert code block formatting anywhere.\>\""}], 
           "}"}]}]}], "\[RightAssociation]"}], "]"}]},
@@ -1544,18 +1567,20 @@ page. Each level down uses one more hash character.\>\""}]}],
         RowBox[{"\"\<Level\>\"", "\[Rule]", "3"}], ",", 
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
-          RowBox[{"\"\<Headings\>\"", ",", 
+          RowBox[{"\"\<Headings _can_ also contain\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<can\>\""}]}], 
-             "\[RightAssociation]"}], "]"}], ",", "\"\<also contain\>\"", ",", 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<formatting\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Bold\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<formatting\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
@@ -1575,8 +1600,17 @@ page. Each level down uses one more hash character.\>\""}]}],
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<InlineCode\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<inline code\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<inline code\>\"", ",", 
+           
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
@@ -1887,24 +1921,34 @@ useful for separating blocks of text.\>\""}]}], "\[RightAssociation]"}],
         RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
-          RowBox[{
+          RowBox[{"\"\<_Still_ |\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<Still\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<renders\>\"", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
              "\[RightAssociation]"}], "]"}], ",", "\"\<|\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<InlineCode\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<renders\>\""}]}], 
-             "\[RightAssociation]"}], "]"}], ",", "\"\<|\>\"", ",", 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<nicely\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Bold\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<nicely\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
@@ -1940,24 +1984,34 @@ useful for separating blocks of text.\>\""}]}], "\[RightAssociation]"}],
         RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
-          RowBox[{
+          RowBox[{"\"\<_Just_ |\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Italic\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<Just\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<for\>\"", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<`\>\""}]}], 
              "\[RightAssociation]"}], "]"}], ",", "\"\<|\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<InlineCode\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<for\>\""}]}], 
-             "\[RightAssociation]"}], "]"}], ",", "\"\<|\>\"", ",", 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\"\<testing\>\"", ",", 
            RowBox[{"MarkdownToken", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
-              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Bold\>\""}], ",", 
-              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<testing\>\""}]}], 
+              RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<LeftDelimiter\>\""}], 
+              ",", 
+              RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
@@ -2110,9 +2164,10 @@ subtle differences in rendering on other platforms.\>\""}]}],
    3.884728604295136*^9, 3.884728761319314*^9, 3.8847298172375317`*^9, 
    3.884730013531094*^9, 3.884730244873301*^9, 3.884730645771545*^9, 
    3.8847307170771027`*^9, 3.884730759167838*^9, 3.884730843136696*^9, 
-   3.8847309021554003`*^9},
+   3.8847309021554003`*^9, 3.885584068686081*^9, 3.885584214058194*^9, 
+   3.885682917286029*^9, 3.885682980430147*^9, 3.885683021166287*^9},
  CellLabel->"Out[1]=",
- CellID->970764109,ExpressionUUID->"4046e7dc-0536-4343-b178-a2bfd0c09fdd"]
+ CellID->1784682448,ExpressionUUID->"2485221b-26c0-4566-a184-59b071078e5b"]
 }, Open  ]]
 }, Open  ]],
 
@@ -4376,8 +4431,8 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1055, 847},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{3440, 680},
+WindowMargins->{{0, Automatic}, {Automatic, -540}},
 DockedCells->{
   Cell[
    BoxData[
@@ -4436,7 +4491,6 @@ Fu6DuJJG2H9mK2QZ3X1Y8rjKVdsLU11Qbnfn/Mae/TiO1RZHs2bny+6Vwq5Sfi8TnHKi+1+K4NOh"]\
   False, "AutoUpdate" -> True},
 CreateCellID->True,
 DynamicEvaluationTimeout->60,
-Magnification:>0.75 Inherited,
 FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
 StyleDefinitions->Notebook[{
    Cell[
@@ -12325,9 +12379,10 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
           Scaled[1], Automatic}, StripOnInput -> False]& )}], 
    Cell[
     StyleData["AttachedMessage"], Deletable -> True, 
-    CellMargins -> {{60, 40}, {15, 5}}]}, Visible -> False, FrontEndVersion -> 
-  "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", StyleDefinitions -> 
-  "PrivateStylesheetFormatting.nb"],
+    CellMargins -> {{60, 40}, {15, 5}}]}, 
+  WindowMargins -> {{Automatic, 0}, {Automatic, -64}}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"e7b20afa-8fc3-4d76-a617-628c9a5c0469"
 ]
 
