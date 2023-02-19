@@ -75,9 +75,9 @@ LaTex is also supported:
 
 * inline
 
-\(a^2 + b^2 = c^2\)
+Some LaTex: \(a^2 + b^2 = c^2\), The next line provides an alternative delimiter
 
-$a^2 + b^2 = c^2$
+Some more LaTex: $a^2 + b^2 = c^2$
 
 * presented
 

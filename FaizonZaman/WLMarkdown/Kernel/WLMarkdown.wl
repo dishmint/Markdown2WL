@@ -5,8 +5,10 @@ BeginPackage["FaizonZaman`WLMarkdown`"]
 (* Declare your package's public symbols here. *)
 
 ImportMarkdown::usage = "ImportMarkdown[s] imports string s into symbolic markdown\nImportMarkdown[f] imports file f into symbolic markdown"
-TokenRules::usage = "TokenRules[f] gives the line tokenization rules for Markdown flavor f"
-DelimiterRules::usage = "DelimiterRules[f] gives the sub line tokenization rules for Markdown flavor f"
+LineRules::usage = "LineRules[f] gives the line tokenization rules for Markdown flavor f"
+BlockRules::usage = "BlockRules[f] gives the block tokenization rules for Markdown flavor f"
+DelimiterRules::usage = "DelimiterRules[f] gives the delimiter tokenization rules for Markdown flavor f"
+MarkdownDelimiters::usage = "MarkdownDelimiters[f] gives the delimiters for Markdown flavor f"
 MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMarkdownLexer[ls, r] lexes the list of strings ls with rules r"
 MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
@@ -38,43 +40,49 @@ iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 			flavor = Replace[ OptionValue[ "Flavor" ], Automatic -> "CommonMark" ]
 			},
 		Enclose[
-			Confirm[ trules = TokenRules[ flavor ], StringTemplate[ TokenRules::invf ][ flavor ] ];
+			Confirm[ lrules = LineRules[ flavor ], StringTemplate[ LineRules::invf ][ flavor ] ];
+			Confirm[ brules = BlockRules[ flavor ], StringTemplate[ BlockRules::invf ][ flavor ] ];
 			Confirm[ drules = DelimiterRules[ flavor ], StringTemplate[ DelimiterRules::invf ][ flavor ] ];
-			Confirm[ prules = ParserRules[ flavor ], StringTemplate[ TokenRules::invf ][ flavor ] ];
-			
-			(* tokens = MarkdownLexer[ lines,  trules ]; *) (* Stage 1 - Tokenize Lines *)
-			(* tokens = MarkdownLexer[ tokens, drules ]; *) (* Stage 2 - Tokenize Data *)
-			tokens = MarkdownLexer[ lines, trules, drules ]
+			Confirm[ prules = ParserRules[ flavor ], StringTemplate[ ParserRules::invf ][ flavor ] ];
 
-			(* parse  = MarkdownParser[tokens, opts]; *)    (* Stage 3 - Parse Blocks *)
+			tokens = MarkdownLexer[ lines, AssociationThread[ { "LineRules", "BlockRules", "DelimiterRules" } -> { lrules, brules, drules}]]
+
+			(* parse  = MarkdownParser[tokens, prules]; *)    (* Stage 3 - Parse Blocks *)
 		]
 	]
 
 MarkdownToken[asc_?AssociationQ][key_String] := Lookup[asc, key]
 
 
-MarkdownLexer[ data_, trules_List, drules_List] := Block[
-	{linetokens},
-	linetokens = LineLexer[data, trules];
-	linetokens = DataLexer[linetokens, drules];
-	linetokens
+MarkdownLexer[ data_, rules:KeyValuePattern[{"LineRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
+	{res},
+	(*  Stage 1 *) res = LineLexer[data, rules["LineRules"]];
+	(*  Stage 2 *) res = BlockLexer[res, rules["BlockRules"]];
+	(*  Stage 3 *) (* res = DataLexer[res, rules["DelimiterRules"]]; *)
+	res
 	]
+
 (* Stage 1 *)
 LineLexer[ line_String, rules_List ] := iLineLexer[ line, rules ]
 LineLexer[ lines:List[__String], rules_List ] := Map[ iLineLexer[ #, rules ]&, lines ]
 iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 
 (* Stage 2 *)
+BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines ]
+
+(* Stage 3 *)
 $SubTokens = "Line"|"Heading"(* |"Footnote"|"Image" *);
 DataLexer[ tokens:List[__MarkdownToken], rules_List ] := Map[ iDataLexer[ #, rules ]&, tokens ]
-iDataLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $SubTokens, "Data" -> data_}]], srules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iDataLexer[ data, srules ] ] ]
+iDataLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $SubTokens, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iDataLexer[ data, rules ] ] ]
 iDataLexer[ token_MarkdownToken, _ ] := token
-iDataLexer[ data_String, srules_List ] := iDataLexer[ DelimiterLexer[ data, srules ], srules ]
+iDataLexer[ data_String, rules_List ] := iDataLexer[ DelimiterLexer[ data, rules ], rules ]
 iDataLexer[ { subline_String }, _ ] := subline
 iDataLexer[ subline_List, srules_List ] := Map[ iDataLexer[ #, srules ]&, subline ]
 
 DelimiterLexer[ data_String, rules_List ] := Block[
  	{res},
+	(* NOTE: If there is only one delimter match in the string, then don't replace it *)
+	(* NOTE: It might be better to perform this lexing after blocks have been tokenized, because then I can skip DelimiterLexing on blocks that don't need it, like code blocks for example. *)
  	res = StringSplit[data, rules] /. "" -> Nothing;
 	SequenceReplace[res, { seq : {MarkdownToken[KeyValuePattern["Data" -> s_]] ..} :> MarkdownToken[<|"Token" -> "Delimiter", "Data" -> StringRepeat[s, Length[seq]]|>]}]
 	]

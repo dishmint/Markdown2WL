@@ -8,6 +8,8 @@ $Token = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token |>]&
 $TokenData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Data" -> #Data |>]&
 $TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Level" -> #Level, "Data" -> #Data |>]&
 
+$TokenPattern[patt_] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern["Token" -> patt]]
+
 $MDIS := ToString[ Replace[$MarkdownIndentationSize, Automatic -> 2] ]
 (* Shared *)
 (* Rules shared by Markdown Flavors can go here *)
@@ -16,23 +18,14 @@ $EmptyLineRule = RegularExpression[ "^$" ] :> $Token[ <| "Token" -> "EmptyLine" 
 $HorizontalLineRule = RegularExpression[ "^-{3}$" ] :> $Token[ <| "Token" -> "HorizontalLine" |> ]
 $CodeFenceRule = RegularExpression[ "^(\\`{3})(.*)$" ] :> $TokenData[ <| "Token" -> "CodeFence", "Data" -> "$2" |> ]
 $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "Data" -> "$1" |> ]
-(* NOTE: DelimiterPatterns should return a list of {before, LFD, __, RFD, after} *)
-(* NOTE: All three of these rules could be two: $LeftDelimiterRule, $RightDelimiterRule *)
-(* $ItalicRule = RegularExpression[ "(?:\\s|^)_([^_].+[^_])_(?:\\s|$)" ] :> $TokenData[ <| "Token" -> "Italic", "Data" -> "$1" |> ] *)
-(* $BoldRule = RegularExpression[ "(?:[^*]|^)\\*{2}([^*].+[^*])\\*{2}(?:[^*]|$)" ] :> $TokenData[ <| "Token" -> "Bold", "Data" -> "$1" |> ] *)
-(* $InlineCodeRule = RegularExpression[ "(?:[^`]|^)\\`([^`].+[^`])\\`(?:[^`]|$)" ] :> $TokenData[ <| "Token" -> "InlineCode", "Data" -> "$1" |> ] *)
-(*  *)
-(* (((_)(?!_))|((?<![*]{2})([*]{2})(?![*]{2}))) *)
-$LFDRule = RegularExpression["(?<=\\s|^)(_|[*]{2}|[`])(?!_|[*]{2}|[`])"] :> $TokenData[ <| "Token" -> "LFD", "Data" -> "$1" |>]
-$RFDRule = RegularExpression["(?<=\\s|^)(_|[*]{2}|[`])(?!_|[*]{2}|[`])"] :> $TokenData[ <| "Token" -> "RFD", "Data" -> "$1" |>]
 
-(* TokenRules *)
 
-(* CommonMark *)
-(* NOTE: Italic|Bold|InlineCode|LaTex are all delimited tokens *)
+(* -------------------------------------------------------------------------- *)
+(*                              CommonMark Rules                              *)
+(* -------------------------------------------------------------------------- *)
 (* TODO: Hyperlinks|Footnotes|Images *)
 
-FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
+FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     (* Empty Line *)
     $EmptyLineRule,
     (* Horizontal Line *)
@@ -55,16 +48,25 @@ FaizonZaman`WLMarkdown`TokenRules["CommonMark"] = {
     $LineRule
 }
 
-FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
-    (* Delimiters *)
-    d: ("\\[" | "\\]" | "$" | "*" | "_" | "`") :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]
+FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
+    (* CodeBlock *)
+    {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]]
+    (* Table *)
+    (* List *)
 }
 
-FaizonZaman`WLMarkdown`TokenRules[flavor_String] := (Message[TokenRules::invf, flavor];$Failed)
-FaizonZaman`WLMarkdown`SubTokenRules[flavor_String] := (Message[SubTokenRules::invf, flavor];$Failed)
+FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = <| "Emphasis" -> "*"|"_"|"`", "Tables" ->"\\|",  "LaTex" -> "\\["|"\\]"|"$"|"\\("|"\\)" |> // Values // Apply[Join];
 
-FaizonZaman`WLMarkdown`TokenRules::invf = "No token rules defined for flavor \"``\""
-FaizonZaman`WLMarkdown`SubTokenRules::invf = "No subtoken rules defined for flavor \"``\""
+FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
+    (* Delimiters *)
+    d: FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]
+}
+
+FaizonZaman`WLMarkdown`LineRules[flavor_String] := (Message[LineRules::invf, flavor];$Failed)
+FaizonZaman`WLMarkdown`DelimiterRules[flavor_String] := (Message[DelimiterRules::invf, flavor];$Failed)
+
+FaizonZaman`WLMarkdown`LineRules::invf = "No line tokenization rules defined for flavor \"``\""
+FaizonZaman`WLMarkdown`DelimiterRules::invf = "No delimiter tokenization rules defined for flavor \"``\""
 
 End[]
 EndPackage[]
