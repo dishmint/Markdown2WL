@@ -3,15 +3,22 @@ BeginPackage["FaizonZaman`WLMarkdown`TokenRules`"]
 Begin["`Private`"]
 Needs["FaizonZaman`WLMarkdown`Utilities`"]
 
-(* Template Markdown Tokens *)
+(* -------------------------------------------------------------------------- *)
+(*                          Template Markdown Tokens                          *)
+(* -------------------------------------------------------------------------- *)
 $Token = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token |>]&
 $TokenData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Data" -> #Data |>]&
 $TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Level" -> #Level, "Data" -> #Data |>]&
 
-$TokenPattern[patt_] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern["Token" -> patt]]
+$TokenPattern[tok_] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern["Token" -> tok]]
+$TokenPattern[tok_, rest__Rule] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token" -> tok, rest}]]
 
 $MDIS := ToString[ Replace[$MarkdownIndentationSize, Automatic -> 2] ]
-(* Shared *)
+
+(* -------------------------------------------------------------------------- *)
+(*                              Shared line rules                             *)
+(* -------------------------------------------------------------------------- *)
+
 (* Rules shared by Markdown Flavors can go here *)
 (* Then use them in TokenRules for that flavor *)
 $EmptyLineRule = RegularExpression[ "^$" ] :> $Token[ <| "Token" -> "EmptyLine" |> ]
@@ -23,6 +30,8 @@ $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "
 (* -------------------------------------------------------------------------- *)
 (*                              CommonMark Rules                              *)
 (* -------------------------------------------------------------------------- *)
+
+(* ------------------------------- Line rules ------------------------------- *)
 (* TODO: Hyperlinks|Footnotes|Images *)
 
 FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
@@ -48,12 +57,23 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     $LineRule
 }
 
+(* ------------------------------- Block rules ------------------------------ *)
+
 FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     (* CodeBlock *)
-    {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]]
+    {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
     (* Table *)
+    {
+        $TokenPattern["EmptyLine"],
+        header : $TokenPattern["Line", "Data" -> h_ /; StringMatchQ[h, RegularExpression["(.+?[|])(.+?[|]?)*"]]],
+        alignment : $TokenPattern["Line", "Data" -> a_ /; StringMatchQ[a, RegularExpression["(^\\s?:?-+:?\\s?[|])(\\s?:?-+:?\\s?[|]?)*"]]],
+        rows: Shortest[$TokenPattern["Line"]..],
+        $TokenPattern["EmptyLine"]
+    } :> Sequence[ $Token[<|"Token" -> "EmptyLine"|>], $TokenData[<|"Token" -> "Table", "Data" -> {header, alignment, {rows}}|>], $Token[<| "Token" -> "EmptyLine" |>] ]
     (* List *)
 }
+
+(* ----------------------------- Delimiter rules ---------------------------- *)
 
 FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = <| "Emphasis" -> "*"|"_"|"`", "Tables" ->"\\|",  "LaTex" -> "\\["|"\\]"|"$"|"\\("|"\\)" |> // Values // Apply[Join];
 
@@ -61,6 +81,10 @@ FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
     (* Delimiters *)
     d: FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]
 }
+
+(* -------------------------------------------------------------------------- *)
+(*                                  Messages                                  *)
+(* -------------------------------------------------------------------------- *)
 
 FaizonZaman`WLMarkdown`LineRules[flavor_String] := (Message[LineRules::invf, flavor];$Failed)
 FaizonZaman`WLMarkdown`DelimiterRules[flavor_String] := (Message[DelimiterRules::invf, flavor];$Failed)
