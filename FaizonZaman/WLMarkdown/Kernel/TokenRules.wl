@@ -13,7 +13,7 @@ $TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Le
 $TokenPattern[tok_] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern["Token" -> tok]]
 $TokenPattern[tok_, rest__Rule] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token" -> tok, rest}]]
 
-$MDIS := ToString[ Replace[$MarkdownIndentationSize, Automatic -> 2] ]
+(* $MDIS := ToString[ Replace[$MarkdownIndentationSize, Automatic -> 2] ] *)
 
 (* -------------------------------------------------------------------------- *)
 (*                              Shared line rules                             *)
@@ -42,9 +42,9 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     (* Headings 1~6 *)
     RegularExpression[ "^(\\#{1,6}\\s)(.*)" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Level" -> StringLength["$1"] - 1, "Data" -> "$2" |> ],
     (* UnorderedListItems *)
-    RegularExpression[ "^(([\\s{"<>$MDIS<>"}\\t])*)\\*\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ],
+    RegularExpression[ "^(([\\s{2}\\t])*)\\*\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ],
     (* OrderedListItems *)
-    RegularExpression[ "^((\\s{"<>$MDIS<>"}|\\t)*)((\\d\\.)+\\d?)\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$5" |> ],
+    RegularExpression[ "^((\\s{2}|\\t)*)((\\d\\.)+\\d?)\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$5" |> ],
     (* BlockQuote *)
     RegularExpression[ "^(\\s{4})(.*)$" ] :> $TokenData[ <| "Token" -> "BlockQuote", "Data" -> "$2" |> ],
     (* CodeFence *)
@@ -69,8 +69,11 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
         alignment : $TokenPattern["Line", "Data" -> a_ /; StringMatchQ[a, RegularExpression["(^\\s?:?-+:?\\s?[|])(\\s?:?-+:?\\s?[|]?)*"]]],
         rows: Shortest[$TokenPattern["Line"]..],
         $TokenPattern["EmptyLine"]
-    } :> Sequence[ $Token[<|"Token" -> "EmptyLine"|>], $TokenData[<|"Token" -> "Table", "Data" -> {header, alignment, {rows}}|>], $Token[<| "Token" -> "EmptyLine" |>] ]
-    (* List *)
+    } :> Sequence[ $Token[<|"Token" -> "EmptyLine"|>], $TokenData[<|"Token" -> "Table", "Data" -> {header, alignment, {rows}}|>], $Token[<| "Token" -> "EmptyLine" |>] ],
+    (* UnorderedList *)
+    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["UnorderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
+    (* OrderedList *)
+    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["OrderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "OrderedList", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]]
 }
 
 (* ----------------------------- Delimiter rules ---------------------------- *)
@@ -78,8 +81,18 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
 FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = <| "Emphasis" -> "*"|"_"|"`", "Tables" ->"\\|",  "LaTex" -> "\\["|"\\]"|"$"|"\\("|"\\)" |> // Values // Apply[Join];
 
 FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
-    (* Delimiters *)
     d: FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]
+}
+
+(* ------------------------------- Link rules ------------------------------- *)
+
+FaizonZaman`WLMarkdown`LinkRules["CommonMark"] = {
+    (* Hyperlinks *)
+    "["~~label__~~"]("~~url__~~")" :> $TokenData[ <| "Token" -> "HyperLink", "Data" -> {label, url} |>],
+    "<"~~url__~~">" :> $TokenData[ <| "Token" -> "Hyperlink", "Data" -> url |>],
+    "["~~label__~~"]["~~url__~~"]" :> $TokenData[ <| "Token" -> "FootnoteReference", "Data" -> {label, url} |>],
+    (* Images *)
+    "!["~~label__~~"]("~~url__~~")" :> $TokenData[ <| "Token" -> "Image", "Data" -> {label, url} |>]
 }
 
 (* -------------------------------------------------------------------------- *)
@@ -87,9 +100,13 @@ FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
 (* -------------------------------------------------------------------------- *)
 
 FaizonZaman`WLMarkdown`LineRules[flavor_String] := (Message[LineRules::invf, flavor];$Failed)
+FaizonZaman`WLMarkdown`LinkRules[flavor_String] := (Message[LinkRules::invf, flavor];$Failed)
+FaizonZaman`WLMarkdown`BlockRules[flavor_String] := (Message[BlockRules::invf, flavor];$Failed)
 FaizonZaman`WLMarkdown`DelimiterRules[flavor_String] := (Message[DelimiterRules::invf, flavor];$Failed)
 
 FaizonZaman`WLMarkdown`LineRules::invf = "No line tokenization rules defined for flavor \"``\""
+FaizonZaman`WLMarkdown`LinkRules::invf = "No link tokenization rules defined for flavor \"``\""
+FaizonZaman`WLMarkdown`BlockRules::invf = "No block tokenization rules defined for flavor \"``\""
 FaizonZaman`WLMarkdown`DelimiterRules::invf = "No delimiter tokenization rules defined for flavor \"``\""
 
 End[]
