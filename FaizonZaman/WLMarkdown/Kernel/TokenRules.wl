@@ -71,9 +71,9 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
         $TokenPattern["EmptyLine"]
     } :> Sequence[ $Token[<|"Token" -> "EmptyLine"|>], $TokenData[<|"Token" -> "Table", "Data" -> {header, alignment, {rows}}|>], $Token[<| "Token" -> "EmptyLine" |>] ],
     (* UnorderedList *)
-    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["UnorderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
+    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["UnorderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {ulist} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
     (* OrderedList *)
-    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["OrderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "OrderedList", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]]
+    {$TokenPattern["EmptyLine"], olist: Shortest[$TokenPattern["OrderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "OrderedList", "Data" -> {olist} |>], $Token[<| "Token" -> "EmptyLine" |> ]]
 }
 
 (* ----------------------------- Delimiter rules ---------------------------- *)
@@ -88,11 +88,11 @@ FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
 
 FaizonZaman`WLMarkdown`LinkRules["CommonMark"] = {
     (* Hyperlinks *)
-    "["~~label__~~"]("~~url__~~")" :> $TokenData[ <| "Token" -> "HyperLink", "Data" -> {label, url} |>],
-    "<"~~url__~~">" :> $TokenData[ <| "Token" -> "Hyperlink", "Data" -> url |>],
-    "["~~label__~~"]["~~url__~~"]" :> $TokenData[ <| "Token" -> "FootnoteReference", "Data" -> {label, url} |>],
+    Shortest["["~~label__~~"]"~~"("~~url__~~")"] :> $TokenData[ <| "Token" -> "HyperLink", "Data" -> {label, url} |>],
+    Shortest["<"~~url__~~">"] :> $TokenData[ <| "Token" -> "Hyperlink", "Data" -> url |>],
+    Shortest["["~~label__~~"]["~~url__~~"]"] :> $TokenData[ <| "Token" -> "FootnoteReference", "Data" -> {label, url} |>],
     (* Images *)
-    "!["~~label__~~"]("~~url__~~")" :> $TokenData[ <| "Token" -> "Image", "Data" -> {label, url} |>]
+    Shortest["!["~~label__~~"]("~~url__~~")"] :> $TokenData[ <| "Token" -> "Image", "Data" -> {label, url} |>]
 }
 
 (* -------------------------------------------------------------------------- *)

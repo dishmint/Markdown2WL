@@ -73,7 +73,7 @@ iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 (* Stage 2 *)
 NormStringSplit[{s_String}] := s
 NormStringSplit[expr_] := expr
-$LinkLexableTokens = "Line"|"Heading"(* |"OrderedListItem"|"UnorderedListItem" *);
+$LinkLexableTokens = "Line"|"Heading"|"OrderedListItem"|"UnorderedListItem";
 LinkLexer[ lines:List[__MarkdownToken], rules_List ] := Map[ iLinkLexer[ #, rules ]&, lines ]
 iLinkLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> NormStringSplit@StringSplit[ data, rules ] ] ]
 iLinkLexer[ token_MarkdownToken, _ ] := token
