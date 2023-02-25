@@ -2,8 +2,6 @@
 
 BeginPackage["FaizonZaman`WLMarkdown`"]
 
-(* Declare your package's public symbols here. *)
-
 ImportMarkdown::usage = "ImportMarkdown[s] imports string s into symbolic markdown\nImportMarkdown[f] imports file f into symbolic markdown"
 LineRules::usage = "LineRules[f] gives the line tokenization rules for Markdown flavor f"
 LinkRules::usage = "LinkRules[f] gives the link tokenization rules for Markdown flavor f"
@@ -15,11 +13,7 @@ MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMark
 MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
 
-(* $MarkdownIndentationSize::usage = "The string length of a single indent" *)
-
 Begin["`Private`"]
-
-(* $MarkdownIndentationSize = Automatic; *)
 
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 
@@ -56,12 +50,9 @@ iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 
 			tokens = MarkdownLexer[ lines, AssociationThread[ { "LineRules", "LinkRules", "BlockRules", "DelimiterRules" } -> { lrules, hrules, brules, drules}]]
 
-			(* parse  = MarkdownParser[tokens, prules]; *)    (* Stage 3 - Parse Blocks *)
+			(* parse  = MarkdownParser[tokens, prules]; *)
 		]
 	]
-
-MarkdownToken[asc_?AssociationQ][key_String] := Lookup[asc, key]
-
 
 MarkdownLexer[data_String, rules_] := MarkdownLexer[ {data}, rules ]
 MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
@@ -90,7 +81,6 @@ iLinkLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens,
 BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines ]
 
 (* Stage 4 *)
-(* The data lexer handles delimiters *)
 $DelimiterLexableLines = "Line"|"Heading"|"Quote"|"BlockQuote"|"UnorderedListItem"|"OrderedListItem";
 $DelimiterLexableBlocks = "UnorderedList"|"OrderedList"|"Table";
 $DelimiterLexableTokens = Join[$DelimiterLexableLines, $DelimiterLexableBlocks];
