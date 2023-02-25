@@ -1,0 +1,228 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8876,        218]
+NotebookOptionsPosition[      6198,        160]
+NotebookOutlinePosition[      7816,        201]
+CellTagsIndexPosition[      7773,        198]
+WindowTitle->WLMarkdown
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell[
+          "FAIZON ZAMAN/ W L MARKDOWN GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "8ce5ff22-e20d-47e3-ac14-6aff6fd27940"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "6dd9dba6-0e0c-49a9-bfe5-e497c1fbf166"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[Cell[BoxData[
+     TagBox[
+      ActionMenuBox[
+       FrameBox[Cell[TextData[{
+         "URL",
+         " ",
+         Cell[BoxData[
+          GraphicsBox[
+           {GrayLevel[0.66667], Thickness[0.13], 
+            LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+           AspectRatio->1,
+           ImageSize->20,
+           PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+          "d8d9e251-7366-4fbb-85aa-74f7cd403971"]
+        }],ExpressionUUID->"aa575aef-f813-4e95-a8f7-999675edf9a1"],
+        StripOnInput->
+         False], {"\<\"FaizonZaman/WLMarkdown/guide/WLMarkdownGuide\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FaizonZaman/WLMarkdown/guide/WLMarkdownGuide"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FaizonZaman/WLMarkdown/\
+guide/WLMarkdownGuide.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$53028], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"] <> 
+            "FaizonZaman/WLMarkdown/guide/WLMarkdownGuide" <> ".html"], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"],
+      MouseAppearanceTag["LinkHand"]]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "cc4cbf3b-8847-4a2e-8716-491278c6bd13"]], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "c3266304-9543-4b6e-ae53-fa97491f8ea6"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"f13acc5a-993e-4b24-b8c2-f3da5656a2ed"],
+
+Cell[CellGroupData[{
+
+Cell["WLMarkdown", "GuideTitle",
+ CellID->4624931,ExpressionUUID->"6c171aea-02c9-44f5-88d9-afbde6688d6c"],
+
+Cell["Utilities for working lexing, parsing, rendering markdown.", \
+"GuideAbstract",
+ CellID->421804025,ExpressionUUID->"c56f77eb-ab50-4c97-9e6e-50d05401c9dc"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"2ddfa154-5c3d-4942-95d9-fbf0255d6fbc"],
+
+Cell[TextData[{
+ Cell["ImportMarkdown", "InlineFunctionSansUnlinked",
+  CellTags->"c40ac8e4-27e1-4161-a8df-4d4f38357a23",ExpressionUUID->
+  "ff06b3dc-b669-424b-bc63-e9e9f6627947"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " import a markdown file into symbolic markdown."
+}], "GuideText",
+ CellID->1027323529,ExpressionUUID->"093bc651-8642-43ef-b2a4-9c3cc60a7343"],
+
+Cell[TextData[{
+ Cell["MarkdownLexer", "InlineFunctionSansUnlinked",
+  CellTags->"c5c6736a-1ff4-4e4e-8fcf-2d9846cbae62",ExpressionUUID->
+  "ca657a01-fc1d-4814-8b59-4364726a1edd"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " lex a markdown string or list of markdown strings"
+}], "GuideText",
+ CellID->458030023,ExpressionUUID->"2a5c7aae-8881-47f8-a623-a14bdbb39ae8"],
+
+Cell[TextData[{
+ Cell["TokenRules", "InlineFunctionSansUnlinked",
+  CellTags->"11557018-be93-4555-bfb1-252669d7f6ef",ExpressionUUID->
+  "a5f92a0b-a732-4c0e-83bc-7bd81a9993bf"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " list of tokenization rules for a markdown flavor"
+}], "GuideText",
+ CellID->1201224823,ExpressionUUID->"84a65258-ac15-436d-bf18-b1f480f4c250"],
+
+Cell["\t", "GuideDelimiter",
+ CellID->1529205713,ExpressionUUID->"b571b4b6-fffd-44f3-af14-22326aca8c9d"],
+
+Cell[TextData[{
+ Cell["MarkdownToken", "InlineFunctionSansUnlinked",ExpressionUUID->
+  "e387915a-b9c4-4b55-9b81-b46f730ead3d"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell["MarkdownElement", "InlineFunctionSansUnlinked",
+  CellTags->"c23e8d2a-f524-44b4-9df6-bc9b5d1bb1fe",ExpressionUUID->
+  "f5cb22b6-acee-4a0f-927a-6534cc1dd323"]
+}], "InlineGuideFunctionListing",
+ CellID->276131095,ExpressionUUID->"255dea28-aa34-431b-ad14-06e478f06258"]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"082ccdac-aa32-47fe-b5fd-3cec3630b268"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"WLMarkdown",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 2, 24, 21, 9, 30.825125}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FaizonZaman`WLMarkdown`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Faizon Zaman/ W L Markdown Guide", "language" -> "en", "paclet" -> 
+    "FaizonZaman/WLMarkdown", "status" -> "None", "summary" -> 
+    "Utilities for working lexing, parsing, rendering markdown.", 
+    "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$52997, "title" -> 
+    "WLMarkdown", "titlemodifier" -> "", "windowtitle" -> "WLMarkdown", 
+    "type" -> "Guide", "uri" -> 
+    "FaizonZaman/WLMarkdown/guide/WLMarkdownGuide"}},
+CacheGraphics->False,
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"e17e48ea-64af-4d75-9d68-0a1e86e42625"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[582, 21, 3438, 80, 57, "AnchorBarGrid",ExpressionUUID->"f13acc5a-993e-4b24-b8c2-f3da5656a2ed",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[4045, 105, 105, 1, 61, "GuideTitle",ExpressionUUID->"6c171aea-02c9-44f5-88d9-afbde6688d6c",
+ CellID->4624931],
+Cell[4153, 108, 160, 2, 38, "GuideAbstract",ExpressionUUID->"c56f77eb-ab50-4c97-9e6e-50d05401c9dc",
+ CellID->421804025],
+Cell[4316, 112, 93, 0, 24, "GuideDelimiterSubsection",ExpressionUUID->"2ddfa154-5c3d-4942-95d9-fbf0255d6fbc"],
+Cell[4412, 114, 371, 8, 27, "GuideText",ExpressionUUID->"093bc651-8642-43ef-b2a4-9c3cc60a7343",
+ CellID->1027323529],
+Cell[4786, 124, 372, 8, 27, "GuideText",ExpressionUUID->"2a5c7aae-8881-47f8-a623-a14bdbb39ae8",
+ CellID->458030023],
+Cell[5161, 134, 369, 8, 27, "GuideText",ExpressionUUID->"84a65258-ac15-436d-bf18-b1f480f4c250",
+ CellID->1201224823],
+Cell[5533, 144, 104, 1, 27, "GuideDelimiter",ExpressionUUID->"b571b4b6-fffd-44f3-af14-22326aca8c9d",
+ CellID->1529205713],
+Cell[5640, 147, 461, 8, 26, "InlineGuideFunctionListing",ExpressionUUID->"255dea28-aa34-431b-ad14-06e478f06258",
+ CellID->276131095]
+}, Open  ]],
+Cell[6116, 158, 78, 0, 40, "FooterCell",ExpressionUUID->"082ccdac-aa32-47fe-b5fd-3cec3630b268"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

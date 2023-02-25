@@ -1,33 +1,25 @@
-# An exhibit of Markdown
+# CommonMark Example Document
 
-This note demonstrates some of what [Markdown][1] is capable of doing.
+This document contains examples for testing [CommonMark.30][1]. Consider it a slimmed-down version of the spec page.
 
-_Note: Feel free to play with this page. Unlike regular notes, this doesn't automatically save itself._
-
-## Basic formatting
+## Blocks
 
 Write Paragraphs like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.
 
 Blank lines separate paragraphs. Markdown supports _italic_ and **bold** formatting.
 
-Lines can have nested styling as well, like _a **bold** in an italic_.
+Lines can have nested styling as well, like _a **bold** in an italic_, or **an _italic_ in a bold**.
 
 ## Lists
 
-### Ordered list with Tabs
+### Ordered list
 
 1. Item 1
-2. A second item
-3. Number 3
-4. Ⅳ
-	5. A nested ordered item
-
-### Ordered list with Spaces
-
-1. First item
-  2. First item's subitem
-  3. First item's 2nd subitem
-    4. 2nd item's subitem
+2. Item 2
+  1. Item 2.1
+3. Item 3
+  1. Item 3.1
+4. Item Ⅳ
 
 _Note: the fourth item uses the Unicode character for [Roman numeral four][2]._
 
@@ -35,19 +27,27 @@ _Note: the fourth item uses the Unicode character for [Roman numeral four][2]._
 
 * An item
 * Another item
+  * A sub item
 * Yet another item
-	* A nested unordered item with tabs
 * And there's more...
-
-* unordered list with spaces
-  * list item with space indentation
-    * another list item with space indentation
+  * A sub item with spaces
 
 ## Paragraph modifiers
 
 ### Code block
 
     Code blocks are useful for people who look at code or for clarity of plain text content. As you can see, it uses a fixed-width font.
+
+```Mathematica
+f[0] = 1
+f[1] = 1
+f[n_Integer] := f[n - 1] + f[n - 2]
+```
+
+```
+Generic fenced code block
+With Text In It
+```
 
 You can also make `inline code` to add insert code block formatting anywhere.
 
@@ -67,22 +67,25 @@ Of course, demonstrating what headings look like messes up the structure of the 
 
 I don't recommend using more than three or four levels of headings here, because, when you're smallest heading isn't too small, and you're largest heading isn't too big, and you want each size up to look noticeably larger and more important, there aren't any other sizes to choose from.
 
+####### hello
+
 ## LaTex
 
-LaTeX is also supported:
+LaTex is also supported:
 
 * inline
 
-\(a^2 + b^2 = c^2\)
+Some LaTex: \(a^2 + b^2 = c^2\), The next line provides an alternative delimiter
 
-$ a^2 + b^2 = c^2 $
+Some more LaTex: $a^2 + b^2 = c^2$
 
 * presented
 
+\[a^n + b^n = c^n\]
 \[ a^n + b^n = c^n \]
 
+$$a^2 + b^2 = c^2$$
 $$ a^2 + b^2 = c^2 $$
-
 
 ## URLs
 
@@ -102,8 +105,13 @@ A horizontal rule is a dividing line drawn across the page, useful for separatin
 
 Markdown | Less | Pretty
 --- | --- | ---
-*Still* | `renders` | **nicely**
+_Still_ | `renders` | **nicely**
 1 | 2 | 3
+
+A | Second | Table
+:--- | :---: | ---:
+_Just_ | `for` | **testing**
+4 | 5 | 6
 
 ## Images
 
@@ -114,8 +122,7 @@ Markdown can also contain images.
 
 There's actually a lot more to Markdown than this. See the official [introduction][4] and [syntax][5] for more information. Be aware that this document is not using the official implementation, and there may be subtle differences in rendering on other platforms.
 
-
-  [1]: http://daringfireball.net/projects/markdown/
+  [1]: https://spec.commonmark.org/0.30/
   [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
   [3]: http://www.markitdown.net/
   [4]: http://daringfireball.net/projects/markdown/basics
