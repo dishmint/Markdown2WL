@@ -9,6 +9,7 @@ LineRules::usage = "LineRules[f] gives the line tokenization rules for Markdown 
 LinkRules::usage = "LinkRules[f] gives the line tokenization rules for Markdown flavor f"
 BlockRules::usage = "BlockRules[f] gives the block tokenization rules for Markdown flavor f"
 DelimiterRules::usage = "DelimiterRules[f] gives the delimiter tokenization rules for Markdown flavor f"
+MarkdownRules::usage = "MarkdownRules[f] gives the tokenization rules for Markdown flavor f"
 MarkdownDelimiters::usage = "MarkdownDelimiters[f] gives the delimiters for Markdown flavor f"
 MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMarkdownLexer[ls, r] lexes the list of strings ls with rules r"
 MarkdownToken::usage = "Represents a lexed Markdown token"
@@ -21,6 +22,12 @@ Begin["`Private`"]
 (* $MarkdownIndentationSize = Automatic; *)
 
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
+
+(* MarkdownRules *)
+$MarkdownFlavors = Alternatives["CommonMark"]
+MarkdownRules[flavor:$MarkdownFlavors] := AssociationThread[{"LineRules", "LinkRules", "BlockRules", "DelimiterRules", "ParserRules" } -> Through[{LineRules, LinkRules, BlockRules, DelimiterRules, ParserRules}[flavor]]]
+MarkdownRules[flavor_] := (Message[MarkdownRules::invf, flavor];$Failed)
+MarkdownRules::invf = "No line markdown rules defined for flavor \"``\""
 
 (* ImportMarkdown *)
 Options[ImportMarkdown] = {
@@ -56,7 +63,8 @@ iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 MarkdownToken[asc_?AssociationQ][key_String] := Lookup[asc, key]
 
 
-MarkdownLexer[ data_, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
+MarkdownLexer[data_String, rules_] := MarkdownLexer[ {data}, rules ]
+MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
 	{res},
 	(*  Stage 1 *) res = LineLexer[data, rules["LineRules"]];
 	(*  Stage 2 *) res = LinkLexer[res, rules["LinkRules"]];
