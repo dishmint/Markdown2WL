@@ -77,8 +77,8 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
 }
 
 (* ----------------------------- Delimiter rules ---------------------------- *)
-
-FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = <| "Emphasis" -> "*"|"_"|"`", "Tables" ->"\\|",  "LaTex" -> "\\["|"\\]"|"$"|"\\("|"\\)" |> // Values // Apply[Join];
+MergeDelimiters[dasc_?AssociationQ] := ( dasc // Values // Apply[Join]/*Apply[Alternatives] )
+FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = MergeDelimiters@<| "Emphasis" -> {"*","_","`"},  "LaTex" -> { "\\[","\\]","$","\\(","\\)" } |>;
 
 FaizonZaman`WLMarkdown`DelimiterRules["CommonMark"] = {
     d: FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] :> $TokenData[ <| "Token" -> "Delimiter", "Data" -> d |>]

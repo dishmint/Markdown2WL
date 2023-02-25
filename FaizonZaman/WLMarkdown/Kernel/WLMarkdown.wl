@@ -61,7 +61,7 @@ MarkdownLexer[ data_, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "Bl
 	(*  Stage 1 *) res = LineLexer[data, rules["LineRules"]];
 	(*  Stage 2 *) res = LinkLexer[res, rules["LinkRules"]];
 	(*  Stage 3 *) res = BlockLexer[res, rules["BlockRules"]];
-	(*  Stage 4 *) (* res = DataLexer[res, rules["DelimiterRules"]]; *)
+	(*  Stage 4 *) res = DelimiterLexer[res, rules["DelimiterRules"]];
 	res
 	]
 
@@ -74,27 +74,34 @@ iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 NormStringSplit[{s_String}] := s
 NormStringSplit[expr_] := expr
 $LinkLexableTokens = "Line"|"Heading"|"OrderedListItem"|"UnorderedListItem";
-LinkLexer[ lines:List[__MarkdownToken], rules_List ] := Map[ iLinkLexer[ #, rules ]&, lines ]
+LinkLexer[ lines:List[__MarkdownToken], rules_List ] := MapAt[ iLinkLexer[ #, rules ]&, lines, Position[lines, MarkdownToken[KeyValuePattern[ "Token" -> $LinkLexableTokens ]]] ]
 iLinkLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> NormStringSplit@StringSplit[ data, rules ] ] ]
-iLinkLexer[ token_MarkdownToken, _ ] := token
-(* NOTE: Might not want the LInkLexer to run before the BlockLexer because you might not want links in CodeBlocks, but I suppose the tokenization could be reversed in parsing *)
+(* iLinkLexer[ token_MarkdownToken, _ ] := token *)
 
 (* Stage 3 *)
 BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines ]
 
 (* Stage 4 *)
-$DataLexableTokens = "Line"|"Heading"|"Table";
-DataLexer[ tokens:List[__MarkdownToken], rules_List ] := Map[ iDataLexer[ #, rules ]&, tokens ]
-iDataLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DataLexableTokens, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iDataLexer[ data, rules ] ] ]
-iDataLexer[ token_MarkdownToken, _ ] := token
-iDataLexer[ data_String, rules_List ] := iDataLexer[ DelimiterLexer[ data, rules ], rules ]
-iDataLexer[ { subline_String }, _ ] := subline
-iDataLexer[ subline_List, srules_List ] := Map[ iDataLexer[ #, srules ]&, subline ]
+(* The data lexer handles delimiters *)
+$DelimiterLexableLines = "Line"|"Heading"|"Quote"|"BlockQuote"|"UnorderedListItem"|"OrderedListItem";
+$DelimiterLexableBlocks = "UnorderedList"|"OrderedList"|"Table";
+$DelimiterLexableTokens = Join[$DelimiterLexableLines, $DelimiterLexableBlocks];
+DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := MapAt[ iDelimiterLexer[ #, rules ]&, tokens, Position[ tokens, MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]]] ]
+iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ data, rules ] ] ]
+iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ] ]
 
-DelimiterLexer[ data_String, rules_List ] := Block[
+iLineDelimiterLexer[ token_MarkdownToken, _ ] := token
+iLineDelimiterLexer[ data_String, rules_List ] := iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ]
+iLineDelimiterLexer[ { subline_String }, _ ] := subline
+iLineDelimiterLexer[ subline_List, srules_List ] := Flatten[ Map[ iLineDelimiterLexer[ #, srules ]&, subline ] ]
+
+iBlockDelimiterLexer[ block_List, srules_List ] := Map[ iLineDelimiterLexer[ #, srules ]&, block ]
+
+sDelimiterLexer[ data_String, rules_List ] := Block[
  	{res},
  	res = StringSplit[data, rules] /. "" -> Nothing;
-	SequenceReplace[res, { seq : {MarkdownToken[KeyValuePattern["Data" -> s_]] ..} :> MarkdownToken[<|"Token" -> "Delimiter", "Data" -> StringRepeat[s, Length[seq]]|>]}]
+	res = SequenceReplace[res, { seq : {MarkdownToken[KeyValuePattern["Data" -> s_]] ..} :> MarkdownToken[<|"Token" -> "Delimiter", "Data" -> StringRepeat[s, Length[seq]]|>]}];
+	res
 	]
 
 (* MarkdownParser[ tokens_List, rules_List ] := SequenceReplace[ tokens, rules ] *)
