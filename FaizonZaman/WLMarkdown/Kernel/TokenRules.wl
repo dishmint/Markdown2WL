@@ -32,7 +32,6 @@ $LineRule = RegularExpression[ "^(.*)$" ] :> $TokenData[ <| "Token" -> "Line", "
 (* -------------------------------------------------------------------------- *)
 
 (* ------------------------------- Line rules ------------------------------- *)
-(* TODO: Hyperlinks|Footnotes|Images *)
 
 FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     (* Empty Line *)
@@ -77,6 +76,7 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
 }
 
 (* ----------------------------- Delimiter rules ---------------------------- *)
+
 MergeDelimiters[dasc_?AssociationQ] := ( dasc // Values // Apply[Join]/*Apply[Alternatives] )
 FaizonZaman`WLMarkdown`MarkdownDelimiters["CommonMark"] = MergeDelimiters@<| "Emphasis" -> {"*","_","`"},  "LaTex" -> { "\\[","\\]","$","\\(","\\)" } |>;
 
