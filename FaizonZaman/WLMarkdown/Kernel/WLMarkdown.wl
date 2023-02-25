@@ -6,7 +6,7 @@ BeginPackage["FaizonZaman`WLMarkdown`"]
 
 ImportMarkdown::usage = "ImportMarkdown[s] imports string s into symbolic markdown\nImportMarkdown[f] imports file f into symbolic markdown"
 LineRules::usage = "LineRules[f] gives the line tokenization rules for Markdown flavor f"
-LinkRules::usage = "LinkRules[f] gives the line tokenization rules for Markdown flavor f"
+LinkRules::usage = "LinkRules[f] gives the link tokenization rules for Markdown flavor f"
 BlockRules::usage = "BlockRules[f] gives the block tokenization rules for Markdown flavor f"
 DelimiterRules::usage = "DelimiterRules[f] gives the delimiter tokenization rules for Markdown flavor f"
 MarkdownRules::usage = "MarkdownRules[f] gives the tokenization rules for Markdown flavor f"
