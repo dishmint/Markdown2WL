@@ -96,7 +96,25 @@ VerificationTest[
         },
 	"TestID" -> "BlockLexer-CommonMark-Table"
 ]
-(* TODO: Add tests for non-matches *)
+VerificationTest[
+	FaizonZaman`WLMarkdown`Private`BlockLexer[
+        {
+            MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
+            MarkdownToken[<| "Token" -> "Line", "Data" -> ":-: | :-- | --: "|>],
+            MarkdownToken[<| "Token" -> "Line", "Data" -> "1 | 2 | 3"|>],
+            MarkdownToken[<| "Token" -> "Line", "Data" -> "A | B | C"|>]
+        },
+        MarkdownRules["CommonMark"]["BlockRules"]
+        ],
+    {
+        MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
+        MarkdownToken[<| "Token" -> "Line", "Data" -> ":-: | :-- | --: "|>],
+        MarkdownToken[<| "Token" -> "Line", "Data" -> "1 | 2 | 3"|>],
+        MarkdownToken[<| "Token" -> "Line", "Data" -> "A | B | C"|>]
+        },
+	"TestID" -> "BlockLexer-CommonMark-Table-MalFormed"
+]
+
 (* ------------------------------ UnorderedList ----------------------------- *)
 VerificationTest[
 	FaizonZaman`WLMarkdown`Private`BlockLexer[
