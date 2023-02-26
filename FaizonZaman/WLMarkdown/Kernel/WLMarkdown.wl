@@ -88,7 +88,6 @@ DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := Replace[ tokens, t
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ data, rules ] ] ]
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ] ]
 
-(* iLineDelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := Map *)
 iLineDelimiterLexer[ MarkdownToken[token:KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ] ] ]
 iLineDelimiterLexer[ token_MarkdownToken, _ ] := token
 iLineDelimiterLexer[ data_String, rules_List ] := iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ]

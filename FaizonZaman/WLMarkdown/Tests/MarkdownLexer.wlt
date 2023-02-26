@@ -76,5 +76,156 @@ VerificationTest[
 	{MarkdownToken[<| "Token" -> "Line", "Data" -> "This is a line." |>]},
 	"TestID" -> "MarkdownLexer-CommonMark-Line"
 ]
-(* TODO: Add Block tests (Table, Codeblock, List) *)
+(* -------------------------------- CodeBlock ------------------------------- *)
+VerificationTest[
+	MarkdownLexer[
+		{
+			"",
+			"```Mathematica",
+			"f[0] = 1",
+			"f[1] = 1",
+			"f[n_Integer] := f[n-1] + f[n-2]",
+			"```",
+			""
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[
+			<|
+				"Token" -> "CodeBlock",
+				"Data" -> {
+					MarkdownToken[<|"Token" -> "CodeFence", "Data" -> "Mathematica"|>],
+					MarkdownToken[<|"Token" -> "Line", "Data" -> "f[0] = 1"|>],
+					MarkdownToken[<|"Token" -> "Line", "Data" -> "f[1] = 1"|>],
+					MarkdownToken[<|"Token" -> "Line", "Data" -> "f[n_Integer] := f[n-1] + f[n-2]"|>],
+					MarkdownToken[<|"Token" -> "CodeFence", "Data" -> ""|>]
+					}
+				|>
+			],
+		MarkdownToken[<|"Token" -> "EmptyLine"|>]
+ 		},
+	"TestID" -> "MarkdownLexer-CommonMark-CodeBlock"
+]
+VerificationTest[
+	MarkdownLexer[
+		{
+			"```Mathematica",
+			"f[0] = 1",
+			"f[1] = 1",
+			"f[n_Integer] := f[n-1] + f[n-2]",
+			"```"
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "CodeFence", "Data" -> "Mathematica"|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> "f[0] = 1"|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> "f[1] = 1"|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> {"f[n", MarkdownToken[<|"Token" -> "Delimiter", "Data" -> "_"|>], "Integer] := f[n-1] + f[n-2]"}|>], MarkdownToken[<|"Token" -> "CodeFence", "Data" -> ""|>]
+		},
+	"TestID" -> "MarkdownLexer-CommonMark-CodeBlock-MalFormed"
+]
+(* ---------------------------------- Table --------------------------------- *)
+VerificationTest[
+	MarkdownLexer[
+		{
+			"",
+			"A | Simple | Table ",
+			":-- | :-: | --: ",
+			"1 | 2 | 3 ",
+			"4 | 5 | 6 ",
+			""
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[
+			<|
+				"Token" -> "Table",
+				"Data" -> {
+					MarkdownToken[<|"Token" -> "Line", "Data" -> "A | Simple | Table "|>],
+					MarkdownToken[<|"Token" -> "Line", "Data" -> ":-- | :-: | --: "|>],
+					{
+						MarkdownToken[<|"Token" -> "Line", "Data" -> "1 | 2 | 3 "|>],
+						MarkdownToken[<|"Token" -> "Line", "Data" -> "4 | 5 | 6 "|>]
+						}
+					}
+				|>
+			],
+		MarkdownToken[<|"Token" -> "EmptyLine"|>]
+ 		},
+	"TestID" -> "MarkdownLexer-CommonMark-Table"
+]
+VerificationTest[
+	MarkdownLexer[
+		{
+			"A | Simple | Table ",
+			":-- | :-: | --: ",
+			"1 | 2 | 3 ",
+			"4 | 5 | 6 "
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "Line", "Data" -> "A | Simple | Table "|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> ":-- | :-: | --: "|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> "1 | 2 | 3 "|>],
+		MarkdownToken[<|"Token" -> "Line", "Data" -> "4 | 5 | 6 "|>]
+		},
+	"TestID" -> "MarkdownLexer-CommonMark-Table-MalFormed"
+]
+(* ---------------------------------- Lists --------------------------------- *)
+VerificationTest[
+	MarkdownLexer[
+		{
+			"",
+			"* A list",
+			"	* an item in a list",
+			""
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[
+			<|
+				"Token" -> "UnorderedList",
+				"Data" -> {
+					MarkdownToken[<|"Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "A list"|>],
+					MarkdownToken[<|"Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "an item in a list" |>]
+					}
+				|>
+			],
+		MarkdownToken[<|"Token" -> "EmptyLine"|>]
+ 		},
+	"TestID" -> "MarkdownLexer-CommonMark-UnorderedList"
+]
+VerificationTest[
+	MarkdownLexer[
+		{
+			"",
+			"1. A list",
+			"	1.1 an item in a list",
+			""
+			},
+		MarkdownRules["CommonMark"]
+		],
+	{
+		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[
+			<|
+				"Token" -> "OrderedList",
+				"Data" -> {
+					MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "A list"|>],
+					MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "an item in a list" |>]
+					}
+				|>
+			],
+		MarkdownToken[<|"Token" -> "EmptyLine"|>]
+ 		},
+	"TestID" -> "MarkdownLexer-CommonMark-OrderedList"
+]
 EndTestSection[]
