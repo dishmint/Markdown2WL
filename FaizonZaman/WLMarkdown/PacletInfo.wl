@@ -20,6 +20,9 @@ PacletObject[
         "Root" -> "Tests",
         "Resources" -> {
           {"LineLexer", "LineLexer.wlt"},
+          {"LinkLexer", "LinkLexer.wlt"},
+          (* {"BlockLexer", "BlockLexer.wlt"}, *)
+          (* {"DelimiterLexer", "DelimiterLexer.wlt"}, *)
           {"MarkdownLexer", "MarkdownLexer.wlt"}
           }
       },
