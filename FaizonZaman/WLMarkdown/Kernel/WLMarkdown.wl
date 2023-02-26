@@ -84,10 +84,11 @@ BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines
 $DelimiterLexableLines = "Line"|"Heading"|"Quote"|"BlockQuote"|"UnorderedListItem"|"OrderedListItem";
 $DelimiterLexableBlocks = "UnorderedList"|"OrderedList"|"Table";
 $DelimiterLexableTokens = Join[$DelimiterLexableLines, $DelimiterLexableBlocks];
-DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := MapAt[ iDelimiterLexer[ #, rules ]&, tokens, Position[ tokens, MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]]] ]
+DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := Replace[ tokens, token:MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]] :> iDelimiterLexer[ token, rules ], 1 ]
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ data, rules ] ] ]
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ] ]
 
+iLineDelimiterLexer[ MarkdownToken[token:KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ] ] ]
 iLineDelimiterLexer[ token_MarkdownToken, _ ] := token
 iLineDelimiterLexer[ data_String, rules_List ] := iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ]
 iLineDelimiterLexer[ { subline_String }, _ ] := subline
