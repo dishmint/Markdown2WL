@@ -102,14 +102,14 @@ VerificationTest[
 	FaizonZaman`WLMarkdown`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "* Top of the first list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 1 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 2 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 3 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "* Top of the second list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 1 Underneath the top of the second list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 2 Underneath the top of the second list"|>],
-            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 3 Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Top of the second list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
             MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
         MarkdownRules["CommonMark"]["BlockRules"]
@@ -120,14 +120,14 @@ VerificationTest[
             <|
                 "Token" -> "UnorderedList",
                 "Data" -> {
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "* Top of the first list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 1 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 2 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 3 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "* Top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 1 Underneath the top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 2 Underneath the top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "  * 3 Underneath the top of the second list"|>]
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>]
                     }
                 |> 
             ],
@@ -140,14 +140,14 @@ VerificationTest[
 	FaizonZaman`WLMarkdown`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "1. Top of the first list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.1 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.2 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.3 Undeneath the top of the list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "2. Top of the second list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.1 Underneath the top of the second list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.2 Underneath the top of the second list"|>],
-            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.3 Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Top of the second list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+            MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
             MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
         MarkdownRules["CommonMark"]["BlockRules"]
@@ -158,14 +158,14 @@ VerificationTest[
             <|
                 "Token" -> "OrderedList",
                 "Data" -> {
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "1. Top of the first list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.1 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.2 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  1.3 Undeneath the top of the list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "2. Top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.1 Underneath the top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.2 Underneath the top of the second list"|>],
-                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "  2.3 Underneath the top of the second list"|>]
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Undeneath the top of the list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>],
+                    MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Underneath the top of the second list"|>]
                     }
                 |> 
             ],
