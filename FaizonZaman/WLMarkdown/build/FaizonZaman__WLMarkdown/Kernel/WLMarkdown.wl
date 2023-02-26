@@ -2,11 +2,9 @@
 
 BeginPackage["FaizonZaman`WLMarkdown`"]
 
-(* Declare your package's public symbols here. *)
-
 ImportMarkdown::usage = "ImportMarkdown[s] imports string s into symbolic markdown\nImportMarkdown[f] imports file f into symbolic markdown"
 LineRules::usage = "LineRules[f] gives the line tokenization rules for Markdown flavor f"
-LinkRules::usage = "LinkRules[f] gives the line tokenization rules for Markdown flavor f"
+LinkRules::usage = "LinkRules[f] gives the link tokenization rules for Markdown flavor f"
 BlockRules::usage = "BlockRules[f] gives the block tokenization rules for Markdown flavor f"
 DelimiterRules::usage = "DelimiterRules[f] gives the delimiter tokenization rules for Markdown flavor f"
 MarkdownRules::usage = "MarkdownRules[f] gives the tokenization rules for Markdown flavor f"
@@ -15,11 +13,7 @@ MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMark
 MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
 
-(* $MarkdownIndentationSize::usage = "The string length of a single indent" *)
-
 Begin["`Private`"]
-
-(* $MarkdownIndentationSize = Automatic; *)
 
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 
@@ -56,12 +50,9 @@ iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 
 			tokens = MarkdownLexer[ lines, AssociationThread[ { "LineRules", "LinkRules", "BlockRules", "DelimiterRules" } -> { lrules, hrules, brules, drules}]]
 
-			(* parse  = MarkdownParser[tokens, prules]; *)    (* Stage 3 - Parse Blocks *)
+			(* parse  = MarkdownParser[tokens, prules]; *)
 		]
 	]
-
-MarkdownToken[asc_?AssociationQ][key_String] := Lookup[asc, key]
-
 
 MarkdownLexer[data_String, rules_] := MarkdownLexer[ {data}, rules ]
 MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
@@ -90,14 +81,14 @@ iLinkLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens,
 BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines ]
 
 (* Stage 4 *)
-(* The data lexer handles delimiters *)
 $DelimiterLexableLines = "Line"|"Heading"|"Quote"|"BlockQuote"|"UnorderedListItem"|"OrderedListItem";
 $DelimiterLexableBlocks = "UnorderedList"|"OrderedList"|"Table";
 $DelimiterLexableTokens = Join[$DelimiterLexableLines, $DelimiterLexableBlocks];
-DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := MapAt[ iDelimiterLexer[ #, rules ]&, tokens, Position[ tokens, MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]]] ]
+DelimiterLexer[ tokens:List[__MarkdownToken], rules_List ] := Replace[ tokens, token:MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]] :> iDelimiterLexer[ token, rules ], 1 ]
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ data, rules ] ] ]
 iDelimiterLexer[ MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ] ]
 
+iLineDelimiterLexer[ MarkdownToken[token:KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := MarkdownToken[ ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ] ] ]
 iLineDelimiterLexer[ token_MarkdownToken, _ ] := token
 iLineDelimiterLexer[ data_String, rules_List ] := iLineDelimiterLexer[ sDelimiterLexer[ data, rules ], rules ]
 iLineDelimiterLexer[ { subline_String }, _ ] := subline

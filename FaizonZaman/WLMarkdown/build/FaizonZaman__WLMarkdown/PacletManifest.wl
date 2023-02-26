@@ -24,7 +24,7 @@
             ,
             "Hash"
             ->
-            "3a4938064e2e878c911da14bf421ca56bab3942462d96eb65dda028680e67cd4"
+            "880be72db66cb07925af8dbb01fff90c8efe5c36e8fa202deeb34efb9b10f2a3"
                 
         |>
         ,
@@ -50,7 +50,59 @@
             ,
             "Hash"
             ->
-            "620140175ee0c662ba7ea0bb4e08f19afdd88977ad3cb7dc162802321286fa93"
+            "50756a05bce02f74d6bb67d9e736cdabbfabebfb9e9e42def4df9759e3de2b76"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Tests/LineLexer.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "b693103bc1cf0d09ee06bc0f2522948893c6f1ee8755a1fdd0a28b8ffd339a52"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Tests/LinkLexer.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "f4c0b9712aeb70b764cffefe2f4213bb7377660dc8255d821e96df62dc5864fe"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Tests/BlockLexer.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "ab9154a283e20c41f55bd5a1f41859625e8f064a453236a015c4d728951eef13"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Tests/DelimiterLexer.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "24ab1d9fda68653c84ceea35bbc8a24a1ba194ca2f69840dec32260b827d1b06"
                 
         |>
         ,
@@ -63,7 +115,7 @@
             ,
             "Hash"
             ->
-            "ed3cc67975bd4ab6c953f0909d1441faa77803719519f15b3283f1e894c08cc5"
+            "21ba297d484703053d3a3b9e8f8860b11db6eef9f479a879773372fad09608c5"
                 
         |>
         ,
