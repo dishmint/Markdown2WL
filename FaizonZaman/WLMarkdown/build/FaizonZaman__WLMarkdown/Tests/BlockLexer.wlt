@@ -5,7 +5,7 @@ BeginTestSection["BlockLexer"]
 
 (* -------------------------------- CodeBlock ------------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "CodeFence", "Data" -> ""|>],
@@ -34,7 +34,7 @@ VerificationTest[
 	"TestID" -> "BlockLexer-CommonMark-CodeBlock1"
 ]
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "CodeFence", "Data" -> "Mathematica"|>],
@@ -66,7 +66,7 @@ VerificationTest[
 ]
 (* ---------------------------------- Table --------------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
@@ -97,7 +97,7 @@ VerificationTest[
 	"TestID" -> "BlockLexer-CommonMark-Table"
 ]
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
             MarkdownToken[<| "Token" -> "Line", "Data" -> ":-: | :-- | --: "|>],
@@ -117,7 +117,7 @@ VerificationTest[
 
 (* ------------------------------ UnorderedList ----------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],
@@ -155,7 +155,7 @@ VerificationTest[
 ]
 (* ------------------------------- OrderedList ------------------------------ *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`BlockLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Top of the first list"|>],

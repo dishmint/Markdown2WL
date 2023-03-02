@@ -5,7 +5,7 @@ BeginTestSection["DelimiterLexer"]
 
 (* -------------------------------- CodeBlock ------------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
 	    { 
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[
@@ -41,7 +41,7 @@ VerificationTest[
 	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock1"
 ]
 VerificationTest[
-    FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+    FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<|"Token" -> "EmptyLine"|>],
             MarkdownToken[
@@ -80,7 +80,7 @@ VerificationTest[
 ]
 (* ---------------------------------- Table --------------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         { 
         MarkdownToken[<| "Token" -> "EmptyLine"|>],
         MarkdownToken[
@@ -122,7 +122,7 @@ VerificationTest[
 (* TODO: Add tests for non-matches *)
 (* ------------------------------ UnorderedList ----------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
 	{ 
         MarkdownToken[<| "Token" -> "EmptyLine"|>],
         MarkdownToken[
@@ -167,7 +167,7 @@ VerificationTest[
 ]
 (* ------------------------------- OrderedList ------------------------------ *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[
@@ -213,7 +213,7 @@ VerificationTest[
 
 (* ---------------------------- Nested Delimiters --------------------------- *)
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "Line", "Data" -> "_This text is **important**_"|>],
@@ -241,7 +241,7 @@ VerificationTest[
 	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter1"
 ]
 VerificationTest[
-	FaizonZaman`WLMarkdown`Private`DelimiterLexer[
+	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
             MarkdownToken[<| "Token" -> "Line", "Data" -> "_This text is **really** important_"|>],
