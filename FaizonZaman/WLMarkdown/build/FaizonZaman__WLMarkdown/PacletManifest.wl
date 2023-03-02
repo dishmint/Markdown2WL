@@ -6,12 +6,38 @@
             "File"
             ->
             File[
+                "Kernel/Lexer.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "afbcbc19ad1ff038caac9d5cbbba9fc27528b0396dcc3d611cd923524e2f787e"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "Kernel/ParserRules.wl"
             ]
             ,
             "Hash"
             ->
-            "2a8be399524780fc848d84ba7833e2abd4fc3343955e30816b8500dc58de1535"
+            "933c218f1b2e57d26eb5cc41e613c0b8501266cbe21160a33ab0e2b57e0edac1"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Kernel/Parser.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "a11ef1f2e44f66b0f698907677e480ef59efb69dd8a69e81c9a394613548f0e5"
                 
         |>
         ,
@@ -50,7 +76,7 @@
             ,
             "Hash"
             ->
-            "50756a05bce02f74d6bb67d9e736cdabbfabebfb9e9e42def4df9759e3de2b76"
+            "5f2fb851fc4ee054ff491c677ffd2b97345b2d055034973961b019e87068e90c"
                 
         |>
         ,
@@ -63,7 +89,7 @@
             ,
             "Hash"
             ->
-            "b693103bc1cf0d09ee06bc0f2522948893c6f1ee8755a1fdd0a28b8ffd339a52"
+            "4a5386948921954bf2d82d4a04082cfa6ef687170769b67475ce0a52732dd631"
                 
         |>
         ,
@@ -76,7 +102,7 @@
             ,
             "Hash"
             ->
-            "f4c0b9712aeb70b764cffefe2f4213bb7377660dc8255d821e96df62dc5864fe"
+            "69f892543042c283e2fc069f8fb37469371d791b09d9f1d88618a7b473642238"
                 
         |>
         ,
@@ -89,7 +115,7 @@
             ,
             "Hash"
             ->
-            "ab9154a283e20c41f55bd5a1f41859625e8f064a453236a015c4d728951eef13"
+            "a0800e7947930e22f2d6c16c04f8d43e8e201c5fd657543988b3d61385eb1568"
                 
         |>
         ,
@@ -102,7 +128,7 @@
             ,
             "Hash"
             ->
-            "24ab1d9fda68653c84ceea35bbc8a24a1ba194ca2f69840dec32260b827d1b06"
+            "f18d3ea668382bdab71c47f7fc4e62d82ad7434b8b4399e94f991fc0665f7253"
                 
         |>
         ,
