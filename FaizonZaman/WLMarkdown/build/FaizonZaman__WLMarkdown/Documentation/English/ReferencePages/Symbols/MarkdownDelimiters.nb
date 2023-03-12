@@ -1,0 +1,361 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13812,        351]
+NotebookOptionsPosition[     10302,        276]
+NotebookOutlinePosition[     12468,        330]
+CellTagsIndexPosition[     12383,        325]
+WindowTitle->MarkdownDelimiters
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell[
+          "FAIZON ZAMAN/ W L MARKDOWN SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "b54a0096-1e20-41aa-87b7-2a55c5f4c21f"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "153e182d-90c6-4d48-8fc4-ecda5f9f2d25"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[Cell[BoxData[
+     TagBox[
+      ActionMenuBox[
+       FrameBox[Cell[TextData[{
+         "URL",
+         " ",
+         Cell[BoxData[
+          GraphicsBox[
+           {GrayLevel[0.66667], Thickness[0.13], 
+            LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+           AspectRatio->1,
+           ImageSize->20,
+           PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+          "5eaf4e41-f997-4a8b-a459-055a8f54745e"]
+        }],ExpressionUUID->"ee84b4d4-627f-4f14-84f2-1c62232013ae"],
+        StripOnInput->
+         False], {"\<\"FaizonZaman/WLMarkdown/ref/MarkdownDelimiters\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FaizonZaman/WLMarkdown/ref/MarkdownDelimiters"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FaizonZaman/WLMarkdown/\
+ref/MarkdownDelimiters.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$37678], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"] <> 
+            "FaizonZaman/WLMarkdown/ref/MarkdownDelimiters" <> ".html"], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"],
+      MouseAppearanceTag["LinkHand"]]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "1112fcdd-8282-4927-a278-237dfa7a6661"]], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "606c5521-f477-4eb2-b634-09ff47a7bc5c"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"e936812f-89da-4a4b-859c-c86fbd65109a"],
+
+Cell["FaizonZaman`WLMarkdown`", "ContextNameCell",ExpressionUUID->"f6aa741f-66f6-4a44-a7e5-03f9a1efddfd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "MarkdownDelimiters", "ObjectName",ExpressionUUID->
+      "153054d1-e76d-404e-a0dc-ce4091777125"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"b56d683a-bc82-4eae-b998-2e2d2bd1ad21"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "f67e6c06-4765-44fa-8060-9fab16c79c45"]
+    }],ExpressionUUID->"eb56ca4d-b5d2-49cd-8584-f1398f8d5e9f"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"725ea0cf-6ac3-4125-a313-\
+282cfd580f26"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["MarkdownDelimiters"]], 
+         "paclet:FaizonZamanWLMarkdown/ref/MarkdownDelimiters", 
+         "FaizonZamanWLMarkdown Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox["f", "TI"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "525a7ea5-aa68-4771-b4f8-5d22df6ca330"],
+     "\[LineSeparator]gives the delimiters for Markdown flavor f"
+    }],ExpressionUUID->"9aefbda0-c45a-4371-b0bf-06f7ad4bd8be"]}
+  }]], "Usage",
+ CellID->1241354429,ExpressionUUID->"e8323a26-9732-4152-972b-1cd2279907f0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{14., {0.45000000000000107`, 13.549999999999999`}}]],
+    ExpressionUUID->"ad0f059d-ab54-4447-81f4-dfd2ce4e86e2"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"7e73066d-3744-43a9-bbe0-653f3d33f8e7"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"59909d97-65f6-4c13-b812-32152fb625fe"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"ddef8e1c-ac0f-4303-b6cf-c040d50c2941"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1313681362,ExpressionUUID->"1ca8c1f7-85fa-46a5-aa06-a2247d9f9448"],
+
+Cell[TextData[{
+ "The default flavor is ",
+ Cell[BoxData["\"\<CommonMark\>\""], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "37b2ab16-0c65-49c7-830d-13e3ca8dedb7"]
+}], "Notes",
+ CellID->640257598,ExpressionUUID->"03d4fc5e-3392-4047-ae03-221a23b4021e"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{14., {5., 9.}}]],ExpressionUUID->
+  "cdf3f01d-e534-406b-ba14-1cd8e4417adc"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"8e154a53-46d9-4129-a679-1b96bb67e969"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(0)", "ExampleCount",ExpressionUUID->
+  "f446057a-f48d-4849-8772-c043e0957927"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->763276327,ExpressionUUID->"ea04a444-f8e3-4b14-8f4e-9b179fd547e9"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FaizonZaman`WLMarkdown`\>\"", "]"}]], "Input", \
+"ExampleInitialization",
+ CellLabel->"In[1]:=",
+ CellID->907823466,ExpressionUUID->"cd08d95f-608e-4a75-852a-f0faf7010abc"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[Cell[BoxData[
+        TagBox[
+         FrameBox["\"\<XXXX\>\""],
+         "FunctionPlaceholder"]], "InlineFormula",
+        FontFamily->"Source Sans Pro",ExpressionUUID->
+        "49faac0b-e778-4633-9b3a-b47e850d3e74"]], "SeeAlso",ExpressionUUID->
+        "ad80c910-204e-44bf-bdcc-b07cadcf8048"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"4a50332c-8eb7-4978-940c-\
+425b2c25f942"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"8edee17b-0d79-440e-9398-5ddddb79d807"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"MarkdownDelimiters",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 3, 11, 19, 0, 39.830673}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FaizonZaman`WLMarkdown`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Faizon Zaman/ W L Markdown Symbol", "language" -> "en", "paclet" -> 
+    "FaizonZaman/WLMarkdown", "status" -> "None", "summary" -> 
+    "MarkdownDelimiters[f] gives the delimiters for Markdown flavor f", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "MarkdownDelimiters", 
+    "titlemodifier" -> "", "windowtitle" -> "MarkdownDelimiters", "type" -> 
+    "Symbol", "uri" -> "FaizonZaman/WLMarkdown/ref/MarkdownDelimiters"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"e547db66-5710-47aa-b72a-e66290d73f78"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[7795, 206, 1389, 37, 36, "PrimaryExamplesSection",ExpressionUUID->"ea04a444-f8e3-4b14-8f4e-9b179fd547e9",
+   CellTags->"PrimaryExamplesSection",
+   CellID->763276327]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 12184, 318}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[590, 21, 3451, 80, 57, "AnchorBarGrid",ExpressionUUID->"e936812f-89da-4a4b-859c-c86fbd65109a",
+ CellID->1],
+Cell[4044, 103, 105, 0, 23, "ContextNameCell",ExpressionUUID->"f6aa741f-66f6-4a44-a7e5-03f9a1efddfd"],
+Cell[CellGroupData[{
+Cell[4174, 107, 561, 14, 60, "ObjectNameGrid",ExpressionUUID->"725ea0cf-6ac3-4125-a313-282cfd580f26"],
+Cell[4738, 123, 716, 17, 114, "Usage",ExpressionUUID->"e8323a26-9732-4152-972b-1cd2279907f0",
+ CellID->1241354429]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5491, 145, 1899, 47, 37, "NotesSection",ExpressionUUID->"1ca8c1f7-85fa-46a5-aa06-a2247d9f9448",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1313681362],
+Cell[7393, 194, 275, 6, 70, "Notes",ExpressionUUID->"03d4fc5e-3392-4047-ae03-221a23b4021e",
+ CellID->640257598]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[7795, 206, 1389, 37, 36, "PrimaryExamplesSection",ExpressionUUID->"ea04a444-f8e3-4b14-8f4e-9b179fd547e9",
+ CellTags->"PrimaryExamplesSection",
+ CellID->763276327],
+Cell[9187, 245, 213, 4, 31, "Input",ExpressionUUID->"cd08d95f-608e-4a75-852a-f0faf7010abc",
+ CellID->907823466]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[9518, 254, 699, 18, 116, "SeeAlsoSection",ExpressionUUID->"4a50332c-8eb7-4978-940c-425b2c25f942"],
+Cell[10220, 274, 78, 0, 24, "FooterCell",ExpressionUUID->"8edee17b-0d79-440e-9398-5ddddb79d807"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
