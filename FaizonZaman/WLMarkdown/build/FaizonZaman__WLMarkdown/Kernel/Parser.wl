@@ -2,36 +2,40 @@ BeginPackage["FaizonZaman`WLMarkdown`Parser`"]
 Begin["`Private`"]
 Needs["FaizonZaman`WLMarkdown`ElementRules`"]
 
-$NonDelimiterPattern = FaizonZaman`WlMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> Except["Delimiter"]}]];
-$DelimiterPattern = FaizonZaman`WlMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]];
-
-MDElementFreeQ = ( expr |-> FreeQ[_FaizonZaman`WLMarkdown`MarkdownElement][expr])
-MDElementPresentQ = ( expr |-> Not@*MDElementFreeQ@expr)
-MDElementDataContainsDelimiterQ = ( expr |-> Not@*FreeQ[$DelimiterPattern]@expr)
-ContainsOnlyDelimiterElementQ   = ( expr |-> Through[And[MDElementDataContainsDelimiterQ, FreeQ[$NonDelimiterPattern][expr]]])
 (* DelimiterParser *)
-
-DelimiterParser[expr_Association] := With[{data = expr["Data"]}, ReplacePart[expr, Key["Data"] :> FixedPoint[ iDelimiterParser, data ]]]
-iDelimiterParser[expr_List /; ContainsOnlyDelimiterElementQ] := Replace[
-    expr, 
-    {before___, $DelimiterPattern, t__, $DelimiterPattern, after___} :> {before, $ElementData[<| "Element" -> s, "Data" -> {t}|> ], after}
+FlatMDElementsQ[expr_] := Block[
+    {patt = FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]], exprlvl1 = Level[expr, 1]},
+    aop1 = MemberQ[ exprlvl1, patt];
+    aop2 = Count[ exprlvl1, patt] // EvenQ;
+    And[ aop1, aop2 ]
     ]
-iDelimiterParser[expr_List /; MDElementPresentQ[expr]] := SubsetMap[
+
+DelimiterParser[expr_List] := FixedPoint[ iDelimiterParser, expr ]
+iDelimiterParser[s_String] := s
+iDelimiterParser[{ s_String }] := s
+iDelimiterParser[expr_List /; FlatMDElementsQ[expr]] := Replace[
+    expr, 
+    {
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], after___} :> {before, $ElementData[<| "Element" -> s, "Data" -> iDelimiterParser[ {t} ]|> ], after},
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\("}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\)"}]], after___} :> {before, $ElementData[<| "Element" -> "InlineLaTex", "Data" -> iDelimiterParser[ {t} ]|> ], after},
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\["}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\]"}]], after___} :> {before, $ElementData[<| "Element" -> "LineLaTex", "Data" -> iDelimiterParser[ {t} ]|> ], after}
+        }
+    ]
+iDelimiterParser[expr_List /; Not@*FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := SubsetMap[
     Map[Replace[#, x_List :> iDelimiterParser[x], Infinity] &],
     expr,
-    Position[expr, _FaizonZaman`WLMarkdown`MarkdownElement]
-    ] 
-
-
+    Position[expr, KeyValuePattern[{"Data" -> _List}]]
+    ]
+iDelimiterParser[expr_List /; FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := expr
+iDelimiterParser[expr_List] := expr
 
 FaizonZaman`WLMarkdown`MarkdownParser[ token_FaizonZaman`WLMarkdown`MarkdownToken, rules_List ] := FaizonZaman`WLMarkdown`MarkdownParser[ { token }, rules ]
 FaizonZaman`WLMarkdown`MarkdownParser[ tokens:List[__FaizonZaman`WLMarkdown`MarkdownToken], rules_List ] := Module[
-    { elements = Replace[tokens, rules, Infinity], delimiterPositions },
-    (* elements *)
-    delimiterPositions = Position[elements, KeyValuePattern[{"Data" -> data_}] /; MDElementDataContainsDelimiterQ@data];
-    MapAt[ DelimiterParser, elements, delimiterPositions ]
-    (* MapAt[ FixedPoint[ DelimiterParser, # ]&, elements, delimiterPositions ] *)
-    (* MapAt[ DelimiterParser, elements, delimiterPositions ] *)
+    { elements = Replace[tokens, rules, Infinity], res},
+    res = MapAt[
+        ReplacePart[#, Key["Data"] -> DelimiterParser[#["Data"]]] &, elements,
+        Position[elements, KeyValuePattern[{"Data" -> _List}]]
+        ]
 ]
 
 End[]

@@ -10,24 +10,29 @@ FlatMDElementsQ[expr_] := Block[
     And[ aop1, aop2 ]
     ]
 
-DelimiterParser[expr_List] := FixedPoint[ EchoEvaluation@*iDelimiterParser, expr ]
+DelimiterParser[expr_List] := FixedPoint[ iDelimiterParser, expr ]
 iDelimiterParser[s_String] := s
 iDelimiterParser[{ s_String }] := s
 iDelimiterParser[expr_List /; FlatMDElementsQ[expr]] := Replace[
     expr, 
-    {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], after___} :> {before, $ElementData[<| "Element" -> s, "Data" -> iDelimiterParser[ {t} ]|> ], after}
+    {
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> s_}]], after___} :> {before, $ElementData[<| "Element" -> s, "Data" -> iDelimiterParser[ {t} ]|> ], after},
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\("}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\)"}]], after___} :> {before, $ElementData[<| "Element" -> "InlineLaTex", "Data" -> iDelimiterParser[ {t} ]|> ], after},
+        {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\["}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\]"}]], after___} :> {before, $ElementData[<| "Element" -> "LineLaTex", "Data" -> iDelimiterParser[ {t} ]|> ], after}
+        }
     ]
-iDelimiterParser[expr_List /; Not@FlatMDElementsQ[expr]] := SubsetMap[
+iDelimiterParser[expr_List /; Not@*FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := SubsetMap[
     Map[Replace[#, x_List :> iDelimiterParser[x], Infinity] &],
     expr,
     Position[expr, KeyValuePattern[{"Data" -> _List}]]
     ]
 iDelimiterParser[expr_List /; FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := expr
+iDelimiterParser[expr_List] := expr
 
 FaizonZaman`WLMarkdown`MarkdownParser[ token_FaizonZaman`WLMarkdown`MarkdownToken, rules_List ] := FaizonZaman`WLMarkdown`MarkdownParser[ { token }, rules ]
 FaizonZaman`WLMarkdown`MarkdownParser[ tokens:List[__FaizonZaman`WLMarkdown`MarkdownToken], rules_List ] := Module[
-    { elements = Replace[tokens, rules, Infinity] },
-    MapAt[
+    { elements = Replace[tokens, rules, Infinity], res},
+    res = MapAt[
         ReplacePart[#, Key["Data"] -> DelimiterParser[#["Data"]]] &, elements,
         Position[elements, KeyValuePattern[{"Data" -> _List}]]
         ]

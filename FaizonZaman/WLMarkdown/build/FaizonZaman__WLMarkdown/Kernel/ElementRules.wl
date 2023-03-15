@@ -1,4 +1,4 @@
-BeginPackage["FaizonZaman`WlMarkdown`ElementRules`"]
+BeginPackage["FaizonZaman`WLMarkdown`ElementRules`"]
 $Element::usage = "$Element[asc] create a MarkdownElement from Association asc"
 $ElementData::usage = "$ElementData[asc] create a MarkdownElement from Association asc"
 $ElementLevelData::usage = "$ElementLevelData[asc] create a MarkdownElement from Association asc"
