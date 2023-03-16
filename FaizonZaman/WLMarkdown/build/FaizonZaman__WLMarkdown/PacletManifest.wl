@@ -6,6 +6,19 @@
             "File"
             ->
             File[
+                "Kernel/ElementRules.wl"
+            ]
+            ,
+            "Hash"
+            ->
+            "1dec48374ed33999690d7ee1ed14999e3de362467bb5e6b46d43f2ef5d0a098b"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "Kernel/Lexer.wl"
             ]
             ,
@@ -19,25 +32,12 @@
             "File"
             ->
             File[
-                "Kernel/ParserRules.wl"
-            ]
-            ,
-            "Hash"
-            ->
-            "933c218f1b2e57d26eb5cc41e613c0b8501266cbe21160a33ab0e2b57e0edac1"
-                
-        |>
-        ,
-        <|
-            "File"
-            ->
-            File[
                 "Kernel/Parser.wl"
             ]
             ,
             "Hash"
             ->
-            "a11ef1f2e44f66b0f698907677e480ef59efb69dd8a69e81c9a394613548f0e5"
+            "8f48cea43e7b294cc3ef79ceb4d20c71439edaa14e2a6d3fbdb444db47434959"
                 
         |>
         ,
@@ -76,7 +76,7 @@
             ,
             "Hash"
             ->
-            "5f2fb851fc4ee054ff491c677ffd2b97345b2d055034973961b019e87068e90c"
+            "d7d500e053f585d017393b646ae77dd3f155e5e0a23637588d325ba76babbbff"
                 
         |>
         ,
@@ -149,6 +149,19 @@
             "File"
             ->
             File[
+                "Tests/MarkdownParser.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "b01afe522c4c9c93252d572d5ae294e67ff0f9aee9dfeb9eadbe68ee7d6b9c31"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "Examples/CommonMark.md"
             ]
             ,
@@ -168,6 +181,174 @@
             "Hash"
             ->
             "0d65dfa91cc93315037eb83166531161b04a4932db68e73dba1c625d5596b80b"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/BlockRules.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "912c0af86cdc910e0077865c18cf8e349f56732ac84e491201b82b26100ea6b6"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/DelimiterRules.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "0d00b76b007772e0a27483f613439773ec7d69f1d24e00ab792a440a39fdade0"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/FaizonZaman`WLMarkdown`Utilities`GetIndentationLevel.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "1d2cdfdd749470ef2369491f8abfe18a6531057708b69610c0646a430f12ba69"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/ImportMarkdown.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "0fc827a9f508d16ba5b0f09a1f5b6c57163582e008b77ef914bbe7419bb7ea0a"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/LineRules.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "6b5a76756a7a284c74540c838fdf31d5230e8176aa4137e8dab8c9c360046e45"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/LinkRules.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "cfd473c61a8c4d3245d5b7ae043f613c3c4f2c141afed3312190d7864a85cfdc"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownDelimiters.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "ed1b5e07b22c17fe0817d00ef2256825ebc5228a0c5f0ba317f0025493a8e0d9"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownElement.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "52fbe781fd3d468e3355bc31dfa51c42aa293941c2c09556fe5bd053342dbc84"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownLexer.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "5806f2c958a07289f227d128925035f53701e7ac59cb5805f2ea4bc1139e2e68"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownParser.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "3487e6359365685d5c285cbe9d3d320e45c77b6df4c74b64b27cf9d9a3e477e8"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownRules.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "e8d8352e756fb56c28f3b2fc61278753887b8186c0c66ea6353a1b515d68301b"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Documentation/English/ReferencePages/Symbols/MarkdownToken.nb"
+                    
+            ]
+            ,
+            "Hash"
+            ->
+            "c1bec629566560f00e1ad8fcdad306d392a30544c5c03c4719a2f1d33795408b"
                 
         |>
     }

@@ -38,7 +38,7 @@ Cell["", "FileManagerTopSpacer",
  CellGroupingRules->{"SectionGrouping", 99},
  TaggingRules->{},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1736257629,ExpressionUUID->"4cd55af2-053e-42f6-ac4c-4d2d061f80b8"],
+ CellID->1736257629,ExpressionUUID->"7801684a-e280-4fa3-9bde-91f88b117f49"],
 
 Cell[CellGroupData[{
 
@@ -67,7 +67,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"08f97d36-eef9-4d84-9e17-506b4c61e83c"]], \
+   "Text"}]],ExpressionUUID->"8f044117-eac2-4b40-8121-f6fd90a3441c"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -78,7 +78,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDocumentationIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1977760502,ExpressionUUID->"2094c556-db0e-4588-884b-470ed6624061"],
+ CellID->1977760502,ExpressionUUID->"c57893f7-7c9f-4f37-ad32-14a6670f2035"],
 
 Cell[CellGroupData[{
 
@@ -107,7 +107,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation", "English"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"44917998-1094-4dbc-89cd-6ff936fd2234"]], \
+   "Text"}]],ExpressionUUID->"a14c7d78-ef88-4cee-9b7b-e18e50db767f"]], \
 "FileManagerDirectory",
  CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 110},
@@ -118,7 +118,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1410218114,ExpressionUUID->"ded125c0-b968-4e4c-8af0-3f513e27598c"],
+ CellID->1410218114,ExpressionUUID->"8f5bcd14-a04e-4e42-8891-b527165cf1b9"],
 
 Cell[CellGroupData[{
 
@@ -146,7 +146,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation", "English", "Guides"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"b5c4c3c4-bbc6-46f9-ab22-64c9bfb3d7f1"]], \
+   "Text"}]],ExpressionUUID->"e9cc1a93-79f6-4e46-8326-3e9b551afa14"]], \
 "FileManagerDirectory",
  CellMargins->{{46 + Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 120},
@@ -157,7 +157,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1906313706,ExpressionUUID->"b053c0d1-3226-4bfa-89bb-2f1009d0ed03"],
+ CellID->1906313706,ExpressionUUID->"173e97d5-0d46-4188-a58a-461bc58cbd5f"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -183,8 +183,10 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1105927149,ExpressionUUID->"26609686-f036-48a2-be8e-722c87619927"]
+ CellID->1105927149,ExpressionUUID->"6f395f30-f0a1-4c06-b8cd-9587214de6ac"]
 }, Closed]],
+
+Cell[CellGroupData[{
 
 Cell[TextData[Cell[BoxData[
  InterpretationBox[
@@ -211,7 +213,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation", "English", "ReferencePages"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"fb89d76e-9436-4bcb-a674-6d56d27b2b46"]], \
+   "Text"}]],ExpressionUUID->"15fb3aea-9b13-48a1-a8da-8004c1ec7d72"]], \
 "FileManagerDirectory",
  CellMargins->{{46 + Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 120},
@@ -219,10 +221,365 @@ Cell[TextData[Cell[BoxData[
  CellFrameLabels->{{
     Cell[
      BoxData[
-      TemplateBox[{}, "FileManagerEmptyDirectoryIconTemplate"]], Background -> 
+      TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->846628458,ExpressionUUID->"490a2dd2-3dde-4771-ac3c-f8bfbf470f41"],
+ CellID->846628458,ExpressionUUID->"5b69033f-9252-42bb-8393-94520211ce57"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   ActionMenuBox["\<\"Symbols\"\>", {"\<\"Open/Close Group\"\>":>(
+    SelectionMove[
+      ParentCell[
+       EvaluationCell[]], All, Cell]; FrontEndTokenExecute[
+      EvaluationNotebook[], "OpenCloseGroup"]), "\<\"Open Directory\"\>":>
+    DefinitionNotebookClient`FileTreeOpen[
+     ParentCell[
+      EvaluationCell[]]], "\<\"Un/Mark as Excluded\"\>":>
+    DefinitionNotebookClient`FileTreeExclusionToggle[
+     ParentCell[
+      EvaluationCell[]]], "\<\"Copy Path to Clipboard\"\>":>
+    DefinitionNotebookClient`FileTreeCopy[
+     ParentCell[
+      EvaluationCell[]]]},
+    Appearance->None,
+    BaseStyle->{"Text"}],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[3]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{
+   "Text"}]],ExpressionUUID->"d24a6763-0614-4b77-a620-d6c1c87ed7aa"]], \
+"FileManagerDirectory",
+ CellMargins->{{69 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 130},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
+     None], Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->321693019,ExpressionUUID->"098858ea-afe4-40a9-9d92-e51b7e9d5f67"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"BlockRules.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "BlockRules.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "BlockRules.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1478230834,ExpressionUUID->"39621df1-da84-4c71-8dc7-fce9573bdd28"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"DelimiterRules.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "DelimiterRules.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "DelimiterRules.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->387314895,ExpressionUUID->"baaf36e4-34f1-41b7-ab15-8c1e147a361c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"FaizonZaman`WLMarkdown`Utilities`GetIndentationLevel.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "FaizonZaman`WLMarkdown`Utilities`GetIndentationLevel.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "FaizonZaman`WLMarkdown`Utilities`GetIndentationLevel.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->578506208,ExpressionUUID->"ecca8f9c-6483-4e4a-ad96-b77d580d0bdf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"ImportMarkdown.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "ImportMarkdown.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "ImportMarkdown.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1295367887,ExpressionUUID->"d80b454e-a321-4c5e-bf92-5dc342d22172"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"LineRules.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "LineRules.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "LineRules.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->58863523,ExpressionUUID->"45450f1d-a348-4a33-a967-3ef94782f1d5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"LinkRules.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "LinkRules.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "LinkRules.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1476753441,ExpressionUUID->"77706ec2-8ea7-4c1f-834a-1bdcf68ca69c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownDelimiters.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownDelimiters.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownDelimiters.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1326574508,ExpressionUUID->"09b47dd0-0925-4320-a433-0687d43953b6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownElement.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownElement.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownElement.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->562532802,ExpressionUUID->"39f9ace8-07a9-4f4a-91ea-fc12ab4440f3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownLexer.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownLexer.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownLexer.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1265789120,ExpressionUUID->"a9499c07-5d3d-4934-a793-d36c972d3177"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownParser.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownParser.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownParser.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1144732658,ExpressionUUID->"22b184f3-d828-409e-9f33-d99ed6bf56de"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownRules.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownRules.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownRules.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->215789533,ExpressionUUID->"d962b553-189c-49f9-b950-ea9437c6bf27"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownToken.nb\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+       "Symbols", "MarkdownToken.nb"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[4]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Documentation", "English", "ReferencePages", 
+    "Symbols", "MarkdownToken.nb"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{92 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 140},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1822284995,ExpressionUUID->"91d0ff31-289e-4009-a5aa-86bbd575b51d"]
+}, Closed]]
+}, Closed]],
 
 Cell[TextData[Cell[BoxData[
  InterpretationBox[
@@ -249,7 +606,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation", "English", "Tutorials"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"8e6119f8-4c83-43ec-b6e9-227bc8ba80ab"]], \
+   "Text"}]],ExpressionUUID->"a6335189-de89-43df-a008-311bcf5a8487"]], \
 "FileManagerDirectory",
  CellMargins->{{46 + Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 120},
@@ -260,7 +617,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerEmptyDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->57848584,ExpressionUUID->"5eecbec7-3e5c-4857-9dda-77067b13d978"]
+ CellID->57848584,ExpressionUUID->"60e601a9-35d3-4f67-b479-d1c8f0169cb1"]
 }, Closed]]
 }, Open  ]],
 
@@ -291,7 +648,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Examples"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"956e0126-bb43-4f77-bf47-9d4a592500f6"]], \
+   "Text"}]],ExpressionUUID->"243bca07-c6ee-40cb-a7e5-0cac239ebfd7"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -302,7 +659,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1468868848,ExpressionUUID->"5be8b632-6310-447d-8771-a3270fc71ee1"],
+ CellID->1468868848,ExpressionUUID->"99093a5c-27f2-4fa0-823e-4a6ab6dd842a"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -326,7 +683,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerTXTIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1954206071,ExpressionUUID->"2bd3a37b-f010-4112-b601-c60d0378d04d"]
+ CellID->1954206071,ExpressionUUID->"25f79b78-e09b-4654-9481-ff8049c39949"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -355,7 +712,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Kernel"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"8ebaba31-b524-4a2d-82f7-7e7fcdc28c2f"]], \
+   "Text"}]],ExpressionUUID->"61aa59b6-2c3b-4c67-8e55-a16d2bffd09e"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -366,7 +723,31 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerKernelIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->726538079,ExpressionUUID->"67d69f8e-91dd-44bf-8f18-8da1b5b69399"],
+ CellID->726538079,ExpressionUUID->"7583d48a-0647-4aaa-a2fd-905b5d31cd78"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"ElementRules.wl\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Kernel", "ElementRules.wl"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[1]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Kernel", "ElementRules.wl"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 110},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->1879621098,ExpressionUUID->"e86f6c97-fbf9-4e54-a989-036c9ba12a62"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -390,31 +771,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1233405251,ExpressionUUID->"b149789f-2d8d-4e03-9d17-79e80ddd6366"],
-
-Cell[BoxData[
- InterpretationBox[
-  TagBox[
-   TemplateBox[{"\"ParserRules.wl\"", 
-     FileNameJoin[{
-       NotebookDirectory[], "Kernel", "ParserRules.wl"}]},
-    "FileManagerFileOpenerTemplate"],
-   Annotation[#, 
-    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[1]]& ],
-  FileNameJoin[{
-    NotebookDirectory[], "Kernel", "ParserRules.wl"}],
-  BoxID -> "FileTreePath",
-  BaseStyle->{"Text"}]], "FileManagerFile",
- CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
- CellGroupingRules->{"SectionGrouping", 110},
- TaggingRules->{},
- CellFrameLabels->{{
-    Cell[
-     BoxData[
-      TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
-    Inherited}, {Inherited, Inherited}},
- CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1598542844,ExpressionUUID->"3b8c6ce1-7934-45e2-8da3-9ffc26efe9c3"],
+ CellID->1233405251,ExpressionUUID->"fee0b81c-fe68-4636-b0ac-5ce4eb67abd7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -438,7 +795,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->182409066,ExpressionUUID->"3d3b7aa0-cd22-43d7-8814-adc050bb57a5"],
+ CellID->182409066,ExpressionUUID->"40e4f1b6-3a43-48d8-b75c-eacee0da0051"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -462,7 +819,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1689155138,ExpressionUUID->"f8c63f72-fb00-4b31-b6af-f53b4ff429ee"],
+ CellID->1689155138,ExpressionUUID->"6df38ee2-01aa-46f8-b2e6-165f54326a1d"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -486,7 +843,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->2044074673,ExpressionUUID->"8b96dca7-96ff-48ec-b07b-bad1cbc8802c"],
+ CellID->2044074673,ExpressionUUID->"ba58fdca-2b4c-4274-8b50-245fd28708b3"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -510,7 +867,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->480122275,ExpressionUUID->"c8a1b0aa-296d-4b35-b790-43583a1f6c68"]
+ CellID->480122275,ExpressionUUID->"103501a4-eae0-4881-b086-38725bd820bc"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -535,7 +892,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerPacletInfoIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1319014146,ExpressionUUID->"6998eaff-5ff4-458e-af39-b5efd7a66986"],
+ CellID->1319014146,ExpressionUUID->"e3456337-2a18-4942-bcff-d19ee9690ed7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -559,7 +916,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->355103885,ExpressionUUID->"56512151-cd19-4fb8-bb51-8a2715b330ca"],
+ CellID->355103885,ExpressionUUID->"e891a125-de98-4824-ae1b-f77054140fcc"],
 
 Cell[CellGroupData[{
 
@@ -588,7 +945,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Tests"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"211cbc04-b7b7-43d3-ae20-e65b538991ea"]], \
+   "Text"}]],ExpressionUUID->"c5b92bab-5cce-44c0-8ee5-465b9ec87430"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -599,7 +956,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->197063841,ExpressionUUID->"75ced349-f08c-4db8-b7ac-2c59d7af4337"],
+ CellID->197063841,ExpressionUUID->"b2330129-01d8-4f25-b575-bb079efb4c2f"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -623,7 +980,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1667296465,ExpressionUUID->"29da20ef-d62e-44e0-b2c3-973b02d5893a"],
+ CellID->1667296465,ExpressionUUID->"a79e5cb6-3af4-4a41-824c-d4d34a106fe0"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -647,7 +1004,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1885061199,ExpressionUUID->"1075faf2-104f-4027-9467-20185fdbda3e"],
+ CellID->1885061199,ExpressionUUID->"c960b409-0aa9-4325-bea3-96c85c2e0fbf"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -671,7 +1028,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->397327402,ExpressionUUID->"257c48ac-e71c-429f-bb37-dbe4b7158021"],
+ CellID->397327402,ExpressionUUID->"2089287d-cb5b-42d8-a611-da6bb877972d"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -695,7 +1052,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1354986891,ExpressionUUID->"cbaa08d2-3f38-477d-af6a-080d2459c005"],
+ CellID->1354986891,ExpressionUUID->"6928def1-ca22-445a-9a3f-5f1cdafd6f03"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -719,14 +1076,38 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1467128052,ExpressionUUID->"c22d3425-c0c1-4a1f-be94-f3b6eeafdfdb"]
+ CellID->1467128052,ExpressionUUID->"3e4c6d50-8f93-4e93-85ae-e84251c60dd9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TemplateBox[{"\"MarkdownParser.wlt\"", 
+     FileNameJoin[{
+       NotebookDirectory[], "Tests", "MarkdownParser.wlt"}]},
+    "FileManagerFileOpenerTemplate"],
+   Annotation[#, 
+    DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[1]]& ],
+  FileNameJoin[{
+    NotebookDirectory[], "Tests", "MarkdownParser.wlt"}],
+  BoxID -> "FileTreePath",
+  BaseStyle->{"Text"}]], "FileManagerFile",
+ CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
+ CellGroupingRules->{"SectionGrouping", 110},
+ TaggingRules->{},
+ CellFrameLabels->{{
+    Cell[
+     BoxData[
+      TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
+    Inherited}, {Inherited, Inherited}},
+ CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
+ CellID->896403695,ExpressionUUID->"e2f3e575-ac2c-4f38-81d0-608c358e6545"]
 }, Open  ]],
 
 Cell["", "FileManagerBottomSpacer",
  CellGroupingRules->{"SectionGrouping", 100},
  TaggingRules->{},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1649560782,ExpressionUUID->"acfea539-7a24-4a17-af9d-488e9e8523a9"]
+ CellID->1649560782,ExpressionUUID->"64c7244c-9784-46c5-8b4b-e5ebb9cad730"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1096,8 +1477,11 @@ Cell[BoxData[
  TaggingRules->{},
  CellChangeTimes->{{3.8842986114537773`*^9, 3.8842986132824173`*^9}, {
   3.884725637753867*^9, 3.8847256388346443`*^9}, {3.886376456931472*^9, 
-  3.886376458230733*^9}},
- CellLabel->"In[9]:=",
+  3.886376458230733*^9}, {3.887570171421175*^9, 3.88757017303997*^9}, {
+  3.8875748296947203`*^9, 3.887574830883276*^9}, {3.887575079786942*^9, 
+  3.8875750808498173`*^9}, {3.8876662487668533`*^9, 3.887666250217752*^9}, {
+  3.8878479048624268`*^9, 3.887847905491213*^9}},
+ CellLabel->"In[18]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -1286,39 +1670,39 @@ Cell[BoxData[
  TaggingRules->{},
  CellChangeTimes->{{3.883076772324151*^9, 3.883076813352724*^9}, {
   3.8862784313749933`*^9, 3.886278507091856*^9}},
- CellLabel->"In[16]:=",
+ CellLabel->"In[1]:=",
  CellID->1956185582,ExpressionUUID->"9a74f0be-0585-4cfc-844f-ba0776dbea8b"],
 
 Cell[BoxData[
  TagBox[GridBox[{
     {
-     RowBox[{"MarkdownToken", "[", 
+     RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
        RowBox[{
-        RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Heading\>\""}], ",", 
+        RowBox[{"\"\<Element\>\"", "\[Rule]", "\"\<Heading\>\""}], ",", 
         RowBox[{"\"\<Level\>\"", "\[Rule]", "1"}], ",", 
         RowBox[{
         "\"\<Data\>\"", "\[Rule]", "\"\<CommonMark Example Document\>\""}]}], 
        "\[RightAssociation]"}], "]"}]},
     {
-     RowBox[{"MarkdownToken", "[", 
+     RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<EmptyLine\>\""}], 
+       RowBox[{"\"\<Element\>\"", "\[Rule]", "\"\<EmptyLine\>\""}], 
        "\[RightAssociation]"}], "]"}]},
     {
-     RowBox[{"MarkdownToken", "[", 
+     RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
        RowBox[{
-        RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
+        RowBox[{"\"\<Element\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
         RowBox[{"\"\<Data\>\"", "\[Rule]", 
          RowBox[{"{", 
           RowBox[{"\"\<This document contains examples for testing \>\"", ",", 
-           RowBox[{"MarkdownToken", "[", 
+           RowBox[{"MarkdownElement", "[", 
             RowBox[{"\[LeftAssociation]", 
              RowBox[{
               RowBox[{
-              "\"\<Token\>\"", "\[Rule]", "\"\<FootnoteReference\>\""}], ",", 
-              
+              "\"\<Element\>\"", "\[Rule]", "\"\<FootnoteReference\>\""}], 
+              ",", 
               RowBox[{"\"\<Data\>\"", "\[Rule]", 
                RowBox[{"{", 
                 RowBox[{"\"\<CommonMark.30\>\"", ",", "\"\<1\>\""}], 
@@ -1326,9 +1710,9 @@ Cell[BoxData[
            "\"\<. Consider it a slimmed-down version of the spec page.\>\""}],
            "}"}]}]}], "\[RightAssociation]"}], "]"}]},
     {
-     RowBox[{"MarkdownToken", "[", 
+     RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<EmptyLine\>\""}], 
+       RowBox[{"\"\<Element\>\"", "\[Rule]", "\"\<EmptyLine\>\""}], 
        "\[RightAssociation]"}], "]"}]}
    },
    DefaultBaseStyle->"Column",
@@ -1364,9 +1748,12 @@ Cell[BoxData[
    3.885860656074881*^9, 3.8862719138026743`*^9, 3.886272140422407*^9, 
    3.886272220952828*^9, 3.886272889159597*^9, 3.8862732785042553`*^9, 
    3.886273936578467*^9, 3.886276578124195*^9, 3.886278079291798*^9, 
-   3.886278230106082*^9, {3.886278433361534*^9, 3.886278507428911*^9}},
- CellLabel->"Out[16]=",
- CellID->1440259950,ExpressionUUID->"e319b847-dca3-4f85-85ca-88f62ce1fd83"]
+   3.886278230106082*^9, {3.886278433361534*^9, 3.886278507428911*^9}, 
+   3.887385495227565*^9, 3.8873855870091467`*^9, 3.887385769660803*^9, 
+   3.887385932131721*^9, 3.88738607786012*^9, 3.8874103741437674`*^9, 
+   3.887410462279331*^9},
+ CellLabel->"Out[1]=",
+ CellID->829228798,ExpressionUUID->"42c3ae79-6f09-4fc4-8aff-38f7cb5286b2"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1395,7 +1782,7 @@ Cell[BoxData[
   3.883075363639901*^9}, {3.883075510553463*^9, 3.8830755296413927`*^9}, {
   3.8862775286798162`*^9, 3.886277547031069*^9}, {3.886278121712817*^9, 
   3.8862781395325537`*^9}, {3.8862782033440866`*^9, 3.886278205438541*^9}},
- CellLabel->"In[2]:=",
+ CellLabel->"In[3]:=",
  CellID->1981851176,ExpressionUUID->"c9089a80-6436-45f4-94fa-98fd235c00ef"],
 
 Cell[BoxData[
@@ -1412,9 +1799,11 @@ Cell[BoxData[
   3.883075356609313*^9, 3.883075530951804*^9, 3.883075572137124*^9, 
    3.883075627775648*^9, 3.8830766894978943`*^9, 3.884375640349449*^9, 
    3.884731144337227*^9, 3.8847314042777023`*^9, {3.8862781240744658`*^9, 
-   3.886278140032563*^9}, 3.88627823969171*^9},
- CellLabel->"Out[2]=",
- CellID->1065614025,ExpressionUUID->"2926a6fa-bfd9-4791-86ef-0abb07cbd0be"]
+   3.886278140032563*^9}, 3.88627823969171*^9, 3.887385711277409*^9, 
+   3.887385780755087*^9, 3.8873860392608852`*^9, 3.887410379943384*^9, 
+   3.8878510102951603`*^9},
+ CellLabel->"Out[3]=",
+ CellID->807403335,ExpressionUUID->"47d6dfc5-7e0f-43b4-8e2a-47e95c130fc2"]
 }, Open  ]],
 
 Cell["Lex a list of markdown strings:", "Text",
@@ -1433,14 +1822,15 @@ Cell[BoxData[{
     "\"\<# Example Markdown Title\>\"", ",", "\"\<\>\"", ",", 
      "\"\<This is a sample paragraph\>\"", ",", "\"\<\>\"", ",", 
      "\"\<### Example Markdown Section\>\"", ",", "\"\<\>\"", ",", 
-     "\"\<_This line is emphasized_\>\""}], "}"}]}], 
+     "\"\<_This line is emphasized_\>\"", ",", 
+     "\"\<**_this_** line **has** _**multiple styles**_\>\""}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Column", "[", "mdlines", "]"}]}], "Input",
  TaggingRules->{},
  CellChangeTimes->{{3.883075791881441*^9, 3.883075818151816*^9}, {
   3.886278264753787*^9, 3.886278283745481*^9}, {3.886278534577058*^9, 
-  3.8862785436946297`*^9}},
- CellLabel->"In[9]:=",
+  3.8862785436946297`*^9}, {3.887575342591937*^9, 3.887575393581732*^9}},
+ CellLabel->"In[4]:=",
  CellID->1521625321,ExpressionUUID->"e1370d92-f5b4-45b4-a034-6db701588d50"],
 
 Cell[BoxData[
@@ -1451,19 +1841,29 @@ Cell[BoxData[
     {"\<\"\"\>"},
     {"\<\"### Example Markdown Section\"\>"},
     {"\<\"\"\>"},
-    {"\<\"_This line is emphasized_\"\>"}
+    {"\<\"_This line is emphasized_\"\>"},
+    {"\<\"**_this_** line **has** _**multiple styles**_\"\>"}
    },
    DefaultBaseStyle->"Column",
    GridBoxAlignment->{"Columns" -> {{Left}}},
    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
   "Column"]], "Output",
  TaggingRules->{},
- CellChangeTimes->{3.883075818500153*^9, 3.883076714082404*^9, 
-  3.8843756422375507`*^9, 3.884731147669683*^9, 3.8847314067271357`*^9, 
-  3.886278246626574*^9, 3.886278286376946*^9, 3.886278544407886*^9, 
-  3.8863757153309107`*^9},
- CellLabel->"Out[10]=",
- CellID->347874807,ExpressionUUID->"34177b22-60a7-4a52-bc84-16dd3c765781"]
+ CellChangeTimes->CompressedData["
+1:eJwdzl1IU2EAh/EtMlFneWGJF1MECUWRTCuCMl+VjGhUR8G60OVIwxG2RCPF
+koEfs3Am4seWiOaZMVgiB3GFmdOtbH5Np6Wh0k0Gy2Nuc24yhvT+u3j43T5x
+skdMiVAgEEhoRHhLXPyXJ8cHslrgUW3u7LqTJ2HlVcXNLp5wOatKuCVamav1
+8MR1Ym4JPggPd0N7p/y+gWrdG97y7/MksClWa7w8uVO50AmZr5FGePvu2L0B
+6mLoYRl0qNmncLmjSQVNO/wmZNZmfdBs0IewVKexLwHmJ8lksG9XWQEdCksN
+HBl31UPvFdIK4+1a3X+7zEMwW9hohFfToixwqnn+D0xvKHLCN90JAbia2X1J
+Rz2YVMrhye9n6yCXE62G1gizBr6ySViY9+m8xk1VqPT90P7ctAx/y2URe9Tg
+lykp8Fuw9yL8abt8Exp+DEqh0H9BAdm3ba3wi/RcP4wuSBuG8nHtB9hRVzgN
+3/ck2mDls6R1yDk2JB58HZkpgNOe2ELYwx0+hFki9y9Y0+XbhpxF5IdngthT
++9RA+edUyLzY1kDuxuAkzMgQWeHpdxMr8Jp055iXqsofiYT1+hAxFF9/nQwZ
+RdUTGG+JKYnz8eTxx4pe2D66oYNrpdWmWuo/OFyCfw==
+  "],
+ CellLabel->"Out[5]=",
+ CellID->180430176,ExpressionUUID->"e5b22726-c206-45c2-bed5-2b58b0eb8e24"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1476,7 +1876,15 @@ Cell[BoxData[
   
   RowBox[{
    RowBox[{"Column", "[", 
-    RowBox[{"#", ",", 
+    RowBox[{
+     RowBox[{"Replace", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"before___", ",", "last_"}], "}"}], ":>", 
+        RowBox[{"{", 
+         RowBox[{"before", ",", 
+          RowBox[{"Short", "[", "last", "]"}]}], "}"}]}]}], "]"}], ",", 
      InterpretationBox[
       DynamicModuleBox[{Typeset`open = False}, 
        TemplateBox[{"Expression", "SequenceIcon", 
@@ -1502,8 +1910,9 @@ Cell[BoxData[
       Selectable->False]}], "]"}], "&"}]}]], "Input",
  TaggingRules->{},
  CellChangeTimes->{{3.883075647231583*^9, 3.883075797664879*^9}, {
-  3.886278253408746*^9, 3.8862782541476297`*^9}},
- CellLabel->"In[19]:=",
+  3.886278253408746*^9, 3.8862782541476297`*^9}, {3.88791957529171*^9, 
+  3.887919631941999*^9}},
+ CellLabel->"In[18]:=",
  CellID->603471208,ExpressionUUID->"3562d19f-12f7-4529-9cfc-3b944312775f"],
 
 Cell[BoxData[
@@ -1572,7 +1981,31 @@ Cell[BoxData[
               
               RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<_\>\""}]}], 
              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
-       "\[RightAssociation]"}], "]"}]}
+       "\[RightAssociation]"}], "]"}]},
+    {
+     TagBox[
+      RowBox[{"MarkdownToken", "[", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Line\>\""}], ",", 
+         RowBox[{"\"\<Data\>\"", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"MarkdownToken", "[", 
+             RowBox[{"\[LeftAssociation]", 
+              RowBox[{
+               RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Delimiter\>\""}], ",", 
+               RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<**\>\""}]}], 
+              "\[RightAssociation]"}], "]"}], ",", 
+            RowBox[{"\[LeftSkeleton]", "13", "\[RightSkeleton]"}], ",", 
+            RowBox[{"MarkdownToken", "[", 
+             RowBox[{"\[LeftAssociation]", 
+              RowBox[{
+               RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<Delimiter\>\""}], ",", 
+               RowBox[{"\"\<Data\>\"", "\[Rule]", "\"\<_\>\""}]}], 
+              "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+        "\[RightAssociation]"}], "]"}],
+      Short]}
    },
    DefaultBaseStyle->"Column",
    GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -1586,84 +2019,356 @@ Cell[BoxData[
   3.883075653476631*^9, {3.883075707934218*^9, 3.883075799952016*^9}, 
    3.883076716515568*^9, 3.884375643951432*^9, 3.8847311503361483`*^9, 
    3.884731409038105*^9, 3.886278255630554*^9, 3.88627828819567*^9, 
-   3.8862785455950937`*^9},
- CellLabel->"Out[19]=",
- CellID->4776258,ExpressionUUID->"127f2806-fa32-461b-9a5f-ca1146c8eef0"]
+   3.8862785455950937`*^9, 3.8873857150517282`*^9, 3.8873857844200277`*^9, 
+   3.887386042769086*^9, 3.887405831488749*^9, 3.88740590658676*^9, 
+   3.887406150657587*^9, 3.887406833809023*^9, 3.887407040419096*^9, 
+   3.887407894498901*^9, 3.88740802233947*^9, 3.88740808799349*^9, 
+   3.8874081698895407`*^9, 3.887410006202367*^9, 3.887410172488965*^9, 
+   3.887410383932386*^9, 3.8875680753067303`*^9, 3.8875681427142*^9, 
+   3.887568543733445*^9, 3.887569029021823*^9, 3.8875692667110777`*^9, 
+   3.887569360976156*^9, 3.887569531558323*^9, 3.88756979509443*^9, 
+   3.887570047086821*^9, 3.887570187540612*^9, 3.887570383092168*^9, 
+   3.887570492975173*^9, 3.887570555422433*^9, 3.887570651367841*^9, 
+   3.887571569330271*^9, 3.887571648279236*^9, 3.887571691611974*^9, 
+   3.887571817864759*^9, 3.887572777448966*^9, 3.8875742256263027`*^9, 
+   3.887575098306396*^9, 3.887575273936481*^9, 3.887575399008238*^9, 
+   3.887663915269513*^9, 3.88766437431816*^9, 3.887664432940118*^9, 
+   3.8878510142580338`*^9, 3.887919633629004*^9},
+ CellLabel->"Out[18]=",
+ CellID->202493290,ExpressionUUID->"51f82232-8f35-46f5-9843-eab2b17f41db"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"MarkdownLexer", "[", 
-  RowBox[{"mdlines", ",", 
-   RowBox[{"MarkdownRules", "[", "\"\<CommonMark\>\"", "]"}]}], 
-  "]"}]], "Input",
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mdlex", "=", 
+   RowBox[{"MarkdownLexer", "[", 
+    RowBox[{"mdlines", ",", 
+     RowBox[{"MarkdownRules", "[", "\"\<CommonMark\>\"", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Column", "[", "mdlex", "]"}]}], "Input",
  TaggingRules->{},
- CellLabel->"In[11]:=",
+ CellChangeTimes->{{3.8869606237142344`*^9, 3.8869606275476437`*^9}, {
+  3.887406046072928*^9, 3.8874060497837553`*^9}},
+ CellLabel->"In[7]:=",
  CellID->1424878689,ExpressionUUID->"da130cb0-cb3b-4bdb-99e6-3584f58a1165"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{
-      RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
-      RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
-      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Example Markdown Title\"\>"}]}],
-      "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
-     "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{
-      RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-      RowBox[{"\<\"Data\"\>", 
-       "\[Rule]", "\<\"This is a sample paragraph\"\>"}]}], 
-     "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
-     "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{
-      RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
-      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
-      RowBox[{"\<\"Data\"\>", 
-       "\[Rule]", "\<\"Example Markdown Section\"\>"}]}], 
-     "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
-     "\[RightAssociation]"}], "]"}], ",", 
-   RowBox[{"MarkdownToken", "[", 
-    RowBox[{"\[LeftAssociation]", 
-     RowBox[{
-      RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-      RowBox[{"\<\"Data\"\>", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"MarkdownToken", "[", 
-          RowBox[{"\[LeftAssociation]", 
-           RowBox[{
-            RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
-            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
-           "\[RightAssociation]"}], "]"}], 
-         ",", "\<\"This line is emphasized\"\>", ",", 
-         RowBox[{"MarkdownToken", "[", 
-          RowBox[{"\[LeftAssociation]", 
-           RowBox[{
-            RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
-            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
-           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
-     "\[RightAssociation]"}], "]"}]}], "}"}]], "Output",
+ TagBox[GridBox[{
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"Example Markdown Title\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"This is a sample paragraph\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"Example Markdown Section\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], 
+           ",", "\<\"This line is emphasized\"\>", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownToken", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\"this\"\>", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\" line \"\>", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\"has\"\>", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\" \"\>", ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\"multiple styles\"\>", 
+           ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"**\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           RowBox[{"MarkdownToken", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"Delimiter\"\>"}], ",", 
+              
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"_\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+       "\[RightAssociation]"}], "]"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
  TaggingRules->{},
- CellChangeTimes->{3.886375720997572*^9},
- CellLabel->"Out[11]=",
- CellID->1912724057,ExpressionUUID->"7a099a7c-2584-4db5-a0e9-8a0a878049b7"]
+ CellChangeTimes->{
+  3.886375720997572*^9, 3.887060785904457*^9, 3.887385717934848*^9, 
+   3.887385787584009*^9, 3.88738604497657*^9, 3.887405834721216*^9, 
+   3.887405908703697*^9, {3.887406023790647*^9, 3.8874060504534187`*^9}, 
+   3.887406152959249*^9, 3.88740683584415*^9, 3.887407042856884*^9, 
+   3.8874071850269613`*^9, 3.887407435134606*^9, 3.88740789648069*^9, 
+   3.887408024612073*^9, 3.887408090525934*^9, 3.88740817189447*^9, 
+   3.887408253171747*^9, 3.887408431389176*^9, 3.887408505311716*^9, 
+   3.887408574621975*^9, 3.8874086751100492`*^9, 3.887408985753894*^9, 
+   3.8874090304598103`*^9, 3.887409123937498*^9, 3.887409639350955*^9, 
+   3.887410008626733*^9, 3.887410174407476*^9, 3.8874102915108223`*^9, 
+   3.887410386310871*^9, 3.887410468866291*^9, 3.887568077966301*^9, 
+   3.887568144435841*^9, 3.887568545304709*^9, 3.887569030661111*^9, 
+   3.8875692689290047`*^9, 3.8875693621229773`*^9, 3.887569533877472*^9, 
+   3.8875696650929728`*^9, 3.887569796164679*^9, 3.8875700491906557`*^9, 
+   3.887570189600461*^9, 3.8875703079384212`*^9, 3.88757038449608*^9, 
+   3.887570495122451*^9, 3.887570557359159*^9, 3.887570653454534*^9, 
+   3.887571571152377*^9, 3.887571650285893*^9, 3.887571693568536*^9, 
+   3.8875718195966797`*^9, 3.887572779439822*^9, 3.88757283393636*^9, 
+   3.887572946889463*^9, 3.887573175788004*^9, 3.8875733928757057`*^9, 
+   3.887574227865212*^9, 3.887574543502777*^9, 3.887574602485684*^9, 
+   3.8875746961544027`*^9, 3.887575100393013*^9, 3.8875752079878273`*^9, 
+   3.887575278791107*^9, 3.88757542977463*^9, 3.8875759906093283`*^9, 
+   3.8876639180545673`*^9, 3.8876643767684793`*^9, 3.887664435088767*^9, 
+   3.887851017560912*^9},
+ CellLabel->"Out[8]=",
+ CellID->1129563804,ExpressionUUID->"6c87dd66-738b-4409-98b1-bc3d768bf6da"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mdparse", "=", 
+   RowBox[{"MarkdownParser", "[", 
+    RowBox[{"mdlex", ",", 
+     RowBox[{"TokenToElementRules", "[", "\"\<CommonMark\>\"", "]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Column", "[", "mdparse", "]"}]}], "Input",
+ TaggingRules->{},
+ CellChangeTimes->{{3.88696061607054*^9, 3.886960647077324*^9}, {
+  3.887385815372855*^9, 3.887385819651184*^9}, {3.887406059188724*^9, 
+  3.887406064268702*^9}, {3.8875680834902973`*^9, 3.887568084513603*^9}},
+ CellLabel->"In[9]:=",
+ CellID->770829753,ExpressionUUID->"3023415d-2c4b-4e90-8f49-fe07cd17aef7"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"Example Markdown Title\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"This is a sample paragraph\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+        RowBox[{"\<\"Data\"\>", 
+         "\[Rule]", "\<\"Example Markdown Section\"\>"}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"MarkdownElement", "[", 
+           RowBox[{"\[LeftAssociation]", 
+            RowBox[{
+             RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+             
+             RowBox[{"\<\"Data\"\>", 
+              "\[Rule]", "\<\"This line is emphasized\"\>"}]}], 
+            "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+       "\[RightAssociation]"}], "]"}]},
+    {
+     RowBox[{"MarkdownElement", "[", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+        RowBox[{"\<\"Data\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+              RowBox[{"\<\"Data\"\>", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"MarkdownElement", "[", 
+                 RowBox[{"\[LeftAssociation]", 
+                  RowBox[{
+                   RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                   RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"this\"\>"}]}], 
+                  "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\" line \"\>", ",", 
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"has\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}], ",", "\<\" \"\>", ",", 
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+              RowBox[{"\<\"Data\"\>", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"MarkdownElement", "[", 
+                 RowBox[{"\[LeftAssociation]", 
+                  RowBox[{
+                   RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                   
+                   
+                   RowBox[{"\<\"Data\"\>", 
+                    "\[Rule]", "\<\"multiple styles\"\>"}]}], 
+                  "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+             "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+       "\[RightAssociation]"}], "]"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ TaggingRules->{},
+ CellChangeTimes->{3.887574230378625*^9, 3.887574545578352*^9, 
+  3.887574604374682*^9, 3.887574698805161*^9, 3.887575103519526*^9, 
+  3.887575211184188*^9, 3.8875752810198517`*^9, 3.887575448896391*^9, 
+  3.88757604034724*^9, 3.887663924089863*^9, 3.88766438038911*^9, 
+  3.8876644374217463`*^9, 3.8878510196090183`*^9},
+ CellLabel->"Out[10]=",
+ CellID->131570658,ExpressionUUID->"c0563f9a-68b9-4e35-9307-9af7986ae287"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3751,7 +4456,7 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 847},
+WindowSize->{1440, 847},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 DockedCells->{
   Cell[
@@ -3812,27 +4517,36 @@ Fu6DuJJG2H9mK2QZ3X1Y8rjKVdsLU11Qbnfn/Mae/TiO1RZHs2bny+6Vwq5Sfi8TnHKi+1+K4NOh"]\
   "PacletBuildData" -> {
    "LastBuiltArchive" -> 
     "/Users/faizonzaman/Developer/Markdown2WL/FaizonZaman/WLMarkdown/build/\
-FaizonZaman__WLMarkdown-0.0.1.paclet", "FileHashes" -> 
+FaizonZaman__WLMarkdown-0.1.0.paclet", "FileHashes" -> 
     ByteArray[CompressedData["
-1:eJwB8gIN/SFib1JiAQAAAOUCAAA4Qzp4nHOU0w3Wd8lPLs1NzStJLMnMz9N3
-zUvPySzO0HcvzUxJLdYP9/FNLMpOyS/PAwvo5SU5MukGswXnlxYlp/qs/OR+
-54V0pzRQJCSxKD21xEekYsbromW6XrrBStjN9cxLSa3QjzfQS04rRjKqmMUv
-Py8VYU7sFKabzPUCdbrBavjMKU5NB0kVxxviMevPNMOPyff4y4g1yxiPWdq6
-xSkyYjEausEaxJill56ah8e0zriHZ6tnP1XUDdbCblpwamJRcgbETFNIqKXi
-c92GI3kHooM5STEPXyy8j3ZnTa0ytNEN1iTSvOJMPMYt/NeTyKdvqaYbrEuM
-cWmZqTkpxXrlOXiMjDkg0tBRnmWmG2xCjJGZINo3tSQxJbEkEb/JnHum8oap
-XNHXDdYjxmR46jHCY+amz03Hp1yICSXSzPKizJJUvZz85Gw8ZmaG+itFPAr1
-1g1Wx2FmQWpODpHZzn2qVNabPp1K3WBtgoYRlfeKb7VkOBYXBpJkIL4MuJ9v
-w2nNd0VOuNMQpoFE50Ix14rE3IIcYLnnnJ+bm58HKvv0clOQi7yN7sqaHHc6
-NBHaESL83qlFeak5+j6pFalFqKnLZwlL/7pAUzakohIhIgrVF5BYVJxaFFQK
-dACa7pM8jG8WPrrNjtCNEBFA0Y2mccttlT1LnnxzQmhEiIhANYbkZ6fmYbP1
-Zvu+z1UF+RwIzQgRYajm0JLMnMySTAy9x4K6Nvx8sTMZoRchArMYUbmgaT77
-/m3k5uBnOgjNCBHegMTknNQSz7y0fDRdXzzERSxzV1sjdCFEBCG6fBPzMtNS
-i0vwZ/1gnWV+N9vkwoEuDQEqLtZ3AuVBWKyWINtpxe9up39KRwqhGSEiAdHs
-kpqTmQvMyEVYDahLX6+1+MRGZ4QBCBFhiAE+mXmpWPW+6Zg8b+t8DSTLESII
-vdgdHvX87LmooKoQhF6EiDhELyxysOo3uJXyNCRtpwNCP0wEALW8CYdF6mzS
-
-      "]]}},
+1:eJwBpQRa+yFib1JiAQAAAJgEAAA4Qzp4nJ2WbVBUVRjHlQiskbcgQREEUt7i
+7m6EMRKSgEDiYsseaHGbAS67Z5cL94XuvbSwlPWhKXBi+JAzNiNJRjVjVAIN
+joyT6dgL1pA2xWRklgaBxkxKMml9oF13l2f3er3t8mln/nv//9+55z7nOU9h
+FoHU2zlTK4NZkRQpjlWXsFaaEhrVZa2UGQtqg7aC5JvNnI29LajYhsIgAoUg
+rpU3Ye3h+bILs/Fd8Q6liuStWNTGtL3xB/8eUU6gFPncHawZt6nrNCqTRfCK
+EoJ3cSyGnKk/P+5tmsugCJSqlCNgq/Mvoe4RhaygmsKemwdnDP5mPaqQdf8D
+3Z/PWJtJAqX7k6WyYlYhrav20njHgelkAuXJp+mxBfOYNWEdaXV8DdTONHC0
+oC6iOVOzvpXGgvSDaJ49HqQZfR4QoemhzGdvhQcTqCAgxHZMUwwlYl4OExa9
+NfHJ3TnPAKbWdmbo6D9EJYHMAWFKScrOsUaSIdl6qLX6apGiKZHCQn0ZFp1b
+6o7T4ucwLVmM/oPzOfel2vNhMdbcTcfiB+9NCvSddzAtHC96FiHBnPt1o+bb
+fQtxgBmIOlTzPR/nqIUtAWG0FIvldnXj9cm2/S9f3QCE8Olr6n3vDmQugyBb
+Hsl5p4tPDmrKgdDNp2Wt/rqonUBFARE8m7RUJlLU8fWpwkRoXSGgEoZO5ybN
+z+sI9MSyUCU0dnoknNLoU0eDfn/TCJz8/MdfYYZHEIG2LoujxW2Yl1AKhleU
+n7wavw0oe8cGGo15/fZAa8xD0ZG8cAcmqePDn6MWi4IAU3qWXXGk0x613JeR
+q4K/K64bzk3wEUDZ/1hvcu/UdyXLpVRxzVh6XiyL9OyNyPFcoMR+WXh2fdOG
+cAJlylMQJnlTo6uDbnbdEVihe9oSZyY+nb8YEkie0p3TV2vL1CdaLQTK8DNP
+oBTiWs9bxZKaJsdhI/yJs1CYNgsqG60QeeWlcEPHOv4FAuX4E0k5fyuwSJpJ
+kVROxmEJB7bVdlcQSOVP8tJdma2Q+fQ9GXvKF1Ji/cy08Y4+onLebAqZVPVT
+KTWXq3cSKO0umS2Ypv0cMl7bnZnddyk3mkAP/2+YX5PG+y26315MmzIEFKg0
+bmQda1j896J5y91r6M5Av2eONSVtJNPi6A/qYo5hONZ5mlWM2fsQD5U9lLHq
+QmcG2EFZsxPzLKbV7r7s6jQ+RaY1TIpTw0Nve10CoES47a526+t7J7jno8rN
+IV5zJSgPun2uBipHPbN65dyhyz+FghuUSB+3xHjt1JW1PYe7doERlBi38Xar
+k6P++OqJv+wt3CowgxLtNi+NNRLvF/q9g7dmR03gBcUDhulIYr7ZX7up4YeV
+zWAGJUxHmmjnBGXhJK4b7WOCNuGTUnCBEuVyVZAsZcGCqNw51uqMkwuVt2Ic
+K61yPOweTj1fVfRm5kWUFai/yloHZlDiXOaleUI2YI/1SGb/2FAxBIAS7Qpw
+Dley3rnO1w+O9KV7wUEBr/zCjTPj3xj19irwghLr8vpODxK/ZtI8XWUZ9Rof
+QInz9S8Vpk/AthPZkb+MaLMhwKP8B4c5FGoZQVA+
+      "]]}, "Openers" -> {"PrimaryExamplesSection" -> Open}},
 CreateCellID->True,
 DynamicEvaluationTimeout->60,
 FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
@@ -6543,16 +7257,17 @@ dUs5PEh+6Sx+hd/B9HrmkqVGkvD4AQCmgKFd
          StyleBox[{
            
            FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 
-             1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0},
-              {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 
-             2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {
-             0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{5., 
-             12.}, {5., 11.}, {2., 11.}, {2., 12.}}, {{2., 10.}, {2., 9.}, {
-             5., 9.}, {5., 10.}}, {{2., 14.}, {2., 13.}, {5., 13.}, {5., 
-             14.}}, {{2., 8.}, {2., 7.}, {5., 7.}, {5., 8.}}, {{2., 6.}, {2., 
-             5.}, {5., 5.}, {5., 6.}}, {{5., 18.}, {2., 18.}, {2., 17.}, {5., 
-             17.}, {5., 18.}}, {{5., 4.}, {2., 4.}, {2., 3.}, {5., 3.}, {5., 
-             4.}}, {{2., 16.}, {2., 15.}, {5., 15.}, {5., 16.}}}]}, 
+             1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+             0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{
+             0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 
+             0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+             0}}}, {{{5., 12.}, {5., 11.}, {2., 11.}, {2., 12.}}, {{2., 
+             10.}, {2., 9.}, {5., 9.}, {5., 10.}}, {{2., 14.}, {2., 13.}, {5.,
+              13.}, {5., 14.}}, {{2., 8.}, {2., 7.}, {5., 7.}, {5., 8.}}, {{
+             2., 6.}, {2., 5.}, {5., 5.}, {5., 6.}}, {{5., 18.}, {2., 18.}, {
+             2., 17.}, {5., 17.}, {5., 18.}}, {{5., 4.}, {2., 4.}, {2., 3.}, {
+             5., 3.}, {5., 4.}}, {{2., 16.}, {2., 15.}, {5., 15.}, {5., 
+             16.}}}]}, 
           FaceForm[
            RGBColor[0.86667, 0.066667, 0.]]], 
          StyleBox[{
@@ -9385,13 +10100,13 @@ FpG1n6WfSeLb27c2Volz+/dhBxtxrIPL2Ar/oQtZg16JsQ879Gyxx3vEuygx
              0, 0, 255}}, {{255, 255, 255, 255}, {0, 0, 0, 255}, {255, 255, 
              255, 255}}}], "Byte", ColorSpace -> "RGB", 
             ImageResolution -> {72, 72}, Interleaving -> True], "Hover" -> 
-          Image[RawArray["UnsignedInteger8",{{{255, 255, 255, 255}, {0, 0, 0, 
+          Image[
+           RawArray["UnsignedInteger8",{{{255, 255, 255, 255}, {0, 0, 0, 
              255}, {255, 255, 255, 255}}, {{0, 0, 0, 255}, {0, 0, 0, 0}, {0, 
              0, 0, 255}}, {{255, 255, 255, 255}, {0, 0, 0, 255}, {255, 255, 
              255, 255}}}], "Byte", ColorSpace -> "RGB", 
             ImageResolution -> {72, 72}, Interleaving -> True], "Pressed" -> 
-          Image[
-           RawArray["UnsignedInteger8",{{{255, 255, 255, 255}, {0, 0, 0, 
+          Image[RawArray["UnsignedInteger8",{{{255, 255, 255, 255}, {0, 0, 0, 
              255}, {255, 255, 255, 255}}, {{0, 0, 0, 255}, {0, 0, 0, 0}, {0, 
              0, 0, 255}}, {{255, 255, 255, 255}, {0, 0, 0, 255}, {255, 255, 
              255, 255}}}], "Byte", ColorSpace -> "RGB", 
@@ -11655,9 +12370,8 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
                    And[
                     StringQ[
                     With[{RSNB`cell$ = First[
-                    Cells[
-                    RSNB`nbo, CellStyle -> "PacletDirectoryChooser", CellTags -> 
-                    "PacletManifestPanel"], $Failed]}, 
+                    Cells[RSNB`nbo, CellStyle -> "PacletDirectoryChooser", 
+                    CellTags -> "PacletManifestPanel"], $Failed]}, 
                     Replace[{
                     CurrentValue[
                     RSNB`cell$, {TaggingRules, "PacletDirectoryType"}], 
@@ -11727,7 +12441,7 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
    Cell[
     StyleData["AttachedMessage"], Deletable -> True, 
     CellMargins -> {{60, 40}, {15, 5}}]}, 
-  WindowMargins -> {{Automatic, 0}, {Automatic, 100}}, Visible -> False, 
+  WindowMargins -> {{Automatic, 0}, {0, Automatic}}, Visible -> False, 
   FrontEndVersion -> "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", 
   StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"e7b20afa-8fc3-4d76-a617-628c9a5c0469"
