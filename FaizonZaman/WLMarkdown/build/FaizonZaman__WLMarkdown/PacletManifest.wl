@@ -149,6 +149,19 @@
             "File"
             ->
             File[
+                "Tests/MarkdownParser.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "b01afe522c4c9c93252d572d5ae294e67ff0f9aee9dfeb9eadbe68ee7d6b9c31"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "Examples/CommonMark.md"
             ]
             ,
