@@ -1388,9 +1388,22 @@ parse the tokens into final MarkdownElement forms. The result should be a ",
  TaggingRules->{},
  CellChangeTimes->{{3.886278684002521*^9, 3.886278802613954*^9}, {
    3.8862790363063393`*^9, 3.886279111667323*^9}, {3.886279177606925*^9, 
-   3.886279220087105*^9}, 3.8863909515943747`*^9},
+   3.886279220087105*^9}, 3.8863909515943747`*^9, {3.887969765950818*^9, 
+   3.887969766998055*^9}},
  CellTags->"DefaultContent",
- CellID->717274846,ExpressionUUID->"eb017ab9-c76f-4640-b259-caaa42831826"]
+ CellID->717274846,ExpressionUUID->"eb017ab9-c76f-4640-b259-caaa42831826"],
+
+Cell["\<\
+The sample markdown file is a slightly modified version of the daing fireball \
+markdown file\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.886278684002521*^9, 3.886278802613954*^9}, {
+  3.8862788617972517`*^9, 3.8862789651763906`*^9}, {3.886279017586059*^9, 
+  3.886279033231854*^9}, {3.886390942676908*^9, 3.8863909459404507`*^9}, {
+  3.8879697749397097`*^9, 3.887969800300516*^9}},
+ CellTags->"DefaultContent",
+ CellID->326662133,ExpressionUUID->"14af12fc-bc0a-4023-89b1-689092120d1a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4456,8 +4469,8 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 847},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{1440, 847},
+WindowMargins->{{-1, Automatic}, {Automatic, 0}},
 DockedCells->{
   Cell[
    BoxData[
