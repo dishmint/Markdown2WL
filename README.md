@@ -16,6 +16,7 @@ Installation:
 Roadmap:
 - [x] Implement MarkdownLexer
 - [x] Implement MarkdownParser
+- [ ] Add parser tests
 - [ ] Publish to WPR
 - [ ] Implement Import Converter
 - [ ] Implement Export Converter
