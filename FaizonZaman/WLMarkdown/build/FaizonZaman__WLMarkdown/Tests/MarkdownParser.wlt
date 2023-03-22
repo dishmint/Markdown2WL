@@ -7,19 +7,19 @@ BeginTestSection["MarkdownParser"]
 (* TODO: DelimiterParser Tests *)
 
 VerificationTest[
-    MarkdownParser[MarkdownToken[<| "Token" -> "EmptyLine"|>]],
+    MarkdownParser[MarkdownToken[<| "Token" -> "EmptyLine"|>], TokenToElementRules["CommonMark"]],
     {MarkdownElement[ <| "Element" -> "EmptyLine" |>]},
     "TestID" -> "MarkdownParser-EmtpyLineTest1"
 ]
 
 VerificationTest[
-    MarkdownParser[MarkdownToken[<| "Token" -> "HorizontalLine"|>]],
+    MarkdownParser[MarkdownToken[<| "Token" -> "HorizontalLine"|>], TokenToElementRules["CommonMark"]],
     {MarkdownElement[ <| "Element" -> "HorizontalLine" |>]},
     "TestID" -> "MarkdownParser-HorizontalLineTest1"
 ]
 
 VerificationTest[
-    MarkdownParser[MarkdownToken[<| "Token" -> "Line", "Data" -> "This is a sample paragraph"|>]],
+    MarkdownParser[MarkdownToken[<| "Token" -> "Line", "Data" -> "This is a sample paragraph"|>], TokenToElementRules["CommonMark"]],
     { MarkdownElement[<| "Element" -> "Line", "Data" -> "This is a sample paragraph"|>] },
     "TestID" -> "MarkdownParser-LineTest1"
 ]
@@ -38,22 +38,25 @@ VerificationTest[
                     MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
                     }
                 |>
-            ]
-        ],
-    MarkdownElement[
-        <|
-            "Element" -> "OrderedList",
-            "Data" -> {
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 1"|>],
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 2"|>],
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 2.1"|>],
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 3"|>],
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 3.1"|>],
-                MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
-                }
-            |>
             ],
-                "TestID" -> "MarkdownParser-BlockTest1"
+        TokenToElementRules["CommonMark"]
+        ],
+    {
+        MarkdownElement[
+            <|
+                "Element" -> "OrderedList",
+                "Data" -> {
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 1"|>],
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 2"|>],
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 2.1"|>],
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 3"|>],
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 3.1"|>],
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
+                    }
+                |>
+            ]
+        },
+        "TestID" -> "MarkdownParser-BlockTest1"
     ]
 
 VerificationTest[
