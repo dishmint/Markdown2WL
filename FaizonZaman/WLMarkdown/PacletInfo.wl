@@ -7,7 +7,7 @@ PacletObject[
     "Creator" -> "Faizon Zaman",
     "License" -> "MIT",
     "PublisherID" -> "FaizonZaman",
-    "Version" -> "0.1.0",
+    "Version" -> "0.1.1",
     "WolframVersion" -> "13.0+",
     "Extensions" -> {
       {
@@ -33,12 +33,15 @@ PacletObject[
         "Resource",
         "Root" -> "Tests",
         "Resources" -> {
+          (* WLMarkdown Components *)
           {"LineLexer", "LineLexer.wlt"},
           {"LinkLexer", "LinkLexer.wlt"},
           {"BlockLexer", "BlockLexer.wlt"},
           {"DelimiterLexer", "DelimiterLexer.wlt"},
           {"MarkdownLexer", "MarkdownLexer.wlt"},
-          {"MarkdownParser", "MarkdownParser.wlt"}
+          {"MarkdownParser", "MarkdownParser.wlt"},
+          (* CommonMark v0.30 Spec *)
+          {"CommonMark_0_30", "CommonMark_0_30.wlt"}
         }
       },
       {

@@ -50,7 +50,7 @@
             ,
             "Hash"
             ->
-            "880be72db66cb07925af8dbb01fff90c8efe5c36e8fa202deeb34efb9b10f2a3"
+            "e64b85f8716d39ec01ef8b555cd5fcbeb4e822f2960b012f11a7dbba2a24dc69"
                 
         |>
         ,
@@ -154,7 +154,20 @@
             ,
             "Hash"
             ->
-            "b01afe522c4c9c93252d572d5ae294e67ff0f9aee9dfeb9eadbe68ee7d6b9c31"
+            "1f04da3aa84ba40ba9751bedebac1b33c6bf842218073c4b0f9b699f311511d4"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
+                "Tests/CommonMark_0_30.wlt"
+            ]
+            ,
+            "Hash"
+            ->
+            "269070a8a290aeda3ec64e601948d65b7bdb7404eb3d53e9c8d6d74cb18463fe"
                 
         |>
         ,
