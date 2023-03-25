@@ -41,6 +41,8 @@ PacletObject[
           {"MarkdownLexer", "MarkdownLexer.wlt"},
           {"MarkdownParser", "MarkdownParser.wlt"},
           (* CommonMark v0.30 Spec *)
+          {"Tabs", "CommonMark_0_30/Tabs.wlt"},
+          {"BackslashEscapes", "CommonMark_0_30/BackslashEscapes.wlt"},
           {"ATXHeadings", "CommonMark_0_30/ATXHeadings.wlt"},
           {"CommonMark_0_30", "CommonMark_0_30.wlt"}
         }
