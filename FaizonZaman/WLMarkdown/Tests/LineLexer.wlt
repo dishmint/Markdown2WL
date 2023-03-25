@@ -9,11 +9,11 @@ VerificationTest[
 	Splice[{ MarkdownToken[<| "Token" -> "EmptyLine" |>] }],
 	"TestID" -> "LineLexer-CommonMark-EmptyLine"
 ]
-(* ----------------------------- HorizontalLine ----------------------------- *)
+(* ----------------------------- ThematicBreak ----------------------------- *)
 VerificationTest[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["---", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{ MarkdownToken[<| "Token" -> "HorizontalLine" |>] }],
-	"TestID" -> "LineLexer-CommonMark-HorizontalLine"
+	Splice[{ MarkdownToken[<| "Token" -> "ThematicBreak" |>] }],
+	"TestID" -> "LineLexer-CommonMark-ThematicBreak"
 ]
 (* -------------------------------- CodeFence ------------------------------- *)
 VerificationTest[
@@ -61,14 +61,14 @@ VerificationTest[
 (* ---------------------------------- Quote --------------------------------- *)
 VerificationTest[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["> Quote me!", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "Quote", "Data" -> "Quote me!" |>]}],
-	"TestID" -> "LineLexer-CommonMark-Quote"
+	Splice[{MarkdownToken[<| "Token" -> "QuoteLine", "Data" -> "Quote me!" |>]}],
+	"TestID" -> "LineLexer-CommonMark-QuoteLine"
 ]
-(* ------------------------------- BlockQuote ------------------------------- *)
+(* ------------------------------- CodeLine ------------------------------- *)
 VerificationTest[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["    Here lies your blockquote!", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "BlockQuote", "Data" -> "Here lies your blockquote!" |>]}],
-	"TestID" -> "LineLexer-CommonMark-BlockQuote"
+	Splice[{MarkdownToken[<| "Token" -> "CodeLine", "Data" -> "Here lies your blockquote!" |>]}],
+	"TestID" -> "LineLexer-CommonMark-CodeLine"
 ]
 (* ---------------------------------- Line ---------------------------------- *)
 VerificationTest[

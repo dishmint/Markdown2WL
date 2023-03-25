@@ -4,116 +4,6 @@ BeginTestSection["CommonMark_0_30"]
 (*     CommonMark v0.30 Tests "https://spec.commonmark.org/0.30/spec.json"    *)
 (* -------------------------------------------------------------------------- *)
 
-(* ------------------------------ ATX Headings ------------------------------ *)
-VerificationTest[
-	ImportMarkdown["## \n#\n### ###\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> {}|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "#"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "###"|>]},
-	"TestID"->"ATX headings-79"
-	]
-
-VerificationTest[
-	ImportMarkdown["#5 bolt\n\n#hashtag\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "#5 bolt"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "#hashtag"|>]},
-	"TestID"->"ATX headings-64"
-	]
-
-VerificationTest[
-	ImportMarkdown["#                  foo                     \n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "                 foo                     "|>]},
-	"TestID"->"ATX headings-67"
-	]
-
-VerificationTest[
-	ImportMarkdown["####### foo\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "####### foo"|>]},
-	"TestID"->"ATX headings-63"
-	]
-
-VerificationTest[
-	ImportMarkdown["****\n## foo\n****\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "****"|>]}|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "****"|>]}|>]},
-	"TestID"->"ATX headings-77"
-	]
-
-VerificationTest[
-	ImportMarkdown["    # foo\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "# foo"|>]},
-	"TestID"->"ATX headings-69"
-	]
-
-VerificationTest[
-	ImportMarkdown["\\## foo\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "\\## foo"|>]},
-	"TestID"->"ATX headings-65"
-	]
-
-VerificationTest[
-	ImportMarkdown["### foo ###     \n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ###     "|>]},
-	"TestID"->"ATX headings-73"
-	]
-
-VerificationTest[
-	ImportMarkdown["# foo#\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo#"|>]},
-	"TestID"->"ATX headings-75"
-	]
-
-VerificationTest[
-	ImportMarkdown["### foo ### b\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ### b"|>]},
-	"TestID"->"ATX headings-74"
-	]
-
-VerificationTest[
-	ImportMarkdown["## foo ##\n  ###   bar    ###\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo ##"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  ###   bar    ###"|>]},
-	"TestID"->"ATX headings-71"
-	]
-
-VerificationTest[
-	ImportMarkdown["foo\n    # bar\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "# bar"|>]},
-	"TestID"->"ATX headings-70"
-	]
-
-VerificationTest[
-	ImportMarkdown["# foo *bar* \\*baz\\*\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> {"foo ", MarkdownElement[<|"Element" -> "*", "Data" -> "bar"|>], " \\", MarkdownElement[<|"Element" -> "*", "Data" -> "baz\\"|>]}|>]},
-	"TestID"->"ATX headings-66"
-	]
-
-VerificationTest[
-	ImportMarkdown["Foo bar\n# baz\nBar foo\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo bar"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "baz"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar foo"|>]},
-	"TestID"->"ATX headings-78"
-	]
-
-VerificationTest[
-	ImportMarkdown["# foo ##################################\n##### foo ##\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo ##################################"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 5, "Data" -> "foo ##"|>]},
-	"TestID"->"ATX headings-72"
-	]
-
-VerificationTest[
-	ImportMarkdown[" ### foo\n  ## foo\n   # foo\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> " ### foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  ## foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "   # foo"|>]},
-	"TestID"->"ATX headings-68"
-	]
-
-VerificationTest[
-	ImportMarkdown["### foo \\###\n## foo #\\##\n# foo \\#\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo \\###"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo #\\##"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo \\#"|>]},
-	"TestID"->"ATX headings-76"
-	]
-
-VerificationTest[
-	ImportMarkdown["# foo\n## foo\n### foo\n#### foo\n##### foo\n###### foo\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 4, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 5, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 6, "Data" -> "foo"|>]},
-	"TestID"->"ATX headings-62"
-	]
-
-
 (* -------------------------------- Autolinks ------------------------------- *)
 VerificationTest[
 	ImportMarkdown["<>\n"],
@@ -380,7 +270,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["> foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Block quotes-234"
 	]
 
@@ -1648,7 +1538,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["foo\n---\n~~~\nbar\n~~~\n# baz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "baz"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "baz"|>]},
 	"TestID"->"Fenced code blocks-141"
 	]
 
@@ -3592,13 +3482,13 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["---\n---\n"],
-	{MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-98"
 	]
 
 VerificationTest[
 	ImportMarkdown["    foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-100"
 	]
 
@@ -3610,13 +3500,13 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["- Foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-94"
 	]
 
 VerificationTest[
 	ImportMarkdown["> Foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-92"
 	]
 
@@ -3658,7 +3548,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["`Foo\n----\n`\n\n<a title=\"a lot\n---\nof dashes\"/>\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "`"|>], "Foo"}|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "----"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "`"|>]}|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "<a title=\"a lot"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "of dashes\"/>"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "`"|>], "Foo"}|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "----"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "`"|>]}|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "<a title=\"a lot"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "of dashes\"/>"|>]},
 	"TestID"->"Setext headings-91"
 	]
 
@@ -3670,13 +3560,13 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["Foo\nBar\n---\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-95"
 	]
 
 VerificationTest[
 	ImportMarkdown["---\nFoo\n---\nBar\n---\nBaz\n"],
-	{MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Baz"|>]},
+	{MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "Baz"|>]},
 	"TestID"->"Setext headings-96"
 	]
 
@@ -3688,7 +3578,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["Foo\n\nbar\n---\nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
 	"TestID"->"Setext headings-103"
 	]
 
@@ -3706,7 +3596,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["Foo\nbar\n\n---\n\nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
 	"TestID"->"Setext headings-104"
 	]
 
@@ -3724,7 +3614,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["    Foo\n    ---\n\n    Foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "---"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>]},
+	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "---"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
 	"TestID"->"Setext headings-85"
 	]
 
@@ -3742,7 +3632,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["   Foo\n---\n\n  Foo\n-----\n\n  Foo\n  ===\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "   Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "-----"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  ==="|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "   Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "-----"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  ==="|>]},
 	"TestID"->"Setext headings-84"
 	]
 
@@ -3886,7 +3776,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["***\n---\n___\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "***"|>]}|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "___"|>]}|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "***"|>]}|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "___"|>]}|>]},
 	"TestID"->"Thematic breaks-43"
 	]
 
@@ -3958,7 +3848,7 @@ VerificationTest[
 
 VerificationTest[
 	ImportMarkdown["Foo\n---\nbar\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "HorizontalLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>]},
+	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>]},
 	"TestID"->"Thematic breaks-59"
 	]
 

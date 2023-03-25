@@ -1517,8 +1517,9 @@ Cell[BoxData[
   3.886376458230733*^9}, {3.887570171421175*^9, 3.88757017303997*^9}, {
   3.8875748296947203`*^9, 3.887574830883276*^9}, {3.887575079786942*^9, 
   3.8875750808498173`*^9}, {3.8876662487668533`*^9, 3.887666250217752*^9}, {
-  3.8878479048624268`*^9, 3.887847905491213*^9}},
- CellLabel->"In[41]:=",
+  3.8878479048624268`*^9, 3.887847905491213*^9}, {3.888711879875834*^9, 
+  3.8887118808725967`*^9}},
+ CellLabel->"In[2]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -4543,8 +4544,8 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1440, 847},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{720, 847},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 DockedCells->{
   Cell[
    BoxData[
@@ -12524,10 +12525,9 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
           Scaled[1], Automatic}, StripOnInput -> False]& )}], 
    Cell[
     StyleData["AttachedMessage"], Deletable -> True, 
-    CellMargins -> {{60, 40}, {15, 5}}]}, 
-  WindowMargins -> {{Automatic, 0}, {0, Automatic}}, Visible -> False, 
-  FrontEndVersion -> "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", 
-  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+    CellMargins -> {{60, 40}, {15, 5}}]}, Visible -> False, FrontEndVersion -> 
+  "13.2 for Mac OS X ARM (64-bit) (November 18, 2022)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"e7b20afa-8fc3-4d76-a617-628c9a5c0469"
 ]
 
