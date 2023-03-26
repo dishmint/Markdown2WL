@@ -40,7 +40,8 @@ PacletObject[
           {"DelimiterLexer", "DelimiterLexer.wlt"},
           {"MarkdownLexer", "MarkdownLexer.wlt"},
           {"MarkdownParser", "MarkdownParser.wlt"},
-          (* CommonMark v0.30 Spec *)
+
+          (*     CommonMark v0.30 Tests "https://spec.commonmark.org/0.30/spec.json"    *)
           {"Tabs", "CommonMark_0_30/Tabs.wlt"},
           {"BackslashEscapes", "CommonMark_0_30/BackslashEscapes.wlt"},
           {"ATXHeadings", "CommonMark_0_30/ATXHeadings.wlt"},
@@ -55,7 +56,15 @@ PacletObject[
           {"HTMLBlocks", "CommonMark_0_30/HTMLBlocks.wlt"},
           {"Images", "CommonMark_0_30/Images.wlt"},
           {"IndentedCodeBlocks", "CommonMark_0_30/IndentedCodeBlocks.wlt"},
-          {"CommonMark_0_30", "CommonMark_0_30.wlt"}
+          {"Links", "CommonMark_0_30/Links.wlt"},
+          {"RawHTML", "CommonMark_0_30/RawHTML.wlt"},
+          {"Precedence", "CommonMark_0_30/Precedence.wlt"},
+          {"Paragraphs", "CommonMark_0_30/Paragraphs.wlt"},
+          {"ListItems", "CommonMark_0_30/ListItems.wlt"},
+          {"SetextHeadings", "CommonMark_0_30/SetextHeadings.wlt"},
+          {"SoftLineBreaks", "CommonMark_0_30/SoftLineBreaks.wlt"},
+          {"TextualContent", "CommonMark_0_30/TextualContent.wlt"},
+          {"ThematicBreaks", "CommonMark_0_30/ThematicBreaks.wlt"}
         }
       },
       {
