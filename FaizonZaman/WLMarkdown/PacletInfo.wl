@@ -44,6 +44,17 @@ PacletObject[
           {"Tabs", "CommonMark_0_30/Tabs.wlt"},
           {"BackslashEscapes", "CommonMark_0_30/BackslashEscapes.wlt"},
           {"ATXHeadings", "CommonMark_0_30/ATXHeadings.wlt"},
+          {"Autolinks", "CommonMark_0_30/Autolinks.wlt"},
+          {"BlankLines", "CommonMark_0_30/BlankLines.wlt"},
+          {"BlockQuotes", "CommonMark_0_30/BlockQuotes.wlt"},
+          {"CodeSpans", "CommonMark_0_30/CodeSpans.wlt"},
+          {"EmphasisAndStrongEmphasis", "CommonMark_0_30/EmphasisAndStrongEmphasis.wlt"},
+          {"EntityAndNumericCharacterReferences", "CommonMark_0_30/EntityAndNumericCharacterReferences.wlt"},
+          {"FencedCodeBlocks", "CommonMark_0_30/FencedCodeBlocks.wlt"},
+          {"HardLineBreaks", "CommonMark_0_30/HardLineBreaks.wlt"},
+          {"HTMLBlocks", "CommonMark_0_30/HTMLBlocks.wlt"},
+          {"Images", "CommonMark_0_30/Images.wlt"},
+          {"IndentedCodeBlocks", "CommonMark_0_30/IndentedCodeBlocks.wlt"},
           {"CommonMark_0_30", "CommonMark_0_30.wlt"}
         }
       },
