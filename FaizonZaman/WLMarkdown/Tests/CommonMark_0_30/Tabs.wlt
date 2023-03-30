@@ -4,19 +4,22 @@ BeginTestSection["Tabs"]
 
 VerificationTest[
 	ImportMarkdown["\tfoo\tbaz\t\tbim\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "\tfoo\tbaz\t\tbim"|>]},
+	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo	baz		bim"|>]}|>]},
 	"TestID"->"Tabs-1"
 	]
+
 VerificationTest[
 	ImportMarkdown["  \tfoo\tbaz\t\tbim\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "  \tfoo\tbaz\t\tbim"|>]},
+	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo	baz		bim"|>]}|>]},
 	"TestID"->"Tabs-2"
 	]
+
 VerificationTest[
 	ImportMarkdown["    a\ta\n    \:1f50\ta\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "a\ta"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "\:1f50\ta"|>]},
+	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "a	a"|>], MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "ὐ	a"|>]}|>]},
 	"TestID"->"Tabs-3"
 	]
+
 VerificationTest[
 	ImportMarkdown["  - foo\n\n\tbar\n"],
 	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 1, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "\tbar"|>]},

@@ -8,7 +8,7 @@ Needs["FaizonZaman`WLMarkdown`Utilities`"]
 (* -------------------------------------------------------------------------- *)
 $Token = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token |>]&
 $TokenData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Data" -> #Data |>]&
-$TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Level" -> #Level, "Data" -> #Data |>]&
+$TokenLevelData = FaizonZaman`WLMarkdown`MarkdownToken[<| "Token" -> #Token, "Marker"-> #Marker,"Level" -> #Level, "Data" -> #Data |>]&
 
 $TokenPattern[tok_] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern["Token" -> tok]]
 $TokenPattern[tok_, rest__Rule] := FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token" -> tok, rest}]]
@@ -44,6 +44,8 @@ FormHeading[level_Integer, data_, _] := $TokenLevelData[
     ]
 FormHeading[False, _, data_] := Splice[ StringSplit[ data, $LineRule ] ]
 
+FormCodeLine[True, data_]:= $TokenData[ <| "Token" -> "CodeLine", "Data" -> data |> ]
+FormCodeLine[False, data_]:= $TokenData[ <| "Token" -> "Line", "Data" -> data |> ]
 
 (* ------------------------------- Line rules ------------------------------- *)
 
@@ -54,21 +56,23 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     $ThematicBreakRule,
     (* ------------------------------ ATX Headings ------------------------------ *)
     (* Empty *)
-    RegularExpression[ "^([#]+)[\\s\\t]*$" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Level" -> StringLength["$1"], "Data" -> "" |> ],
+    RegularExpression[ "^([#]+)[\\s\\t]*$" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Marker"->"$1", "Level" -> StringLength["$1"], "Data" -> "" |> ],
     (* Non-Empty *)
     RegularExpression["^ {0,3}(#+)[ \\t]+(.*?)(#+)*$"] :> FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ],
     (* -------------------------------- ListItems ------------------------------- *)
     (* UnorderedListItems *)
-    (* FIXME: list items in CommonMark are '-' not '*' *)
-    RegularExpression[ "^(([\\s{2}\\t])*)\\*\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ],
+    (* RegularExpression[ "^(([\\s{2}\\t])*\)[-+*]\\s(.*\)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ], *) (* Note that I had to escape the astrisk-closing paren in the regex because of linter issues *)
+    RegularExpression["^( *)(\\t*)(([-+*])\\s(.*))$"] :> $TokenLevelData[<|"Token" -> "UnorderedListItem", "Marker" -> "$4", "Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5"|>], (* Recommendation from ChatGPT; I've added the Marker key to the token, since different markers indicate different lists *)
+
     (* OrderedListItems *)
-    RegularExpression[ "^((\\s{2}|\\t)*)((\\d\\.)+\\d?)\\s(.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$5" |> ],
+    RegularExpression[ "^( *)(\\t*)((\\d\\.)+\\d?) (.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Marker" -> "$3" ,"Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5" |> ],
+    (* ---------------------------------- Code ---------------------------------- *)
     (* CodeLine *)
-    RegularExpression[ "^(\\s{4}|\\t)(.*)$" ] :> $TokenData[ <| "Token" -> "CodeLine", "Data" -> "$2" |> ],
+    (* RegularExpression[ "^( {4}|( {0,2}\\t))(.*\)$" ] :> $TokenData[ <| "Token" -> "CodeLine", "Data" -> "$3" |> ], *)
+    RegularExpression[ "^( *)(\\t*)(.*)$" ] :> FormCodeLine[GetIndentationLevel["$1", "$2"] >= 4 , "$3"],
     (* CodeFence *)
     $CodeFenceRule,
     (* Quote *)
-    (* FIXME: This is a Blockquote *)
     RegularExpression[ "^(\\>)\\s(.*)" ] :> $TokenData[ <| "Token" -> "QuoteLine", "Data" -> "$2" |> ],
     (* Footnotes *)
     RegularExpression[ "^\\s*\\[(\\d+)\\]:\\s(.*)" ] :> $TokenData[ <| "Token" -> "Footnote", "Data" -> { "$1", "$2"} |> ],
@@ -83,9 +87,11 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     {seq:OrderlessPatternSequence[$TokenPattern["Line"], $TokenPattern["CodeLine"]]} :> Splice[{ seq } /. tk: $TokenPattern["CodeLine"] :> ChangeToken[tk, "Line"]],
     (* -------------------------------- CodeBlock ------------------------------- *)
     (* Fenced *)
-    {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
+    (* {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]], *)
+    {block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]]} :> $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>],
     (* Indented *)
-    {$TokenPattern["EmptyLine"], block: Shortest[$TokenPattern["CodeLine"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
+    (* {$TokenPattern["EmptyLine"], block: Shortest[$TokenPattern["CodeLine"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]], *)
+    {block: ($TokenPattern["CodeLine"]..)} :> $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>],
     
     (* ------------------------------- QuoteBlock ------------------------------- *)
     {$TokenPattern["EmptyLine"], block: Shortest[$TokenPattern["QuoteLine"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "BlockQuote", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
@@ -100,7 +106,8 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     } :> Sequence[ $Token[<|"Token" -> "EmptyLine"|>], $TokenData[<|"Token" -> "Table", "Data" -> {header, alignment, {rows}}|>], $Token[<| "Token" -> "EmptyLine" |>] ],
     
     (* ------------------------------ UnorderedList ----------------------------- *)
-    {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["UnorderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {ulist} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
+    (* {$TokenPattern["EmptyLine"], ulist: Shortest[$TokenPattern["UnorderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {ulist} |>], $Token[<| "Token" -> "EmptyLine" |> ]], *)
+    {ulist: (Shortest[PatternSequence[$TokenPattern["UnorderedListItem"], $TokenPattern["UnorderedListItem"|"EmptyLine"|"Paragraph"]...]])} :> $TokenData[ <| "Token" -> "UnorderedList", "Data" -> {ulist} |>],
     
     (* ------------------------------- OrderedList ------------------------------ *)
     {$TokenPattern["EmptyLine"], olist: Shortest[$TokenPattern["OrderedListItem"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "OrderedList", "Data" -> {olist} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
