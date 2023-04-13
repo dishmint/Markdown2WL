@@ -63,7 +63,6 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     (* UnorderedListItems *)
     (* RegularExpression[ "^(([\\s{2}\\t])*\)[-+*]\\s(.*\)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ], *) (* Note that I had to escape the astrisk-closing paren in the regex because of linter issues *)
     RegularExpression["^( *)(\\t*)(([-+*])\\s(.*))$"] :> $TokenLevelData[<|"Token" -> "UnorderedListItem", "Marker" -> "$4", "Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5"|>], (* Recommendation from ChatGPT; I've added the Marker key to the token, since different markers indicate different lists *)
-
     (* OrderedListItems *)
     RegularExpression[ "^( *)(\\t*)((\\d\\.)+\\d?) (.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Marker" -> "$3" ,"Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5" |> ],
     (* ---------------------------------- Code ---------------------------------- *)
@@ -83,8 +82,8 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
 (* ------------------------------- Block rules ------------------------------ *)
 
 FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
-    (* -------------------------------- Normalize ------------------------------- *)
-    {seq:OrderlessPatternSequence[$TokenPattern["Line"], $TokenPattern["CodeLine"]]} :> Splice[{ seq } /. tk: $TokenPattern["CodeLine"] :> ChangeToken[tk, "Line"]],
+    (* -------------------------------- Headings -------------------------------- *)
+    {seq:Shortest[PatternSequence[$TokenPattern["Heading", "Level"-> l_], data:($TokenPattern[_]...), end:($TokenPattern["Heading", "Level"-> l_]|$TokenPattern["EndOfFile"])]]} :> Sequence[ $TokenLevelData[ <| "Token" -> "Section", "Level"-> l, "Data" -> data |>], end ],
     (* -------------------------------- CodeBlock ------------------------------- *)
     (* Fenced *)
     (* {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]], *)

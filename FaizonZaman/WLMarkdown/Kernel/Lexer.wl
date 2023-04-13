@@ -14,7 +14,7 @@ FaizonZaman`WLMarkdown`MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRul
 
 (* Stage 1 *)
 LineLexer[ line_String, rules_List ] := iLineLexer[ line, rules ]
-LineLexer[ lines:List[__String], rules_List ] := Map[ iLineLexer[ #, rules ]&, lines ]
+LineLexer[ lines:List[__String], rules_List ] := Map[ iLineLexer[ #, rules ]&, lines ] ~Join~ { FaizonZaman`WLMarkdown`MarkdownToken[<|"Token" -> "EndOfFile"|>] }
 iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 
 (* Stage 2 *)
