@@ -6,25 +6,25 @@ BeginTestSection["MarkdownParser"]
 (* TODO: MarkdownParser Tests  *)
 (* TODO: DelimiterParser Tests *)
 
-VerificationTest[
+TestCreate[
     MarkdownParser[MarkdownToken[<| "Token" -> "EmptyLine"|>], TokenToElementRules["CommonMark"]],
     {MarkdownElement[ <| "Element" -> "EmptyLine" |>]},
     "TestID" -> "MarkdownParser-EmtpyLineTest1"
 ]
 
-VerificationTest[
+TestCreate[
     MarkdownParser[MarkdownToken[<| "Token" -> "HorizontalLine"|>], TokenToElementRules["CommonMark"]],
     {MarkdownElement[ <| "Element" -> "HorizontalLine" |>]},
     "TestID" -> "MarkdownParser-HorizontalLineTest1"
 ]
 
-VerificationTest[
+TestCreate[
     MarkdownParser[MarkdownToken[<| "Token" -> "Line", "Data" -> "This is a sample paragraph"|>], TokenToElementRules["CommonMark"]],
     { MarkdownElement[<| "Element" -> "Line", "Data" -> "This is a sample paragraph"|>] },
     "TestID" -> "MarkdownParser-LineTest1"
 ]
 
-VerificationTest[
+TestCreate[
     MarkdownParser[
         MarkdownToken[
             <|
@@ -59,7 +59,7 @@ VerificationTest[
         "TestID" -> "MarkdownParser-BlockTest1"
     ]
 
-VerificationTest[
+TestCreate[
     MarkdownParser[
         {
             MarkdownToken[
@@ -86,7 +86,7 @@ VerificationTest[
     "TestID" -> "MarkdownParser-DelimiterTest1"
 ]
 
-VerificationTest[
+TestCreate[
     MarkdownParser[
         {
             MarkdownToken[

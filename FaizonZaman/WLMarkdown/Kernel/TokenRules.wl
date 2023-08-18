@@ -38,6 +38,7 @@ ATXHeadingQ[lead_] := False
 FormHeading[level_Integer, data_, _] := $TokenLevelData[ 
     <| 
         "Token" -> "Heading", 
+        "Marker" -> StringRepeat["#", level],
         "Level" -> level, 
         "Data" -> StringReplace[ data, "\\#" -> "#" ] (* Replace escaped # presumably at the end of the heading line with unescaped # for ATX headings-76 *)
         |> 
@@ -56,9 +57,9 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
     $ThematicBreakRule,
     (* ------------------------------ ATX Headings ------------------------------ *)
     (* Empty *)
-    RegularExpression[ "^([#]+)[\\s\\t]*$" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Marker"->"$1", "Level" -> StringLength["$1"], "Data" -> "" |> ],
+    RegularExpression[ "^([#]+)[ \\t]*$" ] :> $TokenLevelData[ <| "Token" -> "Heading", "Marker"->"$1", "Level" -> StringLength["$1"], "Data" -> "" |> ],
     (* Non-Empty *)
-    RegularExpression["^ {0,3}(#+)[ \\t]+(.*?)(#+)*$"] :> FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ],
+    RegularExpression["^[ ]{0,3}(#+)[ \\t]+(.*?)(#+)*$"] :> FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ],
     (* -------------------------------- ListItems ------------------------------- *)
     (* UnorderedListItems *)
     (* RegularExpression[ "^(([\\s{2}\\t])*\)[-+*]\\s(.*\)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ], *) (* Note that I had to escape the astrisk-closing paren in the regex because of linter issues *)
@@ -81,9 +82,39 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
 
 (* ------------------------------- Block rules ------------------------------ *)
 
+postProcessBlock[block_List]:= ReplaceAll[block, tk : $TokenPattern["Section"] :> (tk // Extract[{1, "Data"}]/*Splice)]
+
 FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     (* -------------------------------- Headings -------------------------------- *)
-    {seq:Shortest[PatternSequence[$TokenPattern["Heading", "Level"-> l_], data:($TokenPattern[_]...), end:($TokenPattern["Heading", "Level"-> l_]|$TokenPattern["EndOfFile"])]]} :> Sequence[ $TokenLevelData[ <| "Token" -> "Section", "Level"-> l, "Data" -> data |>], end ],
+    {
+        seq:PatternSequence[
+                lead:$TokenPattern["Heading", "Level"-> l_], 
+                data:($TokenPattern[_]...),
+                end:($TokenPattern["Heading", "Level"-> l_]|$TokenPattern["EndOfFile"]|$TokenPattern["EmptyLine"])
+                ] /;FreeQ[{data}, $TokenPattern["Heading", "Level"->subl_Integer?(subl < l)]]
+                (* Instead of checking the pattern if it's free of particular headings, maybe just grab this section, then 'fix it'. Not ideal, but easier to implement I think. *)
+        } :> With[
+            {
+                marker = StringRepeat["#", l],
+                level = l
+                },
+            Unevaluated[
+                Sequence[
+                    $TokenLevelData[
+                        <|
+                            "Token" -> "Section",
+                            "Marker" -> marker,
+                            "Level"-> level,
+                            "Data" -> {
+                                lead,
+                                data
+                                }
+                            |>
+                        ],
+                        end
+                    ]
+                ]
+            ],
     (* -------------------------------- CodeBlock ------------------------------- *)
     (* Fenced *)
     (* {$TokenPattern["EmptyLine"], block: Shortest[PatternSequence[$TokenPattern["CodeFence"], $TokenPattern["Line"].., $TokenPattern["CodeFence"]]], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]], *)

@@ -1,14 +1,28 @@
 BeginPackage["FaizonZaman`WLMarkdown`Lexer`"]
 (* No Public Symbols *)
 Begin["`Private`"]
-
+Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 FaizonZaman`WLMarkdown`MarkdownLexer[data_String, rules_] := FaizonZaman`WLMarkdown`MarkdownLexer[ {data}, rules ]
-FaizonZaman`WLMarkdown`MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}]] := Block[
+FaizonZaman`WLMarkdown`MarkdownLexer[ data_List, rules:KeyValuePattern[{"LineRules"->_, "LinkRules"->_, "BlockRules"->_, "DelimiterRules"->_}] ] := Block[
 	{res},
 	(*  Stage 1 *) res = LineLexer[data, rules["LineRules"]];
 	(*  Stage 2 *) res = LinkLexer[res, rules["LinkRules"]];
 	(*  Stage 3 *) res = BlockLexer[res, rules["BlockRules"]];
 	(*  Stage 4 *) res = DelimiterLexer[res, rules["DelimiterRules"]];
+	res
+	]
+
+components=<|
+	"Lines"-> {LineLexer, FaizonZaman`WLMarkdown`LineRules},
+	"Links"-> {LinkLexer, FaizonZaman`WLMarkdown`LinkRules},
+	"Blocks"-> {BlockLexer, FaizonZaman`WLMarkdown`BlockRules},
+	"Delimiters"-> {DelimiterLexer, FaizonZaman`WLMarkdown`DelimiterRules}
+	|>
+
+FaizonZaman`WLMarkdown`MarkdownLexer[ data_List, component_String ] := Block[
+	{lexer,rules,res},
+	{lexer, rules} = components[component];
+	res = lexer[data, rules[FaizonZaman`WLMarkdown`$MarkdownFlavor]];
 	res
 	]
 
@@ -26,7 +40,9 @@ iLinkLexer[ FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token"
 (* iLinkLexer[ token_MarkdownToken, _ ] := token *)
 
 (* Stage 3 *)
+BlockLexer[ lines_List, rules_List] /; (Not@*FreeQ[$TokenPattern["Section"]]):= MapAt[BlockLexer[#, rules]&, lines, Position[lines, $TokenPattern["Section"]]]
 BlockLexer[ lines_List, rules_List] := FixedPoint[ SequenceReplace[rules], lines ]
+(* TODO: Stage 3.2 iBlockLexer to refactor arrangements like lone section tokens *)
 
 (* Stage 4 *)
 $DelimiterLexableLines = "Line"|"Heading"|"Quote"|"BlockQuote"|"UnorderedListItem"|"OrderedListItem";

@@ -14,6 +14,7 @@ MarkdownLexer::usage = "MarkdownLexer[s,r] lexes the string s with rules r\nMark
 MarkdownToken::usage = "Represents a lexed Markdown token"
 MarkdownParser::usage = "MarkdownParser[tk,r] parses the token tk into symbolic markdown via the rules r\nMarkdownParser[tks, r] parses the list of tokens tks into symbolic markdown via the rules r"
 MarkdownElement::usage = "Represents a symbolic Markdown element"
+$MarkdownFlavor::usage = "The markdown flavor being parsed"
 
 Begin["`Private`"]
 
@@ -24,6 +25,7 @@ Needs["FaizonZaman`WLMarkdown`Parser`"]
 
 (* MarkdownRules *)
 $MarkdownFlavors = Alternatives["CommonMark"]
+$MarkdownFlavor = "CommonMark"
 MarkdownRules[flavor:$MarkdownFlavors] := AssociationThread[{"LineRules", "LinkRules", "BlockRules", "DelimiterRules", "ParserRules" } -> Through[{LineRules, LinkRules, BlockRules, DelimiterRules, ParserRules}[flavor]]]
 MarkdownRules[flavor_] := (Message[MarkdownRules::invf, flavor];$Failed)
 MarkdownRules::invf = "No line markdown rules defined for flavor \"``\""
@@ -43,8 +45,8 @@ ImportMarkdown[ file_File?FileExistsQ, opts:OptionsPattern[ ImportMarkdown ] ] :
 iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 	Module[
 		{
-			lines = StringSplit[ source, "\n" ], tokens, trules, parse, prules,
-			flavor = Replace[ OptionValue[ "Flavor" ], Automatic -> "CommonMark" ]
+			lines = StringSplit[ source, "\n" ], tokens, parse, lrules, hrules, brules, drules, erules,
+			flavor = Replace[ OptionValue[ "Flavor" ], {Automatic -> "CommonMark", f_String :> ($MarkdownFlavor = f)} ]
 			},
 		Enclose[
 			Confirm[ lrules = LineRules[ flavor ], StringTemplate[ LineRules::invf ][ flavor ] ];

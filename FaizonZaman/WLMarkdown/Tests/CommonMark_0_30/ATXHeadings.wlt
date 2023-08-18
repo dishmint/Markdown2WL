@@ -2,7 +2,7 @@ BeginTestSection["ATXHeadings"]
 (* ------------------------------ ATX Headings ------------------------------ *)
 (* -------------- https://spec.commonmark.org/0.30/#atx-heading ------------- *)
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["# foo\n## foo\n### foo\n#### foo\n##### foo\n###### foo\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>],
@@ -15,13 +15,13 @@ VerificationTest[
 	"TestID"->"ATX headings-62"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["####### foo\n"],
 	{MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "####### foo"|>]}|>]},
 	"TestID"->"ATX headings-63"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["#5 bolt\n\n#hashtag\n"],
 	{
 		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "#5 bolt"|>]}|>],
@@ -31,25 +31,25 @@ VerificationTest[
 	"TestID"->"ATX headings-64"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["\\## foo\n"],
 	{MarkdownElement[<|"Element" -> "Line", "Data" -> "\\## foo"|>]},
 	"TestID"->"ATX headings-65"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["# foo *bar* \*baz\*\n"],
 	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> {"foo ", MarkdownElement[<|"Element" -> "*", "Data" -> "bar"|>], " \*baz\*"}|>]},
 	"TestID"->"ATX headings-66"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["#                  foo                     \n"],
 	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>]},
 	"TestID"->"ATX headings-67"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown[" ### foo\n  ## foo\n   # foo\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>],
@@ -59,13 +59,13 @@ VerificationTest[
 	"TestID"->"ATX headings-68"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["    # foo\n"],
 	{MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "# foo"|>]},
 	"TestID"->"ATX headings-69"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["foo\n    # bar\n"],
 	{
 		MarkdownElement[
@@ -81,7 +81,7 @@ VerificationTest[
 	"TestID"->"ATX headings-70"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["## foo ##\n  ###   bar    ###\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>],
@@ -90,7 +90,7 @@ VerificationTest[
 	"TestID"->"ATX headings-71"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["# foo ##################################\n##### foo ##\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>],
@@ -99,25 +99,25 @@ VerificationTest[
 	"TestID"->"ATX headings-72"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["### foo ###     \n"],
 	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>]},
 	"TestID"->"ATX headings-73"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["### foo ### b\n"],
 	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ### b"|>]},
 	"TestID"->"ATX headings-74"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["# foo#\n"],
 	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo#"|>]},
 	"TestID"->"ATX headings-75"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["### foo \\###\n## foo #\\##\n# foo \\#\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ###"|>],
@@ -127,7 +127,7 @@ VerificationTest[
 	"TestID"->"ATX headings-76"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["****\n## foo\n****\n"],
 	{
 		MarkdownElement[<|"Element" -> "ThematicBreak"|>],
@@ -137,7 +137,7 @@ VerificationTest[
 	"TestID"->"ATX headings-77"
 	]
 
-VerificationTest[
+TestCreate[
 	ImportMarkdown["Foo bar\n# baz\nBar foo\n"],
 	{
 		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo bar"|>]}|>],
@@ -146,7 +146,7 @@ VerificationTest[
 		},
 	"TestID"->"ATX headings-78"
 	]
-VerificationTest[
+TestCreate[
 	ImportMarkdown["## \n#\n### ###\n"],
 	{
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> {}|>],

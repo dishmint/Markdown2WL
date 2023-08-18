@@ -4,7 +4,7 @@ BeginTestSection["DelimiterLexer"]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------- CodeBlock ------------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
 	    { 
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -40,7 +40,7 @@ VerificationTest[
         },
 	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock1"
 ]
-VerificationTest[
+TestCreate[
     FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<|"Token" -> "EmptyLine"|>],
@@ -79,7 +79,7 @@ VerificationTest[
 	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock2"
 ]
 (* ---------------------------------- Table --------------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         { 
         MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -121,7 +121,7 @@ VerificationTest[
 ]
 (* TODO: Add tests for non-matches *)
 (* ------------------------------ UnorderedList ----------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
 	{ 
         MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -166,7 +166,7 @@ VerificationTest[
 	"TestID" -> "DelimiterLexer-CommonMark-UnorderedList"
 ]
 (* ------------------------------- OrderedList ------------------------------ *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -212,7 +212,7 @@ VerificationTest[
 ]
 
 (* ---------------------------- Nested Delimiters --------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -240,7 +240,7 @@ VerificationTest[
         },
 	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter1"
 ]
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],

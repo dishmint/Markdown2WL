@@ -4,7 +4,7 @@ BeginTestSection["BlockLexer"]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------- CodeBlock ------------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -33,7 +33,7 @@ VerificationTest[
         },
 	"TestID" -> "BlockLexer-CommonMark-CodeBlock1"
 ]
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -65,7 +65,7 @@ VerificationTest[
 	"TestID" -> "BlockLexer-CommonMark-CodeBlock2"
 ]
 (* ---------------------------------- Table --------------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -96,7 +96,7 @@ VerificationTest[
         },
 	"TestID" -> "BlockLexer-CommonMark-Table"
 ]
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
@@ -116,7 +116,7 @@ VerificationTest[
 ]
 
 (* ------------------------------ UnorderedList ----------------------------- *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
@@ -154,7 +154,7 @@ VerificationTest[
 	"TestID" -> "BlockLexer-CommonMark-UnorderedList"
 ]
 (* ------------------------------- OrderedList ------------------------------ *)
-VerificationTest[
+TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`BlockLexer[
         {
             MarkdownToken[<| "Token" -> "EmptyLine"|>],
