@@ -15,7 +15,9 @@ GetIndentationLevel[ lead_String, opts:OptionsPattern[GetIndentationLevel] ] := 
 ] *)
 
 GetIndentationLevel[leadSpaces_String, "", opts:OptionsPattern[GetIndentationLevel]] := (StringLength[leadSpaces] / OptionValue["IndentLength"])
+(* GetIndentationLevel[leadSpaces_String, "", opts:OptionsPattern[GetIndentationLevel]] := StringLength[leadSpaces] *)
 GetIndentationLevel["", leadTabs_String, opts:OptionsPattern[GetIndentationLevel]] := StringLength[leadTabs]
+(* ^^ might need to be specific about the character that's used in the tab (or do I? because it's already in the regex!) *)
 GetIndentationLevel[leadSpaces_, leadTabs_String, opts:OptionsPattern[GetIndentationLevel]] := Floor[StringLength[leadSpaces] + (StringLength[leadTabs] / 4)]
 End[]
 EndPackage[]

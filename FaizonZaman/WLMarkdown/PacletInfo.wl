@@ -26,7 +26,8 @@ PacletObject[
           "FaizonZaman`WLMarkdown`MarkdownLexer",
           "FaizonZaman`WLMarkdown`MarkdownParser",
           "FaizonZaman`WLMarkdown`MarkdownRules",
-          "FaizonZaman`WLMarkdown`MarkdownToken"
+          "FaizonZaman`WLMarkdown`MarkdownToken",
+          "FaizonZaman`WLMarkdown`$CommonMarkSample"
         }
       },
       {

@@ -29,8 +29,8 @@ iDelimiterParser[expr_List /; Not@*FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[
 iDelimiterParser[expr_List /; FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := expr
 iDelimiterParser[expr_List] := expr
 
-FaizonZaman`WLMarkdown`MarkdownParser[ token_FaizonZaman`WLMarkdown`MarkdownToken, rules_List ] := FaizonZaman`WLMarkdown`MarkdownParser[ { token }, rules ]
-FaizonZaman`WLMarkdown`MarkdownParser[ tokens:List[__FaizonZaman`WLMarkdown`MarkdownToken], rules_List ] := Module[
+FaizonZaman`WLMarkdown`MarkdownParser[ token: Except[_List], rules_List ] := FaizonZaman`WLMarkdown`MarkdownParser[ { token }, rules ]
+FaizonZaman`WLMarkdown`MarkdownParser[ tokens_List, rules_List ] := Module[
     { elements = Replace[tokens, rules, Infinity], res},
     res = MapAt[
         ReplacePart[#, Key["Data"] -> DelimiterParser[#["Data"]]] &, elements,

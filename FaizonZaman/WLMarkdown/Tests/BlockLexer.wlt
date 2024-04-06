@@ -107,10 +107,17 @@ TestCreate[
         MarkdownRules["CommonMark"]["BlockRules"]
         ],
     {
-        MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
-        MarkdownToken[<| "Token" -> "Line", "Data" -> ":-: | :-- | --: "|>],
-        MarkdownToken[<| "Token" -> "Line", "Data" -> "1 | 2 | 3"|>],
-        MarkdownToken[<| "Token" -> "Line", "Data" -> "A | B | C"|>]
+        MarkdownToken[
+            <|
+                "Token" -> "Paragraph",
+                "Data" -> {
+                    MarkdownToken[<| "Token" -> "Line", "Data" -> "A | Cool | Table "|>],
+                    MarkdownToken[<| "Token" -> "Line", "Data" -> ":-: | :-- | --: "|>],
+                    MarkdownToken[<| "Token" -> "Line", "Data" -> "1 | 2 | 3"|>],
+                    MarkdownToken[<| "Token" -> "Line", "Data" -> "A | B | C"|>]
+                }
+            |>
+        ]
         },
 	"TestID" -> "BlockLexer-CommonMark-Table-MalFormed"
 ]

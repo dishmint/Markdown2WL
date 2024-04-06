@@ -38,7 +38,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock1"
+	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock1",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 TestCreate[
     FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
@@ -76,7 +77,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock2"
+	"TestID" -> "DelimiterLexer-CommonMark-CodeBlock2",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 (* ---------------------------------- Table --------------------------------- *)
 TestCreate[
@@ -117,7 +119,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-Table"
+	"TestID" -> "DelimiterLexer-CommonMark-Table",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 (* TODO: Add tests for non-matches *)
 (* ------------------------------ UnorderedList ----------------------------- *)
@@ -163,7 +166,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-UnorderedList"
+	"TestID" -> "DelimiterLexer-CommonMark-UnorderedList",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 (* ------------------------------- OrderedList ------------------------------ *)
 TestCreate[
@@ -208,7 +212,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-OrderedList"
+	"TestID" -> "DelimiterLexer-CommonMark-OrderedList",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 
 (* ---------------------------- Nested Delimiters --------------------------- *)
@@ -238,7 +243,8 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter1"
+	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter1",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`DelimiterLexer[
@@ -267,6 +273,7 @@ TestCreate[
             ],
         MarkdownToken[<| "Token" -> "EmptyLine"|>]
         },
-	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter2"
+	"TestID" -> "DelimiterLexer-CommonMark-NestedDelimiter2",
+    TimeConstraint -> Quantity[1, "Seconds"]
 ]
 EndTestSection[]

@@ -16,8 +16,10 @@ MarkdownParser::usage = "MarkdownParser[tk,r] parses the token tk into symbolic 
 MarkdownElement::usage = "Represents a symbolic Markdown element"
 $MarkdownFlavor::usage = "The markdown flavor being parsed"
 
-Begin["`Private`"]
+$CommonMarkSample::usage = "A sample markdown file in common mark"
 
+Begin["`Private`"]
+Needs["FaizonZaman`WLMarkdown`Samples`"]
 Needs["FaizonZaman`WLMarkdown`TokenRules`"]
 Needs["FaizonZaman`WLMarkdown`Lexer`"]
 Needs["FaizonZaman`WLMarkdown`ElementRules`"]
@@ -26,7 +28,9 @@ Needs["FaizonZaman`WLMarkdown`Parser`"]
 (* MarkdownRules *)
 $MarkdownFlavors = Alternatives["CommonMark"]
 $MarkdownFlavor = "CommonMark"
-MarkdownRules[flavor:$MarkdownFlavors] := AssociationThread[{"LineRules", "LinkRules", "BlockRules", "DelimiterRules", "ParserRules" } -> Through[{LineRules, LinkRules, BlockRules, DelimiterRules, ParserRules}[flavor]]]
+MarkdownRules[flavor:$MarkdownFlavors] := 
+	AssociationThread[{"LineRules", "LinkRules", "BlockRules", "DelimiterRules", "ParserRules" } -> Through[{LineRules, LinkRules, BlockRules, DelimiterRules, ParserRules}[flavor]]]
+
 MarkdownRules[flavor_] := (Message[MarkdownRules::invf, flavor];$Failed)
 MarkdownRules::invf = "No line markdown rules defined for flavor \"``\""
 

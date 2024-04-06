@@ -29,33 +29,33 @@ TestCreate[
 (* ---------------------------- UnorderedListItem --------------------------- *)
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["* A level zero bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Marker" -> "*", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-UnorderedListItem-Level0"
 ]
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["  * A level one bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Marker" -> "*", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-UnorderedListItem-Spaces-Level1"
 ]
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["	* A level one bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "UnorderedListItem", "Marker" -> "*", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-UnorderedListItem-Tabs-Level1"
 ]
 (* ----------------------------- OrderedListItem ---------------------------- *)
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["1. A level zero bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 0, "Data" -> "A level zero bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-OrderedListItem-Level0"
 ]
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["  1.1 A level one bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Marker" -> "1.1", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-OrderedListItem-Spaces-Level1"
 ]
 TestCreate[
 	FaizonZaman`WLMarkdown`Lexer`Private`LineLexer["	1.1 A level one bullet", MarkdownRules["CommonMark"]["LineRules"]],
-	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
+	Splice[{MarkdownToken[<| "Token" -> "OrderedListItem", "Marker" -> "1.1", "Level" -> 1, "Data" -> "A level one bullet" |>]}],
 	"TestID" -> "LineLexer-CommonMark-OrderedListItem-Tabs-Level1"
 ]
 (* ---------------------------------- Quote --------------------------------- *)
@@ -83,13 +83,15 @@ TestCreate[
 		MarkdownRules["CommonMark"]["LineRules"]
 		],
 	{
-		MarkdownToken[<|"Token" -> "Heading", "Level" -> 1, "Data" -> "Example Markdown Title"|>],
+		MarkdownToken[<|"Token" -> "StartOfFile"|>],
+		MarkdownToken[<|"Token" -> "Heading", "Marker" -> "#", "Level" -> 1, "Data" -> "Example Markdown Title"|>],
 		MarkdownToken[<|"Token" -> "EmptyLine"|>],
 		MarkdownToken[<|"Token" -> "Line", "Data" -> "This is a sample paragraph"|>],
 		MarkdownToken[<|"Token" -> "EmptyLine"|>],
-		MarkdownToken[<|"Token" -> "Heading", "Level" -> 3, "Data" -> "Example Markdown Section"|>],
+		MarkdownToken[<|"Token" -> "Heading", "Marker" -> "###", "Level" -> 3, "Data" -> "Example Markdown Section"|>],
 		MarkdownToken[<|"Token" -> "EmptyLine"|>],
-		MarkdownToken[<| "Token" -> "Line", "Data" -> "_This line is emphasized_"|>]
+		MarkdownToken[<| "Token" -> "Line", "Data" -> "_This line is emphasized_"|>],
+		MarkdownToken[<| "Token" -> "EndOfFile"|>]
 		},
 	"TestID" -> "LineLexer-CommonMark-ListInput"
 ]
