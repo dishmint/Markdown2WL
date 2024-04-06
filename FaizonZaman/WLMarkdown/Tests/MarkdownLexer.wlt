@@ -254,18 +254,20 @@ TestCreate[
 		MarkdownRules["CommonMark"]
 		],
 	{
-		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[<|"Token" -> "StartOfFile"|>], 
+		MarkdownToken[<|"Token" -> "EmptyLine"|>], 
 		MarkdownToken[
 			<|
-				"Token" -> "UnorderedList",
+				"Token" -> "UnorderedList", 
 				"Data" -> {
-					MarkdownToken[<|"Token" -> "UnorderedListItem", "Level" -> 0, "Data" -> "A list"|>],
-					MarkdownToken[<|"Token" -> "UnorderedListItem", "Level" -> 1, "Data" -> "an item in a list" |>]
-					}
-				|>
-			],
-		MarkdownToken[<|"Token" -> "EmptyLine"|>]
- 		},
+					MarkdownToken[<|"Token" -> "UnorderedListItem", "Marker" -> "*", "Level" -> 0, "Data" -> "A list"|>], 
+					MarkdownToken[<|"Token" -> "UnorderedListItem", "Marker" -> "*", "Level" -> 1, "Data" -> "an item in a list"|>]
+				}
+			|>
+		], 
+		MarkdownToken[<|"Token" -> "EmptyLine"|>], 
+		MarkdownToken[<|"Token" -> "EndOfFile"|>]
+	},
 	"TestID" -> "MarkdownLexer-CommonMark-UnorderedList"
 ]
 TestCreate[
@@ -279,18 +281,20 @@ TestCreate[
 		MarkdownRules["CommonMark"]
 		],
 	{
-		MarkdownToken[<|"Token" -> "EmptyLine"|>],
+		MarkdownToken[<|"Token" -> "StartOfFile"|>], 
+		MarkdownToken[<|"Token" -> "EmptyLine"|>], 
 		MarkdownToken[
 			<|
 				"Token" -> "OrderedList",
 				"Data" -> {
-					MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "A list"|>],
-					MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "an item in a list" |>]
-					}
-				|>
-			],
-		MarkdownToken[<|"Token" -> "EmptyLine"|>]
- 		},
+					MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 0, "Data" -> "A list"|>], 
+					MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "1.1", "Level" -> 1, "Data" -> "an item in a list"|>]
+				}
+			|>
+		], 
+		MarkdownToken[<|"Token" -> "EmptyLine"|>], 
+		MarkdownToken[<|"Token" -> "EndOfFile"|>]
+	},
 	"TestID" -> "MarkdownLexer-CommonMark-OrderedList"
 ]
 EndTestSection[]
