@@ -26,38 +26,48 @@ TestCreate[
 
 TestCreate[
     MarkdownParser[
-        MarkdownToken[
-            <|
-                "Token" -> "OrderedList",
-                "Data" -> {
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 1"|>],
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 2"|>],
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 2.1"|>],
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 3"|>],
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 3.1"|>],
-                    MarkdownToken[<|"Token" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
+        {
+            MarkdownToken[<|"Token" -> "StartOfFile"|>], 
+            MarkdownToken[<|"Token" -> "EmptyLine"|>], 
+            MarkdownToken[
+                <|
+                    "Token" -> "OrderedList", 
+                    "Data" -> {
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 0, "Data" -> "Item 1"|>], 
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "2.", "Level" -> 0, "Data" -> "Item 2"|>], 
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 1, "Data" -> "Item 2.1"|>], 
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "3.", "Level" -> 0, "Data" -> "Item 3"|>], 
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 1, "Data" -> "Item 3.1"|>], 
+                        MarkdownToken[<|"Token" -> "OrderedListItem", "Marker" -> "4.", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
                     }
                 |>
-            ],
+            ], 
+            MarkdownToken[<|"Token" -> "EmptyLine"|>], 
+            MarkdownToken[<|"Token" -> "EndOfFile"|>]
+        },
         TokenToElementRules["CommonMark"]
         ],
     {
+        MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+        MarkdownElement[<|"Element" -> "EmptyLine"|>], 
         MarkdownElement[
             <|
-                "Element" -> "OrderedList",
+                "Element" -> "OrderedList", 
                 "Data" -> {
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 1"|>],
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 2"|>],
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 2.1"|>],
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item 3"|>],
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 1, "Data" -> "Item 3.1"|>],
-                    MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
-                    }
-                |>
-            ]
-        },
-        "TestID" -> "MarkdownParser-BlockTest1"
-    ]
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 0, "Data" -> "Item 1"|>], 
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "2.", "Level" -> 0, "Data" -> "Item 2"|>], 
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 1, "Data" -> "Item 2.1"|>], 
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "3.", "Level" -> 0, "Data" -> "Item 3"|>], 
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "1.", "Level" -> 1, "Data" -> "Item 3.1"|>], 
+                    MarkdownElement[<|"Element" -> "OrderedListItem", "Marker" -> "4.", "Level" -> 0, "Data" -> "Item Ⅳ"|>]
+                }
+            |>
+        ], 
+        MarkdownElement[<|"Element" -> "EmptyLine"|>], 
+        MarkdownElement[<|"Element" -> "EndOfFile"|>]
+    },
+    "TestID" -> "MarkdownParser-BlockTest1"
+]
 
 TestCreate[
     MarkdownParser[

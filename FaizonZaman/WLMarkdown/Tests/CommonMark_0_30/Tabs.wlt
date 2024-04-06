@@ -4,19 +4,39 @@ BeginTestSection["Tabs"]
 
 TestCreate[
 	ImportMarkdown["\tfoo\tbaz\t\tbim\n"],
-	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo	baz		bim"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo\tbaz\t\tbim"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Tabs-1"
 	]
 
 TestCreate[
 	ImportMarkdown["  \tfoo\tbaz\t\tbim\n"],
-	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo	baz		bim"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo\tbaz\t\tbim"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Tabs-2"
 	]
 
 TestCreate[
 	ImportMarkdown["    a\ta\n    \:1f50\ta\n"],
-	{MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "a	a"|>], MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "ὐ	a"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock", 
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "a\ta"|>], 
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "ὐ\ta"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Tabs-3"
 	]
 
@@ -34,13 +54,29 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown[">\t\tfoo\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "\tfoo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "QuoteLine", "Data" -> "\tfoo"|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Tabs-6"
 	]
 
 TestCreate[
 	ImportMarkdown["-\t\tfoo\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "\tfoo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "UnorderedListItem", "Marker" -> "-", "Level" -> 0, "Data" -> "\tfoo"|>]
+				
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Tabs-7"
 	]
 

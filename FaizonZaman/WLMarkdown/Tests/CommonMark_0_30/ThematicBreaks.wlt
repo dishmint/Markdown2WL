@@ -4,13 +4,35 @@ BeginTestSection["ThematicBreaks"]
 
 TestCreate[
 	ImportMarkdown["+++\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "+++"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "+++"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Thematic breaks-44"
 	]
 
 TestCreate[
 	ImportMarkdown["===\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "==="|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "==="|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Thematic breaks-45"
 	]
 
