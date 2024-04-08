@@ -1485,7 +1485,7 @@ Cell[BoxData[
   3.8875750808498173`*^9}, {3.887666248766855*^9, 3.887666250217752*^9}, {
   3.887847904862427*^9, 3.887847905491213*^9}, {3.888711879875834*^9, 
   3.888711880872599*^9}},
- CellLabel->"In[56]:=",
+ CellLabel->"In[13]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -1728,8 +1728,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"10.45%\"", ShowStringCharacters -> False], 
-                    0.10451977401129943`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"12.71%\"", ShowStringCharacters -> False], 
+                    0.1271186440677966, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1796,8 +1796,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"10.45%\"", ShowStringCharacters -> False], 
-                    0.10451977401129943`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"12.71%\"", ShowStringCharacters -> False], 
+                    0.1271186440677966, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1806,18 +1806,18 @@ Cell[BoxData[
                     RowBox[{
                     TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["74", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["90", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Failure count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["634", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["618", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox[
                     
                     TemplateBox[{
-                    "2.9450429999999999995`3.76957338036089", "\"s\"", 
+                    "2.9407930000000000008`3.768946196093822", "\"s\"", 
                     "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
                      "SummaryItem"]}], "\[SpanFromLeft]"}}, 
                   GridBoxAlignment -> {
@@ -1845,12 +1845,12 @@ Cell[BoxData[
              Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
               "Local"], 
              Style["This object cannot be used as input.", "SummaryEmbed"], 
-             BoxForm`EmbedSummaryLabel[TestReportObject, 6902616, 
+             BoxForm`EmbedSummaryLabel[TestReportObject, 6918424, 
               Dynamic[Typeset`embedState$$], Automatic]], StandardForm]], 
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
-           "Choose", TestReportObject, 6902616, 
-            6673694419516473074694859730746239593289361503594635789296, 
+           "Choose", TestReportObject, 6918424, 
+            6674016113674110888362605475594697726933173119094507309424, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -1866,13 +1866,13 @@ Cell[BoxData[
    DisplayFunction->(#& ),
    InterpretationFunction->(
     "TestReportObject[<|Title -> Test Report: LineLexer.wlt, <<6>>, \
-TestsFailedWrongResultsKeys -> {6890278693641398910, 7764179138118704037, \
-4785557878844532767, 888216585768971713, 8734897324396733759, \
-445562103359577416, 4774876454000927360, 7669621747605242409, \
-6722890436749686805, <<621>>, 5875170420116592666, 5434198268057600237, \
-2748114091941601508, 2310478044293797971}|>]"& )],
+TestsFailedWrongResultsKeys -> {2842903633115528199, 3369744905338387490, \
+8291439563674659759, 4434406211189870152, 3489011445852819604, \
+6963817908162250667, 6346577956606860578, 897876170318062539, \
+8249073823325640051, <<605>>, 2910347556747686611, 5969416301800481428, \
+3109079143511094479, 8165551811348561122}|>]"& )],
   False,
-  BoxID -> 6673694419516473074694859730746239593289361503594635789296,
+  BoxID -> 6674016113674110888362605475594697726933173119094507309424,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output", "Excluded",
@@ -1917,9 +1917,10 @@ TestsFailedWrongResultsKeys -> {6890278693641398910, 7764179138118704037, \
    3.921355512930333*^9, 3.921355639131773*^9, 3.921359052038682*^9, 
    3.921360856939843*^9, 3.921361277168236*^9, 3.9213614149935207`*^9, 
    3.92136181066918*^9, 3.921362360164253*^9, 3.921364199248827*^9, 
-   3.921434023302979*^9},
+   3.921434023302979*^9, 3.92144695825813*^9, 3.921448801612494*^9, 
+   3.921575945852906*^9, 3.9215782766811123`*^9},
  CellLabel->"Out[1]=",
- CellID->2090015650,ExpressionUUID->"7aadfb74-16ae-43bf-b60f-fe94806742ae"]
+ CellID->1609598592,ExpressionUUID->"3938a208-d6b4-4c84-b65f-556057ace37b"]
 }, Open  ]]
 }, Open  ]],
 
@@ -3144,6 +3145,7 @@ the page, useful for separating blocks of text.\"\>"}]}],
           RowBox[{"\[LeftAssociation]", 
            RowBox[{
             RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"Markdown can also contain images.\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 
@@ -3673,7 +3675,6 @@ character for \"\>", ",",
             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
-           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"And there's more...\"\>"}]}], 
           "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
@@ -4127,7 +4128,6 @@ choose from.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
                  
                  RowBox[{"\<\"Element\"\>", 
                   "\[Rule]", "\<\"InlineLaTex\"\>"}], ",", 
-                 
                  RowBox[{"\<\"Data\"\>", 
                   "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
                 "\[RightAssociation]"}], "]"}], 

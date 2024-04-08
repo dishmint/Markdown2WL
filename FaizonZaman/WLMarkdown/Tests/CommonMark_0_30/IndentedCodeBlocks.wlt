@@ -4,7 +4,20 @@ BeginTestSection["IndentedCodeBlocks"]
 
 TestCreate[
 	ImportMarkdown["1.  foo\n\n    - bar\n"],
-	{MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> " foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 2, "Data" -> "bar"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> " foo"|>],
+		MarkdownElement[<|"Element" -> "EmptyLine"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 2, "Data" -> "bar"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Indented code blocks-109"
 	]
 

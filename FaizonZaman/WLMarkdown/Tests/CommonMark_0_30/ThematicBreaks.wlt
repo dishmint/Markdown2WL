@@ -44,7 +44,18 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown[" - - -\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "- -"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 1/2, "Data" -> "- -"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Thematic breaks-51"
 	]
 
@@ -68,7 +79,18 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["- - - -    \n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "- - -    "|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "- - -    "|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Thematic breaks-54"
 	]
 

@@ -4,13 +4,22 @@ BeginTestSection["SetextHeadings"]
 
 TestCreate[
 	ImportMarkdown["\n====\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "===="|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "===="|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Setext headings-97"
 	]
 
 TestCreate[
 	ImportMarkdown["---\n---\n"],
-	{MarkdownElement[<|"Element" -> "ThematicBreak"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "ThematicBreak"|>], 
+		MarkdownElement[<|"Element" -> "ThematicBreak"|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Setext headings-98"
 	]
 
@@ -28,7 +37,12 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["- Foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "UnorderedList", "Data" -> {MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "Foo"|>]}|>], 
+		MarkdownElement[<|"Element" -> "ThematicBreak"|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Setext headings-94"
 	]
 

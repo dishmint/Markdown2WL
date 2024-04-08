@@ -28,13 +28,41 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["~~~\n<\n >\n~~~\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> " >"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph", 
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Fenced code blocks-120"
 	]
 
 TestCreate[
 	ImportMarkdown["```\n<\n >\n```\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> " >"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock", 
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>], 
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Fenced code blocks-119"
 	]
 
@@ -46,7 +74,14 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["`````\n\n```\naaa\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "``"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>]},
+	{
+		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "``"|>], 
+		MarkdownElement[<|"Element" -> "EmptyLine"|>], 
+		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], 
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	},
 	"TestID"->"Fenced code blocks-127"
 	]
 
