@@ -21,6 +21,7 @@ iDelimiterParser[expr_List /; FlatMDElementsQ[expr]] := Replace[
         {before___, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\["}]], t__, FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter", "Data" -> "\\]"}]], after___} :> {before, $ElementData[<| "Element" -> "LineLaTex", "Data" -> iDelimiterParser[ {t} ]|> ], after}
         }
     ]
+
 iDelimiterParser[expr_List /; Not@*FreeQ[FaizonZaman`WLMarkdown`MarkdownElement[KeyValuePattern[{"Element" -> "Delimiter"}]]]] := SubsetMap[
     Map[Replace[#, x_List :> iDelimiterParser[x], Infinity] &],
     expr,
@@ -35,7 +36,7 @@ FaizonZaman`WLMarkdown`MarkdownParser[ tokens_List, rules_List ] := Module[
     res = MapAt[
         ReplacePart[#, Key["Data"] -> DelimiterParser[#["Data"]]] &, elements,
         Position[elements, KeyValuePattern[{"Data" -> _List}]]
-        ]
+	]
 ]
 
 End[]

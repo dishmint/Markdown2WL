@@ -4,7 +4,18 @@ BeginTestSection["TextualContent"]
 
 TestCreate[
 	ImportMarkdown["Foo \[Chi]\[Rho]\:1fc6\[Nu]\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo \[Chi]\[Rho]\:1fc6\[Nu]"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo \[Chi]\[Rho]ῆ\[Nu]"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Textual content-651"
 	]
 
@@ -16,7 +27,18 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["Multiple     spaces\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "Multiple     spaces"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "Multiple     spaces"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Textual content-652"
 	]
 

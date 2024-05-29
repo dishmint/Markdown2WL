@@ -25,6 +25,8 @@ Needs["FaizonZaman`WLMarkdown`Lexer`"]
 Needs["FaizonZaman`WLMarkdown`ElementRules`"]
 Needs["FaizonZaman`WLMarkdown`Parser`"]
 
+(* TODO: Make use of ContextAliasing in source files *)
+
 (* MarkdownRules *)
 $MarkdownFlavors = Alternatives["CommonMark"]
 $MarkdownFlavor = "CommonMark"
@@ -32,7 +34,7 @@ MarkdownRules[flavor:$MarkdownFlavors] :=
 	AssociationThread[{"LineRules", "LinkRules", "BlockRules", "DelimiterRules", "ParserRules" } -> Through[{LineRules, LinkRules, BlockRules, DelimiterRules, ParserRules}[flavor]]]
 
 MarkdownRules[flavor_] := (Message[MarkdownRules::invf, flavor];$Failed)
-MarkdownRules::invf = "No line markdown rules defined for flavor \"``\""
+MarkdownRules::invf = "No markdown rules defined for flavor \"``\""
 
 (* ImportMarkdown *)
 Options[ImportMarkdown] = {
@@ -51,7 +53,7 @@ iImportMarkdown[ source_String, opts:OptionsPattern[ ImportMarkdown ] ] :=
 		{
 			lines = StringSplit[ source, "\n" ], tokens, parse, lrules, hrules, brules, drules, erules,
 			flavor = Replace[ OptionValue[ "Flavor" ], {Automatic -> "CommonMark", f_String :> ($MarkdownFlavor = f)} ]
-			},
+		},
 		Enclose[
 			Confirm[ lrules = LineRules[ flavor ], StringTemplate[ LineRules::invf ][ flavor ] ];
 			Confirm[ hrules = LinkRules[ flavor ], StringTemplate[ LinkRules::invf ][ flavor ] ];

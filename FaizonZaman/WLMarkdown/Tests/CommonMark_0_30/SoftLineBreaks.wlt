@@ -4,13 +4,37 @@ BeginTestSection["SoftLineBreaks"]
 
 TestCreate[
 	ImportMarkdown["foo \n baz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo "|>], MarkdownElement[<|"Element" -> "Line", "Data" -> " baz"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo "|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Soft line breaks-649"
 	]
 
 TestCreate[
 	ImportMarkdown["foo\nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Soft line breaks-648"
 	]
 

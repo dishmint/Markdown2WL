@@ -27,25 +27,55 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["### foo\\\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo\\"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo\\"|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-646"
 	]
 
 TestCreate[
 	ImportMarkdown["### foo  \n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo  "|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo  "|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-647"
 	]
 
 TestCreate[
 	ImportMarkdown["foo\\\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo\\"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo\\"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-644"
 	]
 
 TestCreate[
 	ImportMarkdown["foo  \n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo  "|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo  "|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-645"
 	]
 
@@ -75,19 +105,55 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["foo       \nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo       "|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo       "|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-635"
 	]
 
 TestCreate[
 	ImportMarkdown["foo  \nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo  "|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo  "|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-633"
 	]
 
 TestCreate[
 	ImportMarkdown["foo\\\nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "foo\\"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo\\"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Hard line breaks-634"
 	]
 

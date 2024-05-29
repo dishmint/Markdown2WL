@@ -5,7 +5,7 @@ BeginTestSection["ThematicBreaks"]
 TestCreate[
 	ImportMarkdown["+++\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -14,7 +14,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Thematic breaks-44"
 	]
@@ -22,7 +22,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["===\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -31,7 +31,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Thematic breaks-45"
 	]
@@ -45,7 +45,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown[" - - -\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "UnorderedList",
@@ -54,7 +54,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Thematic breaks-51"
 	]
@@ -80,7 +80,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["- - - -    \n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "UnorderedList",
@@ -89,7 +89,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Thematic breaks-54"
 	]

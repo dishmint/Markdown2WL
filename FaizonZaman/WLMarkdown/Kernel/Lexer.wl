@@ -34,9 +34,9 @@ FaizonZaman`WLMarkdown`MarkdownLexer[ data_List, component_String ] := Block[
 LineLexer[ line_String, rules_List ] := iLineLexer[ line, rules ]
 LineLexer[ lines:List[__String], rules_List ] := 
 	{
-		FaizonZaman`WLMarkdown`MarkdownToken[<|"Token" -> "StartOfFile"|>],
+		FaizonZaman`WLMarkdown`MarkdownToken[<|"Token" -> "BeginMarkdown"|>],
 		Splice[Map[ iLineLexer[ #, rules ]&, lines ]],
-		FaizonZaman`WLMarkdown`MarkdownToken[<|"Token" -> "EndOfFile"|>]
+		FaizonZaman`WLMarkdown`MarkdownToken[<|"Token" -> "EndMarkdown"|>]
 	}
 iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 
@@ -44,8 +44,16 @@ iLineLexer[ line_String, rules_List ] := Splice[ StringSplit[ line, rules ] ]
 NormStringSplit[{s_String}] := s
 NormStringSplit[expr_] := expr
 $LinkLexableTokens = "Line"|"Heading"|"OrderedListItem"|"UnorderedListItem";
-LinkLexer[ lines_List, rules_List ] := MapAt[ iLinkLexer[ #, rules ]&, lines, Position[lines, FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[ "Token" -> $LinkLexableTokens ]]] ]
-iLinkLexer[ FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens, "Data" -> data_}]], rules_List ] := FaizonZaman`WLMarkdown`MarkdownToken[ ReplacePart[ token, Key["Data"] -> NormStringSplit@StringSplit[ data, rules ] ] ]
+
+LinkLexer[ lines_List, rules_List ] := MapAt[
+	iLinkLexer[ #, rules ]&, lines,
+	Position[lines, FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[ "Token" -> $LinkLexableTokens ]]]
+	]
+
+iLinkLexer[
+	FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token" -> $LinkLexableTokens, "Data" -> data_}]],
+	rules_List
+] := FaizonZaman`WLMarkdown`MarkdownToken[ ReplacePart[ token, Key["Data"] -> NormStringSplit@StringSplit[ data, rules ] ] ]
 (* iLinkLexer[ token_MarkdownToken, _ ] := token *)
 
 (* Stage 3 *)
@@ -61,7 +69,6 @@ $DelimiterLexableBlocks =
 $DelimiterLexableTokens = 
 	Join[$DelimiterLexableLines, $DelimiterLexableBlocks];
 
-(* DelimiterLexer[ tokens:List[__FaizonZaman`WLMarkdown`MarkdownToken], rules_List ] :=  *)
 DelimiterLexer[ tokens_List, rules_List ] := Block[
 	{
 		allDelimiterLexableTokenPositions = Position[tokens, FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token" -> $DelimiterLexableTokens}]]],
@@ -73,9 +80,10 @@ DelimiterLexer[ tokens_List, rules_List ] := Block[
 ]
 
 iDelimiterLexer[rules:{__RuleDelayed}][expr_] := iDelimiterLexer[expr, rules]
-iDelimiterLexer[ FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]], rules_List ] := FaizonZaman`WLMarkdown`MarkdownToken[
-	ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ]
-]
+iDelimiterLexer[
+	FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableBlocks, "Data" -> data_}]],
+	rules_List
+] := FaizonZaman`WLMarkdown`MarkdownToken[ ReplacePart[ token, Key["Data"] -> iBlockDelimiterLexer[ data, rules ] ] ]
 
 iDelimiterLexer[ FaizonZaman`WLMarkdown`MarkdownToken[token: KeyValuePattern[{"Token" -> $DelimiterLexableLines, "Data" -> data_}]], rules_List ] := FaizonZaman`WLMarkdown`MarkdownToken[
 	ReplacePart[ token, Key["Data"] -> iLineDelimiterLexer[ data, rules ] ]

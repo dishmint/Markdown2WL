@@ -27,7 +27,7 @@ TestCreate[
 TestCreate[
     MarkdownParser[
         {
-            MarkdownToken[<|"Token" -> "StartOfFile"|>], 
+            MarkdownToken[<|"Token" -> "BeginMarkdown"|>], 
             MarkdownToken[<|"Token" -> "EmptyLine"|>], 
             MarkdownToken[
                 <|
@@ -43,12 +43,12 @@ TestCreate[
                 |>
             ], 
             MarkdownToken[<|"Token" -> "EmptyLine"|>], 
-            MarkdownToken[<|"Token" -> "EndOfFile"|>]
+            MarkdownToken[<|"Token" -> "EndMarkdown"|>]
         },
         TokenToElementRules["CommonMark"]
         ],
     {
-        MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+        MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
         MarkdownElement[<|"Element" -> "EmptyLine"|>], 
         MarkdownElement[
             <|
@@ -64,7 +64,7 @@ TestCreate[
             |>
         ], 
         MarkdownElement[<|"Element" -> "EmptyLine"|>], 
-        MarkdownElement[<|"Element" -> "EndOfFile"|>]
+        MarkdownElement[<|"Element" -> "EndMarkdown"|>]
     },
     "TestID" -> "MarkdownParser-BlockTest1"
 ]

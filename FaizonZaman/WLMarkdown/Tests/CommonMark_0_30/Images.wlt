@@ -129,7 +129,11 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["![](/url)\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "![](/url)"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "![](/url)"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Images-580"
 	]
 

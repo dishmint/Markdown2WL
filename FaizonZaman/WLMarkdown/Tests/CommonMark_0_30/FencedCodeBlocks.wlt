@@ -29,7 +29,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["~~~\n<\n >\n~~~\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph", 
@@ -41,7 +41,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Fenced code blocks-120"
 	]
@@ -49,7 +49,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["```\n<\n >\n```\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "CodeBlock", 
@@ -61,7 +61,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Fenced code blocks-119"
 	]
@@ -75,12 +75,12 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["`````\n\n```\naaa\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "``"|>], 
 		MarkdownElement[<|"Element" -> "EmptyLine"|>], 
 		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], 
 		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>]}|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Fenced code blocks-127"
 	]

@@ -5,9 +5,9 @@ BeginTestSection["Tabs"]
 TestCreate[
 	ImportMarkdown["\tfoo\tbaz\t\tbim\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo\tbaz\t\tbim"|>]}|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-1"
 	]
@@ -15,9 +15,9 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["  \tfoo\tbaz\t\tbim\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo\tbaz\t\tbim"|>]}|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-2"
 	]
@@ -25,7 +25,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["    a\ta\n    \:1f50\ta\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "CodeBlock", 
@@ -35,7 +35,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-3"
 	]
@@ -55,9 +55,9 @@ TestCreate[
 TestCreate[
 	ImportMarkdown[">\t\tfoo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "QuoteLine", "Data" -> "\tfoo"|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-6"
 	]
@@ -65,7 +65,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["-\t\tfoo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "UnorderedList",
@@ -75,7 +75,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-7"
 	]

@@ -5,7 +5,7 @@ BeginTestSection["IndentedCodeBlocks"]
 TestCreate[
 	ImportMarkdown["1.  foo\n\n    - bar\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[<|"Element" -> "OrderedListItem", "Level" -> 0, "Data" -> " foo"|>],
 		MarkdownElement[<|"Element" -> "EmptyLine"|>],
 		MarkdownElement[
@@ -16,7 +16,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Indented code blocks-109"
 	]

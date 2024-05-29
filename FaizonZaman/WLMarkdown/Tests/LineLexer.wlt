@@ -83,7 +83,7 @@ TestCreate[
 		MarkdownRules["CommonMark"]["LineRules"]
 		],
 	{
-		MarkdownToken[<|"Token" -> "StartOfFile"|>],
+		MarkdownToken[<|"Token" -> "BeginMarkdown"|>],
 		MarkdownToken[<|"Token" -> "Heading", "Marker" -> "#", "Level" -> 1, "Data" -> "Example Markdown Title"|>],
 		MarkdownToken[<|"Token" -> "EmptyLine"|>],
 		MarkdownToken[<|"Token" -> "Line", "Data" -> "This is a sample paragraph"|>],
@@ -91,7 +91,7 @@ TestCreate[
 		MarkdownToken[<|"Token" -> "Heading", "Marker" -> "###", "Level" -> 3, "Data" -> "Example Markdown Section"|>],
 		MarkdownToken[<|"Token" -> "EmptyLine"|>],
 		MarkdownToken[<| "Token" -> "Line", "Data" -> "_This line is emphasized_"|>],
-		MarkdownToken[<| "Token" -> "EndOfFile"|>]
+		MarkdownToken[<| "Token" -> "EndMarkdown"|>]
 		},
 	"TestID" -> "LineLexer-CommonMark-ListInput"
 ]

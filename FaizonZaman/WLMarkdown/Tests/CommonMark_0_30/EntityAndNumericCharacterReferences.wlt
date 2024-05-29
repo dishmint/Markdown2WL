@@ -4,7 +4,7 @@ BeginTestSection["EntityAndNumericCharacterReference"]
 TestCreate[
 	ImportMarkdown["&#35; &#1234; &#992; &#0;\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -13,7 +13,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-26"
 	]
@@ -21,7 +21,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&#42;foo&#42;\n*foo*\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -38,7 +38,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-37"
 ]
@@ -46,7 +46,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&#42; foo\n\n* foo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -64,7 +64,7 @@ TestCreate[
 				}
 			|>
 		],
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-38"
 ]
@@ -72,7 +72,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&#9;foo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -81,7 +81,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-40"
 	]
@@ -89,7 +89,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["<a href=\"&ouml;&ouml;.html\">\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -105,7 +105,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-31"
 	]
@@ -113,7 +113,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["[a](url &quot;tit&quot;)\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph", 
@@ -129,7 +129,7 @@ TestCreate[
 			}
 		|>
 	], 
-	MarkdownElement[<|"Element" -> "EndOfFile"|>]
+	MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-41"
 ]
@@ -137,14 +137,14 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&copy\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
 				"Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "&copy"|>]}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-29"
 	]
@@ -152,7 +152,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["foo&#10;&#10;bar\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -161,7 +161,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-39"
 	]
@@ -169,7 +169,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["[foo]\n\n[foo]: /f&ouml;&ouml; \"f&ouml;&ouml;\"\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -187,7 +187,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-33"
 	]
@@ -195,7 +195,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["[foo](/f&ouml;&ouml; \"f&ouml;&ouml;\")\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -211,7 +211,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-32"
 	]
@@ -225,7 +225,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["`f&ouml;&ouml;`\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -241,7 +241,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-35"
 	]
@@ -249,7 +249,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["``` f&ouml;&ouml;\nfoo\n```\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "CodeBlock", 
@@ -260,7 +260,7 @@ TestCreate[
 				}
 			|>
 		],
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-34"
 	]
@@ -268,7 +268,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&MadeUpEntity;\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -277,7 +277,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-30"
 	]
@@ -285,7 +285,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&nbsp; &amp; &copy; &AElig; &Dcaron;\n&frac34; &HilbertSpace; &DifferentialD;\n&ClockwiseContourIntegral; &ngE;\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph", 
@@ -296,7 +296,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-25"
 	]
@@ -304,7 +304,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&nbsp &x; &#; &#x;\n&#87654321;\n&#abcdef0;\n&ThisIsNotDefined; &hi?;\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph", 
@@ -316,7 +316,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-28"
 	]
@@ -324,7 +324,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["&#X22; &#XD06; &#xcab;\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -333,7 +333,7 @@ TestCreate[
 				}
 			|>
 		], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Entity and numeric character references-27"
 	]

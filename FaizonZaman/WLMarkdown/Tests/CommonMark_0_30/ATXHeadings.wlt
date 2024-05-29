@@ -5,14 +5,14 @@ BeginTestSection["ATXHeadings"]
 TestCreate[
 	ImportMarkdown["# foo\n## foo\n### foo\n#### foo\n##### foo\n###### foo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 4, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 5, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 6, "Data" -> "foo"|>],
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-62"
 	]
@@ -20,9 +20,9 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["####### foo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "####### foo"|>]}|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-63"
 	]
@@ -30,7 +30,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["#5 bolt\n\n#hashtag\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
@@ -48,21 +48,25 @@ TestCreate[
 				}
 			|>
 			], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-64"
 	]
 
 TestCreate[
 	ImportMarkdown["\\## foo\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "\\## foo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "\\## foo"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-65"
 	]
 
 TestCreate[
 	ImportMarkdown["# foo *bar* \*baz\*\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>],
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[
 			<|
 				"Element" -> "Heading",
@@ -74,7 +78,7 @@ TestCreate[
 				}
 			|>
 		],
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-66"
 	]
@@ -82,9 +86,9 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["#                  foo                     \n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo                     "|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-67"
 	]
@@ -92,18 +96,22 @@ TestCreate[
 TestCreate[
 	ImportMarkdown[" ### foo\n  ## foo\n   # foo\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>], 
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>],
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>],
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-68"
 	]
 
 TestCreate[
 	ImportMarkdown["    # foo\n"],
-	{MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "# foo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "# foo"|>]}|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-69"
 	]
 
@@ -126,10 +134,10 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["## foo ##\n  ###   bar    ###\n"],
 	{
-		MarkdownElement[<|"Element" -> "StartOfFile"|>], 
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo "|>], 
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "bar    "|>], 
-		MarkdownElement[<|"Element" -> "EndOfFile"|>]
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "bar"|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"ATX headings-71"
 	]
@@ -137,67 +145,89 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["# foo ##################################\n##### foo ##\n"],
 	{
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>],
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 5, "Data" -> "foo"|>]
-		},
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 5, "Data" -> "foo"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-72"
 	]
 
 TestCreate[
 	ImportMarkdown["### foo ###     \n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo"|>], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-73"
 	]
 
 TestCreate[
 	ImportMarkdown["### foo ### b\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ### b"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ### b"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-74"
 	]
 
 TestCreate[
 	ImportMarkdown["# foo#\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo#"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo#"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-75"
 	]
 
 TestCreate[
 	ImportMarkdown["### foo \\###\n## foo #\\##\n# foo \\#\n"],
 	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> "foo ###"|>],
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo ###"|>],
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo #"|>]
-		},
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "foo #"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-76"
 	]
 
 TestCreate[
 	ImportMarkdown["****\n## foo\n****\n"],
 	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[<|"Element" -> "ThematicBreak"|>],
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> "foo"|>],
-		MarkdownElement[<|"Element" -> "ThematicBreak"|>]
-		},
+		MarkdownElement[<|"Element" -> "ThematicBreak"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-77"
 	]
 
 TestCreate[
 	ImportMarkdown["Foo bar\n# baz\nBar foo\n"],
 	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "Foo bar"|>]}|>],
 		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "baz"|>],
-		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar foo"|>]}|>]
-		},
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "Bar foo"|>]}|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-78"
 	]
 TestCreate[
 	ImportMarkdown["## \n#\n### ###\n"],
 	{
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> {}|>],
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> {}|>],
-		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> {}|>]
-		},
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 2, "Data" -> {}|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> {}|>], 
+		MarkdownElement[<|"Element" -> "Heading", "Level" -> 3, "Data" -> {}|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-79"
-	]
+	] 
 
 EndTestSection[]

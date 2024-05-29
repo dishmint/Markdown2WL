@@ -118,7 +118,26 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["Foo <responsive-image src=\"foo.jpg\" />\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {"Foo ", MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "responsive-image src=\"foo.jpg\" /"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "Line",
+							"Data" -> {
+								"Foo ",
+								MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "responsive-image src=\"foo.jpg\" /"|>]
+							}
+						|>
+					]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Raw HTML-616"
 	]
 

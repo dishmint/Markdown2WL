@@ -99,19 +99,66 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["<m:abc>\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "m:abc"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "m:abc"|>]}|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Autolinks-608"
 	]
 
 TestCreate[
 	ImportMarkdown["<made-up-scheme://foo,bar>\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "made-up-scheme://foo,bar"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "Line",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "made-up-scheme://foo,bar"|>]
+							}
+						|>
+					]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Autolinks-598"
 	]
 
 TestCreate[
 	ImportMarkdown["<MAILTO:FOO@BAR.BAZ>\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "MAILTO:FOO@BAR.BAZ"|>]}|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "Line",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Hyperlink", "Data" -> "MAILTO:FOO@BAR.BAZ"|>]
+							}
+						|>
+					]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Autolinks-596"
 	]
 EndTestSection[]
