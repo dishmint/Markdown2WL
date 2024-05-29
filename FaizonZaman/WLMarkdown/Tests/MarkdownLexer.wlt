@@ -109,15 +109,7 @@ TestCreate[
 	"TestID" -> "MarkdownLexer-CommonMark-Quote"
 ]
 (* ------------------------------- BlockQuote ------------------------------- *)
-TestCreate[
-	MarkdownLexer["    Here lies your blockquote!", MarkdownRules["CommonMark"]],
-	{
-		MarkdownToken[<| "Token" -> "StartOfLine" |>],
-		MarkdownToken[<| "Token" -> "BlockQuote", "Data" -> "Here lies your blockquote!" |>],
-		MarkdownToken[<| "Token" -> "EndOfLine" |>]
-		},
-	"TestID" -> "MarkdownLexer-CommonMark-BlockQuote"
-]
+
 (* ---------------------------------- Line ---------------------------------- *)
 TestCreate[
 	MarkdownLexer["This is a line.", MarkdownRules["CommonMark"]],
@@ -191,6 +183,24 @@ TestCreate[
 	},
 	"TestID" -> "MarkdownLexer-CommonMark-CodeBlock-2"
 ]
+
+TestCreate[
+	MarkdownLexer["    Here lies your code block!", MarkdownRules["CommonMark"]],
+	{
+		MarkdownToken[<| "Token" -> "BeginMarkdown" |>],
+		MarkdownToken[
+			<|
+				"Token" -> "CodeBlock",
+				"Data" -> {
+					MarkdownToken[<|"Token" -> "CodeLine", "Data" -> "Here lies your code block!" |>]
+				}
+			|>
+		],
+		MarkdownToken[<| "Token" -> "EndMarkdown" |>]
+		},
+	"TestID" -> "MarkdownLexer-CommonMark-CodeBlock-3"
+]
+
 (* ---------------------------------- Table --------------------------------- *)
 TestCreate[
 	MarkdownLexer[

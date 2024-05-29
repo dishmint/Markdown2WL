@@ -1819,7 +1819,7 @@ Cell[BoxData[
                     TagBox[
                     
                     TemplateBox[{
-                    "3.0972780000000000002`3.7914619278843813", "\"s\"", 
+                    "3.1113220000000000005`3.793426700009061", "\"s\"", 
                     "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
                      "SummaryItem"]}], "\[SpanFromLeft]"}}, 
                   GridBoxAlignment -> {
@@ -1847,12 +1847,12 @@ Cell[BoxData[
              Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
               "Local"], 
              Style["This object cannot be used as input.", "SummaryEmbed"], 
-             BoxForm`EmbedSummaryLabel[TestReportObject, 6940440, 
+             BoxForm`EmbedSummaryLabel[TestReportObject, 6989240, 
               Dynamic[Typeset`embedState$$], Automatic]], StandardForm]], 
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
-           "Choose", TestReportObject, 6940440, 
-            6683760944226923703132110701459867848711628686593956619856, 
+           "Choose", TestReportObject, 6989240, 
+            6683774255778707176763657097813993838626108364243617551584, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -1868,13 +1868,13 @@ Cell[BoxData[
    DisplayFunction->(#& ),
    InterpretationFunction->(
     "TestReportObject[<|Title -> Test Report: LineLexer.wlt, <<6>>, \
-TestsFailedWrongResultsKeys -> {2189552201723797118, 2276877162395077337, \
-3587606119600226316, 156345173989147730, 2348950404778200857, \
-4377504870041497694, 8936663653429345164, 3159595425212586453, \
-170100598223826230, <<578>>, 499012846450746837, 8070344458804915359, \
-4512778421262901611, 694798261948229202}|>]"& )],
+TestsFailedWrongResultsKeys -> {8239571901775773214, 7145517511791461224, \
+4548597296897799600, 6244857264858573853, 304544292936106636, \
+2778781162256709744, 4001649190971970930, 5907324138373604685, \
+7662925072400041155, <<578>>, 8630903251663350777, 8146021386325146048, \
+7904514575651347846, 3039617625556782337}|>]"& )],
   False,
-  BoxID -> 6683760944226923703132110701459867848711628686593956619856,
+  BoxID -> 6683774255778707176763657097813993838626108364243617551584,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output", "Excluded",
@@ -1932,9 +1932,11 @@ TestsFailedWrongResultsKeys -> {2189552201723797118, 2276877162395077337, \
    3.925946547734671*^9, 3.9259466052601967`*^9, 3.925946718450739*^9, 
    3.925947123101636*^9, 3.9259472117069073`*^9, 3.92594744656444*^9, 
    3.925947636877873*^9, 3.92594773756654*^9, 3.925947919301855*^9, 
-   3.925948006807741*^9},
+   3.925948006807741*^9, 3.925948166563439*^9, 3.9259502435559177`*^9, 
+   3.9259512691126537`*^9, 3.925951604727128*^9, 3.92595178792749*^9, 
+   3.9259520474300337`*^9, 3.925953401772005*^9, 3.925953978256503*^9},
  CellLabel->"Out[1]=",
- CellID->1630116748,ExpressionUUID->"b43c3066-aac6-4457-80b5-55d0d6a7cad7"]
+ CellID->1353190983,ExpressionUUID->"04cf5fea-4602-436a-8b52-24511918622c"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2300,7 +2302,6 @@ character for \"\>", ",",
             RowBox[{"\<\"Element\"\>", 
              "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
             RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
-            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"And there's more...\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 
@@ -2392,7 +2393,6 @@ fixed-width font.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
           RowBox[{"\[LeftAssociation]", 
            RowBox[{
             RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"f[n_Integer] := f[n - 1] + f[n - 2]\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 

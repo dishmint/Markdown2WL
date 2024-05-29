@@ -13,7 +13,7 @@ $ElementMarkerLevelData = FaizonZaman`WLMarkdown`MarkdownElement[<| "Element" ->
 $TokenElement = FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token"->token_}]] :> $Element[<|"Element" -> token|>]
 $TokenElementData = FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token"->token_, "Data"->data_}]] :> $ElementData[<|"Element" -> token, "Data"-> data|>]
 $TokenElementLevelData = FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token"->token_, "Level"->level_, "Data"->data_}]] :> $ElementLevelData[<|"Element" -> token, "Level" -> level, "Data" -> data|>]
-$TokenElementMarkerLevelData = FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token"->token_, "Marker"-> marker_, "Level"->level_, "Data"->data_}]] :> $ElementLevelData[<|"Element" -> token, "Marker" -> marker, "Level" -> level, "Data" -> data|>]
+$TokenElementMarkerLevelData = FaizonZaman`WLMarkdown`MarkdownToken[KeyValuePattern[{"Token"->token_, "Marker"-> marker_, "Level"->level_, "Data"->data_}]] :> $ElementMarkerLevelData[<|"Element" -> token, "Marker" -> marker, "Level" -> level, "Data" -> data|>]
 
 FaizonZaman`WLMarkdown`TokenToElementRules["CommonMark"] = {
     (* For: List *)

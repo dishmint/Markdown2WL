@@ -3,6 +3,180 @@ BeginTestSection["BlockQuotes"]
 (* ------------- https://spec.commonmark.org/0.30/#block-quotes ------------- *)
 
 TestCreate[
+	ImportMarkdown["> # Foo\n> bar\n> baz\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "Foo"|>],
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-228"
+]
+
+TestCreate[
+	ImportMarkdown["># Foo\n>bar\n> baz\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "Foo"|>],
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-229"
+]
+
+TestCreate[
+	ImportMarkdown["   > # Foo\n   > bar\n > baz\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "Foo"|>],
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-230"
+]
+
+TestCreate[
+	ImportMarkdown["    > # Foo\n    > bar\n    > baz\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "> # Foo"|>],
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "> bar"|>],
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "> baz"|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-231"
+]
+
+TestCreate[
+	ImportMarkdown["> # Foo\n> bar\nbaz\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "Foo"|>],
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-232"
+]
+
+TestCreate[
+	ImportMarkdown["> bar\nbaz\n> foo\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Quote", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>],
+								MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-233"
+]
+
+TestCreate[
+	ImportMarkdown["> foo\n---\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "Paragraph",
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "ThematicBreak"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Block quotes-234"
+]
+
+TestCreate[
 	ImportMarkdown[">\n"],
 	{MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>]},
 	"TestID"->"Block quotes-239"
@@ -39,12 +213,6 @@ TestCreate[
 	]
 
 TestCreate[
-	ImportMarkdown["> bar\nbaz\n> foo\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>]},
-	"TestID"->"Block quotes-233"
-	]
-
-TestCreate[
 	ImportMarkdown[">     code\n\n>    not code\n"],
 	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "    code"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "   not code"|>]},
 	"TestID"->"Block quotes-252"
@@ -60,12 +228,6 @@ TestCreate[
 	ImportMarkdown[">\n> foo\n>  \n"],
 	{MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> " "|>]},
 	"TestID"->"Block quotes-241"
-	]
-
-TestCreate[
-	ImportMarkdown["> foo\n---\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "ThematicBreak"|>]},
-	"TestID"->"Block quotes-234"
 	]
 
 TestCreate[
@@ -117,38 +279,9 @@ TestCreate[
 	]
 
 TestCreate[
-	ImportMarkdown["    > # Foo\n    > bar\n    > baz\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "> # Foo"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "> bar"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "> baz"|>]},
-	"TestID"->"Block quotes-231"
-	]
-
-TestCreate[
-	ImportMarkdown["   > # Foo\n   > bar\n > baz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "   > # Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "   > bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> " > baz"|>]},
-	"TestID"->"Block quotes-230"
-	]
-
-TestCreate[
 	ImportMarkdown[">>> foo\n> bar\n>>baz\n"],
 	{MarkdownElement[<|"Element" -> "Line", "Data" -> ">>> foo"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> ">>baz"|>]},
 	"TestID"->"Block quotes-251"
 	]
 
-TestCreate[
-	ImportMarkdown["> # Foo\n> bar\n> baz\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "# Foo"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "baz"|>]},
-	"TestID"->"Block quotes-228"
-	]
-
-TestCreate[
-	ImportMarkdown["> # Foo\n> bar\nbaz\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> "# Foo"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "bar"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "baz"|>]},
-	"TestID"->"Block quotes-232"
-	]
-
-TestCreate[
-	ImportMarkdown["># Foo\n>bar\n> baz\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "># Foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> ">bar"|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "baz"|>]},
-	"TestID"->"Block quotes-229"
-	]
 EndTestSection[]

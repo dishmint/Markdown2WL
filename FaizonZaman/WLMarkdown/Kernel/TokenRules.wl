@@ -80,26 +80,21 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
 			|> 
 		],
     (* Non-Empty *)
-    (* RegularExpression["^[ ]{0,3}(#+)[ \\t]+(.*?)(#+)*$"] :> EchoEvaluation@FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ], *)
-    RegularExpression["^[ ]{0,3}(#+)[ \\t]+(.*?(#+)*)$"] :> FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ],
+    RegularExpression[ "^[ ]{0,3}(#+)[ \\t]+(.*?(#+)*)$" ] :> FormHeading[ ATXHeadingQ["$1"], "$2", "$0" ],
     (* -------------------------------- ListItems ------------------------------- *)
     (* UnorderedListItems *)
-    (* RegularExpression[ "^(([\\s{2}\\t])*\)[-+*]\\s(.*\)$" ] :> $TokenLevelData[ <| "Token" -> "UnorderedListItem", "Level" -> GetIndentationLevel["$1"], "Data" -> "$3" |> ], *) (* Note that I had to escape the astrisk-closing paren in the regex because of linter issues *)
-    RegularExpression["^( *)(\\t*)(([-+*])\\s(.*))$"] :> $TokenLevelData[<|"Token" -> "UnorderedListItem", "Marker" -> "$4", "Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5"|>], (* Recommendation from ChatGPT; I've added the Marker key to the token, since different markers indicate different lists *)
+    RegularExpression[ "^( *)(\\t*)(([-+*])\\s(.*))$" ] :> $TokenLevelData[<|"Token" -> "UnorderedListItem", "Marker" -> "$4", "Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5"|>],
     (* OrderedListItems *)
     RegularExpression[ "^( *)(\\t*)((\\d\\.)+\\d?) (.*)$" ] :> $TokenLevelData[ <| "Token" -> "OrderedListItem", "Marker" -> "$3" ,"Level" -> GetIndentationLevel["$1", "$2"], "Data" -> "$5" |> ],
     (* ---------------------------------- Code ---------------------------------- *)
     (* CodeFence *)
     $CodeFenceRule,
     (* Quote *)
-    RegularExpression[ "^(\\>)\\s(.*)" ] :> $TokenData[ <| "Token" -> "QuoteLine", "Data" -> "$2" |> ],
+    RegularExpression[ "^ {0,3}(\\>)(\\s| )(.*)" ] :> $TokenData[ <| "Token" -> "QuoteLine", "Data" -> "$3" |> ],
     (* Footnotes *)
     RegularExpression[ "^\\s*\\[(\\d+)\\]:\\s(.*)" ] :> $TokenData[ <| "Token" -> "Footnote", "Data" -> { "$1", "$2"} |> ],
     (* CodeLine *)
-    (* RegularExpression[ "^( {4}|( {0,2}\\t))(.*\)$" ] :> $TokenData[ <| "Token" -> "CodeLine", "Data" -> "$3" |> ], *)
     RegularExpression[ "^( *)(\\t*)([^ ].*)$" ] :> FormCodeLine[GetIndentationLevel["$1", "$2"] >= 1 , "$3"],
-    (* ^^ moved CodeLine here because it was interfering with CodeFence *)
-    (* ^^ changing \\t* to \\t+ because then it's no different than a line. *)
     (* Line *)
     $LineRule
 }
@@ -118,7 +113,7 @@ FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     (* Indented *)
     {pre:$TokenPattern["EmptyLine"|"BeginMarkdown"], block: ($TokenPattern["CodeLine"]..), post:$TokenPattern["EmptyLine"|"EndMarkdown"]} :> Sequence[pre, $TokenData[ <| "Token" -> "CodeBlock", "Data" -> {block} |>], post],
     
-    (* ------------------------------- QuoteBlock ------------------------------- *)
+    (* ------------------------------- BlockQuote ------------------------------- *)
     {$TokenPattern["EmptyLine"], block: Shortest[$TokenPattern["QuoteLine"]..], $TokenPattern["EmptyLine"]} :> Sequence[$Token[<| "Token" -> "EmptyLine" |> ], $TokenData[ <| "Token" -> "BlockQuote", "Data" -> {block} |>], $Token[<| "Token" -> "EmptyLine" |> ]],
     
     (* ---------------------------------- Table --------------------------------- *)
