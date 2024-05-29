@@ -118,18 +118,20 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["foo\n    # bar\n"],
 	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
 		MarkdownElement[
 			<|
 				"Element" -> "Paragraph",
 				"Data" -> {
 					MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>],
 					MarkdownElement[<|"Element" -> "Line", "Data" -> "# bar"|>]
-					}
-				|>
-				]
-		},
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"ATX headings-70"
-	]
+]
 
 TestCreate[
 	ImportMarkdown["## foo ##\n  ###   bar    ###\n"],
