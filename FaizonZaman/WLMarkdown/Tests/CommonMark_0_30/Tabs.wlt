@@ -42,7 +42,25 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["  - foo\n\n\tbar\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 1, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "\tbar"|>]},
+	{
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "UnorderedListItem",
+							"Level" -> 1,
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Paragraph", "Data" -> "foo"|>],
+								MarkdownElement[<|"Element" -> "Paragraph", "Data" -> "bar"|>]
+							}
+						|>
+					]
+				}
+			|>
+		]
+	},
 	"TestID"->"Tabs-4"
 	]
 
@@ -94,7 +112,11 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["#\tFoo\n"],
-	{MarkdownElement[<|"Element" -> "Heading", "Level" -> 1, "Data" -> "Foo"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "Heading", "Marker" -> "#", "Level" -> 1, "Data" -> "Foo"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Tabs-10"
 	]
 
