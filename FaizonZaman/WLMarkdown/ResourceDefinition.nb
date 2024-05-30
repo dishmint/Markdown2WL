@@ -1730,8 +1730,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"16.53%\"", ShowStringCharacters -> False], 
-                    0.1652542372881356, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.23%\"", ShowStringCharacters -> False], 
+                    0.17231638418079095`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1798,8 +1798,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"16.53%\"", ShowStringCharacters -> False], 
-                    0.1652542372881356, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.23%\"", ShowStringCharacters -> False], 
+                    0.17231638418079095`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1808,18 +1808,18 @@ Cell[BoxData[
                     RowBox[{
                     TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["117", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["122", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Failure count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["591", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["586", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox[
                     
                     TemplateBox[{
-                    "3.1113220000000000005`3.793426700009061", "\"s\"", 
+                    "1.8122230000000000006`3.5586933781356183", "\"s\"", 
                     "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
                      "SummaryItem"]}], "\[SpanFromLeft]"}}, 
                   GridBoxAlignment -> {
@@ -1847,12 +1847,12 @@ Cell[BoxData[
              Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
               "Local"], 
              Style["This object cannot be used as input.", "SummaryEmbed"], 
-             BoxForm`EmbedSummaryLabel[TestReportObject, 6989240, 
+             BoxForm`EmbedSummaryLabel[TestReportObject, 6998168, 
               Dynamic[Typeset`embedState$$], Automatic]], StandardForm]], 
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
-           "Choose", TestReportObject, 6989240, 
-            6683774255778707176763657097813993838626108364243617551584, 
+           "Choose", TestReportObject, 6998168, 
+            6683933037913407055358690481497671620472826032848010025344, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -1868,13 +1868,13 @@ Cell[BoxData[
    DisplayFunction->(#& ),
    InterpretationFunction->(
     "TestReportObject[<|Title -> Test Report: LineLexer.wlt, <<6>>, \
-TestsFailedWrongResultsKeys -> {8239571901775773214, 7145517511791461224, \
-4548597296897799600, 6244857264858573853, 304544292936106636, \
-2778781162256709744, 4001649190971970930, 5907324138373604685, \
-7662925072400041155, <<578>>, 8630903251663350777, 8146021386325146048, \
-7904514575651347846, 3039617625556782337}|>]"& )],
+TestsFailedWrongResultsKeys -> {785134318295983482, 6243789956145031301, \
+1706839452478015184, 6361136824093191440, 8919896488662507577, \
+4611115297081892475, 7271744305419072139, 8486553742290828048, \
+6558802932846832025, <<573>>, 201039160503078472, 6621983467477065991, \
+3660706350903471994, 3118786553938775008}|>]"& )],
   False,
-  BoxID -> 6683774255778707176763657097813993838626108364243617551584,
+  BoxID -> 6683933037913407055358690481497671620472826032848010025344,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output", "Excluded",
@@ -1934,9 +1934,10 @@ TestsFailedWrongResultsKeys -> {8239571901775773214, 7145517511791461224, \
    3.925947636877873*^9, 3.92594773756654*^9, 3.925947919301855*^9, 
    3.925948006807741*^9, 3.925948166563439*^9, 3.9259502435559177`*^9, 
    3.9259512691126537`*^9, 3.925951604727128*^9, 3.92595178792749*^9, 
-   3.9259520474300337`*^9, 3.925953401772005*^9, 3.925953978256503*^9},
+   3.9259520474300337`*^9, 3.925953401772005*^9, 3.925953978256503*^9, 
+   3.926021334442924*^9, 3.926022128839781*^9, 3.926025174281722*^9},
  CellLabel->"Out[1]=",
- CellID->1353190983,ExpressionUUID->"04cf5fea-4602-436a-8b52-24511918622c"]
+ CellID->194336537,ExpressionUUID->"98461c21-3b8e-4a7d-843a-d1878ee85d17"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2302,6 +2303,7 @@ character for \"\>", ",",
             RowBox[{"\<\"Element\"\>", 
              "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
             RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"And there's more...\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 
@@ -2393,6 +2395,7 @@ fixed-width font.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
           RowBox[{"\[LeftAssociation]", 
            RowBox[{
             RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"f[n_Integer] := f[n - 1] + f[n - 2]\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 
@@ -3216,7 +3219,6 @@ See the official \"\>", ",",
               RowBox[{"MarkdownElement", "[", 
                RowBox[{"\[LeftAssociation]", 
                 RowBox[{
-                 
                  RowBox[{"\<\"Element\"\>", 
                   "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
                  RowBox[{"\<\"Data\"\>", "\[Rule]", 
@@ -4024,7 +4026,6 @@ character.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Of course, demonstrating what headings look like \
 messes up the structure of the page.\"\>"}]}], "\[RightAssociation]"}], "]"}],
@@ -4310,6 +4311,7 @@ delimiter\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Add hyperlinks in the following ways:\"\>"}]}], 
           "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
@@ -7377,8 +7379,8 @@ connection\n\[FilledSmallSquare] Send emails", "MoreInfoText"], Background ->
                    GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> 
                    GrayLevel[0.9], RoundingRadius -> 5, ImageSize -> {
                     Scaled[0.65], Automatic}]], "MoreInfoText", Deletable -> 
-                 True, 
-                 CellTags -> {"SectionMoreInfoDisclosuresExternalServices"}, 
+                 True, CellTags -> {
+                  "SectionMoreInfoDisclosuresExternalServices"}, 
                  CellMargins -> {{66, 66}, {15, 15}}], 
                 HoldComplete[
                  EvaluationCell[]], "Click for more information"}, 
@@ -7472,7 +7474,6 @@ the following:\n\[FilledSmallSquare] Creates persistent local scheduled tasks\
                     ContentPadding -> False], 
                     MouseAppearanceTag["LinkHand"]], ShowStringCharacters -> 
                     True, FontFamily -> "Source Sans Pro"]]], 
-                    
                     ", or similar\n\[FilledSmallSquare] Installs additional \
 paclets or dependencies\n\[FilledSmallSquare] Creates or imports non-public ", 
                     Cell[

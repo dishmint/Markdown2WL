@@ -218,7 +218,18 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["    f&ouml;f&ouml;\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "f&ouml;f&ouml;"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "f&ouml;f&ouml;"|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Entity and numeric character references-36"
 	]
 

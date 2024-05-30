@@ -3,50 +3,6 @@ BeginTestSection["FencedCodeBlocks"]
 (* ---------- https://spec.commonmark.org/0.30/#fenced-code-blocks ---------- *)
 
 TestCreate[
-	ImportMarkdown["```\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]},
-	"TestID"->"Fenced code blocks-126"
-	]
-
-TestCreate[
-	ImportMarkdown["```\n```\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]},
-	"TestID"->"Fenced code blocks-130"
-	]
-
-TestCreate[
-	ImportMarkdown["````;\n````\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "`;"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "`"|>]},
-	"TestID"->"Fenced code blocks-144"
-	]
-
-TestCreate[
-	ImportMarkdown["```\n\n  \n```\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "  "|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]},
-	"TestID"->"Fenced code blocks-129"
-	]
-
-TestCreate[
-	ImportMarkdown["~~~\n<\n >\n~~~\n"],
-	{
-		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
-		MarkdownElement[
-			<|
-				"Element" -> "Paragraph", 
-				"Data" -> {
-					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], 
-					MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], 
-					MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>], 
-					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>]
-				}
-			|>
-		], 
-		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
-	},
-	"TestID"->"Fenced code blocks-120"
-	]
-
-TestCreate[
 	ImportMarkdown["```\n<\n >\n```\n"],
 	{
 		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
@@ -64,25 +20,214 @@ TestCreate[
 		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Fenced code blocks-119"
+]
+
+TestCreate[
+	ImportMarkdown["~~~\n<\n >\n~~~\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock", 
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "~~~"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "<"|>], 
+					MarkdownElement[<|"Element" -> "Line", "Data" -> ">"|>], 
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "~~~"|>]
+				}
+			|>
+		], 
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-120"
+]
+
+TestCreate[
+	ImportMarkdown["``\nfoo\n``\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown" |>],
+		MarkdownElement[
+			<|
+				"Element" -> "Paragraph",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "`", "Data" -> "foo"|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown" |>]
+	},
+	"TestID"->"Fenced code blocks-121"
+]
+
+TestCreate[
+	ImportMarkdown["```\naaa\n~~~\n```\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>],
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-122"
+]
+
+TestCreate[
+	ImportMarkdown["~~~\naaa\n```\n~~~\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "```"|>],
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-123"
+]
+	
+TestCreate[
+	ImportMarkdown["````\naaa\n```\n``````\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "```"|>],
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-124"
+]
+	
+TestCreate[
+	ImportMarkdown["~~~~\naaa\n~~~\n~~~~\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>],
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-125"
+]
+
+TestCreate[
+	ImportMarkdown["```\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-126"
+]
+
+TestCreate[
+	ImportMarkdown["`````\n\n```\naaa\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock",
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-127"
+]
+
+TestCreate[
+	ImportMarkdown["> ```\n> aaa\n\nbbb\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "BlockQuote",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "CodeBlock",
+							"Data" -> "aaa"
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> "bbb"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-128"
+]
+
+TestCreate[
+	ImportMarkdown["```\n\n  \n```\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock", 
+				"Data" -> {
+					MarkdownElement[<|"Element" -> "EmptyLine"|>],
+					MarkdownElement[<|"Element" -> "Line", "Data" -> "  "|>]
+				}
+			|>
+			],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-129"
+	]
+
+TestCreate[
+	ImportMarkdown["```\n```\n"],
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "CodeBlock", "Data" -> {}|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
+	"TestID"->"Fenced code blocks-130"
+	]
+
+TestCreate[
+	ImportMarkdown["````;\n````\n"],
+	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "`;"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "`"|>]},
+	"TestID"->"Fenced code blocks-144"
 	]
 
 TestCreate[
 	ImportMarkdown["    ```\n    aaa\n    ```\n"],
 	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "```"|>]}|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "```"|>]}|>]},
 	"TestID"->"Fenced code blocks-134"
-	]
-
-TestCreate[
-	ImportMarkdown["`````\n\n```\naaa\n"],
-	{
-		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
-		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "``"|>], 
-		MarkdownElement[<|"Element" -> "EmptyLine"|>], 
-		MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], 
-		MarkdownElement[<|"Element" -> "Paragraph", "Data" -> {MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>]}|>], 
-		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
-	},
-	"TestID"->"Fenced code blocks-127"
 	]
 
 TestCreate[
@@ -110,33 +255,9 @@ TestCreate[
 	]
 
 TestCreate[
-	ImportMarkdown["~~~~\naaa\n~~~\n~~~~\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~~"|>]},
-	"TestID"->"Fenced code blocks-125"
-	]
-
-TestCreate[
-	ImportMarkdown["````\naaa\n```\n``````\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "`"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> "```"|>]},
-	"TestID"->"Fenced code blocks-124"
-	]
-
-TestCreate[
 	ImportMarkdown["```\naaa\n  ```\n"],
 	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {"  ", MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "```"|>]}|>]},
 	"TestID"->"Fenced code blocks-135"
-	]
-
-TestCreate[
-	ImportMarkdown["~~~\naaa\n```\n~~~\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>]},
-	"TestID"->"Fenced code blocks-123"
-	]
-
-TestCreate[
-	ImportMarkdown["```\naaa\n~~~\n```\n"],
-	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>], MarkdownElement[<|"Element" -> "CodeFence", "Data" -> ""|>]},
-	"TestID"->"Fenced code blocks-122"
 	]
 
 TestCreate[
@@ -164,12 +285,6 @@ TestCreate[
 	]
 
 TestCreate[
-	ImportMarkdown["> ```\n> aaa\n\nbbb\n"],
-	{MarkdownElement[<|"Element" -> "Quote", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "```"|>]}|>], MarkdownElement[<|"Element" -> "Quote", "Data" -> "aaa"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "bbb"|>]},
-	"TestID"->"Fenced code blocks-128"
-	]
-
-TestCreate[
 	ImportMarkdown["~~~ aa ``` ~~~\nfoo\n~~~\n"],
 	{MarkdownElement[<|"Element" -> "Line", "Data" -> {"~~~ aa ", MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "```"|>], " ~~~"}|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "~~~"|>]},
 	"TestID"->"Fenced code blocks-146"
@@ -179,12 +294,6 @@ TestCreate[
 	ImportMarkdown["``` aa ```\nfoo\n"],
 	{MarkdownElement[<|"Element" -> "CodeFence", "Data" -> " aa ```"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>]},
 	"TestID"->"Fenced code blocks-145"
-	]
-
-TestCreate[
-	ImportMarkdown["``\nfoo\n``\n"],
-	{MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "``"|>]}|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> {MarkdownElement[<|"Element" -> "Delimiter", "Data" -> "``"|>]}|>]},
-	"TestID"->"Fenced code blocks-121"
 	]
 
 TestCreate[
