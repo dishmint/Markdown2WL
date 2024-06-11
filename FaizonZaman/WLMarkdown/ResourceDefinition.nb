@@ -1951,8 +1951,1391 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"ImportMarkdown", "[", "$CommonMarkSample", "]"}]], "Input",
- CellLabel->"In[2]:=",
+ CellLabel->"In[214]:=",
  CellID->1490563673,ExpressionUUID->"b8d4cc32-d9a1-4da2-8fae-c3152201aa96"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"BeginMarkdown\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"#\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+      RowBox[{"\<\"Data\"\>", 
+       "\[Rule]", "\<\"CommonMark Example Document\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             
+             RowBox[{"\<\"This document contains examples for testing \"\>", 
+              ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 
+                 RowBox[{"\<\"Element\"\>", 
+                  "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"\<\"CommonMark.30\"\>", ",", "\<\"1\"\>"}], 
+                   "}"}]}]}], "\[RightAssociation]"}], "]"}], 
+              ",", "\<\". Consider it a slimmed-down version of the spec \
+page.\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Blocks\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Write Paragraphs like so. A paragraph is the \
+basic block of Markdown. A paragraph is what text will turn into when there \
+is no reason it should become anything else.\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             
+             RowBox[{"\<\"Blank lines separate paragraphs. Markdown supports \
+\"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"italic\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], ",", "\<\" and \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"bold\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], ",", "\<\" formatting.\"\>"}],
+              "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             
+             RowBox[{"\<\"Lines can have nested styling as well, like \"\>", 
+              ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"\<\"a \"\>", ",", 
+                    RowBox[{"MarkdownElement", "[", 
+                    RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"bold\"\>"}]}], 
+                    "\[RightAssociation]"}], "]"}], 
+                    ",", "\<\" in an italic\"\>"}], "}"}]}]}], 
+                "\[RightAssociation]"}], "]"}], ",", "\<\", or \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"\<\"an \"\>", ",", 
+                    RowBox[{"MarkdownElement", "[", 
+                    RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"italic\"\>"}]}], 
+                    "\[RightAssociation]"}], "]"}], 
+                    ",", "\<\" in a bold\"\>"}], "}"}]}]}], 
+                "\[RightAssociation]"}], "]"}], ",", "\<\".\"\>"}], "}"}]}]}],
+           "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}],
+     "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Lists\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Ordered list\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedList\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"1.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item 1\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"2.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item 2\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"1.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item 2.1\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"3.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item 3\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"1.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item 3.1\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"OrderedListItem\"\>"}],
+             ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"4.\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Item \:2163\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"MarkdownElement", "[", 
+              RowBox[{"\[LeftAssociation]", 
+               RowBox[{
+                RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                 RowBox[{"{", 
+                  
+                  RowBox[{"\<\"Note: the fourth item uses the Unicode \
+character for \"\>", ",", 
+                   RowBox[{"MarkdownElement", "[", 
+                    RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    
+                    RowBox[{"\<\"Element\"\>", 
+                    "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"Roman numeral four\"\>", ",", "\<\"2\"\>"}], 
+                    "}"}]}]}], "\[RightAssociation]"}], "]"}], 
+                   ",", "\<\".\"\>"}], "}"}]}]}], "\[RightAssociation]"}], 
+              "]"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Unordered list\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"UnorderedList\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"An item\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Another item\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"A sub item\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Yet another item\"\>"}]}],
+            "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"And there's more...\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"A sub item with spaces\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Paragraph modifiers\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Code block\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeBlock\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeLine\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Code blocks are useful for people who look at \
+code or for clarity of plain text content. As you can see, it uses a \
+fixed-width font.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeBlock\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeFence\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Mathematica\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"f[0] = 1\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"f[1] = 1\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"f[n_Integer] := f[n - 1] + f[n - 2]\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeFence\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeBlock\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeFence\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"Generic fenced code block\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"With Text In It\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeFence\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\<\"You can also make \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"`\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"inline code\"\>"}]}],
+                 "\[RightAssociation]"}], "]"}], 
+              ",", "\<\" to add insert code block formatting anywhere.\"\>"}],
+              "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Quote\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"BlockQuote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"QuoteLine\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Here is a quote. What this is should be self \
+explanatory. Quotes are automatically indented when they are used.\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Headings\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Markdown supports six levels of headings; \
+corresponding with the six levels of HTML headings. You've probably noticed \
+them already in the page. Each level down uses one more hash \
+character.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"Headings \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"can\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", "\<\" also contain \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"formatting\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"They can even contain \"\>", ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"`\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"inline code\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Of course, demonstrating what headings look like \
+messes up the structure of the page.\"\>"}]}], "\[RightAssociation]"}], "]"}],
+         "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"I don't recommend using more than three or four \
+levels of headings here, because, when you're smallest heading isn't too \
+small, and you're largest heading isn't too big, and you want each size up to \
+look noticeably larger and more important, there aren't any other sizes to \
+choose from.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"####### hello\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"LaTex\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"LaTex is also supported:\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"UnorderedList\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           
+           RowBox[{"\<\"Element\"\>", 
+            "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+           RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+           RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"inline\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\<\"Some LaTex: \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 
+                 RowBox[{"\<\"Element\"\>", 
+                  "\[Rule]", "\<\"InlineLaTex\"\>"}], ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], 
+              ",", "\<\", The next line provides an alternative \
+delimiter\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\<\"Some more LaTex: \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"$\"\>"}], ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"UnorderedList\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           
+           RowBox[{"\<\"Element\"\>", 
+            "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+           RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+           RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"presented\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"LineLaTex\"\>"}], 
+                 ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\"a^n + b^n = c^n\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"LineLaTex\"\>"}], 
+                 ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\" a^n + b^n = c^n \"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"$$\"\>"}], ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"$$\"\>"}], ",", 
+                 
+                 RowBox[{"\<\"Data\"\>", 
+                  "\[Rule]", "\<\" a^2 + b^2 = c^2 \"\>"}]}], 
+                "\[RightAssociation]"}], "]"}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"URLs\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"Add hyperlinks in the following ways:\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"UnorderedList\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\<\"A named link to \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", 
+                   "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"\<\"MarkItDown\"\>", ",", "\<\"3\"\>"}], 
+                    "}"}]}]}], "\[RightAssociation]"}], "]"}], 
+               ",", "\<\". The easiest way to do these is to select what you \
+want to make a link and hit \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"`\"\>"}], ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Ctrl+L\"\>"}]}], 
+                 "\[RightAssociation]"}], "]"}], ",", "\<\".\"\>"}], 
+              "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\<\"Another named link to \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"HyperLink\"\>"}],
+                   ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                   RowBox[{"{", 
+                    
+                    RowBox[{"\<\"MarkItDown\"\>", 
+                    ",", "\<\"http://www.markitdown.net/\"\>"}], "}"}]}]}], 
+                 "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            
+            RowBox[{"\<\"Element\"\>", 
+             "\[Rule]", "\<\"UnorderedListItem\"\>"}], ",", 
+            RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"*\"\>"}], ",", 
+            RowBox[{"\<\"Level\"\>", "\[Rule]", "0"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\<\"Sometimes you want the URL : \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Hyperlink\"\>"}],
+                   ",", 
+                  
+                  RowBox[{"\<\"Data\"\>", 
+                   "\[Rule]", "\<\"http://www.markitdown.net/\"\>"}]}], 
+                 "\[RightAssociation]"}], "]"}], ",", "\<\".\"\>"}], 
+              "}"}]}]}], "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Horizontal rule\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
+           RowBox[{"\<\"Data\"\>", 
+            "\[Rule]", "\<\"A horizontal rule is a dividing line drawn across \
+the page, useful for separating blocks of text.\"\>"}]}], 
+          "\[RightAssociation]"}], "]"}], "}"}]}]}], "\[RightAssociation]"}], 
+    "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"ThematicBreak\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Tables\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Table\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"Markdown | Less | Pretty\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"--- | --- | ---\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+              RowBox[{"\<\"Data\"\>", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"\[LeftAssociation]", 
+                   RowBox[{
+                    RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Still\"\>"}]}], 
+                   "\[RightAssociation]"}], "]"}], ",", "\<\" | \"\>", ",", 
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"\[LeftAssociation]", 
+                   RowBox[{
+                    RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"`\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"renders\"\>"}]}], 
+                   "\[RightAssociation]"}], "]"}], ",", "\<\" | \"\>", ",", 
+                 RowBox[{"MarkdownElement", "[", 
+                  RowBox[{"\[LeftAssociation]", 
+                   RowBox[{
+                    RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                    RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"nicely\"\>"}]}], 
+                   "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+             "\[RightAssociation]"}], "]"}], ",", 
+           RowBox[{"MarkdownElement", "[", 
+            RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+              RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"1 | 2 | 3\"\>"}]}], 
+             "\[RightAssociation]"}], "]"}]}], "}"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"A | Second | Table\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\":--- | :---: | ---:\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"_\"\>"}], ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Just\"\>"}]}], 
+                 "\[RightAssociation]"}], "]"}], ",", "\<\" | \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"`\"\>"}], ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"for\"\>"}]}], 
+                 "\[RightAssociation]"}], "]"}], ",", "\<\" | \"\>", ",", 
+               RowBox[{"MarkdownElement", "[", 
+                RowBox[{"\[LeftAssociation]", 
+                 RowBox[{
+                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"**\"\>"}], ",", 
+                  RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"testing\"\>"}]}], 
+                 "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"4 | 5 | 6\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Images\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            
+            RowBox[{"\<\"Data\"\>", 
+             "\[Rule]", "\<\"Markdown can also contain images.\"\>"}]}], 
+           "\[RightAssociation]"}], "]"}], ",", 
+         RowBox[{"MarkdownElement", "[", 
+          RowBox[{"\[LeftAssociation]", 
+           RowBox[{
+            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+            RowBox[{"\<\"Data\"\>", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Image\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   
+                   RowBox[{"\<\"Streetview of Palm Trees by Brandon \
+Erlinger-Ford\"\>", 
+                    ",", "\<\"https://images.unsplash.com/photo-1564889998041-\
+0dacc0706a0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.\
+1&auto=format&fit=crop&w=564&q=80\"\>"}], "}"}]}]}], "\[RightAssociation]"}], 
+               "]"}], "}"}]}]}], "\[RightAssociation]"}], "]"}]}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+      RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"##\"\>"}], ",", 
+      RowBox[{"\<\"Level\"\>", "\[Rule]", "2"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", "\<\"Last\"\>"}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Paragraph\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"MarkdownElement", "[", 
+         RowBox[{"\[LeftAssociation]", 
+          RowBox[{
+           RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           RowBox[{"\<\"Data\"\>", "\[Rule]", 
+            RowBox[{"{", 
+             
+             RowBox[{"\<\"There's actually a lot more to Markdown than this. \
+See the official \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 
+                 RowBox[{"\<\"Element\"\>", 
+                  "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"\<\"introduction\"\>", ",", "\<\"4\"\>"}], 
+                   "}"}]}]}], "\[RightAssociation]"}], "]"}], 
+              ",", "\<\" and \"\>", ",", 
+              RowBox[{"MarkdownElement", "[", 
+               RowBox[{"\[LeftAssociation]", 
+                RowBox[{
+                 
+                 RowBox[{"\<\"Element\"\>", 
+                  "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
+                 RowBox[{"\<\"Data\"\>", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"\<\"syntax\"\>", ",", "\<\"5\"\>"}], "}"}]}]}], 
+                "\[RightAssociation]"}], "]"}], 
+              ",", "\<\" for more information. Be aware that this document is \
+not using the official implementation, and there may be subtle differences in \
+rendering on other platforms.\"\>"}], "}"}]}]}], "\[RightAssociation]"}], 
+         "]"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EmptyLine\"\>"}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Footnote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"1\"\>", 
+         ",", "\<\"https://spec.commonmark.org/0.30/\"\>"}], "}"}]}]}], 
+     "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Footnote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"2\"\>", 
+         ",", "\<\"http://www.fileformat.info/info/unicode/char/2163/index.\
+htm\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Footnote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"3\"\>", ",", "\<\"http://www.markitdown.net/\"\>"}], 
+        "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Footnote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"4\"\>", 
+         ",", "\<\"http://daringfireball.net/projects/markdown/basics\"\>"}], 
+        "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Footnote\"\>"}], ",", 
+      RowBox[{"\<\"Data\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\<\"5\"\>", 
+         ",", "\<\"http://daringfireball.net/projects/markdown/syntax\"\>"}], 
+        "}"}]}]}], "\[RightAssociation]"}], "]"}], ",", 
+   RowBox[{"MarkdownElement", "[", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EndMarkdown\"\>"}], 
+     "\[RightAssociation]"}], "]"}]}], "}"}]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.916337378175973*^9, 3.916337493313458*^9, {3.916337566695272*^9, 
+   3.916337614989098*^9}, 3.916337819317081*^9, 3.916337977713294*^9, 
+   3.916338033615443*^9, 3.916338268451633*^9, 3.916338354173128*^9, 
+   3.916338544561212*^9, 3.916338709776761*^9, 3.916340881082681*^9, 
+   3.916340932846262*^9, 3.921434034874261*^9, 3.926279656297503*^9},
+ CellLabel->"Out[214]=",
+ CellID->882310651,ExpressionUUID->"c21d4547-2393-4e75-9b4f-f1d68437872f"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -3219,6 +4602,7 @@ See the official \"\>", ",",
               RowBox[{"MarkdownElement", "[", 
                RowBox[{"\[LeftAssociation]", 
                 RowBox[{
+                 
                  RowBox[{"\<\"Element\"\>", 
                   "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
                  RowBox[{"\<\"Data\"\>", "\[Rule]", 
@@ -3373,7 +4757,6 @@ page.\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Write Paragraphs like so. A paragraph is the \
 basic block of Markdown. A paragraph is what text will turn into when there \
@@ -4026,6 +5409,7 @@ character.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Of course, demonstrating what headings look like \
 messes up the structure of the page.\"\>"}]}], "\[RightAssociation]"}], "]"}],
@@ -4279,7 +5663,6 @@ delimiter\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
                RowBox[{"\[LeftAssociation]", 
                 RowBox[{
                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"$$\"\>"}], ",", 
-                 
                  RowBox[{"\<\"Data\"\>", 
                   "\[Rule]", "\<\" a^2 + b^2 = c^2 \"\>"}]}], 
                 "\[RightAssociation]"}], "]"}], "}"}]}]}], 
@@ -5001,7 +6384,7 @@ Cell[BoxData[
   3.916336538827308*^9, 3.916336592930265*^9}, {3.91633663031003*^9, 
   3.916336668450542*^9}, {3.916337305854725*^9, 3.916337308244841*^9}, {
   3.921434057499834*^9, 3.921434083558015*^9}},
- CellLabel->"In[5]:=",
+ CellLabel->"In[215]:=",
  CellID->1956185582,ExpressionUUID->"9a74f0be-0585-4cfc-844f-ba0776dbea8b"],
 
 Cell[BoxData[
@@ -5009,13 +6392,14 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"StartOfFile\"\>"}], 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"BeginMarkdown\"\>"}], 
        "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
        RowBox[{
         RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"#\"\>"}], ",", 
         RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
         RowBox[{"\<\"Data\"\>", 
          "\[Rule]", "\<\"CommonMark Example Document\"\>"}]}], 
@@ -5038,7 +6422,6 @@ Cell[BoxData[
              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
              RowBox[{"\<\"Data\"\>", "\[Rule]", 
               RowBox[{"{", 
-               
                RowBox[{"\<\"This document contains examples for testing \"\>",
                  ",", 
                 RowBox[{"MarkdownElement", "[", 
@@ -5064,9 +6447,10 @@ page.\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
    GridBoxAlignment->{"Columns" -> {{Left}}},
    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
   "Column"]], "Output",
- CellChangeTimes->{{3.9214340585287*^9, 3.921434084119049*^9}},
- CellLabel->"Out[5]=",
- CellID->1714585885,ExpressionUUID->"74d3b903-6b77-4701-88bc-029679e4619f"]
+ CellChangeTimes->{{3.9214340585287*^9, 3.921434084119049*^9}, 
+   3.926279663048354*^9},
+ CellLabel->"Out[215]=",
+ CellID->1556849442,ExpressionUUID->"88f0bac2-5c4b-4a6e-8a26-0168a3dfb92a"]
 }, Open  ]]
 }, Open  ]],
 
@@ -5095,7 +6479,7 @@ Cell[BoxData[
   3.883075363639901*^9}, {3.883075510553463*^9, 3.883075529641393*^9}, {
   3.8862775286798162`*^9, 3.886277547031069*^9}, {3.886278121712817*^9, 
   3.886278139532553*^9}, {3.886278203344085*^9, 3.886278205438541*^9}},
- CellLabel->"In[6]:=",
+ CellLabel->"In[216]:=",
  CellID->1981851176,ExpressionUUID->"c9089a80-6436-45f4-94fa-98fd235c00ef"],
 
 Cell[BoxData[
@@ -5103,7 +6487,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"MarkdownToken", "[", 
     RowBox[{"\[LeftAssociation]", 
-     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"StartOfFile\"\>"}], 
+     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"BeginMarkdown\"\>"}], 
      "\[RightAssociation]"}], "]"}], ",", 
    RowBox[{"MarkdownToken", "[", 
     RowBox[{"\[LeftAssociation]", 
@@ -5115,7 +6499,7 @@ Cell[BoxData[
       "\[RightAssociation]"}], "]"}], ",", 
    RowBox[{"MarkdownToken", "[", 
     RowBox[{"\[LeftAssociation]", 
-     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EndOfFile\"\>"}], 
+     RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EndMarkdown\"\>"}], 
      "\[RightAssociation]"}], "]"}]}], "}"}]], "Output",
  TaggingRules->{},
  CellChangeTimes->{
@@ -5124,9 +6508,9 @@ Cell[BoxData[
    3.884731144337227*^9, 3.884731404277703*^9, {3.886278124074465*^9, 
    3.886278140032563*^9}, 3.88627823969171*^9, 3.887385711277409*^9, 
    3.887385780755087*^9, 3.887386039260885*^9, 3.887410379943384*^9, 
-   3.8878510102951603`*^9, 3.9214341004781237`*^9},
- CellLabel->"Out[6]=",
- CellID->142767265,ExpressionUUID->"c635b8f1-aae8-47e6-99fb-5e592a02a612"]
+   3.8878510102951603`*^9, 3.9214341004781237`*^9, 3.926279699048861*^9},
+ CellLabel->"Out[216]=",
+ CellID->497287838,ExpressionUUID->"21aaf14d-bcd8-4254-aa1f-f0ab6e72ed8f"]
 }, Open  ]],
 
 Cell["Lex a list of markdown strings:", "Text",
@@ -5153,7 +6537,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.883075791881441*^9, 3.883075818151816*^9}, {
   3.886278264753787*^9, 3.886278283745481*^9}, {3.886278534577058*^9, 
   3.886278543694629*^9}, {3.887575342591937*^9, 3.887575393581732*^9}},
- CellLabel->"In[7]:=",
+ CellLabel->"In[217]:=",
  CellID->1521625321,ExpressionUUID->"e1370d92-f5b4-45b4-a034-6db701588d50"],
 
 Cell[BoxData[
@@ -5173,20 +6557,21 @@ Cell[BoxData[
   "Column"]], "Output",
  TaggingRules->{},
  CellChangeTimes->CompressedData["
-1:eJwdzl9IU2EAhvEtMrFmeaGFF0sECcMQy1KC1D4Vi0irk2Be2HRo0SFsypQS
-SwaW02gW4Z9NCc0zYzBDDtKKNKeb2dJcTUtFpRsVlme2zbnFGNL3evHwu33i
-5feYCrFIJCqgEfFVadmmQA72ZT+De3UXppbcAjlQWVPW7BEInzuvgmuSuel6
-n0A8h6Z/wNuRkV7oaGfLjVTb1uBacFsgoRWpRusXyA3lTDtkvkSb4LXij6V9
-1O/7d+5Ap4a7D2fbmtTQ7BJWILMwFYAWoyGCo7pNPYmwMEkuhz1/VdXQqbDW
-waERTyP0Z5FWmODQ6XftsLyFOeInJpiXesQKx5u//YGnH990w9ediSE4f77z
-nJ76b0zFwphfpxognxurgbYoixY+t+dz8PqnNK2XqlAbeqHjkXkWrrPyqC1q
-+NPkZPgz3H8W/rZnXIHGxX4ZFAfTFZB786IVfpad6YWxRamDkB3RfYBtDSWT
-8H33cTtUPkxagrxzOd+Hrz1fi+CkL64EdvM7d2G2xLsK6zoCG5C3SoIwJYw7
-vE0NVU6chEzLhhbyl/vHYGamxAaPDYzOwYsy1z4/VV04FA0bDRFSKL3UdQIy
-ippamGA9WhEfEEjVcPUr+PLdsh4u3HpgrqeqWOVoS7qL/AdhTYaN
+1:eJwdzl9IU2EAhvEtTLFmeWGFF6cQRAxDKisJSv1MKiTRToJ1YdORRYfQJTNK
+NBlYTaNZhH82JTTPjMESOUgr0pxupUtrOTUNlW4yWJ6j25xbjCF9bxcPv9sn
+SVXFVshlMlkhjciLmPI1kezqzX0Co4znJhe9ItlZWVPe5BOJkDevhSuK2am6
+gEh8u6em4Y24OD90t3HXLFTnxsBKeFMkkWVGbwiK5LLmaxtkJxKs8OKV92W9
+1G87tm5Cj56/C2daH+mgTRKXIbswGYJ2izmWp3qt3amwOE2lgt3r2mroUTtq
+4eCwrxEGs0kLTHYbTf9tt/fDM/KHVng2Y58DjjV9+QOPPbjqhS87UiNwPqfj
+lIn6d1TLwT3fjzZAIS9RD53xdgN86irg4aUPJwx+qlpn7oHu+7YZ+JtTxW9Q
+Yx6np8O5mOBJ+NN1uhBafvQpoTycqYb8q2ct8JPyeA9MLMkYgNyw8R1sbSgd
+h2+7Drqgpj5tEQqepYIAvrZ9LoHjgQOlsEvYugVzFf5fsLY9tAoFhyIMD2/n
+925SI5Ufj0C2edUAhQt9ozArS+GEKa9HZuF5pRQdpOqKBxNgozmWgUx+5yHI
+qmvuwGTH/oqkkEhuD1W/gM/fLJngwvV7tjqqltOMNGdKpJORxiZyJPIPrWOL
+Kw==
   "],
- CellLabel->"Out[8]=",
- CellID->578164210,ExpressionUUID->"e81d45c4-480d-4f1c-bceb-465b6068f47c"]
+ CellLabel->"Out[218]=",
+ CellID->119532135,ExpressionUUID->"1d85fd69-3d3a-44fd-9a3e-104c4f3ec041"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5227,7 +6612,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.883075647231583*^9, 3.883075797664879*^9}, {
   3.886278253408746*^9, 3.8862782541476297`*^9}, {3.88791957529171*^9, 
   3.887919631941999*^9}, {3.92143416763637*^9, 3.921434168788062*^9}},
- CellLabel->"In[10]:=",
+ CellLabel->"In[219]:=",
  CellID->603471208,ExpressionUUID->"3562d19f-12f7-4529-9cfc-3b944312775f"],
 
 Cell[BoxData[
@@ -5235,7 +6620,7 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownToken", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<StartOfFile\>\""}], 
+       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<BeginMarkdown\>\""}], 
        "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownToken", "[", 
@@ -5402,7 +6787,7 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownToken", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<EndOfFile\>\""}], 
+       RowBox[{"\"\<Token\>\"", "\[Rule]", "\"\<EndMarkdown\>\""}], 
        "\[RightAssociation]"}], "]"}]}
    },
    DefaultBaseStyle->"Column",
@@ -5432,9 +6817,9 @@ Cell[BoxData[
    3.887575098306396*^9, 3.887575273936481*^9, 3.887575399008238*^9, 
    3.887663915269513*^9, 3.88766437431816*^9, 3.887664432940118*^9, 
    3.8878510142580338`*^9, 3.887919633629004*^9, 3.921434110788454*^9, 
-   3.921434169280932*^9},
- CellLabel->"Out[10]=",
- CellID->1484906396,ExpressionUUID->"deb22e78-f1ec-4d36-b3b3-a369c84a8626"]
+   3.921434169280932*^9, 3.926279706681511*^9},
+ CellLabel->"Out[219]=",
+ CellID->814616156,ExpressionUUID->"20b7a784-f162-466c-9101-4767dde99736"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5450,7 +6835,7 @@ Cell[BoxData[{
  TaggingRules->{},
  CellChangeTimes->{{3.886960623714234*^9, 3.8869606275476437`*^9}, {
   3.887406046072928*^9, 3.8874060497837553`*^9}},
- CellLabel->"In[11]:=",
+ CellLabel->"In[220]:=",
  CellID->1424878689,ExpressionUUID->"da130cb0-cb3b-4bdb-99e6-3584f58a1165"],
 
 Cell[BoxData[
@@ -5458,7 +6843,7 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownToken", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"StartOfFile\"\>"}], 
+       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"BeginMarkdown\"\>"}], 
        "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownToken", "[", 
@@ -5625,7 +7010,7 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownToken", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EndOfFile\"\>"}], 
+       RowBox[{"\<\"Token\"\>", "\[Rule]", "\<\"EndMarkdown\"\>"}], 
        "\[RightAssociation]"}], "]"}]}
    },
    DefaultBaseStyle->"Column",
@@ -5657,9 +7042,9 @@ Cell[BoxData[
    3.887574696154403*^9, 3.887575100393013*^9, 3.887575207987828*^9, 
    3.887575278791107*^9, 3.88757542977463*^9, 3.8875759906093283`*^9, 
    3.8876639180545673`*^9, 3.8876643767684793`*^9, 3.887664435088767*^9, 
-   3.887851017560912*^9, 3.921434198990319*^9},
- CellLabel->"Out[12]=",
- CellID->1672987683,ExpressionUUID->"83215162-93ca-435f-9a1f-33219af57e2e"]
+   3.887851017560912*^9, 3.921434198990319*^9, 3.926279753196766*^9},
+ CellLabel->"Out[221]=",
+ CellID->42218347,ExpressionUUID->"f6374e43-c1e6-47c8-ba7c-1b055211479f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5676,7 +7061,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.88696061607054*^9, 3.886960647077324*^9}, {
   3.887385815372855*^9, 3.887385819651184*^9}, {3.887406059188724*^9, 
   3.887406064268702*^9}, {3.8875680834902973`*^9, 3.887568084513603*^9}},
- CellLabel->"In[13]:=",
+ CellLabel->"In[222]:=",
  CellID->770829753,ExpressionUUID->"3023415d-2c4b-4e90-8f49-fe07cd17aef7"],
 
 Cell[BoxData[
@@ -5684,13 +7069,14 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"StartOfFile\"\>"}], 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"BeginMarkdown\"\>"}], 
        "\[RightAssociation]"}], "]"}]},
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
        RowBox[{
         RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"#\"\>"}], ",", 
         RowBox[{"\<\"Level\"\>", "\[Rule]", "1"}], ",", 
         RowBox[{"\<\"Data\"\>", 
          "\[Rule]", "\<\"Example Markdown Title\"\>"}]}], 
@@ -5726,6 +7112,7 @@ Cell[BoxData[
       RowBox[{"\[LeftAssociation]", 
        RowBox[{
         RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Heading\"\>"}], ",", 
+        RowBox[{"\<\"Marker\"\>", "\[Rule]", "\<\"###\"\>"}], ",", 
         RowBox[{"\<\"Level\"\>", "\[Rule]", "3"}], ",", 
         RowBox[{"\<\"Data\"\>", 
          "\[Rule]", "\<\"Example Markdown Section\"\>"}]}], 
@@ -5806,7 +7193,7 @@ Cell[BoxData[
     {
      RowBox[{"MarkdownElement", "[", 
       RowBox[{"\[LeftAssociation]", 
-       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EndOfFile\"\>"}], 
+       RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"EndMarkdown\"\>"}], 
        "\[RightAssociation]"}], "]"}]}
    },
    DefaultBaseStyle->"Column",
@@ -5818,9 +7205,10 @@ Cell[BoxData[
   3.887574604374682*^9, 3.887574698805161*^9, 3.887575103519526*^9, 
   3.887575211184188*^9, 3.8875752810198517`*^9, 3.887575448896391*^9, 
   3.88757604034724*^9, 3.887663924089863*^9, 3.88766438038911*^9, 
-  3.8876644374217463`*^9, 3.8878510196090183`*^9, 3.921434201991606*^9},
- CellLabel->"Out[14]=",
- CellID->518697000,ExpressionUUID->"175c1e30-f931-4de3-8bc0-d1fdab715a17"]
+  3.8876644374217463`*^9, 3.8878510196090183`*^9, 3.921434201991606*^9, 
+  3.926279756935986*^9},
+ CellLabel->"Out[223]=",
+ CellID->1476345002,ExpressionUUID->"0f86a975-b6f8-4b19-90b9-a8ba1cd21f51"]
 }, Open  ]],
 
 Cell[BoxData[

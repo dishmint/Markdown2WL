@@ -101,8 +101,6 @@ FaizonZaman`WLMarkdown`LineRules["CommonMark"] = {
 
 (* ------------------------------- Block rules ------------------------------ *)
 
-(* postProcessBlock[block_List]:= ReplaceAll[block, tk : $TokenPattern["Section"] :> (tk // Extract[{1, "Data"}]/*Splice)] *)
-
 FaizonZaman`WLMarkdown`BlockRules["CommonMark"] = {
     (* -------------------------------- Headings -------------------------------- *)
     (* TODO: Implement Heading Block rules *)
