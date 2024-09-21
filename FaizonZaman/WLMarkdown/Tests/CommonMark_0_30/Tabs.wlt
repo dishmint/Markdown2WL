@@ -43,6 +43,7 @@ TestCreate[
 TestCreate[
 	ImportMarkdown["  - foo\n\n\tbar\n"],
 	{
+		MarkdownElement[<|"Element" -> "BeingMarkdown"|>],
 		MarkdownElement[
 			<|
 				"Element" -> "UnorderedList",
@@ -59,14 +60,35 @@ TestCreate[
 					]
 				}
 			|>
-		]
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
 	},
 	"TestID"->"Tabs-4"
 	]
 
 TestCreate[
 	ImportMarkdown["- foo\n\n\t\tbar\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "EmptyLine"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "\t\tbar"|>]},
+	{
+		MarkdownElement[<|"Element"->"BeginMarkdown"|>],
+		MarkdownElement[
+			<|
+				"Element" -> "UnorderedList",
+				"Data" -> {
+					MarkdownElement[
+						<|
+							"Element" -> "UnorderedListItem",
+							"Level" -> 1,
+							"Data" -> {
+								MarkdownElement[<|"Element" -> "Paragraph", "Data" -> "bar"|>],
+								MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "bar"|>]
+							}
+						|>
+					]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element"->"EndMarkdown"|>]
+	},
 	"TestID"->"Tabs-5"
 	]
 
@@ -100,7 +122,18 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["    foo\n\tbar\n"],
-	{MarkdownElement[<|"Element" -> "BlockQuote", "Data" -> "foo"|>], MarkdownElement[<|"Element" -> "Line", "Data" -> "\tbar"|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>], 
+		MarkdownElement[
+			<|
+				"Element" -> "CodeBlock", "Data" -> {
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "foo"|>],
+					MarkdownElement[<|"Element" -> "CodeLine", "Data" -> "bar"|>]
+				}
+			|>
+		],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]
+	},
 	"TestID"->"Tabs-8"
 	]
 
@@ -122,7 +155,11 @@ TestCreate[
 
 TestCreate[
 	ImportMarkdown["*\t*\t*\t\n"],
-	{MarkdownElement[<|"Element" -> "UnorderedListItem", "Level" -> 0, "Data" -> {MarkdownElement[<|"Element" -> "*", "Data" -> "\t"|>], "\t"}|>]},
+	{
+		MarkdownElement[<|"Element" -> "BeginMarkdown"|>],
+		MarkdownElement[<|"Element" -> "HorizontalRule"|>],
+		MarkdownElement[<|"Element" -> "EndMarkdown"|>]	
+	},
 	"TestID"->"Tabs-11"
 	]
 EndTestSection[]

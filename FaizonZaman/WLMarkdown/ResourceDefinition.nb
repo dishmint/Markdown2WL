@@ -1485,7 +1485,7 @@ Cell[BoxData[
   3.8875750808498173`*^9}, {3.887666248766855*^9, 3.887666250217752*^9}, {
   3.887847904862427*^9, 3.887847905491213*^9}, {3.888711879875834*^9, 
   3.888711880872599*^9}},
- CellLabel->"In[5]:=",
+ CellLabel->"In[6]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -1609,7 +1609,8 @@ Cell["Tests", "Subsection", "Excluded",
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
+Cell[BoxData[{
+ RowBox[{"<<", "PacletTools`"}], "\[IndentingNewLine]", 
  RowBox[{"markdownTests", "=", 
   RowBox[{"Block", "[", "\[IndentingNewLine]", 
    RowBox[{
@@ -1656,7 +1657,7 @@ Cell[BoxData[
     "\[IndentingNewLine]", 
     RowBox[{"QuietEcho", "@", 
      RowBox[{"TestReport", "[", "tests", "]"}]}]}], "\[IndentingNewLine]", 
-   "]"}]}]], "Input", "Excluded",
+   "]"}]}]}], "Input", "Excluded",
  TaggingRules->{},
  CellChangeTimes->{
   3.882937822011593*^9, {3.882937870592862*^9, 3.882937898936121*^9}, {
@@ -1667,7 +1668,8 @@ Cell[BoxData[
    3.916356721895869*^9, 3.916356898843891*^9, {3.9212683857639427`*^9, 
    3.921268387971757*^9}, {3.922636001271321*^9, 3.922636005852453*^9}, 
    3.92263612438246*^9, {3.9226361652903233`*^9, 3.922636191647208*^9}, {
-   3.9226363106896267`*^9, 3.9226363111439943`*^9}},
+   3.9226363106896267`*^9, 3.9226363111439943`*^9}, {3.935892983951291*^9, 
+   3.935892984703546*^9}},
  CellLabel->"In[1]:=",
  CellID->980444637,ExpressionUUID->"9a67566c-a0ac-4a56-ad23-7caa008f28cc"],
 
@@ -1730,8 +1732,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"17.23%\"", ShowStringCharacters -> False], 
-                    0.17231638418079095`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.37%\"", ShowStringCharacters -> False], 
+                    0.17372881355932204`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1798,8 +1800,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"17.23%\"", ShowStringCharacters -> False], 
-                    0.17231638418079095`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.37%\"", ShowStringCharacters -> False], 
+                    0.17372881355932204`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1808,18 +1810,18 @@ Cell[BoxData[
                     RowBox[{
                     TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["122", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["123", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Failure count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["586", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["585", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox[
                     
                     TemplateBox[{
-                    "1.8122230000000000006`3.5586933781356183", "\"s\"", 
+                    "2.987058000000000001`3.7757253955670445", "\"s\"", 
                     "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
                      "SummaryItem"]}], "\[SpanFromLeft]"}}, 
                   GridBoxAlignment -> {
@@ -1847,12 +1849,12 @@ Cell[BoxData[
              Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
               "Local"], 
              Style["This object cannot be used as input.", "SummaryEmbed"], 
-             BoxForm`EmbedSummaryLabel[TestReportObject, 6998168, 
+             BoxForm`EmbedSummaryLabel[TestReportObject, 7034872, 
               Dynamic[Typeset`embedState$$], Automatic]], StandardForm]], 
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
-           "Choose", TestReportObject, 6998168, 
-            6683933037913407055358690481497671620472826032848010025344, 
+           "Choose", TestReportObject, 7034872, 
+            6705942939276918959824381958177753224158936978986187273008, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -1867,14 +1869,15 @@ Cell[BoxData[
    "CopyTag",
    DisplayFunction->(#& ),
    InterpretationFunction->(
-    "TestReportObject[<|Title -> Test Report: LineLexer.wlt, <<6>>, \
-TestsFailedWrongResultsKeys -> {785134318295983482, 6243789956145031301, \
-1706839452478015184, 6361136824093191440, 8919896488662507577, \
-4611115297081892475, 7271744305419072139, 8486553742290828048, \
-6558802932846832025, <<573>>, 201039160503078472, 6621983467477065991, \
-3660706350903471994, 3118786553938775008}|>]"& )],
+    "TestReportObject[<|Title -> Test Report: LineLexer.wlt, \[LeftSkeleton]6\
+\[RightSkeleton], TestsFailedWrongResultsKeys -> {5254126043624407100, \
+6850929403522957200, 4288569332790723559, 5005102963115633458, \
+4629100735621057984, 8504109007650634929, 2011574361319158351, \
+9102764034009996272, 7808474962156876500, \[LeftSkeleton]571\[RightSkeleton], \
+<<19>>, 245765051637028730, 7320902199046331309, 7575988725075415401, \
+4593540675647045404}|>]"& )],
   False,
-  BoxID -> 6683933037913407055358690481497671620472826032848010025344,
+  BoxID -> 6705942939276918959824381958177753224158936978986187273008,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output", "Excluded",
@@ -1935,9 +1938,10 @@ TestsFailedWrongResultsKeys -> {785134318295983482, 6243789956145031301, \
    3.925948006807741*^9, 3.925948166563439*^9, 3.9259502435559177`*^9, 
    3.9259512691126537`*^9, 3.925951604727128*^9, 3.92595178792749*^9, 
    3.9259520474300337`*^9, 3.925953401772005*^9, 3.925953978256503*^9, 
-   3.926021334442924*^9, 3.926022128839781*^9, 3.926025174281722*^9},
- CellLabel->"Out[1]=",
- CellID->194336537,ExpressionUUID->"98461c21-3b8e-4a7d-843a-d1878ee85d17"]
+   3.926021334442924*^9, 3.926022128839781*^9, 3.926025174281722*^9, 
+   3.935892187283539*^9, 3.935892808594652*^9, 3.935894762706398*^9},
+ CellLabel->"Out[2]=",
+ CellID->1438525569,ExpressionUUID->"57f2b659-4445-4678-be9c-9eb8c2752a29"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2374,7 +2378,6 @@ character for \"\>", ",",
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"CodeLine\"\>"}], ",", 
-           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Code blocks are useful for people who look at \
 code or for clarity of plain text content. As you can see, it uses a \
@@ -2736,7 +2739,6 @@ choose from.\"\>"}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
                  
                  RowBox[{"\<\"Element\"\>", 
                   "\[Rule]", "\<\"InlineLaTex\"\>"}], ",", 
-                 
                  RowBox[{"\<\"Data\"\>", 
                   "\[Rule]", "\<\"a^2 + b^2 = c^2\"\>"}]}], 
                 "\[RightAssociation]"}], "]"}], 
@@ -2933,6 +2935,7 @@ delimiter\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
                RowBox[{"MarkdownElement", "[", 
                 RowBox[{"\[LeftAssociation]", 
                  RowBox[{
+                  
                   RowBox[{"\<\"Element\"\>", 
                    "\[Rule]", "\<\"FootnoteReference\"\>"}], ",", 
                   RowBox[{"\<\"Data\"\>", "\[Rule]", 
@@ -3194,7 +3197,6 @@ the page, useful for separating blocks of text.\"\>"}]}],
           RowBox[{"\[LeftAssociation]", 
            RowBox[{
             RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
-            
             RowBox[{"\<\"Data\"\>", 
              "\[Rule]", "\<\"Markdown can also contain images.\"\>"}]}], 
            "\[RightAssociation]"}], "]"}], ",", 
@@ -4757,6 +4759,7 @@ page.\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
          RowBox[{"\[LeftAssociation]", 
           RowBox[{
            RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
+           
            RowBox[{"\<\"Data\"\>", 
             "\[Rule]", "\<\"Write Paragraphs like so. A paragraph is the \
 basic block of Markdown. A paragraph is what text will turn into when there \
@@ -5663,6 +5666,7 @@ delimiter\"\>"}], "}"}]}]}], "\[RightAssociation]"}], "]"}], "}"}]}]}],
                RowBox[{"\[LeftAssociation]", 
                 RowBox[{
                  RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"$$\"\>"}], ",", 
+                 
                  RowBox[{"\<\"Data\"\>", 
                   "\[Rule]", "\<\" a^2 + b^2 = c^2 \"\>"}]}], 
                 "\[RightAssociation]"}], "]"}], "}"}]}]}], 
@@ -6422,6 +6426,7 @@ Cell[BoxData[
              RowBox[{"\<\"Element\"\>", "\[Rule]", "\<\"Line\"\>"}], ",", 
              RowBox[{"\<\"Data\"\>", "\[Rule]", 
               RowBox[{"{", 
+               
                RowBox[{"\<\"This document contains examples for testing \"\>",
                  ",", 
                 RowBox[{"MarkdownElement", "[", 
@@ -9452,7 +9457,7 @@ GA7Vpr6IAB7lP+OkKFLrzFBW
       "]]}, "Openers" -> {"PrimaryExamplesSection" -> Open}},
 CreateCellID->True,
 DynamicEvaluationTimeout->60,
-FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[StyleDefinitions -> "Default.nb"]], 
@@ -17340,7 +17345,7 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
    Cell[
     StyleData["AttachedMessage"], Deletable -> True, 
     CellMargins -> {{60, 40}, {15, 5}}]}, Visible -> False, FrontEndVersion -> 
-  "14.0 for Mac OS X ARM (64-bit) (December 12, 2023)", StyleDefinitions -> 
+  "14.1 for Mac OS X ARM (64-bit) (July 16, 2024)", StyleDefinitions -> 
   "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"2eeb4f0e-a884-4796-a669-d2b325341755"
 ]
