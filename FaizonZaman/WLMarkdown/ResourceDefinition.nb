@@ -1485,7 +1485,7 @@ Cell[BoxData[
   3.8875750808498173`*^9}, {3.887666248766855*^9, 3.887666250217752*^9}, {
   3.887847904862427*^9, 3.887847905491213*^9}, {3.888711879875834*^9, 
   3.888711880872599*^9}},
- CellLabel->"In[6]:=",
+ CellLabel->"In[19]:=",
  CellID->1515346038,ExpressionUUID->"da793476-542a-4dc4-89e7-9c50fa60553b"],
 
 Cell[CellGroupData[{
@@ -1732,8 +1732,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"17.37%\"", ShowStringCharacters -> False], 
-                    0.17372881355932204`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.94%\"", ShowStringCharacters -> False], 
+                    0.17937853107344634`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1800,8 +1800,8 @@ Cell[BoxData[
                     TagBox[
                     TagBox[
                     InterpretationBox[
-                    StyleBox["\"17.37%\"", ShowStringCharacters -> False], 
-                    0.17372881355932204`, AutoDelete -> True], PercentForm], 
+                    StyleBox["\"17.94%\"", ShowStringCharacters -> False], 
+                    0.17937853107344634`, AutoDelete -> True], PercentForm], 
                     "SummaryItem"]}], 
                     RowBox[{
                     TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
@@ -1810,18 +1810,18 @@ Cell[BoxData[
                     RowBox[{
                     TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["123", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["127", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Failure count: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["585", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+                    TagBox["581", "SummaryItem"]}], "\[SpanFromLeft]"}, {
                     RowBox[{
                     TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox[
                     
                     TemplateBox[{
-                    "2.987058000000000001`3.7757253955670445", "\"s\"", 
+                    "3.1066550000000000002`3.7927747668392646", "\"s\"", 
                     "seconds", "\"Seconds\""}, "Quantity", SyntaxForm -> Mod],
                      "SummaryItem"]}], "\[SpanFromLeft]"}}, 
                   GridBoxAlignment -> {
@@ -1849,12 +1849,12 @@ Cell[BoxData[
              Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
               "Local"], 
              Style["This object cannot be used as input.", "SummaryEmbed"], 
-             BoxForm`EmbedSummaryLabel[TestReportObject, 7034872, 
+             BoxForm`EmbedSummaryLabel[TestReportObject, 7027672, 
               Dynamic[Typeset`embedState$$], Automatic]], StandardForm]], 
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
-           "Choose", TestReportObject, 7034872, 
-            6705942939276918959824381958177753224158936978986187273008, 
+           "Choose", TestReportObject, 7027672, 
+            6706480893568755568401840955495476429822590645787724869152, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -1870,14 +1870,14 @@ Cell[BoxData[
    DisplayFunction->(#& ),
    InterpretationFunction->(
     "TestReportObject[<|Title -> Test Report: LineLexer.wlt, \[LeftSkeleton]6\
-\[RightSkeleton], TestsFailedWrongResultsKeys -> {5254126043624407100, \
-6850929403522957200, 4288569332790723559, 5005102963115633458, \
-4629100735621057984, 8504109007650634929, 2011574361319158351, \
-9102764034009996272, 7808474962156876500, \[LeftSkeleton]571\[RightSkeleton], \
-<<19>>, 245765051637028730, 7320902199046331309, 7575988725075415401, \
-4593540675647045404}|>]"& )],
+\[RightSkeleton], TestsFailedWrongResultsKeys -> {6359205152571546185, \
+8136055307236594724, 7261936296552469611, 1925769992241776548, \
+5654607426630766913, 4260789293485623431, 3546589110455635399, \
+4812333643503427596, 3810902902553874332, \[LeftSkeleton]567\[RightSkeleton], \
+<<18>>9, 4290253315454910529, 1011899387633299468, 10656464421332803, \
+2587123994784906729}|>]"& )],
   False,
-  BoxID -> 6705942939276918959824381958177753224158936978986187273008,
+  BoxID -> 6706480893568755568401840955495476429822590645787724869152,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output", "Excluded",
@@ -1939,9 +1939,10 @@ Cell[BoxData[
    3.9259512691126537`*^9, 3.925951604727128*^9, 3.92595178792749*^9, 
    3.9259520474300337`*^9, 3.925953401772005*^9, 3.925953978256503*^9, 
    3.926021334442924*^9, 3.926022128839781*^9, 3.926025174281722*^9, 
-   3.935892187283539*^9, 3.935892808594652*^9, 3.935894762706398*^9},
+   3.935892187283539*^9, 3.935892808594652*^9, 3.935894762706398*^9, 
+   3.935895384060679*^9, 3.936131249399643*^9, 3.936135988343728*^9},
  CellLabel->"Out[2]=",
- CellID->1438525569,ExpressionUUID->"57f2b659-4445-4678-be9c-9eb8c2752a29"]
+ CellID->1106105626,ExpressionUUID->"18af8eb4-8d3c-4262-b1a7-0911060e2571"]
 }, Open  ]]
 }, Open  ]],
 
